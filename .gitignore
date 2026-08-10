@@ -1,0 +1,23 @@
+# Raw third-party source data — publicly available from the AIHW (Cancer Data
+# in Australia, Blood Cancer Framework) and the ABS (population estimates and
+# projections). See README / import_data.R. Excluded for size (~218 MB); the
+# small derived CSVs in data/ are committed so the pipeline runs without it.
+data/raw/
+
+# Large regenerable model object (rebuild: Rscript code/apc_model.R)
+output/apc_results.rds
+
+# R session / IDE artefacts
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Superseded/experimental material and working process docs — kept locally,
+# not part of the published reproducible pipeline.
+_archive/
+*-brief.md

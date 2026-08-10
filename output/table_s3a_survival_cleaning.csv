@@ -1,0 +1,11 @@
+subtype,sex,total_cells,filled_cells,pct_filled,filled_age_groups
+dlbcl,females,135,15,11.1,5–14
+dlbcl,males,135,15,11.1,5–14
+follicular,females,135,30,22.2,5–14; 15–24
+follicular,males,135,30,22.2,5–14; 15–24
+hodgkin,females,135,12,8.9,85+
+hodgkin,males,135,13,9.6,85+
+mantle_cell,females,135,76,56.3,5–14; 15–24; 25–34; 35–44; 85+
+mantle_cell,males,135,64,47.4,5–14; 15–24; 25–34; 35–44
+nhl,females,135,0,0,none
+nhl,males,135,0,0,none

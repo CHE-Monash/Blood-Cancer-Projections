@@ -1,0 +1,11 @@
+subtype,sex,dur5_mean,dur5_min,dur5_max,dur10_mean,dur10_min,dur10_max
+dlbcl,females,1.8,0.1,3,1.4,1.1,2.1
+dlbcl,males,2,1.6,2.3,1.1,0.3,2.3
+follicular,females,0.6,0.2,1.1,-0.2,-0.5,0.3
+follicular,males,1,0.4,1.4,0.8,0.2,1.2
+hodgkin,females,0.8,0.1,2,-0,-0.6,0.8
+hodgkin,males,0.9,0.1,1.4,0.4,-0.2,1.1
+mantle_cell,females,2.7,1.1,4.4,2.8,1.8,4.1
+mantle_cell,males,3.1,0.7,5.8,0.3,-4.3,4
+nhl,females,1.9,1.3,2.1,1.2,0.9,1.6
+nhl,males,2.3,1.9,2.6,1.4,1.1,2

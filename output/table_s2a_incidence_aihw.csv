@@ -1,0 +1,5 @@
+cancer_group,sex,count_diff_mean,count_diff_min,count_diff_max,asr_diff_mean,asr_diff_min,asr_diff_max
+Hodgkin lymphoma,females,9.5,6.7,11.4,8.8,6.8,10.1
+Hodgkin lymphoma,males,-2.7,-3.3,-2.2,-1,-2.5,0.6
+Non-Hodgkin lymphoma,females,4,2.5,5.5,2.7,1.3,4.4
+Non-Hodgkin lymphoma,males,1.1,0.1,1.8,-0.1,-0.9,0.6

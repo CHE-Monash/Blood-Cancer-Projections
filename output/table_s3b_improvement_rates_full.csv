@@ -1,0 +1,451 @@
+sex,age_group,years_since_dx,subtype,annual_rate,source
+males,5–14,1,dlbcl,0.0038857142857142836,fallback (filled cell)
+males,5–14,2,dlbcl,0.005714285714285713,fallback (filled cell)
+males,5–14,3,dlbcl,0.005542857142857144,fallback (filled cell)
+males,5–14,4,dlbcl,0.005514285714285716,fallback (filled cell)
+males,5–14,5,dlbcl,0.005414285714285716,fallback (filled cell)
+males,5–14,1,follicular,0.0028999999999999976,fallback (filled cell)
+males,5–14,2,follicular,0.0032714285714285714,fallback (filled cell)
+males,5–14,3,follicular,0.003314285714285716,fallback (filled cell)
+males,5–14,4,follicular,0.003685714285714286,fallback (filled cell)
+males,5–14,5,follicular,0.004728571428571427,fallback (filled cell)
+males,5–14,1,mantle_cell,0.0016750000000000042,fallback (filled cell)
+males,5–14,2,mantle_cell,0.0065749999999999975,fallback (filled cell)
+males,5–14,3,mantle_cell,0.007824999999999997,fallback (filled cell)
+males,5–14,4,mantle_cell,0.010150000000000003,fallback (filled cell)
+males,5–14,5,mantle_cell,0.012775000000000003,fallback (filled cell)
+males,5–14,1,hodgkin,0.0015999999999999793,age-specific
+males,5–14,2,hodgkin,0.0015999999999999793,age-specific
+males,5–14,3,hodgkin,0.0030000000000000027,age-specific
+males,5–14,4,hodgkin,0.0030000000000000027,age-specific
+males,5–14,5,hodgkin,0.0030000000000000027,age-specific
+males,5–14,1,nhl,3.0000000000000024e-4,age-specific
+males,5–14,2,nhl,8.000000000000007e-4,age-specific
+males,5–14,3,nhl,0.0016000000000000014,age-specific
+males,5–14,4,nhl,8.000000000000007e-4,age-specific
+males,5–14,5,nhl,8.000000000000007e-4,age-specific
+males,15–24,1,dlbcl,0.0038857142857142836,fallback (non-improving)
+males,15–24,2,dlbcl,0.005714285714285713,fallback (non-improving)
+males,15–24,3,dlbcl,0.005542857142857144,fallback (non-improving)
+males,15–24,4,dlbcl,0.005514285714285716,fallback (non-improving)
+males,15–24,5,dlbcl,0.005414285714285716,fallback (non-improving)
+males,15–24,1,follicular,0.0028999999999999976,fallback (filled cell)
+males,15–24,2,follicular,0.0032714285714285714,fallback (filled cell)
+males,15–24,3,follicular,0.003314285714285716,fallback (filled cell)
+males,15–24,4,follicular,0.003685714285714286,fallback (filled cell)
+males,15–24,5,follicular,0.004728571428571427,fallback (filled cell)
+males,15–24,1,mantle_cell,0.0016750000000000042,fallback (filled cell)
+males,15–24,2,mantle_cell,0.0065749999999999975,fallback (filled cell)
+males,15–24,3,mantle_cell,0.007824999999999997,fallback (filled cell)
+males,15–24,4,mantle_cell,0.010150000000000003,fallback (filled cell)
+males,15–24,5,mantle_cell,0.012775000000000003,fallback (filled cell)
+males,15–24,1,hodgkin,3.0000000000000024e-4,age-specific
+males,15–24,2,hodgkin,9.999999999999788e-4,age-specific
+males,15–24,3,hodgkin,0.002300000000000002,age-specific
+males,15–24,4,hodgkin,0.0024000000000000245,age-specific
+males,15–24,5,hodgkin,0.003100000000000025,age-specific
+males,15–24,1,nhl,0.00405,fallback (non-improving)
+males,15–24,2,nhl,0.005075000000000002,fallback (non-improving)
+males,15–24,3,nhl,0.0052000000000000015,fallback (non-improving)
+males,15–24,4,nhl,0.005550000000000001,fallback (non-improving)
+males,15–24,5,nhl,0.005775000000000002,fallback (non-improving)
+males,25–34,1,dlbcl,0.0016000000000000014,age-specific
+males,25–34,2,dlbcl,0.0047000000000000045,age-specific
+males,25–34,3,dlbcl,0.004800000000000004,age-specific
+males,25–34,4,dlbcl,0.006500000000000006,age-specific
+males,25–34,5,dlbcl,0.003100000000000003,age-specific
+males,25–34,1,follicular,0.0015999999999999793,age-specific
+males,25–34,2,follicular,0.0015999999999999793,age-specific
+males,25–34,3,follicular,0.0015999999999999793,age-specific
+males,25–34,4,follicular,0.003300000000000003,age-specific
+males,25–34,5,follicular,0.003300000000000003,age-specific
+males,25–34,1,mantle_cell,0.0016750000000000042,fallback (filled cell)
+males,25–34,2,mantle_cell,0.0065749999999999975,fallback (filled cell)
+males,25–34,3,mantle_cell,0.007824999999999997,fallback (filled cell)
+males,25–34,4,mantle_cell,0.010150000000000003,fallback (filled cell)
+males,25–34,5,mantle_cell,0.012775000000000003,fallback (filled cell)
+males,25–34,1,hodgkin,1.0000000000000009e-4,age-specific
+males,25–34,2,hodgkin,-4.0000000000000034e-4,age-specific
+males,25–34,3,hodgkin,-1.0000000000000009e-4,age-specific
+males,25–34,4,hodgkin,0.0019000000000000017,age-specific
+males,25–34,5,hodgkin,0.0017000000000000014,age-specific
+males,25–34,1,nhl,0.0038999999999999924,age-specific
+males,25–34,2,nhl,0.005500000000000005,age-specific
+males,25–34,3,nhl,0.005200000000000005,age-specific
+males,25–34,4,nhl,0.006700000000000006,age-specific
+males,25–34,5,nhl,0.005700000000000005,age-specific
+males,35–44,1,dlbcl,0.002599999999999991,age-specific
+males,35–44,2,dlbcl,0.004500000000000004,age-specific
+males,35–44,3,dlbcl,0.004600000000000004,age-specific
+males,35–44,4,dlbcl,0.004600000000000004,age-specific
+males,35–44,5,dlbcl,0.004600000000000004,age-specific
+males,35–44,1,follicular,-2.0000000000000017e-4,age-specific
+males,35–44,2,follicular,0.0016000000000000237,age-specific
+males,35–44,3,follicular,0.0034000000000000254,age-specific
+males,35–44,4,follicular,0.0029000000000000024,age-specific
+males,35–44,5,follicular,0.0038999999999999924,age-specific
+males,35–44,1,mantle_cell,0.0016750000000000042,fallback (filled cell)
+males,35–44,2,mantle_cell,0.0065749999999999975,fallback (filled cell)
+males,35–44,3,mantle_cell,0.007824999999999997,fallback (filled cell)
+males,35–44,4,mantle_cell,0.010150000000000003,fallback (filled cell)
+males,35–44,5,mantle_cell,0.012775000000000003,fallback (filled cell)
+males,35–44,1,hodgkin,-6.000000000000005e-4,age-specific
+males,35–44,2,hodgkin,-1.0000000000000009e-4,age-specific
+males,35–44,3,hodgkin,3.0000000000000024e-4,age-specific
+males,35–44,4,hodgkin,3.0000000000000024e-4,age-specific
+males,35–44,5,hodgkin,8.000000000000007e-4,age-specific
+males,35–44,1,nhl,0.002200000000000002,age-specific
+males,35–44,2,nhl,0.0038000000000000035,age-specific
+males,35–44,3,nhl,0.0050000000000000044,age-specific
+males,35–44,4,nhl,0.005200000000000005,age-specific
+males,35–44,5,nhl,0.005600000000000005,age-specific
+males,45–54,1,dlbcl,0.0050000000000000044,age-specific
+males,45–54,2,dlbcl,0.007299999999999996,age-specific
+males,45–54,3,dlbcl,0.0064999999999999945,age-specific
+males,45–54,4,dlbcl,0.007399999999999995,age-specific
+males,45–54,5,dlbcl,0.008299999999999997,age-specific
+males,45–54,1,follicular,7.999999999999785e-4,age-specific
+males,45–54,2,follicular,0.0025000000000000022,age-specific
+males,45–54,3,follicular,0.003500000000000003,age-specific
+males,45–54,4,follicular,0.004199999999999993,age-specific
+males,45–54,5,follicular,0.0032999999999999917,age-specific
+males,45–54,1,mantle_cell,0.001000000000000023,age-specific
+males,45–54,2,mantle_cell,0.0020999999999999908,age-specific
+males,45–54,3,mantle_cell,-6.000000000000005e-4,age-specific
+males,45–54,4,mantle_cell,6.000000000000005e-4,age-specific
+males,45–54,5,mantle_cell,0.0038000000000000035,age-specific
+males,45–54,1,hodgkin,8.000000000000007e-4,age-specific
+males,45–54,2,hodgkin,0.0015999999999999903,age-specific
+males,45–54,3,hodgkin,0.001100000000000001,age-specific
+males,45–54,4,hodgkin,0.0027000000000000023,age-specific
+males,45–54,5,hodgkin,0.0029000000000000024,age-specific
+males,45–54,1,nhl,0.002299999999999991,age-specific
+males,45–54,2,nhl,0.003500000000000003,age-specific
+males,45–54,3,nhl,0.003400000000000003,age-specific
+males,45–54,4,nhl,0.004400000000000004,age-specific
+males,45–54,5,nhl,0.0050000000000000044,age-specific
+males,55–64,1,dlbcl,0.0026000000000000025,age-specific
+males,55–64,2,dlbcl,0.003799999999999992,age-specific
+males,55–64,3,dlbcl,0.004100000000000004,age-specific
+males,55–64,4,dlbcl,0.004800000000000004,age-specific
+males,55–64,5,dlbcl,0.005600000000000005,age-specific
+males,55–64,1,follicular,4.0000000000002257e-4,age-specific
+males,55–64,2,follicular,0.002200000000000002,age-specific
+males,55–64,3,follicular,0.002100000000000002,age-specific
+males,55–64,4,follicular,0.0028000000000000026,age-specific
+males,55–64,5,follicular,0.0036000000000000034,age-specific
+males,55–64,1,mantle_cell,7.999999999999896e-4,age-specific
+males,55–64,2,mantle_cell,0.005700000000000005,age-specific
+males,55–64,3,mantle_cell,0.009299999999999998,age-specific
+males,55–64,4,mantle_cell,0.014500000000000002,age-specific
+males,55–64,5,mantle_cell,0.017900000000000006,age-specific
+males,55–64,1,hodgkin,0.002499999999999991,age-specific
+males,55–64,2,hodgkin,0.005900000000000005,age-specific
+males,55–64,3,hodgkin,0.0040000000000000036,age-specific
+males,55–64,4,hodgkin,0.004400000000000004,age-specific
+males,55–64,5,hodgkin,0.0026000000000000025,age-specific
+males,55–64,1,nhl,0.0019000000000000017,age-specific
+males,55–64,2,nhl,0.003700000000000003,age-specific
+males,55–64,3,nhl,0.004199999999999993,age-specific
+males,55–64,4,nhl,0.0047999999999999935,age-specific
+males,55–64,5,nhl,0.006100000000000006,age-specific
+males,65–74,1,dlbcl,0.0036999999999999924,age-specific
+males,65–74,2,dlbcl,0.004100000000000004,age-specific
+males,65–74,3,dlbcl,0.005099999999999993,age-specific
+males,65–74,4,dlbcl,0.004900000000000004,age-specific
+males,65–74,5,dlbcl,0.005200000000000005,age-specific
+males,65–74,1,follicular,0.001200000000000001,age-specific
+males,65–74,2,follicular,0.001100000000000001,age-specific
+males,65–74,3,follicular,0.0026000000000000025,age-specific
+males,65–74,4,follicular,0.002200000000000002,age-specific
+males,65–74,5,follicular,0.004299999999999993,age-specific
+males,65–74,1,mantle_cell,4.0000000000000034e-4,age-specific
+males,65–74,2,mantle_cell,0.004200000000000004,age-specific
+males,65–74,3,mantle_cell,0.007699999999999996,age-specific
+males,65–74,4,mantle_cell,0.01050000000000001,age-specific
+males,65–74,5,mantle_cell,0.013900000000000001,age-specific
+males,65–74,1,hodgkin,0.0036999999999999924,age-specific
+males,65–74,2,hodgkin,0.001100000000000001,age-specific
+males,65–74,3,hodgkin,0.0013000000000000012,age-specific
+males,65–74,4,hodgkin,0.001200000000000001,age-specific
+males,65–74,5,hodgkin,0.0030000000000000027,age-specific
+males,65–74,1,nhl,0.004100000000000004,age-specific
+males,65–74,2,nhl,0.005199999999999994,age-specific
+males,65–74,3,nhl,0.006200000000000006,age-specific
+males,65–74,4,nhl,0.006699999999999995,age-specific
+males,65–74,5,nhl,0.007899999999999996,age-specific
+males,75–84,1,dlbcl,0.006299999999999995,age-specific
+males,75–84,2,dlbcl,0.007499999999999995,age-specific
+males,75–84,3,dlbcl,0.0081000000000000065,age-specific
+males,75–84,4,dlbcl,0.0064,age-specific
+males,75–84,5,dlbcl,0.0060999999999999995,age-specific
+males,75–84,1,follicular,0.004800000000000004,age-specific
+males,75–84,2,follicular,0.007099999999999995,age-specific
+males,75–84,3,follicular,0.0071000000000000065,age-specific
+males,75–84,4,follicular,0.009799999999999998,age-specific
+males,75–84,5,follicular,0.010199999999999997,age-specific
+males,75–84,1,mantle_cell,0.004500000000000004,age-specific
+males,75–84,2,mantle_cell,0.01429999999999999,age-specific
+males,75–84,3,mantle_cell,0.014899999999999997,age-specific
+males,75–84,4,mantle_cell,0.015000000000000003,age-specific
+males,75–84,5,mantle_cell,0.015500000000000003,age-specific
+males,75–84,1,hodgkin,0.004900000000000004,age-specific
+males,75–84,2,hodgkin,0.005300000000000004,age-specific
+males,75–84,3,hodgkin,0.009700000000000004,age-specific
+males,75–84,4,hodgkin,0.014199999999999996,age-specific
+males,75–84,5,hodgkin,0.0173,age-specific
+males,75–84,1,nhl,0.007500000000000007,age-specific
+males,75–84,2,nhl,0.009700000000000009,age-specific
+males,75–84,3,nhl,0.010199999999999997,age-specific
+males,75–84,4,nhl,0.009800000000000003,age-specific
+males,75–84,5,nhl,0.010099999999999998,age-specific
+males,85+,1,dlbcl,0.005399999999999999,age-specific
+males,85+,2,dlbcl,0.008099999999999996,age-specific
+males,85+,3,dlbcl,0.0055999999999999965,age-specific
+males,85+,4,dlbcl,0.004000000000000001,age-specific
+males,85+,5,dlbcl,0.004999999999999999,age-specific
+males,85+,1,follicular,0.011699999999999999,age-specific
+males,85+,2,follicular,0.006799999999999995,age-specific
+males,85+,3,follicular,0.0028999999999999916,age-specific
+males,85+,4,follicular,6.000000000000005e-4,age-specific
+males,85+,5,follicular,0.004500000000000004,age-specific
+males,85+,1,mantle_cell,0.0016750000000000042,fallback (no data)
+males,85+,2,mantle_cell,0.0065749999999999975,fallback (no data)
+males,85+,3,mantle_cell,0.007824999999999997,fallback (no data)
+males,85+,4,mantle_cell,0.010150000000000003,fallback (no data)
+males,85+,5,mantle_cell,0.012775000000000003,fallback (no data)
+males,85+,1,hodgkin,0.001662499999999996,fallback (filled cell)
+males,85+,2,hodgkin,0.001999999999999995,fallback (filled cell)
+males,85+,3,hodgkin,0.002700000000000002,fallback (filled cell)
+males,85+,4,hodgkin,0.003762500000000004,fallback (filled cell)
+males,85+,5,hodgkin,0.004300000000000004,fallback (filled cell)
+males,85+,1,nhl,0.010200000000000004,age-specific
+males,85+,2,nhl,0.008400000000000001,age-specific
+males,85+,3,nhl,0.0058,age-specific
+males,85+,4,nhl,0.006000000000000003,age-specific
+males,85+,5,nhl,0.005000000000000002,age-specific
+females,5–14,1,dlbcl,0.0032833333333333325,fallback (filled cell)
+females,5–14,2,dlbcl,0.004883333333333332,fallback (filled cell)
+females,5–14,3,dlbcl,0.0038833333333333324,fallback (filled cell)
+females,5–14,4,dlbcl,0.004366666666666663,fallback (filled cell)
+females,5–14,5,dlbcl,0.004566666666666666,fallback (filled cell)
+females,5–14,1,follicular,0.0026857142857142848,fallback (filled cell)
+females,5–14,2,follicular,0.0029000000000000024,fallback (filled cell)
+females,5–14,3,follicular,0.003585714285714284,fallback (filled cell)
+females,5–14,4,follicular,0.005514285714285718,fallback (filled cell)
+females,5–14,5,follicular,0.006571428571428574,fallback (filled cell)
+females,5–14,1,mantle_cell,0.006100000000000005,fallback (filled cell)
+females,5–14,2,mantle_cell,0.006149999999999994,fallback (filled cell)
+females,5–14,3,mantle_cell,0.013850000000000006,fallback (filled cell)
+females,5–14,4,mantle_cell,0.014699999999999996,fallback (filled cell)
+females,5–14,5,mantle_cell,0.012600000000000005,fallback (filled cell)
+females,5–14,1,hodgkin,0.0024000000000000037,fallback (non-improving)
+females,5–14,2,hodgkin,0.0038571428571428606,fallback (non-improving)
+females,5–14,3,hodgkin,0.005428571428571432,fallback (non-improving)
+females,5–14,4,hodgkin,0.005800000000000005,fallback (non-improving)
+females,5–14,5,hodgkin,0.005542857142857146,fallback (non-improving)
+females,5–14,1,nhl,-1.0000000000000009e-4,age-specific
+females,5–14,2,nhl,-4.0000000000000034e-4,age-specific
+females,5–14,3,nhl,-4.0000000000000034e-4,age-specific
+females,5–14,4,nhl,-4.0000000000000034e-4,age-specific
+females,5–14,5,nhl,0.0027000000000000023,age-specific
+females,15–24,1,dlbcl,-8.000000000000007e-4,age-specific
+females,15–24,2,dlbcl,0.002299999999999991,age-specific
+females,15–24,3,dlbcl,0.002299999999999991,age-specific
+females,15–24,4,dlbcl,0.002299999999999991,age-specific
+females,15–24,5,dlbcl,0.002299999999999991,age-specific
+females,15–24,1,follicular,0.0026857142857142848,fallback (filled cell)
+females,15–24,2,follicular,0.0029000000000000024,fallback (filled cell)
+females,15–24,3,follicular,0.003585714285714284,fallback (filled cell)
+females,15–24,4,follicular,0.005514285714285718,fallback (filled cell)
+females,15–24,5,follicular,0.006571428571428574,fallback (filled cell)
+females,15–24,1,mantle_cell,0.006100000000000005,fallback (filled cell)
+females,15–24,2,mantle_cell,0.006149999999999994,fallback (filled cell)
+females,15–24,3,mantle_cell,0.013850000000000006,fallback (filled cell)
+females,15–24,4,mantle_cell,0.014699999999999996,fallback (filled cell)
+females,15–24,5,mantle_cell,0.012600000000000005,fallback (filled cell)
+females,15–24,1,hodgkin,-8.999999999999786e-4,age-specific
+females,15–24,2,hodgkin,4.0000000000000034e-4,age-specific
+females,15–24,3,hodgkin,-2.0000000000000017e-4,age-specific
+females,15–24,4,hodgkin,-1.0000000000000009e-4,age-specific
+females,15–24,5,hodgkin,0.0013000000000000012,age-specific
+females,15–24,1,nhl,-0.003700000000000003,age-specific
+females,15–24,2,nhl,4.0000000000000034e-4,age-specific
+females,15–24,3,nhl,-6.000000000000005e-4,age-specific
+females,15–24,4,nhl,5.000000000000004e-4,age-specific
+females,15–24,5,nhl,5.000000000000004e-4,age-specific
+females,25–34,1,dlbcl,0.0032833333333333325,fallback (non-improving)
+females,25–34,2,dlbcl,0.004883333333333332,fallback (non-improving)
+females,25–34,3,dlbcl,0.0038833333333333324,fallback (non-improving)
+females,25–34,4,dlbcl,0.004366666666666663,fallback (non-improving)
+females,25–34,5,dlbcl,0.004566666666666666,fallback (non-improving)
+females,25–34,1,follicular,0,age-specific
+females,25–34,2,follicular,0,age-specific
+females,25–34,3,follicular,0,age-specific
+females,25–34,4,follicular,0.0028000000000000026,age-specific
+females,25–34,5,follicular,0.005700000000000005,age-specific
+females,25–34,1,mantle_cell,0.006100000000000005,fallback (filled cell)
+females,25–34,2,mantle_cell,0.006149999999999994,fallback (filled cell)
+females,25–34,3,mantle_cell,0.013850000000000006,fallback (filled cell)
+females,25–34,4,mantle_cell,0.014699999999999996,fallback (filled cell)
+females,25–34,5,mantle_cell,0.012600000000000005,fallback (filled cell)
+females,25–34,1,hodgkin,7.000000000000006e-4,age-specific
+females,25–34,2,hodgkin,0.0010000000000000009,age-specific
+females,25–34,3,hodgkin,0.002200000000000002,age-specific
+females,25–34,4,hodgkin,0.0024000000000000245,age-specific
+females,25–34,5,hodgkin,0.002100000000000024,age-specific
+females,25–34,1,nhl,-8.000000000000007e-4,age-specific
+females,25–34,2,nhl,-3.0000000000000024e-4,age-specific
+females,25–34,3,nhl,-1.0000000000000009e-4,age-specific
+females,25–34,4,nhl,5.000000000000004e-4,age-specific
+females,25–34,5,nhl,0.0010999999999999899,age-specific
+females,35–44,1,dlbcl,0.0016999999999999904,age-specific
+females,35–44,2,dlbcl,0.0032000000000000028,age-specific
+females,35–44,3,dlbcl,-8.000000000000007e-4,age-specific
+females,35–44,4,dlbcl,-8.000000000000007e-4,age-specific
+females,35–44,5,dlbcl,8.000000000000007e-4,age-specific
+females,35–44,1,follicular,5.000000000000004e-4,age-specific
+females,35–44,2,follicular,0.0015999999999999793,age-specific
+females,35–44,3,follicular,8.999999999999786e-4,age-specific
+females,35–44,4,follicular,0.0014000000000000234,age-specific
+females,35–44,5,follicular,0.0019000000000000238,age-specific
+females,35–44,1,mantle_cell,0.006100000000000005,fallback (filled cell)
+females,35–44,2,mantle_cell,0.006149999999999994,fallback (filled cell)
+females,35–44,3,mantle_cell,0.013850000000000006,fallback (filled cell)
+females,35–44,4,mantle_cell,0.014699999999999996,fallback (filled cell)
+females,35–44,5,mantle_cell,0.012600000000000005,fallback (filled cell)
+females,35–44,1,hodgkin,0.003500000000000003,age-specific
+females,35–44,2,hodgkin,0.003700000000000003,age-specific
+females,35–44,3,hodgkin,0.004200000000000026,age-specific
+females,35–44,4,hodgkin,0.0043000000000000035,age-specific
+females,35–44,5,hodgkin,0.0043000000000000035,age-specific
+females,35–44,1,nhl,0.0019000000000000017,age-specific
+females,35–44,2,nhl,0.0032999999999999917,age-specific
+females,35–44,3,nhl,0.0016000000000000014,age-specific
+females,35–44,4,nhl,0.0019000000000000017,age-specific
+females,35–44,5,nhl,0.002400000000000002,age-specific
+females,45–54,1,dlbcl,0.0032833333333333325,fallback (non-improving)
+females,45–54,2,dlbcl,0.004883333333333332,fallback (non-improving)
+females,45–54,3,dlbcl,0.0038833333333333324,fallback (non-improving)
+females,45–54,4,dlbcl,0.004366666666666663,fallback (non-improving)
+females,45–54,5,dlbcl,0.004566666666666666,fallback (non-improving)
+females,45–54,1,follicular,3.9999999999997817e-4,age-specific
+females,45–54,2,follicular,0.0017000000000000238,age-specific
+females,45–54,3,follicular,0.002300000000000002,age-specific
+females,45–54,4,follicular,0.0028000000000000026,age-specific
+females,45–54,5,follicular,0.003499999999999992,age-specific
+females,45–54,1,mantle_cell,0.006100000000000005,fallback (no data)
+females,45–54,2,mantle_cell,0.006149999999999994,fallback (no data)
+females,45–54,3,mantle_cell,0.013850000000000006,fallback (no data)
+females,45–54,4,mantle_cell,0.014699999999999996,fallback (no data)
+females,45–54,5,mantle_cell,0.012600000000000005,fallback (no data)
+females,45–54,1,hodgkin,3.0000000000000024e-4,age-specific
+females,45–54,2,hodgkin,0.0014000000000000013,age-specific
+females,45–54,3,hodgkin,0.002399999999999991,age-specific
+females,45–54,4,hodgkin,0.0028999999999999916,age-specific
+females,45–54,5,hodgkin,0.002199999999999991,age-specific
+females,45–54,1,nhl,0.001200000000000001,age-specific
+females,45–54,2,nhl,0.002399999999999991,age-specific
+females,45–54,3,nhl,0.0030000000000000027,age-specific
+females,45–54,4,nhl,0.0026000000000000025,age-specific
+females,45–54,5,nhl,0.0028000000000000026,age-specific
+females,55–64,1,dlbcl,6.000000000000005e-4,age-specific
+females,55–64,2,dlbcl,0.0029000000000000024,age-specific
+females,55–64,3,dlbcl,0.0026999999999999915,age-specific
+females,55–64,4,dlbcl,0.003399999999999992,age-specific
+females,55–64,5,dlbcl,0.003400000000000003,age-specific
+females,55–64,1,follicular,0.001000000000000023,age-specific
+females,55–64,2,follicular,0.001100000000000001,age-specific
+females,55–64,3,follicular,0.002200000000000002,age-specific
+females,55–64,4,follicular,0.003799999999999992,age-specific
+females,55–64,5,follicular,0.004299999999999993,age-specific
+females,55–64,1,mantle_cell,0.006100000000000005,fallback (non-improving)
+females,55–64,2,mantle_cell,0.006149999999999994,fallback (non-improving)
+females,55–64,3,mantle_cell,0.013850000000000006,fallback (non-improving)
+females,55–64,4,mantle_cell,0.014699999999999996,fallback (non-improving)
+females,55–64,5,mantle_cell,0.012600000000000005,fallback (non-improving)
+females,55–64,1,hodgkin,-4.999999999999894e-4,age-specific
+females,55–64,2,hodgkin,0.003100000000000003,age-specific
+females,55–64,3,hodgkin,0.0064000000000000055,age-specific
+females,55–64,4,hodgkin,0.007500000000000007,age-specific
+females,55–64,5,hodgkin,0.006899999999999995,age-specific
+females,55–64,1,nhl,5.999999999999894e-4,age-specific
+females,55–64,2,nhl,0.0017000000000000014,age-specific
+females,55–64,3,nhl,0.0017000000000000014,age-specific
+females,55–64,4,nhl,0.0027000000000000023,age-specific
+females,55–64,5,nhl,0.003400000000000003,age-specific
+females,65–74,1,dlbcl,0.002200000000000002,age-specific
+females,65–74,2,dlbcl,0.0026000000000000025,age-specific
+females,65–74,3,dlbcl,0.0028000000000000026,age-specific
+females,65–74,4,dlbcl,0.0038999999999999924,age-specific
+females,65–74,5,dlbcl,0.003300000000000003,age-specific
+females,65–74,1,follicular,0.0010000000000000009,age-specific
+females,65–74,2,follicular,8.000000000000007e-4,age-specific
+females,65–74,3,follicular,0.0026000000000000025,age-specific
+females,65–74,4,follicular,0.004400000000000004,age-specific
+females,65–74,5,follicular,0.006600000000000006,age-specific
+females,65–74,1,mantle_cell,0.007400000000000006,age-specific
+females,65–74,2,mantle_cell,0.007599999999999996,age-specific
+females,65–74,3,mantle_cell,0.009500000000000008,age-specific
+females,65–74,4,mantle_cell,0.012,age-specific
+females,65–74,5,mantle_cell,0.007400000000000006,age-specific
+females,65–74,1,hodgkin,0.005999999999999994,age-specific
+females,65–74,2,hodgkin,0.010600000000000009,age-specific
+females,65–74,3,hodgkin,0.014600000000000002,age-specific
+females,65–74,4,hodgkin,0.0124,age-specific
+females,65–74,5,hodgkin,0.009300000000000008,age-specific
+females,65–74,1,nhl,0.003300000000000003,age-specific
+females,65–74,2,nhl,0.0038000000000000035,age-specific
+females,65–74,3,nhl,0.0047999999999999935,age-specific
+females,65–74,4,nhl,0.005900000000000005,age-specific
+females,65–74,5,nhl,0.005800000000000005,age-specific
+females,75–84,1,dlbcl,0.006600000000000006,age-specific
+females,75–84,2,dlbcl,0.008099999999999996,age-specific
+females,75–84,3,dlbcl,0.0071000000000000065,age-specific
+females,75–84,4,dlbcl,0.007000000000000001,age-specific
+females,75–84,5,dlbcl,0.007599999999999996,age-specific
+females,75–84,1,follicular,0.008199999999999995,age-specific
+females,75–84,2,follicular,0.009700000000000009,age-specific
+females,75–84,3,follicular,0.009499999999999998,age-specific
+females,75–84,4,follicular,0.0129,age-specific
+females,75–84,5,follicular,0.014300000000000002,age-specific
+females,75–84,1,mantle_cell,0.004800000000000004,age-specific
+females,75–84,2,mantle_cell,0.004699999999999993,age-specific
+females,75–84,3,mantle_cell,0.018200000000000004,age-specific
+females,75–84,4,mantle_cell,0.017399999999999992,age-specific
+females,75–84,5,mantle_cell,0.017800000000000003,age-specific
+females,75–84,1,hodgkin,0.007699999999999996,age-specific
+females,75–84,2,hodgkin,0.006800000000000006,age-specific
+females,75–84,3,hodgkin,0.008399999999999996,age-specific
+females,75–84,4,hodgkin,0.011200000000000005,age-specific
+females,75–84,5,hodgkin,0.0127,age-specific
+females,75–84,1,nhl,0.010299999999999998,age-specific
+females,75–84,2,nhl,0.011699999999999999,age-specific
+females,75–84,3,nhl,0.0118,age-specific
+females,75–84,4,nhl,0.0127,age-specific
+females,75–84,5,nhl,0.013299999999999996,age-specific
+females,85+,1,dlbcl,0.009399999999999997,age-specific
+females,85+,2,dlbcl,0.010199999999999997,age-specific
+females,85+,3,dlbcl,0.009200000000000003,age-specific
+females,85+,4,dlbcl,0.010399999999999998,age-specific
+females,85+,5,dlbcl,0.01,age-specific
+females,85+,1,follicular,0.007699999999999996,age-specific
+females,85+,2,follicular,0.005400000000000005,age-specific
+females,85+,3,follicular,0.007600000000000007,age-specific
+females,85+,4,follicular,0.010499999999999999,age-specific
+females,85+,5,follicular,0.009699999999999997,age-specific
+females,85+,1,mantle_cell,0.006100000000000005,fallback (filled cell)
+females,85+,2,mantle_cell,0.006149999999999994,fallback (filled cell)
+females,85+,3,mantle_cell,0.013850000000000006,fallback (filled cell)
+females,85+,4,mantle_cell,0.014699999999999996,fallback (filled cell)
+females,85+,5,mantle_cell,0.012600000000000005,fallback (filled cell)
+females,85+,1,hodgkin,0.0024000000000000037,fallback (filled cell)
+females,85+,2,hodgkin,0.0038571428571428606,fallback (filled cell)
+females,85+,3,hodgkin,0.005428571428571432,fallback (filled cell)
+females,85+,4,hodgkin,0.005800000000000005,fallback (filled cell)
+females,85+,5,hodgkin,0.005542857142857146,fallback (filled cell)
+females,85+,1,nhl,0.014299999999999997,age-specific
+females,85+,2,nhl,0.014300000000000002,age-specific
+females,85+,3,nhl,0.0127,age-specific
+females,85+,4,nhl,0.0132,age-specific
+females,85+,5,nhl,0.012100000000000003,age-specific
