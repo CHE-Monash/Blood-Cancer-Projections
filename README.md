@@ -8,7 +8,7 @@ Incidence and prevalence projection methods for Australian blood cancers, using 
 
 Code and data accompanying the manuscript:
 
-> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Projected incidence and prevalence of major lymphoma subtypes in Australia, 2022–2045: an age–period–cohort analysis. [Journal]; submitted [date].
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Lymphoma incidence and prevalence projections in Australia to 2045: a statistical modelling study. [Journal]; submitted [date].
 
 This repository contains the R code, source data, and modelled outputs for projections of incidence (to 2045) and prevalence (2-, 3-, 5-, 10-, and 40-year horizons, 2012 to 2045) for Australian lymphoma, in a two-tier structure: a **headline tier** of Hodgkin lymphoma (HL) and aggregate non-Hodgkin lymphoma (NHL) — disjoint groups whose sum is the total-lymphoma denominator — and a **decomposition tier** of three NHL subtypes, diffuse large B-cell lymphoma (DLBCL), follicular lymphoma (FL), and mantle cell lymphoma (MCL), that are a subset of aggregate NHL. All by sex (and persons for the totals). The aggregate NHL/HL models are fitted from 1990 (selected by a start-year holdout sensitivity) and the subtype models from 2003; observed incidence is shown from 1982.
 
@@ -186,6 +186,32 @@ All source data are derived from publicly available Australian Institute of Heal
 - **Australian Bureau of Statistics** (historical and projected populations): https://www.abs.gov.au/statistics/people/population
 
 Specific source tables are referenced in the manuscript Methods and Supporting Information §S1–S3.
+
+### Files required to recreate the analysis from raw data
+
+`code/import_data.R` is the only script that reads `data/raw/`; it transforms the workbooks below into the small CSVs in `data/` that the rest of the pipeline uses. `data/raw/` is gitignored (large, third-party), so to reproduce the analysis end-to-end, download these files, place them exactly as shown, and run `Rscript code/import_data.R` before the `apc_model.R → prev_model.R → supplement.R` pipeline.
+
+**AIHW — Cancer Data in Australia 2025** (the "Data downloads" on the Cancer Data in Australia page above), placed in `data/raw/AIHW/`:
+
+| File | Sheet | Provides |
+|------|-------|----------|
+| `CDiA-2025-Book-1a-Cancer-incidence-age-standardised-rates-5-year-age-groups.xlsx` | Table S1a.1 | Aggregate NHL and HL incidence, 1982–2021 |
+| `CDiA-2025-Book-11a-Blood-cancer-incidence-by-histology-main-framework.xlsx` | Table S11a.1 | NHL-subtype incidence, 2003–2021 |
+| `CDiA-2025-Book-11e-Blood-cancer-survival-and-age-group-proportions-by-histology-main-framework.xlsx` | Table S11e.1 | NHL-subtype and HL survival |
+| `CDiA-2025-Book-11f1-Part1-Blood-cancer-survival-by-histology-ICD10-framework-10-year-age-groups.xlsx` | Table S11f.1 | Aggregate NHL survival (part 1) |
+| `CDiA-2025-Book-11f1-Part2-Blood-cancer-survival-by-histology-ICD10-framework-10-year-age-groups.xlsx` | Table S11f.1 | Aggregate NHL survival (part 2) |
+| `CDiA-2025-Book-6-Cancer-prevalence.xlsx` | Table S6.2 | Aggregate NHL/HL prevalence (validation) |
+| `CDiA-2025-Book-11i-Blood-cancer-prevalence-main-framework.xlsx` | Table S11i.1 | NHL-subtype prevalence (validation) |
+| `CDiA-2025-Book-1e-Long-term-cancer-incidence-projections.xlsx` | Table S1e.1 | AIHW published incidence projections (comparison) |
+
+**ABS**, placed in `data/raw/ABS/`:
+
+| File (expected local name) | Sheet | Provides |
+|----------------------------|-------|----------|
+| `3222_Table_B9.xlsx` — Population Projections, Australia (cat. 3222.0), Table B9, Series B (medium growth) | Data1 | Projected population, 2022–2050 |
+| `3101059.xlsx` — National, State and Territory Population (cat. 3101.0), Table 59 | Data1 | Historical population, 1982–2021 |
+
+Any other CDiA-2025 books that happen to be in `data/raw/` are not read by `import_data.R` and are not required. (The committed CSVs in `data/` already contain these processed inputs, so the pipeline runs without the raw workbooks; the list above is only needed to rebuild those CSVs from source.)
 
 ## What is and is not in this repository
 
