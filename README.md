@@ -8,7 +8,7 @@ Incidence and prevalence projection methods for Australian blood cancers, using 
 
 Code and data accompanying the manuscript:
 
-> [Authors]. Projected incidence and prevalence of major lymphoma subtypes in Australia, 2022–2045: an age–period–cohort analysis. [Journal]; submitted [date].
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Projected incidence and prevalence of major lymphoma subtypes in Australia, 2022–2045: an age–period–cohort analysis. [Journal]; submitted [date].
 
 This repository contains the R code, source data, and modelled outputs for projections of incidence (to 2045) and prevalence (2-, 3-, 5-, 10-, and 40-year horizons, 2012 to 2045) for Australian lymphoma, in a two-tier structure: a **headline tier** of Hodgkin lymphoma (HL) and aggregate non-Hodgkin lymphoma (NHL) — disjoint groups whose sum is the total-lymphoma denominator — and a **decomposition tier** of three NHL subtypes, diffuse large B-cell lymphoma (DLBCL), follicular lymphoma (FL), and mantle cell lymphoma (MCL), that are a subset of aggregate NHL. All by sex (and persons for the totals). The aggregate NHL/HL models are fitted from 1990 (selected by a start-year holdout sensitivity) and the subtype models from 2003; observed incidence is shown from 1982.
 
@@ -20,7 +20,7 @@ If you use this code or these projections, please cite both the paper and the ar
 
 > [Paper citation, with DOI on publication]
 >
-> [Authors]. Lymphoma incidence and prevalence projections, Australia (2022–2045). Zenodo. DOI: 10.5281/zenodo.XXXXXXX
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045. Zenodo. DOI: 10.5281/zenodo.XXXXXXX
 
 ## Repository structure
 
@@ -200,6 +200,6 @@ Specific source tables are referenced in the manuscript Methods and Supporting I
 
 ## Contact
 
-[Corresponding author name and email]
+Adam Irving, Centre for Health Economics, Monash University — adam.irving@monash.edu (corresponding author).
 
 For methodological detail, refer to the manuscript Methods / Supporting Information. The R scripts in `code/` are extensively commented and cross-reference the relevant Supplementary Information sections.
