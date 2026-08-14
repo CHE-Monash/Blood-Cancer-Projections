@@ -607,25 +607,24 @@ run_back_estimation <- function(inc_subtype, inc_agg,
 # Uses shared make_line_grob / make_point_grob / make_text_grob /
 # make_spacer / line_colours / label_map / sex_labels from _setup.R.
 
-.legend_widths <- function(include_aihw = TRUE) {
+# Legend shows only the lymphomas with their colour and line style (headline
+# HL/NHL solid; the three NHL subtypes dashed). AIHW points and the CrI band are
+# explained in the .docx figure caption, not the legend.
+.legend_widths <- function() {
   seg_w     <- unit(0.7, "cm")
   gap       <- unit(0.1, "cm")
   big_gap   <- unit(0.5, "cm")
   label_gap <- unit(0.25, "cm")
-  base <- unit.c(
+  unit.c(
     seg_w, gap, stringWidth("HL"),
     big_gap, seg_w, gap, stringWidth("NHL"),
     big_gap, seg_w, gap, stringWidth("DLBCL"),
     label_gap, seg_w, gap, stringWidth("FL"),
     label_gap, seg_w, gap, stringWidth("MCL")
   )
-  if (include_aihw) {
-    unit.c(base, big_gap, seg_w, gap, stringWidth("AIHW modelled estimates") + unit(0.3, "cm"))
-  } else base
 }
-.legend_grobs <- function(include_aihw = TRUE) {
-  # Headline tier (HL, NHL) solid; decomposition tier (subtypes) dashed.
-  lst <- list(
+.legend_grobs <- function() {
+  list(
     make_line_grob(line_colours["HL"]),    make_spacer(), make_text_grob("HL"),
     make_spacer(),
     make_line_grob(line_colours["NHL"]),   make_spacer(), make_text_grob("NHL"),
@@ -636,13 +635,6 @@ run_back_estimation <- function(inc_subtype, inc_agg,
     make_spacer(),
     make_line_grob(line_colours["MCL"], lty = "22"),   make_spacer(), make_text_grob("MCL")
   )
-  if (include_aihw) {
-    lst <- c(lst, list(
-      make_spacer(),
-      make_point_grob("grey30"), make_spacer(), make_text_grob("AIHW modelled estimates")
-    ))
-  }
-  lst
 }
 
 build_prev_fig <- function(prev_df, duration_value,
@@ -696,14 +688,10 @@ build_prev_fig <- function(prev_df, duration_value,
     scale_colour_manual(values = line_colours) +
     scale_fill_manual(values = line_colours) +
     scale_linetype_manual(values = c(headline = "solid", decomposition = "22")) +
-    labs(x = "Year", y = "Prevalence (thousands)",
-         caption = if (include_aihw)
-           "Solid, headline HL and aggregate NHL; dashed, NHL subtypes (a subset of NHL). AIHW points are modelled estimates, not observed counts."
-         else "Solid, headline HL and aggregate NHL; dashed, NHL subtypes (a subset of NHL).") +
+    labs(x = "Year", y = "Prevalence (thousands)") +
     theme_bw(base_size = 13) +
     theme(legend.position  = "none",
           panel.grid.minor = element_blank(),
-          plot.caption     = element_text(size = 8, colour = "grey40", hjust = 0),
           plot.background  = element_rect(colour = NA, fill = NA))
 
   if (include_aihw) {
@@ -716,8 +704,8 @@ build_prev_fig <- function(prev_df, duration_value,
 
   legend_row <- gtable::gtable_row(
     "legend",
-    grobs  = .legend_grobs(include_aihw),
-    widths = .legend_widths(include_aihw),
+    grobs  = .legend_grobs(),
+    widths = .legend_widths(),
     height = unit(0.7, "cm")
   )
   legend_centred <- ggdraw() +

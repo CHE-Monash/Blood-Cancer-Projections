@@ -564,29 +564,31 @@ build_figure_1 <- function(proj_annual, fitted_annual, hist_annual, aihw_proj_df
     dplyr::filter(!is.na(subtype)) |>
     dplyr::mutate(label = .lab(subtype))
 
-  ggplot(model_line, aes(year, colour = label, fill = label)) +
+  # One legend keyed on lymphoma showing both colour AND line style (solid for
+  # headline HL/NHL, dashed for the subtypes); colour + linetype scales share
+  # the `label` mapping so ggplot merges them. Observed points, AIHW triangles
+  # and the ribbon are kept out of the legend (show.legend = FALSE). No in-image
+  # caption — the solid/dashed key, AIHW and CrI are explained in the .docx caption.
+  lty_vals <- c(HL = "solid", NHL = "solid", DLBCL = "22", FL = "22", MCL = "22")
+  ggplot(model_line, aes(year, colour = label)) +
     geom_ribbon(data = ~ dplyr::filter(.x, year > hist_end),
-                aes(ymin = asr_p025, ymax = asr_p975), alpha = 0.15, colour = NA) +
-    geom_point(data = obs, aes(year, asr_obs), size = 0.6, alpha = 0.45) +
-    geom_line(aes(y = asr, linetype = tier), linewidth = 0.8) +
+                aes(ymin = asr_p025, ymax = asr_p975, fill = label),
+                alpha = 0.15, colour = NA, show.legend = FALSE) +
+    geom_point(data = obs, aes(year, asr_obs), size = 0.6, alpha = 0.45,
+               show.legend = FALSE) +
+    geom_line(aes(y = asr, linetype = label), linewidth = 0.8) +
     geom_point(data = aihw_proj, aes(year, asr_2001), shape = 2,
-               size = 1.3, stroke = 0.5) +
+               size = 1.3, stroke = 0.5, show.legend = FALSE) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey50", linewidth = 0.4) +
     facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
-    scale_colour_manual(values = line_colours) +
+    scale_colour_manual(values = line_colours, name = NULL) +
     scale_fill_manual(values = line_colours, guide = "none") +
-    scale_linetype_manual(values = c(headline = "solid", decomposition = "22"),
-                          guide = "none") +
-    labs(x = "Year", y = "Age-standardised rate (per 100,000)", colour = NULL,
-         caption = paste0("Solid, headline HL and aggregate NHL; dashed, NHL ",
-           "subtypes (a subset of NHL). Points, observed incidence; triangles, ",
-           "AIHW projections; band, projection 95% CrI.")) +
+    scale_linetype_manual(values = lty_vals, name = NULL) +
+    labs(x = "Year", y = "Age-standardised rate (per 100,000)") +
     theme_bw(base_size = 13) +
-    guides(colour = guide_legend(override.aes = list(linetype = "solid", shape = NA))) +
     theme(legend.position  = "bottom",
           panel.grid.minor = element_blank(),
-          plot.caption     = element_text(size = 8, colour = "grey40", hjust = 0),
           plot.background  = element_rect(colour = NA, fill = NA))
 }
 
@@ -724,7 +726,7 @@ run_apc_model <- function(B = 1000,
   # 8. Render Figure 1
   fig1 <- build_figure_1(proj_annual, fitted_annual, hist_annual, aihw_proj)
   save_fig(fig1, file.path(save_dir, "figure_1_combined_projections"),
-           width = 11, height = 5.5)
+           width = 11, height = 6.5)
 
   # 9. Save the augmented apc_results object for downstream consumers
   saveRDS(results, file.path(save_dir, "apc_results.rds"), compress = "xz")
