@@ -607,35 +607,9 @@ run_back_estimation <- function(inc_subtype, inc_agg,
 # Uses shared make_line_grob / make_point_grob / make_text_grob /
 # make_spacer / line_colours / label_map / sex_labels from _setup.R.
 
-# Legend shows only the lymphomas with their colour and line style (headline
-# HL/NHL solid; the three NHL subtypes dashed). AIHW points and the CrI band are
-# explained in the .docx figure caption, not the legend.
-.legend_widths <- function() {
-  seg_w     <- unit(0.7, "cm")
-  gap       <- unit(0.1, "cm")
-  big_gap   <- unit(0.5, "cm")
-  label_gap <- unit(0.25, "cm")
-  unit.c(
-    seg_w, gap, stringWidth("HL"),
-    big_gap, seg_w, gap, stringWidth("NHL"),
-    big_gap, seg_w, gap, stringWidth("DLBCL"),
-    label_gap, seg_w, gap, stringWidth("FL"),
-    label_gap, seg_w, gap, stringWidth("MCL")
-  )
-}
-.legend_grobs <- function() {
-  list(
-    make_line_grob(line_colours["HL"]),    make_spacer(), make_text_grob("HL"),
-    make_spacer(),
-    make_line_grob(line_colours["NHL"]),   make_spacer(), make_text_grob("NHL"),
-    make_spacer(),
-    make_line_grob(line_colours["DLBCL"], lty = "22"), make_spacer(), make_text_grob("DLBCL"),
-    make_spacer(),
-    make_line_grob(line_colours["FL"], lty = "22"),    make_spacer(), make_text_grob("FL"),
-    make_spacer(),
-    make_line_grob(line_colours["MCL"], lty = "22"),   make_spacer(), make_text_grob("MCL")
-  )
-}
+# The legend is the shared, box-free lymphoma legend defined in _setup.R
+# (make_lymphoma_legend / attach_lymphoma_legend), used by Figures 1, 2, 3 and
+# SI S3c-S3e so they all render identically.
 
 build_prev_fig <- function(prev_df, duration_value,
                            prev_subtype_aihw = NULL,
@@ -681,13 +655,15 @@ build_prev_fig <- function(prev_df, duration_value,
       aes(ymin = prev_lo, ymax = prev_hi),
       alpha = 0.15, colour = NA
     ) +
-    geom_line(aes(y = prev_mid, linetype = tier_lty), linewidth = 0.8) +
+    geom_line(data = ~ filter(.x, tier_lty == "decomposition"),
+              aes(y = prev_mid), linewidth = unname(lymphoma_lwd["decomposition"])) +
+    geom_line(data = ~ filter(.x, tier_lty == "headline"),
+              aes(y = prev_mid), linewidth = unname(lymphoma_lwd["headline"])) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey50", linewidth = 0.4) +
     facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
     scale_colour_manual(values = line_colours) +
     scale_fill_manual(values = line_colours) +
-    scale_linetype_manual(values = c(headline = "solid", decomposition = "22")) +
     labs(x = "Year", y = "Prevalence (thousands)") +
     theme_bw(base_size = 13) +
     theme(legend.position  = "none",
@@ -702,16 +678,7 @@ build_prev_fig <- function(prev_df, duration_value,
     )
   }
 
-  legend_row <- gtable::gtable_row(
-    "legend",
-    grobs  = .legend_grobs(),
-    widths = .legend_widths(),
-    height = unit(0.7, "cm")
-  )
-  legend_centred <- ggdraw() +
-    draw_grob(legend_row, x = 0.5, y = 0.5, hjust = 0.5, vjust = 0.5)
-
-  plot_grid(p, legend_centred, ncol = 1, rel_heights = c(1, 0.06))
+  attach_lymphoma_legend(p)
 }
 
 # ----------------------

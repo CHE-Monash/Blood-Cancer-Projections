@@ -77,17 +77,25 @@ SURV_FLOOR <- 1e-6    # floor for S(3) when computing cond = sqrt(S(5)/S(3))
 # ----------------------
 # Visual constants (colours, labels, line types)
 # ----------------------
+# Lymphoma colours. The two headline series are visually separated from the
+# NHL-subtype family: HL purple, aggregate NHL orange; the three subtypes form
+# a green/teal ramp. NHL was moved off green (was #1b7837) because it read too
+# close to DLBCL. All series are drawn as SOLID lines (the earlier dashed
+# subtypes clashed with the observed-data points); the headline/subtype
+# distinction is carried by colour plus line weight (see lymphoma_lwd).
 line_colours <- c(
-  "HL"    = "#762a83",
-  "NHL"   = "#1b7837",
-  "DLBCL" = "#4dac26",
-  "FL"    = "#b8e186",
-  "MCL"   = "#80cdc1"
+  "HL"    = "#762a83",  # purple   - headline
+  "NHL"   = "#d95f02",  # orange   - headline
+  "DLBCL" = "#1b7837",  # dark green  - NHL subtype
+  "FL"    = "#7fbc41",  # mid green   - NHL subtype
+  "MCL"   = "#80cdc1"   # light teal  - NHL subtype
 )
 line_types <- c(
   "HL" = "solid", "NHL" = "solid",
-  "DLBCL" = "dashed", "FL" = "dashed", "MCL" = "dashed"
+  "DLBCL" = "solid", "FL" = "solid", "MCL" = "solid"
 )
+# Line weights: headline series slightly heavier than the subtypes they contain.
+lymphoma_lwd <- c(headline = 1.0, decomposition = 0.7)
 label_map <- c(
   hodgkin = "HL",  nhl = "NHL",
   dlbcl   = "DLBCL", follicular = "FL", mantle_cell = "MCL"
@@ -152,6 +160,51 @@ make_text_grob <- function(txt, fontsize = 12, fontface = "plain") {
 }
 make_spacer <- function() {
   grid::rectGrob(gp = grid::gpar(col = NA, fill = NA))
+}
+
+# ----------------------
+# Shared lymphoma legend (Figures 1, 2, 3 and SI S3c-S3e)
+# ----------------------
+# One legend used by every lymphoma figure, so they render identically and the
+# panels align. Lists ONLY the five lymphomas with their colour and (solid)
+# line style, headline series first, with the headline lines drawn heavier.
+# Deliberately has no surrounding box and no entry for the AIHW points or the
+# credible-interval band - those are explained in the .docx figure captions.
+# `attach_lymphoma_legend(p)` returns the plot with the legend beneath it.
+
+.LYMPHOMA_LEGEND_ORDER <- c("HL", "NHL", "DLBCL", "FL", "MCL")
+
+make_lymphoma_legend <- function(labels = .LYMPHOMA_LEGEND_ORDER) {
+  seg_w     <- grid::unit(0.7, "cm")
+  gap       <- grid::unit(0.1, "cm")
+  big_gap   <- grid::unit(0.5, "cm")
+  label_gap <- grid::unit(0.25, "cm")
+  grobs <- list(); widths <- NULL
+  for (i in seq_along(labels)) {
+    lab <- labels[i]
+    tier <- if (lab %in% c("HL", "NHL")) "headline" else "decomposition"
+    if (i > 1) {
+      sep <- if (lab == "DLBCL" || labels[i - 1] %in% c("HL", "NHL")) big_gap else label_gap
+      grobs  <- c(grobs, list(make_spacer()))
+      widths <- grid::unit.c(widths, sep)
+    }
+    grobs  <- c(grobs, list(
+      make_line_grob(line_colours[[lab]], lty = "solid",
+                     lwd = unname(lymphoma_lwd[tier]) * 2.6),
+      make_spacer(), make_text_grob(lab)))
+    w <- grid::unit.c(seg_w, gap, grid::stringWidth(lab))
+    widths <- if (is.null(widths)) w else grid::unit.c(widths, w)
+  }
+  gtable::gtable_row("legend", grobs = grobs, widths = widths,
+                     height = grid::unit(0.7, "cm"))
+}
+
+attach_lymphoma_legend <- function(p, rel_legend = 0.06) {
+  legend_centred <- cowplot::ggdraw() +
+    cowplot::draw_grob(make_lymphoma_legend(), x = 0.5, y = 0.5,
+                       hjust = 0.5, vjust = 0.5)
+  cowplot::plot_grid(p, legend_centred, ncol = 1,
+                     rel_heights = c(1, rel_legend))
 }
 
 # ----------------------

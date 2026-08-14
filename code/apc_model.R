@@ -564,32 +564,38 @@ build_figure_1 <- function(proj_annual, fitted_annual, hist_annual, aihw_proj_df
     dplyr::filter(!is.na(subtype)) |>
     dplyr::mutate(label = .lab(subtype))
 
-  # One legend keyed on lymphoma showing both colour AND line style (solid for
-  # headline HL/NHL, dashed for the subtypes); colour + linetype scales share
-  # the `label` mapping so ggplot merges them. Observed points, AIHW triangles
-  # and the ribbon are kept out of the legend (show.legend = FALSE). No in-image
-  # caption — the solid/dashed key, AIHW and CrI are explained in the .docx caption.
-  lty_vals <- c(HL = "solid", NHL = "solid", DLBCL = "22", FL = "22", MCL = "22")
-  ggplot(model_line, aes(year, colour = label)) +
+  # All series drawn SOLID (dashed subtypes clashed with the observed points);
+  # headline HL/NHL carry a heavier weight than the subtypes they contain.
+  # Observed points and AIHW markers are solid-filled. The legend is the shared,
+  # box-free lymphoma legend used by Figures 2/3 (see _setup.R), so the three
+  # main figures render identically; AIHW markers and the CrI band are explained
+  # in the .docx caption rather than the legend.
+  p <- ggplot(model_line, aes(year, colour = label)) +
     geom_ribbon(data = ~ dplyr::filter(.x, year > hist_end),
                 aes(ymin = asr_p025, ymax = asr_p975, fill = label),
                 alpha = 0.15, colour = NA, show.legend = FALSE) +
-    geom_point(data = obs, aes(year, asr_obs), size = 0.6, alpha = 0.45,
-               show.legend = FALSE) +
-    geom_line(aes(y = asr, linetype = label), linewidth = 0.8) +
-    geom_point(data = aihw_proj, aes(year, asr_2001), shape = 2,
-               size = 1.3, stroke = 0.5, show.legend = FALSE) +
+    geom_point(data = obs, aes(year, asr_obs), shape = 16, size = 0.7,
+               alpha = 0.55, show.legend = FALSE) +
+    geom_line(data = ~ dplyr::filter(.x, tier == "decomposition"),
+              aes(y = asr), linewidth = unname(lymphoma_lwd["decomposition"]),
+              show.legend = FALSE) +
+    geom_line(data = ~ dplyr::filter(.x, tier == "headline"),
+              aes(y = asr), linewidth = unname(lymphoma_lwd["headline"]),
+              show.legend = FALSE) +
+    geom_point(data = aihw_proj, aes(year, asr_2001), shape = 17,
+               size = 1.5, show.legend = FALSE) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey50", linewidth = 0.4) +
     facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
-    scale_colour_manual(values = line_colours, name = NULL) +
-    scale_fill_manual(values = line_colours, guide = "none") +
-    scale_linetype_manual(values = lty_vals, name = NULL) +
+    scale_colour_manual(values = line_colours) +
+    scale_fill_manual(values = line_colours) +
     labs(x = "Year", y = "Age-standardised rate (per 100,000)") +
     theme_bw(base_size = 13) +
-    theme(legend.position  = "bottom",
+    theme(legend.position  = "none",
           panel.grid.minor = element_blank(),
           plot.background  = element_rect(colour = NA, fill = NA))
+
+  attach_lymphoma_legend(p)
 }
 
 # ----------------------

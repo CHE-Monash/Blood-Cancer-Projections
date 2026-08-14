@@ -474,11 +474,13 @@ build_figure_survival_trend <- function(surv_obs, improvement_final,
   ggplot(trend, aes(dx_year, surv, colour = subtype_label)) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey60", linewidth = 0.3) +
-    geom_line(aes(linetype = tier), linewidth = 0.8) +
+    # All solid (matching Figures 1-3); headline HL/NHL drawn heavier.
+    geom_line(data = ~ filter(.x, tier == "decomposition"),
+              linewidth = unname(lymphoma_lwd["decomposition"])) +
+    geom_line(data = ~ filter(.x, tier == "headline"),
+              linewidth = unname(lymphoma_lwd["headline"])) +
     facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
     scale_colour_manual(values = line_colours, name = NULL) +
-    scale_linetype_manual(values = c(headline = "solid", decomposition = "22"),
-                          guide = "none") +
     scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
     labs(x = "Year of diagnosis", y = "Observed survival (case-weighted)") +
     theme_bw(base_size = 13) +
