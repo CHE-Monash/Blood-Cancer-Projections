@@ -574,8 +574,8 @@ build_figure_1 <- function(proj_annual, fitted_annual, hist_annual, aihw_proj_df
     geom_ribbon(data = ~ dplyr::filter(.x, year > hist_end),
                 aes(ymin = asr_p025, ymax = asr_p975, fill = label),
                 alpha = 0.15, colour = NA, show.legend = FALSE) +
-    geom_point(data = obs, aes(year, asr_obs), shape = 16, size = 0.7,
-               alpha = 0.55, show.legend = FALSE) +
+    geom_point(data = obs, aes(year, asr_obs), shape = 16, size = 1.2,
+               show.legend = FALSE) +
     geom_line(data = ~ dplyr::filter(.x, tier == "decomposition"),
               aes(y = asr), linewidth = unname(lymphoma_lwd["decomposition"]),
               show.legend = FALSE) +
@@ -731,8 +731,10 @@ run_apc_model <- function(B = 1000,
 
   # 8. Render Figure 1
   fig1 <- build_figure_1(proj_annual, fitted_annual, hist_annual, aihw_proj)
+  # Same canvas as Figures 2 and 3 (prev_model.R) so the three main figures
+  # share one aspect ratio and sit at the same width in the manuscript.
   save_fig(fig1, file.path(save_dir, "figure_1_combined_projections"),
-           width = 11, height = 6.5)
+           width = 12, height = 6.5)
 
   # 9. Save the augmented apc_results object for downstream consumers
   saveRDS(results, file.path(save_dir, "apc_results.rds"), compress = "xz")
