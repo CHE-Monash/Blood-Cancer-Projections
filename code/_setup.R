@@ -77,15 +77,14 @@ SURV_FLOOR <- 1e-6    # floor for S(3) when computing cond = sqrt(S(5)/S(3))
 # ----------------------
 # Visual constants (colours, labels, line types)
 # ----------------------
-# Lymphoma colours. The two headline series are visually separated from the
-# NHL-subtype family: HL purple, aggregate NHL orange; the three subtypes form
-# a green/teal ramp. NHL was moved off green (was #1b7837) because it read too
-# close to DLBCL. All series are drawn as SOLID lines (the earlier dashed
-# subtypes clashed with the observed-data points); the headline/subtype
-# distinction is carried by colour plus line weight (see lymphoma_lwd).
+# Lymphoma colours. HL purple and aggregate NHL navy; the three NHL subtypes
+# form a green/teal ramp. NHL was moved off green (was #1b7837) because it read
+# too close to DLBCL. Every series is drawn as a SOLID line of the SAME weight:
+# the figures do not try to encode the aggregate/subtype relationship visually
+# (that comes from the text), they only distinguish the five lymphomas.
 line_colours <- c(
-  "HL"    = "#762a83",  # purple   - headline
-  "NHL"   = "#d95f02",  # orange   - headline
+  "HL"    = "#762a83",  # purple
+  "NHL"   = "#08306b",  # navy
   "DLBCL" = "#1b7837",  # dark green  - NHL subtype
   "FL"    = "#7fbc41",  # mid green   - NHL subtype
   "MCL"   = "#80cdc1"   # light teal  - NHL subtype
@@ -94,8 +93,9 @@ line_types <- c(
   "HL" = "solid", "NHL" = "solid",
   "DLBCL" = "solid", "FL" = "solid", "MCL" = "solid"
 )
-# Line weights: headline series slightly heavier than the subtypes they contain.
-lymphoma_lwd <- c(headline = 1.0, decomposition = 0.7)
+# Uniform line weight for all lymphomas. The tier names are retained only to
+# control draw order (aggregate series drawn last, so they sit on top).
+lymphoma_lwd <- c(headline = 0.8, decomposition = 0.8)
 label_map <- c(
   hodgkin = "HL",  nhl = "NHL",
   dlbcl   = "DLBCL", follicular = "FL", mantle_cell = "MCL"
@@ -166,10 +166,10 @@ make_spacer <- function() {
 # Shared lymphoma legend (Figures 1, 2, 3 and SI S3c-S3e)
 # ----------------------
 # One legend used by every lymphoma figure, so they render identically and the
-# panels align. Lists ONLY the five lymphomas with their colour and (solid)
-# line style, headline series first, with the headline lines drawn heavier.
-# Deliberately has no surrounding box and no entry for the AIHW points or the
-# credible-interval band - those are explained in the .docx figure captions.
+# panels align. Lists ONLY the five lymphomas with their colour, drawn as solid
+# lines of uniform weight. Deliberately has no surrounding box and no entry for
+# the AIHW points or the credible-interval band - those are explained in the
+# .docx figure captions.
 # `attach_lymphoma_legend(p)` returns the plot with the legend beneath it.
 
 .LYMPHOMA_LEGEND_ORDER <- c("HL", "NHL", "DLBCL", "FL", "MCL")
