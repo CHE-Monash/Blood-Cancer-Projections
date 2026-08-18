@@ -196,13 +196,13 @@ Specific source tables are referenced in the manuscript Methods and Supporting I
 | File | Sheet | Provides |
 |------|-------|----------|
 | `CDiA-2025-Book-1a-Cancer-incidence-age-standardised-rates-5-year-age-groups.xlsx` | Table S1a.1 | Aggregate NHL and HL incidence, 1982–2021 |
+| `CDiA-2025-Book-1e-Long-term-cancer-incidence-projections.xlsx` | Table S1e.1 | AIHW published incidence projections (comparison) |
+| `CDiA-2025-Book-6-Cancer-prevalence.xlsx` | Table S6.2 | Aggregate NHL/HL prevalence (validation) |
 | `CDiA-2025-Book-11a-Blood-cancer-incidence-by-histology-main-framework.xlsx` | Table S11a.1 | NHL-subtype incidence, 2003–2021 |
 | `CDiA-2025-Book-11e-Blood-cancer-survival-and-age-group-proportions-by-histology-main-framework.xlsx` | Table S11e.1 | NHL-subtype and HL survival |
 | `CDiA-2025-Book-11f1-Part1-Blood-cancer-survival-by-histology-ICD10-framework-10-year-age-groups.xlsx` | Table S11f.1 | Aggregate NHL survival (part 1) |
 | `CDiA-2025-Book-11f1-Part2-Blood-cancer-survival-by-histology-ICD10-framework-10-year-age-groups.xlsx` | Table S11f.1 | Aggregate NHL survival (part 2) |
-| `CDiA-2025-Book-6-Cancer-prevalence.xlsx` | Table S6.2 | Aggregate NHL/HL prevalence (validation) |
 | `CDiA-2025-Book-11i-Blood-cancer-prevalence-main-framework.xlsx` | Table S11i.1 | NHL-subtype prevalence (validation) |
-| `CDiA-2025-Book-1e-Long-term-cancer-incidence-projections.xlsx` | Table S1e.1 | AIHW published incidence projections (comparison) |
 
 **ABS**, placed in `data/raw/ABS/`:
 
@@ -211,7 +211,7 @@ Specific source tables are referenced in the manuscript Methods and Supporting I
 | `3222_Table_B9.xlsx` — Population Projections, Australia (cat. 3222.0), Table B9, Series B (medium growth) | Data1 | Projected population, 2022–2050 |
 | `3101059.xlsx` — National, State and Territory Population (cat. 3101.0), Table 59 | Data1 | Historical population, 1982–2021 |
 
-Any other CDiA-2025 books that happen to be in `data/raw/` are not read by `import_data.R` and are not required. (The committed CSVs in `data/` already contain these processed inputs, so the pipeline runs without the raw workbooks; the list above is only needed to rebuild those CSVs from source.)
+The committed CSVs in `data/` already contain these processed inputs, so the pipeline runs without the raw workbooks; the list above is only needed to rebuild those CSVs from source.
 
 ## What is and is not in this repository
 
