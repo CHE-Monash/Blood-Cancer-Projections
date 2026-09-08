@@ -1,0 +1,294 @@
+---
+title: "Australian lymphoma projections"
+author: "Centre for Health Economics, Monash University"
+format: dashboard
+---
+
+```{ojs}
+//| output: false
+
+dashboard_data = FileAttachment("data/lymphoma-dashboard-data.csv")
+  .csv({typed: true})
+
+measure_order = [
+  "Incidence (cases)",
+  "Incidence (age-standardised rate)",
+  "Prevalence (people)"
+]
+
+diagnosis_order = [
+  "total",
+  "hodgkin",
+  "nhl",
+  "dlbcl",
+  "follicular",
+  "mantle_cell"
+]
+
+sex_order = ["Persons", "Females", "Males"]
+
+measure_values = measure_order.filter(value =>
+  dashboard_data.some(row => row.measure === value)
+)
+
+diagnosis_values = diagnosis_order.filter(value =>
+  dashboard_data.some(row =>
+    row.measure === measure && row.diagnosis_code === value
+  )
+)
+
+sex_values = sex_order.filter(value =>
+  dashboard_data.some(row =>
+    row.measure === measure &&
+    row.diagnosis_code === diagnosis_code &&
+    row.sex === value
+  )
+)
+
+duration_values = measure === "Prevalence (people)"
+  ? [2, 3, 5, 10, 40].filter(value =>
+      dashboard_data.some(row =>
+        row.measure === measure &&
+        row.diagnosis_code === diagnosis_code &&
+        row.sex === sex &&
+        row.duration_years === value
+      )
+    )
+  : ["Not applicable"]
+
+selected_data = dashboard_data.filter(row =>
+  row.measure === measure &&
+  row.diagnosis_code === diagnosis_code &&
+  row.sex === sex &&
+  (measure !== "Prevalence (people)" || row.duration_years === duration_years)
+)
+
+baseline = selected_data.find(row => row.year === 2021)
+horizon = selected_data.find(row => row.year === 2045)
+
+format_estimate = value => {
+  if (value === null || value === undefined || Number.isNaN(value)) return "Not available"
+  return measure === "Incidence (age-standardised rate)"
+    ? value.toFixed(1)
+    : Math.round(value).toLocaleString("en-AU")
+}
+
+change_to_horizon = baseline && horizon
+  ? ((horizon.estimate / baseline.estimate) - 1) * 100
+  : null
+
+chart_title = measure === "Prevalence (people)"
+  ? `${baseline?.diagnosis ?? "Selected lymphoma"}, ${duration_years}-year prevalence, ${sex.toLowerCase()}`
+  : `${baseline?.diagnosis ?? "Selected lymphoma"}, ${measure.toLowerCase()}, ${sex.toLowerCase()}`
+
+y_label = selected_data.length > 0 ? selected_data[0].unit : "Estimate"
+
+pre_projection = selected_data.filter(row => row.period !== "Projected")
+projection = selected_data.filter(row => row.period === "Projected")
+projection_interval = projection.filter(row =>
+  row.lower !== null && row.upper !== null
+)
+
+table_data = selected_data.map(row => ({
+  Year: row.year,
+  Period: row.period,
+  Estimate: measure === "Incidence (age-standardised rate)"
+    ? row.estimate.toFixed(1)
+    : Math.round(row.estimate).toLocaleString("en-AU"),
+  "Lower 95% CrI": row.lower === null
+    ? ""
+    : (measure === "Incidence (age-standardised rate)"
+        ? row.lower.toFixed(1)
+        : Math.round(row.lower).toLocaleString("en-AU")),
+  "Upper 95% CrI": row.upper === null
+    ? ""
+    : (measure === "Incidence (age-standardised rate)"
+        ? row.upper.toFixed(1)
+        : Math.round(row.upper).toLocaleString("en-AU"))
+}))
+```
+
+# {.sidebar}
+
+<div class="review-badge">Draft dashboard for review</div>
+
+Use the controls to explore the results reported by the lymphoma projections study.
+
+```{ojs}
+viewof measure = Inputs.select(measure_values, {
+  value: "Incidence (cases)",
+  label: "Measure"
+})
+
+viewof diagnosis_code = Inputs.select(diagnosis_values, {
+  value: diagnosis_values.includes("total") ? "total" : diagnosis_values[0],
+  label: "Lymphoma",
+  format: value => dashboard_data.find(row => row.diagnosis_code === value)?.diagnosis ?? value
+})
+
+viewof sex = Inputs.select(sex_values, {
+  value: sex_values.includes("Persons") ? "Persons" : sex_values[0],
+  label: "Sex"
+})
+
+viewof duration_years = Inputs.select(duration_values, {
+  value: duration_values.includes(5) ? 5 : duration_values[0],
+  label: "Prevalence duration"
+})
+```
+
+The three NHL subtypes are a subset of aggregate NHL and should not be added to it. Total lymphoma is HL plus aggregate NHL.
+
+<a class="dashboard-download" href="data/lymphoma-dashboard-data.csv" download>Download all dashboard data</a>
+
+<div class="dashboard-logos" role="group" aria-label="Organisation and programme logos">
+  <img src="assets/logos/monash-university.svg" alt="Monash University" class="logo-monash">
+  <img src="assets/logos/epimap-lymphoma.png" alt="EpiMAP Lymphoma" class="logo-epimap">
+  <img src="assets/logos/cancer-council-victoria-government.jpg" alt="Cancer Council Victoria and Victoria State Government" class="logo-supporters">
+</div>
+
+# Explore
+
+## Row {height="24%"}
+
+```{ojs}
+html`<div class="summary-grid" role="status" aria-live="polite">
+  <div class="summary-card">
+    <span class="summary-label">2021 baseline</span>
+    <strong>${format_estimate(baseline?.estimate)}</strong>
+    <span>${y_label}</span>
+  </div>
+  <div class="summary-card summary-card-accent">
+    <span class="summary-label">2045 projection</span>
+    <strong>${format_estimate(horizon?.estimate)}</strong>
+    <span>${horizon?.lower == null ? y_label : `95% CrI ${format_estimate(horizon.lower)} to ${format_estimate(horizon.upper)}`}</span>
+  </div>
+  <div class="summary-card">
+    <span class="summary-label">Change, 2021 to 2045</span>
+    <strong>${change_to_horizon == null ? "Not available" : `${change_to_horizon >= 0 ? "+" : ""}${change_to_horizon.toFixed(1)}%`}</strong>
+    <span>modelled change in the selected measure</span>
+  </div>
+</div>`
+```
+
+## Row {height="76%"}
+
+### Trend to 2045
+
+```{ojs}
+Plot.plot({
+  // Plot applies max-width: 100%, so this scales down with the dashboard
+  // while avoiding Quarto's unavailable layoutWidth value.
+  width: 1280,
+  height: 500,
+  marginLeft: 72,
+  marginBottom: 52,
+  title: chart_title,
+  subtitle: "The shaded band is the 95% credible interval for projected results.",
+  x: {
+    label: "Year",
+    tickFormat: "d",
+    ticks: 8
+  },
+  y: {
+    label: y_label,
+    grid: true,
+    zero: true,
+    nice: true
+  },
+  marks: [
+    Plot.areaY(projection_interval, {
+      x: "year",
+      y1: "lower",
+      y2: "upper",
+      fill: "#007a78",
+      fillOpacity: 0.16
+    }),
+    Plot.lineY(pre_projection, {
+      x: "year",
+      y: "estimate",
+      stroke: "#243447",
+      strokeWidth: 2.2
+    }),
+    Plot.dotY(pre_projection, {
+      x: "year",
+      y: "estimate",
+      fill: "#243447",
+      r: 2.2,
+      tip: true
+    }),
+    Plot.lineY(projection, {
+      x: "year",
+      y: "estimate",
+      stroke: "#007a78",
+      strokeWidth: 3
+    }),
+    Plot.ruleX([2021.5], {
+      stroke: "#7a8793",
+      strokeDasharray: "5,4"
+    }),
+    Plot.text([{year: 2022, estimate: 0, label: "Projection"}], {
+      x: "year",
+      y: "estimate",
+      text: "label",
+      dy: -12,
+      textAnchor: "start",
+      fill: "#52606d",
+      fontSize: 12
+    })
+  ]
+})
+```
+
+# Data
+
+## Row {height="74%"}
+
+### Selected results
+
+```{ojs}
+Inputs.table(table_data, {
+  rows: 34,
+  sort: "Year",
+  reverse: false,
+  layout: "auto"
+})
+```
+
+## Row {height="26%"}
+
+::: {.card}
+### Download and definitions
+
+The complete release behind this dashboard is available as [CSV](data/lymphoma-dashboard-data.csv). Its [data dictionary](data/data-dictionary.csv) defines every column. The displayed table follows the filters in the sidebar.
+
+Counts and prevalence are displayed as whole people. Age-standardised incidence rates are shown per 100,000 population. Downloaded values retain the underlying numerical precision.
+:::
+
+# About
+
+## Row
+
+::: {.card}
+### What this dashboard reports
+
+This dashboard presents Australian lymphoma incidence and prevalence estimates and projections to 2045. The headline tier contains Hodgkin lymphoma and aggregate non-Hodgkin lymphoma; together they form total lymphoma. DLBCL, follicular lymphoma and mantle cell lymphoma form a clinical decomposition of aggregate NHL and do not sum to the aggregate total.
+
+Observed incidence ends in 2021. Prevalence for 2012–2021 is estimated using the study's modified counting method. Results from 2022 onwards are projections. Modelled uncertainty is reported using 95% credible intervals.
+:::
+
+::: {.card}
+### Methods and status
+
+Incidence was modelled using age–period–cohort models. Prevalence combined modelled incidence with observed survival and was estimated for 2-, 3-, 5-, 10- and 40-year durations. Full methods, validation and assumptions are documented in the accompanying manuscript and repository.
+
+**Review status:** this is a draft dissemination product. It should not be described as the published version until the analysis, manuscript citation, data release and disclosure review are final.
+:::
+
+::: {.card}
+### Source and citation
+
+Source data were derived from published Australian Institute of Health and Welfare and Australian Bureau of Statistics tables. The analysis code and full reproduction instructions are available in the [Blood Cancer Projections repository](https://github.com/CHE-Monash/Blood-Cancer-Projections).
+
+The final paper citation and archived data DOI will be added when available.
+:::

@@ -1,0 +1,25 @@
+project:
+  type: default
+  output-dir: _site
+
+title: "Australian lymphoma projections"
+author: "Centre for Health Economics, Monash University"
+
+format:
+  dashboard:
+    theme: cosmo
+    css: styles.css
+    orientation: rows
+    scrolling: true
+    nav-buttons:
+      - icon: github
+        href: https://github.com/CHE-Monash/Blood-Cancer-Projections
+        aria-label: View the analysis repository on GitHub
+
+resources:
+  - assets/logos/**
+  - data/lymphoma-dashboard-data.csv
+  - data/data-dictionary.csv
+
+execute:
+  freeze: auto
