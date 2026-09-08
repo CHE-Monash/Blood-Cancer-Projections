@@ -20,7 +20,7 @@ proj_start    <- 2022    # first projection year
 proj_end      <- 2045    # last projection year
 agg_start     <- 1990    # aggregate-tier APC fit start (NHL, HL); see below
 subtype_start <- 2003    # subtype-tier APC fit start (DLBCL, FL, MCL)
-# agg_start selected by the start-year sensitivity (code/start_year_sensitivity.R;
+# agg_start selected by the start-year sensitivity (code/supporting/start_year_sensitivity.R;
 # _notes.md "Start-year selection"). Observed incidence runs from 1982, but fitting
 # the aggregate tier from 1990 markedly improves out-of-sample validation (NHL 2021
 # holdout endpoint bias falls from ~+13% to ~+2%) by excluding the transient pre-1990
@@ -30,7 +30,7 @@ subtype_start <- 2003    # subtype-tier APC fit start (DLBCL, FL, MCL)
 # prep_agg_data() and prep_subtype_data() filter P >= these starts.
 
 # APC natural-cubic-spline knot counts (age, period, cohort), selected by
-# out-of-sample holdout error + parsimony (see code/knot_selection.R and
+# out-of-sample holdout error + parsimony (see code/supporting/knot_selection.R and
 # _notes.md "Knot selection"). The aggregate tier retains the Epi default
 # (5,5,5), which the holdout confirmed as near-optimal; the shorter subtype
 # series generalises out-of-sample with fewer AGE knots (4 vs 5) — this
@@ -100,12 +100,20 @@ label_map <- c(
   hodgkin = "HL",  nhl = "NHL",
   dlbcl   = "DLBCL", follicular = "FL", mantle_cell = "MCL"
 )
+# Panel-strip labels for the SI figures. "(aggregate)" was dropped from NHL on
+# 2026-09-07 (QL, round 1: misleading) so every panel strip in the manuscript
+# and the SI reads the same as the tables.
 subtype_labels <- c(
-  nhl = "NHL (aggregate)", hodgkin = "HL",
+  nhl = "NHL", hodgkin = "HL",
   dlbcl = "DLBCL", follicular = "FL", mantle_cell = "MCL"
 )
 sex_labels  <- c(males = "Males", females = "Females")
 sex_colours <- c(males = "#2166ac", females = "#b2182b")
+# Keyed by the display labels used on the re-panelled figures, where the facet
+# strip carries the lymphoma and colour carries the sex (see the figure-key
+# section below).
+sex_fig_colours <- c(Females = unname(sex_colours[["females"]]),
+                     Males   = unname(sex_colours[["males"]]))
 scenario_colours <- c(
   conservative = "#d95f02",
   base         = "#1b9e77",
@@ -163,48 +171,120 @@ make_spacer <- function() {
 }
 
 # ----------------------
-# Shared lymphoma legend (Figures 1, 2, 3 and SI S3c-S3e)
+# Shared canvas for the re-panelled lymphoma figures
 # ----------------------
-# One legend used by every lymphoma figure, so they render identically and the
-# panels align. Lists ONLY the five lymphomas with their colour, drawn as solid
-# lines of uniform weight. Deliberately has no surrounding box and no entry for
-# the AIHW points or the credible-interval band - those are explained in the
-# .docx figure captions.
-# `attach_lymphoma_legend(p)` returns the plot with the legend beneath it.
+# Portrait 3x2 (five lymphoma panels plus the key in the sixth cell). Fits
+# the text width of both .docx files without a landscape section break, and
+# matches the canvas S1-S3 already use.
+fig_panel_w <- 7.5   # inches
+fig_panel_h <- 9.5   # inches
 
-.LYMPHOMA_LEGEND_ORDER <- c("HL", "NHL", "DLBCL", "FL", "MCL")
+# ----------------------
+# Shared figure key (Figures 1-3 and SI S1-S3, S7-S11)
+# ----------------------
+# Every lymphoma figure panels by LYMPHOMA and separates the sexes by colour
+# (round 3, QL: the per-cancer view of each trend matters more in the figures
+# than a cross-cancer comparison of level, which the tables carry). Five
+# lymphomas in a two-column facet leave an empty sixth cell, and that cell
+# carries the whole key - sexes, credible band, observed and AIHW markers, the
+# projection-start rule - so the .docx captions no longer have to define them.
+#
+# The key is built from grid grobs and placed directly into the empty panel cell
+# of the ggplot gtable, so its position is derived from the layout rather than
+# guessed in npc, and nothing depends on ggplot2's own legend placement (which
+# changed to legend.position.inside at 3.5.0).
+#
+# `key_line()` / `key_band()` / `key_point()` build entries;
+# `attach_figure_key(p, entries)` returns the plot with the key in place.
+#
+# Replaces make_lymphoma_legend() / attach_lymphoma_legend(), retired 2026-09-07
+# with the re-panel: colour now encodes sex, and the lymphoma is named by the
+# facet strip, so a five-lymphoma legend no longer has anything to say.
 
-make_lymphoma_legend <- function(labels = .LYMPHOMA_LEGEND_ORDER) {
-  seg_w     <- grid::unit(0.7, "cm")
-  gap       <- grid::unit(0.1, "cm")
-  big_gap   <- grid::unit(0.5, "cm")
-  label_gap <- grid::unit(0.25, "cm")
-  grobs <- list(); widths <- NULL
-  for (i in seq_along(labels)) {
-    lab <- labels[i]
-    tier <- if (lab %in% c("HL", "NHL")) "headline" else "decomposition"
-    if (i > 1) {
-      sep <- if (lab == "DLBCL" || labels[i - 1] %in% c("HL", "NHL")) big_gap else label_gap
-      grobs  <- c(grobs, list(make_spacer()))
-      widths <- grid::unit.c(widths, sep)
-    }
-    grobs  <- c(grobs, list(
-      make_line_grob(line_colours[[lab]], lty = "solid",
-                     lwd = unname(lymphoma_lwd[tier]) * 2.6),
-      make_spacer(), make_text_grob(lab)))
-    w <- grid::unit.c(seg_w, gap, grid::stringWidth(lab))
-    widths <- if (is.null(widths)) w else grid::unit.c(widths, w)
-  }
-  gtable::gtable_row("legend", grobs = grobs, widths = widths,
-                     height = grid::unit(0.7, "cm"))
+key_line <- function(label, colour, lty = "solid", lwd = 2.4) {
+  list(label = label, grob = make_line_grob(colour, lty = lty, lwd = lwd))
+}
+key_point <- function(label, colour = "grey25", pch = 16, size = 0.6) {
+  list(label = label, grob = make_point_grob(colour = colour, pch = pch,
+                                             size = size))
+}
+key_band <- function(label, colour = "grey25", alpha = 0.15, lwd = 2.4) {
+  list(label = label,
+       grob  = grid::grobTree(
+         grid::rectGrob(width = 0.9, height = 0.55,
+                        gp = grid::gpar(col = NA, fill = colour, alpha = alpha)),
+         make_line_grob(colour, lwd = lwd)))
 }
 
-attach_lymphoma_legend <- function(p, rel_legend = 0.06) {
-  legend_centred <- cowplot::ggdraw() +
-    cowplot::draw_grob(make_lymphoma_legend(), x = 0.5, y = 0.5,
-                       hjust = 0.5, vjust = 0.5)
-  cowplot::plot_grid(p, legend_centred, ncol = 1,
-                     rel_heights = c(1, rel_legend))
+# Keep labels short: the key is centred in one panel cell (about half the
+# figure width), and clip = "off" means an over-long label runs off the
+# canvas rather than wrapping. About 30 characters is the practical limit at
+# fontsize 12 on the 7.5 in canvas.
+make_figure_key <- function(entries, fontsize = 12, row_height = 0.62) {
+  labs  <- vapply(entries, `[[`, character(1), "label")
+  lab_w <- max(do.call(grid::unit.c, lapply(labs, grid::stringWidth)))
+  n     <- length(entries)
+  # The outer null rows/columns centre the key within the empty panel cell.
+  g <- gtable::gtable(
+    widths  = grid::unit.c(grid::unit(1, "null"), grid::unit(0.9, "cm"),
+                           grid::unit(0.3, "cm"), lab_w, grid::unit(1, "null")),
+    heights = grid::unit.c(grid::unit(1, "null"),
+                           grid::unit(rep(row_height, n), "cm"),
+                           grid::unit(1, "null")))
+  for (i in seq_len(n)) {
+    g <- gtable::gtable_add_grob(g, entries[[i]]$grob, t = i + 1L, l = 2L,
+                                 name = paste0("key-sym-", i))
+    g <- gtable::gtable_add_grob(g, make_text_grob(labs[i], fontsize = fontsize),
+                                 t = i + 1L, l = 4L,
+                                 name = paste0("key-lab-", i))
+  }
+  g
+}
+
+attach_figure_key <- function(p, entries) {
+  g   <- ggplot2::ggplotGrob(p)
+  idx <- which(grepl("^panel", g$layout$name))
+  # An odd facet count leaves one panel cell empty. ggplot2 keeps that cell in
+  # the layout with a zeroGrob in it (3.4.x); if a future version drops the cell
+  # instead, fall back to the bottom-right position.
+  empty <- idx[vapply(g$grobs[idx], inherits, logical(1), "zeroGrob")]
+  if (length(empty) >= 1L) {
+    t_key <- g$layout$t[empty[1]]
+    l_key <- g$layout$l[empty[1]]
+  } else {
+    t_key <- max(g$layout$t[idx])
+    l_key <- max(g$layout$l[idx])
+    if (any(g$layout$t[idx] == t_key & g$layout$l[idx] == l_key)) {
+      warning("attach_figure_key(): no empty panel cell, key not drawn")
+      out <- cowplot::ggdraw(g)
+      # The composed object is a new ggplot whose $data is empty; keep the
+      # plot that was keyed reachable so tests can inspect what was drawn
+      # (code/_tests.R Test S4). An attribute does not affect rendering.
+      attr(out, "source_plot") <- p
+      return(out)
+    }
+  }
+  g <- gtable::gtable_add_grob(g, make_figure_key(entries),
+                               t = t_key, l = l_key,
+                               name = "figure-key", clip = "off")
+  # An explicit white background. Figures 1-3 previously saved with a
+  # transparent one (plot.background fill = NA through cowplot::ggdraw), which
+  # Word hides but a journal production system may composite onto black; the SI
+  # effect figures saved white, so the set was inconsistent. Set here so every
+  # figure that carries the key is white by construction.
+  out <- cowplot::ggdraw(g) +
+    ggplot2::theme(plot.background =
+                     ggplot2::element_rect(fill = "white", colour = NA))
+  # See the early return above: expose the keyed plot for the test harness.
+  attr(out, "source_plot") <- p
+  out
+}
+
+# Standard key entries. `sex_key()` is the two-line sex key every re-panelled
+# figure opens with; the rest are appended per figure as that figure needs them.
+sex_key <- function() {
+  list(key_line("Females", sex_colours[["females"]]),
+       key_line("Males",   sex_colours[["males"]]))
 }
 
 # ----------------------

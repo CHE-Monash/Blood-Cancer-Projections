@@ -13,6 +13,10 @@ output/apc_results.rds
 .Rproj.user/
 *.Rproj
 
+# Quarto dashboard build artefacts
+dashboard/.quarto/
+dashboard/_site/
+
 # OS
 .DS_Store
 Thumbs.db
@@ -21,3 +25,6 @@ Thumbs.db
 # not part of the published reproducible pipeline.
 _archive/
 *-brief.md
+
+# Default R graphics device scratch output (written by any interactive session)
+Rplots.pdf

@@ -564,38 +564,51 @@ build_figure_1 <- function(proj_annual, fitted_annual, hist_annual, aihw_proj_df
     dplyr::filter(!is.na(subtype)) |>
     dplyr::mutate(label = .lab(subtype))
 
-  # All series drawn SOLID (dashed subtypes clashed with the observed points);
-  # headline HL/NHL carry a heavier weight than the subtypes they contain.
-  # Observed points and AIHW markers are solid-filled. The legend is the shared,
-  # box-free lymphoma legend used by Figures 2/3 (see _setup.R), so the three
-  # main figures render identically; AIHW markers and the CrI band are explained
-  # in the .docx caption rather than the legend.
-  p <- ggplot(model_line, aes(year, colour = label)) +
+  # Panelled by LYMPHOMA (3x2, free y-scales anchored at zero), sexes separated
+  # by colour, with the shared key in the empty sixth cell - see the figure-key
+  # section of _setup.R. Free scales are deliberate: panel heights are not
+  # comparable across lymphomas, and Table 1 carries that comparison.
+  .sexlab <- function(d) dplyr::mutate(
+    d, sex_lab = factor(sex_labels[sex], levels = c("Females", "Males")))
+  model_line <- .sexlab(model_line)
+  obs        <- .sexlab(obs)
+  aihw_proj  <- .sexlab(aihw_proj)
+
+  p <- ggplot(model_line, aes(year, colour = sex_lab, fill = sex_lab)) +
     geom_ribbon(data = ~ dplyr::filter(.x, year > hist_end),
-                aes(ymin = asr_p025, ymax = asr_p975, fill = label),
+                aes(ymin = asr_p025, ymax = asr_p975),
                 alpha = 0.15, colour = NA, show.legend = FALSE) +
     geom_point(data = obs, aes(year, asr_obs), shape = 16, size = 1.2,
                show.legend = FALSE) +
-    geom_line(data = ~ dplyr::filter(.x, tier == "decomposition"),
-              aes(y = asr), linewidth = unname(lymphoma_lwd["decomposition"]),
-              show.legend = FALSE) +
-    geom_line(data = ~ dplyr::filter(.x, tier == "headline"),
-              aes(y = asr), linewidth = unname(lymphoma_lwd["headline"]),
-              show.legend = FALSE) +
+    geom_line(aes(y = asr), linewidth = 0.8, show.legend = FALSE) +
     geom_point(data = aihw_proj, aes(year, asr_2001), shape = 17,
                size = 1.5, show.legend = FALSE) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey50", linewidth = 0.4) +
-    facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
-    scale_colour_manual(values = line_colours) +
-    scale_fill_manual(values = line_colours) +
+    facet_wrap(~ label, ncol = 2, scales = "free_y") +
+    scale_colour_manual(values = sex_fig_colours) +
+    scale_fill_manual(values = sex_fig_colours) +
+    scale_y_continuous(limits = c(0, NA),
+                       expand = expansion(mult = c(0, 0.06))) +
     labs(x = "Year", y = "Age-standardised rate (per 100,000)") +
     theme_bw(base_size = 13) +
     theme(legend.position  = "none",
           panel.grid.minor = element_blank(),
+          strip.background = element_rect(fill = "grey92", colour = "grey70"),
+          strip.text       = element_text(face = "bold", size = 12),
           plot.background  = element_rect(colour = NA, fill = NA))
 
-  attach_lymphoma_legend(p)
+  # AIHW projections appear only for HL and aggregate NHL, so the triangle entry
+  # is dropped when that series is absent.
+  entries <- c(sex_key(), list(key_band("95% credible interval"),
+                               key_point("Observed incidence")))
+  if (nrow(aihw_proj) > 0) {
+    entries <- c(entries,
+                 list(key_point("AIHW projected estimates", pch = 17)))
+  }
+  entries <- c(entries, list(key_line("Projections begin 2022", "grey50",
+                                      lty = "dotted", lwd = 1.6)))
+  attach_figure_key(p, entries)
 }
 
 # ----------------------
@@ -727,14 +740,16 @@ run_apc_model <- function(B = 1000,
   readr::write_csv(hist_annual,   file.path(save_dir, "incidence_historical_asr.csv"))
   readr::write_csv(summary_table, file.path(save_dir, "table_1_incidence_summary.csv"))
   readr::write_csv(apc_effects,   file.path(save_dir, "apc_effects.csv"))
-  readr::write_csv(apc_fit_stats, file.path(save_dir, "table_s1_apc_fit_stats.csv"))
+  # Table S2 under the round-3 flat SI numbering (was S1); see
+  # paper/revision-drafts/si-restructure-map.md.
+  readr::write_csv(apc_fit_stats, file.path(save_dir, "table_s2_apc_fit_stats.csv"))
 
   # 8. Render Figure 1
   fig1 <- build_figure_1(proj_annual, fitted_annual, hist_annual, aihw_proj)
-  # Same canvas as Figures 2 and 3 (prev_model.R) so the three main figures
-  # share one aspect ratio and sit at the same width in the manuscript.
+  # Shared portrait 3x2 canvas (see _setup.R) so every lymphoma figure in the
+  # manuscript and the SI sits at one width and aspect ratio.
   save_fig(fig1, file.path(save_dir, "figure_1_combined_projections"),
-           width = 12, height = 6.5)
+           width = fig_panel_w, height = fig_panel_h)
 
   # 9. Save the augmented apc_results object for downstream consumers
   saveRDS(results, file.path(save_dir, "apc_results.rds"), compress = "xz")

@@ -46,7 +46,7 @@ source("code/supplement.R")
 .maybe_run_supp <- function() {
   src     <- max(file.info("code/supplement.R")$mtime,
                  file.info("code/prev_model.R")$mtime)
-  out_csv <- "output/table_s2a_incidence_aihw.csv"
+  out_csv <- "output/table_s4_incidence_aihw.csv"
   if (!file.exists(out_csv) || file.info(out_csv)$mtime < src) {
     cat("  Running supplement.R (output stale)\n")
     invisible(run_supplement(verbose = FALSE))
@@ -150,7 +150,7 @@ cat(sprintf("  Test A4 (apc_effects.csv structure)  PASS  %d rows\n",
 .exists_nonempty("figure_1_combined_projections.pdf", min_bytes = 1024)
 .exists_nonempty("figure_1_combined_projections.png", min_bytes = 1024)
 .exists_nonempty("table_1_incidence_summary.csv")
-.exists_nonempty("table_s1_apc_fit_stats.csv")
+.exists_nonempty("table_s2_apc_fit_stats.csv")
 .exists_nonempty("incidence_historical_asr.csv")
 cat("  Test A5 (Figure 1 + Tables 1 / S1 / hist exist)  PASS\n")
 
@@ -317,16 +317,18 @@ cat("\n========== supplement.R ==========\n")
 
 # Test S1: all 9 SI tables exist + parse + non-trivial
 si_tables <- c(
-  "table_s1_apc_fit_stats.csv",
-  "table_s2a_incidence_aihw.csv",
-  "table_s2b_prevalence_validation.csv",
-  "table_s2c_40yr_prevalence.csv",
-  "table_s2d_consistency.csv",
-  "table_s3a_survival_cleaning.csv",
-  "table_s3b_improvement_rates.csv",
-  "table_s3b_improvement_rates_full.csv",
-  "table_s3c_back_estimation.csv",
-  "table_s4_sensitivity.csv"
+  "table_s1_disease_definitions.csv",
+  "table_s2_apc_fit_stats.csv",
+  "table_s4_incidence_aihw.csv",
+  "table_s8_prevalence_validation.csv",
+  "table_s9_40yr_prevalence.csv",
+  "table_s5_consistency.csv",
+  "table_s6_survival_cleaning.csv",
+  "table_s7_improvement_rates.csv",
+  "table_s7_improvement_rates_full.csv",
+  "table_s3_back_estimation.csv",
+  "table_s11_duration_by_sex.csv",
+  "table_s12_sensitivity.csv"
 )
 for (f in si_tables) {
   p <- file.path("output", f)
@@ -338,18 +340,19 @@ cat(sprintf("  Test S1 (SI tables)  PASS  %d files\n", length(si_tables)))
 
 # Test S2: all SI figures exist + non-empty (PDF and PNG)
 si_figs <- c(
-  "figure_s1a_age_effects",
-  "figure_s1b_period_effects",
-  "figure_s1c_cohort_effects",
-  "figure_s3a_survival_curves",
-  "figure_s3b_survival_example",
-  "figure_s3c_prevalence_2yr",
-  "figure_s3d_prevalence_3yr",
-  "figure_s3e_prevalence_10yr",
-  "figure_s3f_survival_trend",
-  "figure_s3g_survival_trend",
-  "figure_s4a_sensitivity_5yr",
-  "figure_s4b_sensitivity_40yr"
+  "figure_s1_age_effects",
+  "figure_s2_period_effects",
+  "figure_s3_cohort_effects",
+  "figure_s4_survival_curves",
+  "figure_s5_survival_example",
+  "figure_s6_population_pyramid",
+  "figure_s7_prevalence_2yr",
+  "figure_s8_prevalence_3yr",
+  "figure_s9_prevalence_10yr",
+  "figure_s10_survival_trend_5yr",
+  "figure_s11_survival_trend_10yr",
+  "figure_s12_sensitivity_5yr",
+  "figure_s13_sensitivity_40yr"
 )
 for (f in si_figs) for (ext in c(".pdf", ".png")) {
   .exists_nonempty(paste0(f, ext), min_bytes = 1024)
@@ -357,10 +360,10 @@ for (f in si_figs) for (ext in c(".pdf", ".png")) {
 cat(sprintf("  Test S2 (SI figures)  PASS  %d figs x 2 formats = %d files\n",
             length(si_figs), 2 * length(si_figs)))
 
-# Test S3: sensitivity path (table_s4). These cover the S4 summarisation that
+# Test S3: sensitivity path (table_s12). These cover the S4 summarisation that
 # the reframing regressed (a sum over sex that double-counted the persons
 # rows); the total = HL+NHL check elsewhere did not reach this path.
-s4 <- read_csv("output/table_s4_sensitivity.csv", show_col_types = FALSE)
+s4 <- read_csv("output/table_s12_sensitivity.csv", show_col_types = FALSE)
 # (a) base case == table_3 total at 2021 and 2045 (definitive doubling catch)
 t3tot  <- t3 |> filter(subtype == "total") |> select(duration, t21 = prev_2021, t45 = prev_2045)
 s4wide <- s4 |> filter(year %in% c(2021, 2045)) |> select(duration, year, base) |>
@@ -388,7 +391,7 @@ stopifnot(all(canary$tot < canary$s - 1e-6))
 # (d) conservative <= base <= optimistic at every duration x year
 stopifnot(all(s4$conservative <= s4$base + 1e-6),
           all(s4$base <= s4$optimistic + 1e-6))
-cat("  Test S3 (S4 sensitivity: base==table_3, monotone, no double-count, cons<=base<=opt)  PASS\n")
+cat("  Test S3 (Table S12 sensitivity: base==table_3, monotone, no double-count, cons<=base<=opt)  PASS\n")
 
 # Test S4: every SI figure that shows lymphoma as a dimension must carry all
 # FIVE series (headline HL + aggregate NHL, and the three subtypes). The broken
@@ -399,27 +402,57 @@ apc_eff <- read_csv("output/apc_effects.csv", show_col_types = FALSE)
 inc_sub <- read_csv("data/incidence_subtype.csv", show_col_types = FALSE)
 inc_ag  <- read_csv("data/incidence_agg.csv", show_col_types = FALSE)
 five    <- c("hodgkin", "nhl", "dlbcl", "follicular", "mantle_cell")
+# Builders that attach the figure key (attach_figure_key() in _setup.R) return
+# a composed cowplot object whose $data is empty; the keyed plot is kept on it
+# as attr(., "source_plot"). Plain ggplot builders are read directly.
 .fig_series <- function(p) {
-  d   <- p$data
+  src <- attr(p, "source_plot")
+  d   <- if (!is.null(src)) src$data else p$data
   col <- intersect(c("subtype", "subtype_label", "label"), names(d))[1]
+  stopifnot(!is.na(col))
   sort(unique(as.character(d[[col]])))
 }
-lymphoma_figs <- list(
-  "S1 APC effects"      = .build_fig_s1(apc_eff, "age", "x", "y"),
-  "S3a survival curves" = build_figure_s3a(surv_obs, imp_pt, build_projected_surv_pt),
-  "S3f survival trend"  = build_figure_survival_trend(surv_obs, imp_pt, inc_sub, inc_ag,
-                                                      build_projected_surv_pt),
-  "S4 sensitivity"      = build_figure_s4(prev_sens, 5)
-)
-for (nm in names(lymphoma_figs)) {
-  got <- .fig_series(lymphoma_figs[[nm]])
+.check_five <- function(nm, p) {
+  got <- .fig_series(p)
   if (!setequal(got, five)) {
     stop("Figure ", nm, " is missing series: ",
          paste(setdiff(five, got), collapse = ", "),
          " (plots: ", paste(got, collapse = ", "), ")")
   }
+  invisible(TRUE)
 }
-cat(sprintf("  Test S4 (SI lymphoma figures carry all 5 series)  PASS  %d builders\n",
+# Figure 1 inputs, rebuilt from the stored fits without refitting (no Epi call:
+# calc_fitted_asr() reads fit$Age/Per/Coh only; see _notes "Regeneration
+# without refitting").
+pop_hist_t <- read_csv("data/pop_hist.csv", show_col_types = FALSE)
+std_pop_t  <- build_std_pop(pop_hist_t)
+fitted_t   <- purrr::map_dfr(apc_results, function(x) {
+  fit_start <- if (x$tier == "agg") agg_start else subtype_start
+  calc_fitted_asr(x$fit, x$sex, x$subtype, fit_start, std_pop_t)
+})
+lymphoma_figs <- list(
+  "1 incidence"         = build_figure_1(
+    read_csv("output/incidence_projections.csv",    show_col_types = FALSE),
+    fitted_t,
+    read_csv("output/incidence_historical_asr.csv", show_col_types = FALSE),
+    read_csv("data/incidence_agg_proj.csv",         show_col_types = FALSE)),
+  "2 prevalence 5-yr"   = build_prev_fig(prev, 5, inputs$prev_subtype, inputs$prev_agg),
+  "S1 APC age effects"  = .build_fig_s1(apc_eff, "age", "x", "y"),
+  "S4 survival curves"  = build_figure_s4_curves(surv_obs, imp_pt, build_projected_surv_pt),
+  "S10 survival trend"  = build_figure_survival_trend(surv_obs, imp_pt, inc_sub, inc_ag,
+                                                      build_projected_surv_pt),
+  "S12 sensitivity"     = build_figure_sensitivity(prev_sens, 5)
+)
+for (nm in names(lymphoma_figs)) .check_five(nm, lymphoma_figs[[nm]])
+# Negative control: a keyed builder fed four series must FAIL the check, so a
+# helper that silently dropped a series (or a test that read the wrong object)
+# could not pass.
+neg <- tryCatch(
+  .check_five("negative control",
+              .build_fig_s1(dplyr::filter(apc_eff, subtype != "nhl"), "age", "x", "y")),
+  error = function(e) e)
+stopifnot(inherits(neg, "error"), grepl("missing series: nhl", conditionMessage(neg)))
+cat(sprintf("  Test S4 (lymphoma figures carry all 5 series; negative control fails as required)  PASS  %d builders\n",
             length(lymphoma_figs)))
 
 # -----------------------------------------------------------------

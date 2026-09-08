@@ -602,20 +602,23 @@ run_back_estimation <- function(inc_subtype, inc_agg,
 }
 
 # ----------------------
-# Figure 2 / 3: prevalence projections (with MC ribbons)
+# Figures 2 / 3: prevalence projections (with MC ribbons)
 # ----------------------
-# Uses shared make_line_grob / make_point_grob / make_text_grob /
-# make_spacer / line_colours / label_map / sex_labels from _setup.R.
-
-# The legend is the shared, box-free lymphoma legend defined in _setup.R
-# (make_lymphoma_legend / attach_lymphoma_legend), used by Figures 1, 2, 3 and
-# SI S3c-S3e so they all render identically.
+# Panelled by LYMPHOMA (3x2, free y-scales anchored at zero), sexes separated by
+# colour, with the shared key in the empty sixth cell - see the figure-key
+# section of _setup.R for the rationale and the mechanics. Uses label_map,
+# sex_colours and sex_labels from _setup.R.
+#
+# Free y-scales are deliberate (round 3, QL): panel heights are NOT comparable
+# across lymphomas, and the cross-lymphoma comparison of level is carried by
+# Tables 2 and 3. Each panel is anchored at zero so no trend is inflated by a
+# truncated axis, which is the usual way free scales mislead.
 
 build_prev_fig <- function(prev_df, duration_value,
                            prev_subtype_aihw = NULL,
                            prev_agg_aihw     = NULL) {
-  # Headline tier (HL, aggregate NHL; solid) plus the NHL decomposition
-  # (DLBCL/FL/MCL; dashed) so the subtypes read as sitting WITHIN NHL.
+  # Headline tier (HL, aggregate NHL) plus the NHL decomposition
+  # (DLBCL/FL/MCL); one panel each, in tier order.
   draw_series <- c("hodgkin", "nhl", nhl_subtypes)
   lvl <- c("HL", "NHL", "DLBCL", "FL", "MCL")
   plot_data <- prev_df |>
@@ -623,7 +626,7 @@ build_prev_fig <- function(prev_df, duration_value,
            subtype %in% draw_series, sex %in% sexes) |>
     mutate(
       label    = factor(label_map[subtype], levels = lvl),
-      tier_lty = if_else(subtype %in% c("hodgkin", "nhl"), "headline", "decomposition"),
+      sex_lab  = factor(sex_labels[sex], levels = c("Females", "Males")),
       prev_mid = prev_mid / 1000,
       prev_lo  = prev_p025 / 1000,
       prev_hi  = prev_p975 / 1000
@@ -644,41 +647,55 @@ build_prev_fig <- function(prev_df, duration_value,
         group_by(year, subtype, sex) |>
         summarise(prev_aihw = sum(prevalence, na.rm = TRUE), .groups = "drop")
     } else NULL
+    # Bounded to the validation window (2012 to hist_end). The aggregate AIHW
+    # series runs 2000-2025, so without this the HL and NHL panels carried a
+    # decade of points before the modelled lines began and four beyond the last
+    # observed year - neither part of the 2012-21 comparison the paper makes,
+    # and both contradicting the figure caption (Adam, 2026-09-07).
     aihw_plot <- bind_rows(aihw_agg, aihw_sub) |>
-      mutate(label = factor(label_map[subtype], levels = lvl),
+      filter(sex %in% sexes, year >= 2012, year <= hist_end) |>
+      mutate(label     = factor(label_map[subtype], levels = lvl),
+             sex_lab   = factor(sex_labels[sex], levels = c("Females", "Males")),
              prev_aihw = prev_aihw / 1000)
   }
 
-  p <- ggplot(plot_data, aes(x = year, colour = label, fill = label)) +
+  p <- ggplot(plot_data, aes(x = year, colour = sex_lab, fill = sex_lab)) +
     geom_ribbon(
       data = ~ filter(.x, year > hist_end),
       aes(ymin = prev_lo, ymax = prev_hi),
       alpha = 0.15, colour = NA
     ) +
-    geom_line(data = ~ filter(.x, tier_lty == "decomposition"),
-              aes(y = prev_mid), linewidth = unname(lymphoma_lwd["decomposition"])) +
-    geom_line(data = ~ filter(.x, tier_lty == "headline"),
-              aes(y = prev_mid), linewidth = unname(lymphoma_lwd["headline"])) +
+    geom_line(aes(y = prev_mid), linewidth = 0.8) +
     geom_vline(xintercept = hist_end + 0.5, linetype = "dotted",
                colour = "grey50", linewidth = 0.4) +
-    facet_wrap(~ sex, ncol = 2, labeller = labeller(sex = sex_labels)) +
-    scale_colour_manual(values = line_colours) +
-    scale_fill_manual(values = line_colours) +
+    facet_wrap(~ label, ncol = 2, scales = "free_y") +
+    scale_colour_manual(values = sex_fig_colours) +
+    scale_fill_manual(values = sex_fig_colours) +
+    scale_y_continuous(limits = c(0, NA),
+                       expand = expansion(mult = c(0, 0.06))) +
     labs(x = "Year", y = "Prevalence (thousands)") +
     theme_bw(base_size = 13) +
     theme(legend.position  = "none",
           panel.grid.minor = element_blank(),
+          strip.background = element_rect(fill = "grey92", colour = "grey70"),
+          strip.text       = element_text(face = "bold", size = 12),
           plot.background  = element_rect(colour = NA, fill = NA))
 
   if (include_aihw) {
     p <- p + geom_point(
       data = aihw_plot,
-      aes(x = year, y = prev_aihw, colour = label),
+      aes(x = year, y = prev_aihw, colour = sex_lab),
       size = 1.2, shape = 16, show.legend = FALSE, inherit.aes = FALSE
     )
   }
 
-  attach_lymphoma_legend(p)
+  entries <- c(sex_key(), list(key_band("95% credible interval")))
+  if (include_aihw) {
+    entries <- c(entries, list(key_point("AIHW published estimates")))
+  }
+  entries <- c(entries, list(key_line("Projections begin 2022", "grey50",
+                                      lty = "dotted", lwd = 1.6)))
+  attach_figure_key(p, entries)
 }
 
 # ----------------------
@@ -865,6 +882,40 @@ run_prev_model <- function(B = 1000,
            across(starts_with("pct_"),  ~ round(.x, 1))) |>
     arrange(duration, match(subtype, t3_series))
 
+  # ------------------------------------------------------------------
+  # table_2b: per-sex 2021 -> 2045 change with draw-level CrIs (base case),
+  # including the TOTAL (HL + NHL) by sex. Added round 3 [QL: CrI
+  # consistency across Tables 1-3; AI: Table 2 total rows by sex].
+  # Same draw-pairing rule as table_3: change is computed within each draw.
+  # ------------------------------------------------------------------
+  t2b_rows <- list()
+  for (dur in durations) {
+    mats <- list()
+    for (st in prev_series) for (sx in sexes)
+      mats[[paste(st, sx)]] <- draw_store[[dkey(st, sx, "base", dur)]]
+    for (sx in sexes)
+      mats[[paste("total", sx)]] <- draw_store[[dkey("hodgkin", sx, "base", dur)]] +
+                                    draw_store[[dkey("nhl",     sx, "base", dur)]]
+    for (nm in names(mats)) {
+      m   <- mats[[nm]]
+      p   <- strsplit(nm, " ")[[1]]
+      d21 <- m[match("2021", rownames(m)), ]
+      d45 <- m[match("2045", rownames(m)), ]
+      pc  <- (d45 / d21 - 1) * 100
+      t2b_rows[[length(t2b_rows) + 1]] <- tibble::tibble(
+        subtype = p[1], sex = p[2], duration = dur,
+        prev_2021 = median(d21), prev_2021_p025 = q(d21, .025), prev_2021_p975 = q(d21, .975),
+        prev_2045 = median(d45), prev_2045_p025 = q(d45, .025), prev_2045_p975 = q(d45, .975),
+        pct_change = median(pc), pct_change_p025 = q(pc, .025), pct_change_p975 = q(pc, .975)
+      )
+    }
+  }
+  table_2b <- bind_rows(t2b_rows) |>
+    mutate(across(starts_with("prev_"), ~ round(.x)),
+           across(starts_with("pct_"),  ~ round(.x, 1))) |>
+    arrange(duration, subtype, sex)
+  write_csv(table_2b, file.path(save_dir, "table_2_change_cri.csv"))
+
   write_csv(table_3,             file.path(save_dir, "table_3_prevalence_combined.csv"))
   write_csv(prev_base,            file.path(save_dir, "prevalence_projections.csv"))
   write_csv(prev_sensitivity,     file.path(save_dir, "prevalence_sensitivity.csv"))
@@ -877,10 +928,12 @@ run_prev_model <- function(B = 1000,
                          prev_agg_aihw     = inputs$prev_agg)
   fig3 <- build_prev_fig(prev_base, duration_value = 40)
 
+  # Portrait 3x2 canvas shared by every re-panelled lymphoma figure, so they
+  # sit at one width and aspect ratio in the manuscript and the SI.
   save_fig(fig2, file.path(save_dir, "figure_2_prevalence_5yr"),
-           width = 12, height = 6.5)
+           width = fig_panel_w, height = fig_panel_h)
   save_fig(fig3, file.path(save_dir, "figure_3_prevalence_40yr"),
-           width = 12, height = 6.5)
+           width = fig_panel_w, height = fig_panel_h)
 
   if (verbose) cat(sprintf("Wrote 5 CSVs + Figs 2 & 3 to %s\n", save_dir))
 

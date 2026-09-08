@@ -1,0 +1,6 @@
+lymphoma,icd10,histology_icdo3
+Hodgkin lymphoma,C81,"9650–9655, 9659, 9661–9665, 9667"
+Non Hodgkin lymphoma (aggregate),C82–C86,–
+Diffuse large B-cell lymphoma,–,"9675, 9680, 9684, 9738"
+Follicular lymphoma,–,"9597, 9690, 9691, 9695, 9698"
+Mantle cell lymphoma,–,9673
