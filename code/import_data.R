@@ -95,7 +95,7 @@ incidence_agg <- incidence_agg |>
   mutate(
     age_num = as.integer(str_extract(age_group, "^[0-9]+")),
     age_band = case_when(
-      age_num >= 0  & age_num < 15  ~ "5–14",
+      age_num >= 0  & age_num < 15  ~ "0–14",
       age_num >= 15 & age_num < 25  ~ "15–24",
       age_num >= 25 & age_num < 35  ~ "25–34",
       age_num >= 35 & age_num < 45  ~ "35–44",
@@ -151,7 +151,7 @@ incidence_subtype <- incidence_subtype_raw |>
   mutate(
     subtype_code = map_chr(id_full, match_subtype),
     sex = tolower(sex),
-    age_group = if_else(age_group == "0–14", "5–14", age_group)
+    age_group = age_group   # R1: keep the source "0–14" label
   ) |>
   filter(!is.na(subtype_code)) |>
   filter(!str_starts(age_group, "All ages")) |>
@@ -219,7 +219,7 @@ prevalence_agg <- prevalence_agg |>
   mutate(
     age_num = as.integer(str_extract(age_group, "^[0-9]+")),
     age_band = case_when(
-      age_num >= 0  & age_num < 15  ~ "5–14",
+      age_num >= 0  & age_num < 15  ~ "0–14",
       age_num >= 15 & age_num < 25  ~ "15–24",
       age_num >= 25 & age_num < 35  ~ "25–34",
       age_num >= 35 & age_num < 45  ~ "35–44",
@@ -272,7 +272,7 @@ prevalence_subtype = prevalence_subtype_raw |>
   mutate(
     subtype_code = map_chr(id_full, match_subtype),
     sex = tolower(sex),
-    age_group = if_else(age_group == "0–14", "5–14", age_group)
+    age_group = age_group   # R1: keep the source "0–14" label
   ) |>
   filter(!is.na(subtype_code)) |>
   filter(!str_starts(age_group, "All ages")) |>
@@ -333,7 +333,7 @@ survival <- survival_raw |>
   mutate(
     subtype_code = map_chr(id_full, match_subtype),
     sex = tolower(sex),
-    age_group = if_else(age_group == "0–14", "5–14", age_group),
+    # R1: age_group keeps the source "0–14" label; see _setup.R age_mid
     # Convert n.p. → NA and coerce to numeric
     survival_pct = as.numeric(survival_pct),
     ci_lower     = as.numeric(ci_lower),
@@ -366,7 +366,7 @@ nhl_survival <- nhl_surv_raw |>
   filter(cancer_type == "Non-Hodgkin lymphoma") |>
   transmute(
     survival_type, period, sex = tolower(sex),
-    age_group      = if_else(age_group == "0–14", "5–14", age_group),
+    age_group      = age_group,   # R1: keep the source "0–14" label
     years_since_dx = as.integer(years_since_dx),
     subtype        = "nhl",
     survival_pct   = as.numeric(survival_pct),
@@ -499,17 +499,18 @@ pop_long <- pop_raw |>
 pop_long |> count(sex)
 pop_long |> count(age) |> print(n = 30)
 
-# Aggregate into 10-year age bands
-# Ages 0–4 are retained as a separate band: lymphoma incidence in 0–4 is
-# essentially zero and the AIHW data does not provide it, so 0–4 is not
-# used as a numerator in any model. The 0–4 population is needed in the
-# 2001 Australian Standard Population denominator so that ASRs match the
-# AIHW convention (which uses the full 2001 ASP).
+# Aggregate into the age bands used by the incidence numerator.
+# The youngest group is 0–14 and spans FIFTEEN years; every other closed
+# group spans ten. The AIHW does publish lymphoma incidence at 0–4 (Book 1a
+# Table S1a.1: 7 male NHL diagnoses in 2021, age-specific rate 0.9 per
+# 100,000) and those diagnoses are in the numerator, so the exposure must
+# cover the same ages. Merging 0–4 into 0–14 leaves the total 2001
+# population, and therefore the ASP denominator, unchanged, so ASRs remain
+# comparable with the AIHW convention. See R1, research-review-2026-09-09.md.
 pop_proj <- pop_long |>
   mutate(
     age_group = case_when(
-      age <= 4              ~ "0–4",
-      age >= 5 & age <= 14 ~ "5–14",
+      age <= 14             ~ "0–14",
       age >= 15 & age <= 24 ~ "15–24",
       age <= 34 ~ "25–34",
       age <= 44 ~ "35–44",
@@ -578,8 +579,7 @@ pop_hist <- pop_hist_raw |>
   filter(!is.na(sex)) |>
   mutate(
     age_group = case_when(
-      age <= 4              ~ "0–4",
-      age >= 5 & age <= 14 ~ "5–14",
+      age <= 14             ~ "0–14",
       age >= 15 & age <= 24 ~ "15–24",
       age <= 34 ~ "25–34",
       age <= 44 ~ "35–44",

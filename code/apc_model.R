@@ -91,9 +91,14 @@ prepare_fit_data <- function(key, tier, inc_subtype, inc_agg, pop_hist) {
 # ----------------------
 # 2001 ASP weights (per 100,000)
 # ----------------------
-# Sums across sexes; expresses as proportion x 1e5. Includes the 0-4 age
-# band (rate = 0 for lymphoma) so the denominator matches the AIHW
-# convention.
+# Sums across sexes; expresses as proportion x 1e5. pop_hist now carries a
+# merged 0-14 band, so every weight corresponds to a band that has a
+# numerator: there is no longer a zero-rate 0-4 weight in the denominator.
+# The underlying 2001 population total is unchanged by the merge, so
+# sum(std_pop) is unchanged and ASRs stay comparable with the AIHW
+# convention. NOTE: sum(std_pop) is 1e5 by construction here, so asserting
+# it is unchanged proves nothing; the invariants that bite are in _tests.R
+# (R1, research-review-2026-09-09.md).
 
 build_std_pop <- function(pop_hist) {
   s <- pop_hist |>

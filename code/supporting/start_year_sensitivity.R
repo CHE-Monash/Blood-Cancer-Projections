@@ -12,7 +12,9 @@
 # because it extrapolates the transient pre-1990 NHL surge (HIV/AIDS-
 # associated NHL + pre-WHO reclassification). Out-of-sample error falls
 # sharply and then PLATEAUS for any start year >= ~1990, so 1990 is chosen
-# as the earliest well-validated year (longest series, 32 yr). Subtype-tier
+# as the earliest start selected by this temporal backtesting (longest series,
+# 32 yr); the same 2012-2021 window also scored the knot grid, so it is a
+# selection criterion rather than an independent test (R4). Subtype-tier
 # data begin in 2003, so only the aggregate tier is affected.
 #
 # Diagnostic driver, run separately:

@@ -74,30 +74,106 @@ load_prev_inputs <- function(data_dir = "data") {
 # explicit donor identity. Filled cells (n.p. in AIHW) get a
 # `donor_age_group` column pointing to the cell whose values they share.
 
+# R2 source 1 (research-review-2026-09-09.md, finding E as revised).
+# `df` is one whole cell: 9 age groups x 5 horizons.
+#
+# Two defects in the previous version are fixed here. It chose a donor age
+# SEPARATELY FOR EACH years_since_dx, so a suppressed cell's five horizons
+# could be stitched from two different donor ages: 17 of 54 filled cells drew
+# from more than one donor and 7 of those had a base curve that rose with
+# follow-up time. And an interim whole-curve version overwrote a partially
+# observed cell's published values, discarding 15 published observations by up
+# to 33.6 percentage points.
+#
+# The rule is now: ONE donor age per cell, chosen once as the nearest age group
+# that is complete across all five horizons; every published value is kept; and
+# a missing tail is extended by the donor's CONDITIONAL ratios,
+#   S(t) = S(t-1) * [S_donor(t) / S_donor(t-1)],
+# with the confidence limits carried the same way. Missing horizons in this
+# source are always a suffix (patterns 2-5, 3-5 and 4-5), so the observed
+# prefix and the derived tail never interleave. Applied to all nine partially
+# observed cells this is coherent in 9 of 9 and retains all 15 observations;
+# taking the donor's VALUE instead of its ratio leaves 7 of 9 non-monotone.
+#
+# Provenance: `was_filled` marks any value not published for that cell;
+# `derived_tail` marks the subset derived from a donor RATIO rather than copied
+# from the donor. A derived value differs from its donor, so it must not
+# inherit the donor's draw vector; `sample_surv_draws()` shares draws only for
+# whole-curve donor fills.
 .fill_nearest <- function(df) {
   if (!any(is.na(df$survival_pct))) {
-    return(df |> mutate(was_filled = FALSE,
+    return(df |> mutate(was_filled = FALSE, derived_tail = FALSE,
                         donor_age_group = age_group))
   }
   df <- df |> mutate(age_pos = match(age_group, age_groups))
-  available <- df |> filter(!is.na(survival_pct)) |>
-    mutate(was_filled = FALSE, donor_age_group = age_group)
-  missing   <- df |> filter(is.na(survival_pct)) |>
-    mutate(was_filled = TRUE, donor_age_group = NA_character_)
-  if (nrow(available) == 0) {
-    return(df |> mutate(was_filled = TRUE,
+
+  n_h <- length(unique(df$years_since_dx))
+  complete <- df |>
+    group_by(age_group, age_pos) |>
+    summarise(n_ok = sum(!is.na(survival_pct)), .groups = "drop") |>
+    filter(n_ok == n_h)
+
+  if (nrow(complete) == 0) {
+    return(df |> mutate(was_filled = TRUE, derived_tail = FALSE,
                         donor_age_group = NA_character_) |>
              select(-age_pos))
   }
-  for (i in seq_len(nrow(missing))) {
-    distances <- abs(missing$age_pos[i] - available$age_pos)
-    nearest   <- available |> slice(which.min(distances))
-    missing$survival_pct[i]    <- nearest$survival_pct
-    missing$ci_lower[i]        <- nearest$ci_lower
-    missing$ci_upper[i]        <- nearest$ci_upper
-    missing$donor_age_group[i] <- nearest$age_group
+
+  out <- df |> mutate(was_filled = FALSE, derived_tail = FALSE,
+                      donor_age_group = age_group)
+
+  incomplete <- out |>
+    group_by(age_group) |>
+    summarise(n_na = sum(is.na(survival_pct)), .groups = "drop") |>
+    filter(n_na > 0)
+
+  for (r in seq_len(nrow(incomplete))) {
+    ag    <- incomplete$age_group[r]
+    donor <- complete$age_group[which.min(abs(complete$age_pos -
+                                              match(ag, age_groups)))]
+    idx <- which(out$age_group == ag)
+    idx <- idx[order(out$years_since_dx[idx])]
+    dnr <- out |> filter(age_group == donor) |> arrange(years_since_dx)
+
+    if (incomplete$n_na[r] == n_h) {
+      # nothing published for this age: take the donor's whole curve, and share
+      # its draws by reference as before
+      out$survival_pct[idx]    <- dnr$survival_pct
+      out$ci_lower[idx]        <- dnr$ci_lower
+      out$ci_upper[idx]        <- dnr$ci_upper
+      out$was_filled[idx]      <- TRUE
+      out$donor_age_group[idx] <- donor
+    } else {
+      # keep every published value; extend the missing tail by the donor's
+      # conditional ratios, anchored on this cell's own last observed value.
+      # The ratio anchor requires the missing horizons to be a SUFFIX, which is
+      # true of every partially observed cell in this source (patterns 2-5, 3-5
+      # and 4-5). Fail loudly rather than derive from an unanchored gap.
+      na_pos <- which(is.na(out$survival_pct[idx]))
+      if (!identical(na_pos, seq(min(na_pos), length(idx)))) {
+        stop(".fill_nearest(): age group ", ag,
+             " has interior missing horizons (", paste(na_pos, collapse = ", "),
+             "); the conditional-ratio tail is only defined for a suffix")
+      }
+      for (j in seq_along(idx)) {
+        i <- idx[j]
+        if (!is.na(out$survival_pct[i])) next
+        prev_s  <- if (j == 1L) 1 else out$survival_pct[idx[j - 1L]]
+        prev_lo <- if (j == 1L) 1 else out$ci_lower[idx[j - 1L]]
+        prev_hi <- if (j == 1L) 1 else out$ci_upper[idx[j - 1L]]
+        d_prev  <- if (j == 1L) 1 else dnr$survival_pct[j - 1L]
+        ratio   <- if (is.na(d_prev) || d_prev <= 0) 1 else dnr$survival_pct[j] / d_prev
+        ratio   <- min(max(ratio, 0), 1)
+        out$survival_pct[i]    <- prev_s  * ratio
+        out$ci_lower[i]        <- prev_lo * ratio
+        out$ci_upper[i]        <- prev_hi * ratio
+        out$was_filled[i]      <- TRUE
+        out$derived_tail[i]    <- TRUE
+        out$donor_age_group[i] <- donor
+      }
+    }
   }
-  bind_rows(available, missing) |> arrange(age_pos) |> select(-age_pos)
+  out |> arrange(age_pos, years_since_dx) |> select(-age_pos)
 }
 
 build_surv_obs <- function(surv_raw) {
@@ -112,8 +188,8 @@ build_surv_obs <- function(surv_raw) {
     ) |>
     select(period, sex, age_group, years_since_dx, subtype,
            survival_pct, ci_lower, ci_upper) |>
-    group_by(subtype, sex, period, years_since_dx) |>
-    group_modify(~ .fill_nearest(.x)) |>
+    group_by(subtype, sex, period) |>
+    group_modify(~ .fill_nearest(.x)) |>   # R2: one donor age per whole cell
     ungroup()
   stopifnot(sum(is.na(surv_obs$survival_pct)) == 0)
   surv_obs
@@ -254,6 +330,10 @@ sample_surv_draws <- function(surv_obs, B = 1000, seed = 20260507) {
   for (i in seq_len(nrow(obs))) {
     if (!obs$was_filled[i]) {
       donor_row[i] <- obs$.row[i]
+    } else if (isTRUE(obs$derived_tail[i])) {
+      # R2 finding E: a ratio-derived value differs from its donor, so it is
+      # sampled from its own point estimate and limits, not shared by reference.
+      donor_row[i] <- obs$.row[i]
     } else {
       cand <- which(
         obs$subtype        == obs$subtype[i]        &
@@ -283,7 +363,9 @@ sample_surv_draws <- function(surv_obs, B = 1000, seed = 20260507) {
     draws_by_row[[k]] <- plogis(eta)
   }
   for (i in seq_len(nrow(obs))) {
-    if (obs$was_filled[i]) draws_by_row[[i]] <- draws_by_row[[donor_row[i]]]
+    if (obs$was_filled[i] && !isTRUE(obs$derived_tail[i])) {
+      draws_by_row[[i]] <- draws_by_row[[donor_row[i]]]
+    }
   }
 
   obs |> mutate(surv_draws = draws_by_row) |> select(-.row)

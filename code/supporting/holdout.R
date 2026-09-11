@@ -1,19 +1,26 @@
 # ================
-# Blood Cancer Projections (lymphoma): Out-of-sample incidence holdout validation
+# Blood Cancer Projections (lymphoma): Temporal incidence holdout (backtesting)
 # ================
-# Primary out-of-sample validation of the incidence projections
+# Temporal backtest of the incidence projections
 # (QL major comment #1; myeloma-template approach, Luo et al. 2024).
+#
+# NOT an independent test of the final model. The 2012-2021 assessment
+# window below is also the scoring window used by knot_selection.R and
+# start_year_sensitivity.R, so the selected knots and the 1990 aggregate
+# start year have already seen these years. Report the results as
+# temporal backtesting used for model selection (R4,
+# research-review-2026-09-09.md), not as independent validation.
 #
 # Each of the 10 APC models is refitted on a TRUNCATED window that ends
 # at `holdout_split` (2011), then projected forward over the held-out
 # years 2012-2021 and compared against OBSERVED registry incidence
-# (case counts + ASR). This is genuine out-of-sample validation against
-# hard registry ground truth, distinct from the AIHW comparison (which
-# is a forecast-vs-forecast "comparison with prior forecasts", not
-# validation).
+# (case counts + ASR). The comparison is against hard registry counts,
+# which distinguishes it from the AIHW comparison (a forecast-vs-forecast
+# "comparison with prior forecasts"); it is not, however, independent of
+# model selection. See the note above.
 #
 # Split (see _notes.md "Incidence holdout validation"):
-#   Aggregate tier (NHL, HL): fit 1982-2011 (30 yr) -> hold out 2012-2021.
+#   Aggregate tier (NHL, HL): fit 1990-2011 (22 yr) -> hold out 2012-2021.
 #   Subtype tier (DLBCL, FL, MCL): fit 2003-2011 (9 yr) -> hold out 2012-2021.
 # Both tiers share the 2012-2021 holdout so aggregate and subtype are
 # validated on the same out-of-sample years. Projection uses the same

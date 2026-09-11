@@ -196,7 +196,9 @@ draws <- sample_surv_draws(surv_obs, B = 200, seed = 20260507)
 all_draws <- unlist(draws$surv_draws)
 stopifnot(all(is.finite(all_draws)))
 stopifnot(all(all_draws >= 0 & all_draws <= 1))
-filled_idx <- which(draws$was_filled)
+# R2 finding E: whole-curve donor fills share the donor's draws by reference;
+# ratio-derived tail values do not, because their point estimate differs.
+filled_idx <- which(draws$was_filled & !draws$derived_tail)
 checked <- 0
 for (i in head(filled_idx, 50)) {
   donor <- draws |>
@@ -473,6 +475,161 @@ set.seed(20260507)
 d2 <- sample_surv_draws(surv_obs, B = 50, seed = 20260507)
 stopifnot(identical(d1$surv_draws, d2$surv_draws))
 cat("  Test R1 (beta + surv draws bitwise reproducible)  PASS\n")
+
+# -----------------------------------------------------------------
+# R1 age alignment, R2 donor provenance, and coherence regression guards
+# (research-review-2026-09-09.md)
+# -----------------------------------------------------------------
+cat("\n========== age alignment (R1) ==========\n")
+
+.inc_agg  <- readr::read_csv("data/incidence_agg.csv",     show_col_types = FALSE)
+.inc_sub  <- readr::read_csv("data/incidence_subtype.csv", show_col_types = FALSE)
+.pop_hist <- readr::read_csv("data/pop_hist.csv",          show_col_types = FALSE)
+.pop_proj <- readr::read_csv("data/pop_proj.csv",          show_col_types = FALSE)
+.surv     <- readr::read_csv("data/survival.csv",          show_col_types = FALSE)
+
+# G1: every numerator and every exposure carry the SAME age label set. This is
+# the invariant the pre-repair code violated: incidence at ages 0-14 was
+# labelled "5-14" and joined to the 5-14 population.
+.expected <- sort(names(age_mid))
+for (nm in c("inc_agg", "inc_sub", "pop_hist", "pop_proj", "surv")) {
+  got <- sort(unique(get(paste0(".", nm))$age_group))
+  got <- got[!grepl("^All ages", got)]
+  if (!identical(got, .expected)) {
+    stop("Test G1 FAILED: ", nm, " age labels are [", paste(got, collapse = ", "),
+         "] but age_mid is [", paste(.expected, collapse = ", "), "]")
+  }
+}
+stopifnot(identical(.expected, sort(c("0–14", "15–24", "25–34", "35–44", "45–54",
+                                      "55–64", "65–74", "75–84", "85+"))))
+cat("  Test G1 (numerator and exposure share one age label set)  PASS\n")
+
+# G2: the model join conserves incidence COUNTS within the fitted window, and
+# loses no rows. Scoped to P >= agg_start because prep_agg_data() filters there.
+for (grp in agg_groups) for (sx in sexes) {
+  lbl <- switch(grp, nhl = "Non-Hodgkin lymphoma", hodgkin = "Hodgkin lymphoma")
+  src <- .inc_agg[.inc_agg$cancer_group == lbl & .inc_agg$sex == sx &
+                    .inc_agg$year >= agg_start & .inc_agg$year <= hist_end, ]
+  df  <- prep_agg_data(grp, sx, .inc_agg, .pop_hist)
+  df  <- df[df$P <= hist_end, ]
+  if (!isTRUE(all.equal(sum(df$D), sum(src$count)))) {
+    stop("Test G2 FAILED: ", grp, " ", sx, " join changed counts (", sum(df$D),
+         " vs ", sum(src$count), ")")
+  }
+  if (nrow(df) != nrow(src)) {
+    stop("Test G2 FAILED: ", grp, " ", sx, " join changed row count (", nrow(df),
+         " vs ", nrow(src), ")")
+  }
+  stopifnot(all(is.finite(df$Y)), all(df$Y > 0))
+}
+cat("  Test G2 (join conserves both counts and rows, within the fit window)  PASS\n")
+
+# G3: the 2001 ASP denominator survives the 0-14 merge. sum(std_pop) is 1e5 BY
+# CONSTRUCTION and proves nothing; the test is against the underlying population.
+.std <- build_std_pop(.pop_hist)
+stopifnot(length(.std) == length(age_mid))
+stopifnot(identical(sort(names(.std)), .expected))
+.p2001 <- sum(.pop_hist$population[.pop_hist$year == 2001])
+.w2001 <- sum(.pop_hist$population[.pop_hist$year == 2001 &
+                                     .pop_hist$age_group == "0–14"])
+stopifnot(isTRUE(all.equal(unname(.std[["0–14"]]), .w2001 / .p2001 * 1e5,
+                           tolerance = 1e-9)))
+cat(sprintf("  Test G3 (ASP weights; 2001 population %.0f)  PASS\n", .p2001))
+
+# G4: negative control. A relabelled youngest band must break G1.
+.broken <- .inc_agg
+.broken$age_group[.broken$age_group == "0–14"] <- "5–14"
+stopifnot(!identical(sort(unique(.broken$age_group)), .expected))
+cat("  Test G4 (negative control: relabelled band is detected)  PASS\n")
+
+cat("\n========== survival donor provenance (R2) ==========\n")
+
+# C3: one donor age per cell. The pre-repair code chose a donor separately for
+# each follow-up year, stitching 17 of 54 filled cells from two donor ages.
+.stitched <- surv_obs |>
+  dplyr::filter(was_filled) |>
+  dplyr::group_by(subtype, sex, period, age_group) |>
+  dplyr::summarise(n_donor = dplyr::n_distinct(donor_age_group), .groups = "drop") |>
+  dplyr::filter(n_donor > 1)
+if (nrow(.stitched) > 0) {
+  stop("Test C3 FAILED: ", nrow(.stitched),
+       " filled cells draw from more than one donor age group")
+}
+cat("  Test C3 (one donor age per filled cell)  PASS\n")
+
+# C4: every published observation is retained. The interim whole-curve fill
+# discarded 15 of them, by up to 33.6 percentage points.
+.raw_obs <- .surv |>
+  dplyr::filter(survival_type == "Observed", sex != "persons",
+                period != "2007–2021", !is.na(survival_pct)) |>
+  dplyr::select(subtype, sex, period, age_group, years_since_dx,
+                published = survival_pct)
+.kept <- .raw_obs |>
+  dplyr::inner_join(surv_obs, by = c("subtype", "sex", "period", "age_group",
+                                     "years_since_dx"))
+.lost <- .kept |> dplyr::filter(abs(published - survival_pct) > 1e-9)
+if (nrow(.lost) > 0) {
+  stop("Test C4 FAILED: ", nrow(.lost),
+       " published survival observations were overwritten by donor filling")
+}
+cat(sprintf("  Test C4 (all %d published observations retained)  PASS\n",
+            nrow(.kept)))
+
+# C5: partially observed cells must be coherent after the ratio-derived tail.
+.pc <- surv_obs |> dplyr::group_by(subtype, sex, period, age_group) |>
+  dplyr::filter(any(derived_tail)) |> dplyr::arrange(years_since_dx) |>
+  dplyr::summarise(bad = max(diff(survival_pct)) > 1e-9, .groups = "drop")
+if (any(.pc$bad)) {
+  stop("Test C5 FAILED: ", sum(.pc$bad),
+       " ratio-derived cells still increase with follow-up")
+}
+cat(sprintf("  Test C5 (%d ratio-derived cells non-increasing)  PASS\n", nrow(.pc)))
+
+cat("\n========== residual coherence, REPORTED not gated (R2 source 3) ==========\n")
+
+# The survival sampler still draws each horizon independently, so sampled paths
+# can rise with follow-up. Source 3 was DECLINED for this paper (Adam,
+# 2026-09-09) and the defect is disclosed in the manuscript instead. These are
+# regression guards, not gates: they fail only if the defect gets WORSE than the
+# value recorded when the decision was taken.
+.CEIL_SAMPLED <- 0.7500   # recorded 0.7155 across strata
+.CEIL_DET     <- 1631L    # recorded 1,631 of 5,760 deterministic point curves in the
+                          # bounded state (Adam, 2026-09-10; was 1,715 before the
+                          # finding-E donor fix removed 84 stitched curves)
+
+.imp_pt <- build_improvement_final(surv_obs)
+.d_c <- sample_surv_draws(surv_obs, B = 100, seed = 20260507)
+.r_c <- sample_improvement_draws(.d_c, .imp_pt, B = 100)
+.bad <- 0; .n <- 0
+for (st in prev_series) for (sx in sexes) {
+  a <- build_surv_array(st, sx, 1982:2045, improve_cap, .d_c, .r_c, B = 100)
+  d <- apply(a[, , 2:5, , drop = FALSE] - a[, , 1:4, , drop = FALSE], c(1, 2, 4), max)
+  .bad <- .bad + sum(d > 1e-12); .n <- .n + length(d)
+}
+.frac <- .bad / .n
+cat(sprintf("  Sampled paths that increase with follow-up: %.2f%% (recorded 71.55%%)\n",
+            100 * .frac))
+if (.frac > .CEIL_SAMPLED) {
+  stop("Residual sampling incoherence has WORSENED: ", round(100 * .frac, 2),
+       "% exceeds the recorded ceiling of ", 100 * .CEIL_SAMPLED, "%")
+}
+
+.det <- 0
+for (st in prev_series) for (sx in sexes) for (dx in 1982:2045) {
+  s <- build_projected_surv_pt(st, sx, dx, improve_cap, surv_obs, .imp_pt) |>
+    dplyr::filter(years_since_dx <= 5) |>
+    dplyr::arrange(age_group, years_since_dx)
+  for (ag in age_groups) {
+    v <- s$surv_mid[s$age_group == ag]
+    if (length(v) > 1 && max(diff(v)) > 1e-9) .det <- .det + 1
+  }
+}
+cat(sprintf("  Deterministic point curves that increase: %d of 5760 (recorded 1631)\n", .det))
+if (.det > .CEIL_DET) {
+  stop("Deterministic incoherence has WORSENED: ", .det,
+       " exceeds the recorded ceiling of ", .CEIL_DET)
+}
+cat("  Residual coherence within recorded bounds (disclosed, not repaired)\n")
 
 cat("\n=========================================\n")
 cat("All structural tests passed.\n")

@@ -1,5 +1,5 @@
 year,duration,sex,age_group,subtype,prevalence,rate
-2012,1,males,5–14,follicular,2,0.1
+2012,1,males,0–14,follicular,2,0.1
 2012,1,males,15–24,follicular,4,0.3
 2012,1,males,25–34,follicular,12,0.7
 2012,1,males,35–44,follicular,53,3.3
@@ -8,7 +8,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,males,65–74,follicular,154,17.1
 2012,1,males,75–84,follicular,86,18.5
 2012,1,males,85+,follicular,24,15.9
-2012,1,females,5–14,follicular,0,0
+2012,1,females,0–14,follicular,0,0
 2012,1,females,15–24,follicular,3,0.2
 2012,1,females,25–34,follicular,8,0.5
 2012,1,females,35–44,follicular,36,2.2
@@ -17,7 +17,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,females,65–74,follicular,112,12.2
 2012,1,females,75–84,follicular,88,15.7
 2012,1,females,85+,follicular,19,6.9
-2012,5,males,5–14,follicular,2,0.1
+2012,5,males,0–14,follicular,2,0.1
 2012,5,males,15–24,follicular,8,0.5
 2012,5,males,25–34,follicular,49,2.9
 2012,5,males,35–44,follicular,202,12.7
@@ -26,7 +26,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,males,65–74,follicular,719,80.1
 2012,5,males,75–84,follicular,380,81.9
 2012,5,males,85+,follicular,104,68.9
-2012,5,females,5–14,follicular,0,0
+2012,5,females,0–14,follicular,0,0
 2012,5,females,15–24,follicular,3,0.2
 2012,5,females,25–34,follicular,27,1.6
 2012,5,females,35–44,follicular,150,9.3
@@ -35,7 +35,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,females,65–74,follicular,574,62.4
 2012,5,females,75–84,follicular,360,64.3
 2012,5,females,85+,follicular,136,49.1
-2012,10,males,5–14,follicular,2,0.1
+2012,10,males,0–14,follicular,2,0.1
 2012,10,males,15–24,follicular,15,0.9
 2012,10,males,25–34,follicular,66,3.9
 2012,10,males,35–44,follicular,290,18.2
@@ -44,7 +44,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,males,65–74,follicular,1264,140.8
 2012,10,males,75–84,follicular,674,145.2
 2012,10,males,85+,follicular,177,117.2
-2012,10,females,5–14,follicular,1,0
+2012,10,females,0–14,follicular,1,0
 2012,10,females,15–24,follicular,5,0.3
 2012,10,females,25–34,follicular,37,2.2
 2012,10,females,35–44,follicular,213,13.2
@@ -53,7 +53,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,females,65–74,follicular,1041,113.2
 2012,10,females,75–84,follicular,654,116.9
 2012,10,females,85+,follicular,240,86.6
-2013,1,males,5–14,follicular,1,0
+2013,1,males,0–14,follicular,1,0
 2013,1,males,15–24,follicular,2,0.1
 2013,1,males,25–34,follicular,9,0.5
 2013,1,males,35–44,follicular,44,2.8
@@ -62,7 +62,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,males,65–74,follicular,165,17.6
 2013,1,males,75–84,follicular,84,17.6
 2013,1,males,85+,follicular,26,16.3
-2013,1,females,5–14,follicular,0,0
+2013,1,females,0–14,follicular,0,0
 2013,1,females,15–24,follicular,0,0
 2013,1,females,25–34,follicular,9,0.5
 2013,1,females,35–44,follicular,36,2.2
@@ -71,7 +71,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,females,65–74,follicular,140,14.6
 2013,1,females,75–84,follicular,89,15.7
 2013,1,females,85+,follicular,18,6.3
-2013,5,males,5–14,follicular,3,0.1
+2013,5,males,0–14,follicular,3,0.1
 2013,5,males,15–24,follicular,8,0.5
 2013,5,males,25–34,follicular,49,2.9
 2013,5,males,35–44,follicular,195,12.2
@@ -80,7 +80,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,males,65–74,follicular,768,82.1
 2013,5,males,75–84,follicular,410,86.1
 2013,5,males,85+,follicular,121,75.8
-2013,5,females,5–14,follicular,0,0
+2013,5,females,0–14,follicular,0,0
 2013,5,females,15–24,follicular,2,0.1
 2013,5,females,25–34,follicular,29,1.7
 2013,5,females,35–44,follicular,145,9
@@ -89,7 +89,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,females,65–74,follicular,619,64.5
 2013,5,females,75–84,follicular,373,65.7
 2013,5,females,85+,follicular,122,42.6
-2013,10,males,5–14,follicular,3,0.1
+2013,10,males,0–14,follicular,3,0.1
 2013,10,males,15–24,follicular,12,0.8
 2013,10,males,25–34,follicular,68,4
 2013,10,males,35–44,follicular,283,17.7
@@ -98,7 +98,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,males,65–74,follicular,1317,140.7
 2013,10,males,75–84,follicular,705,148
 2013,10,males,85+,follicular,201,125.9
-2013,10,females,5–14,follicular,0,0
+2013,10,females,0–14,follicular,0,0
 2013,10,females,15–24,follicular,5,0.3
 2013,10,females,25–34,follicular,42,2.5
 2013,10,females,35–44,follicular,213,13.2
@@ -107,7 +107,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,females,65–74,follicular,1106,115.2
 2013,10,females,75–84,follicular,684,120.5
 2013,10,females,85+,follicular,244,85.3
-2014,1,males,5–14,follicular,1,0
+2014,1,males,0–14,follicular,1,0
 2014,1,males,15–24,follicular,3,0.2
 2014,1,males,25–34,follicular,9,0.5
 2014,1,males,35–44,follicular,39,2.4
@@ -116,7 +116,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,males,65–74,follicular,177,18.2
 2014,1,males,75–84,follicular,90,18.4
 2014,1,males,85+,follicular,26,15.5
-2014,1,females,5–14,follicular,0,0
+2014,1,females,0–14,follicular,0,0
 2014,1,females,15–24,follicular,0,0
 2014,1,females,25–34,follicular,8,0.5
 2014,1,females,35–44,follicular,34,2.1
@@ -125,7 +125,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,females,65–74,follicular,156,15.6
 2014,1,females,75–84,follicular,82,14.2
 2014,1,females,85+,follicular,34,11.6
-2014,5,males,5–14,follicular,4,0.2
+2014,5,males,0–14,follicular,4,0.2
 2014,5,males,15–24,follicular,9,0.6
 2014,5,males,25–34,follicular,43,2.5
 2014,5,males,35–44,follicular,177,11.1
@@ -134,7 +134,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,males,65–74,follicular,768,79
 2014,5,males,75–84,follicular,420,85.9
 2014,5,males,85+,follicular,126,75.1
-2014,5,females,5–14,follicular,0,0
+2014,5,females,0–14,follicular,0,0
 2014,5,females,15–24,follicular,2,0.1
 2014,5,females,25–34,follicular,27,1.5
 2014,5,females,35–44,follicular,137,8.4
@@ -143,7 +143,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,females,65–74,follicular,671,67.2
 2014,5,females,75–84,follicular,358,62
 2014,5,females,85+,follicular,126,43
-2014,10,males,5–14,follicular,4,0.2
+2014,10,males,0–14,follicular,4,0.2
 2014,10,males,15–24,follicular,12,0.7
 2014,10,males,25–34,follicular,67,3.8
 2014,10,males,35–44,follicular,275,17.2
@@ -152,7 +152,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,males,65–74,follicular,1376,141.6
 2014,10,males,75–84,follicular,752,153.7
 2014,10,males,85+,follicular,227,135.2
-2014,10,females,5–14,follicular,0,0
+2014,10,females,0–14,follicular,0,0
 2014,10,females,15–24,follicular,4,0.3
 2014,10,females,25–34,follicular,40,2.3
 2014,10,females,35–44,follicular,202,12.5
@@ -161,7 +161,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,females,65–74,follicular,1209,121.1
 2014,10,females,75–84,follicular,667,115.5
 2014,10,females,85+,follicular,281,95.9
-2015,1,males,5–14,follicular,0,0
+2015,1,males,0–14,follicular,0,0
 2015,1,males,15–24,follicular,4,0.2
 2015,1,males,25–34,follicular,8,0.4
 2015,1,males,35–44,follicular,41,2.6
@@ -170,7 +170,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,males,65–74,follicular,172,17.1
 2015,1,males,75–84,follicular,109,21.7
 2015,1,males,85+,follicular,27,15.4
-2015,1,females,5–14,follicular,0,0
+2015,1,females,0–14,follicular,0,0
 2015,1,females,15–24,follicular,2,0.1
 2015,1,females,25–34,follicular,5,0.3
 2015,1,females,35–44,follicular,25,1.5
@@ -179,7 +179,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,females,65–74,follicular,168,16.2
 2015,1,females,75–84,follicular,67,11.4
 2015,1,females,85+,follicular,21,7
-2015,5,males,5–14,follicular,3,0.1
+2015,5,males,0–14,follicular,3,0.1
 2015,5,males,15–24,follicular,11,0.7
 2015,5,males,25–34,follicular,36,2
 2015,5,males,35–44,follicular,170,10.6
@@ -188,7 +188,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,males,65–74,follicular,786,78
 2015,5,males,75–84,follicular,472,93.9
 2015,5,males,85+,follicular,131,74.7
-2015,5,females,5–14,follicular,0,0
+2015,5,females,0–14,follicular,0,0
 2015,5,females,15–24,follicular,4,0.3
 2015,5,females,25–34,follicular,24,1.3
 2015,5,females,35–44,follicular,131,8.1
@@ -197,7 +197,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,females,65–74,follicular,693,66.8
 2015,5,females,75–84,follicular,360,61.2
 2015,5,females,85+,follicular,135,45.1
-2015,10,males,5–14,follicular,3,0.1
+2015,10,males,0–14,follicular,3,0.1
 2015,10,males,15–24,follicular,14,0.9
 2015,10,males,25–34,follicular,57,3.2
 2015,10,males,35–44,follicular,266,16.6
@@ -206,7 +206,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,males,65–74,follicular,1417,140.6
 2015,10,males,75–84,follicular,821,163.2
 2015,10,males,85+,follicular,244,139.2
-2015,10,females,5–14,follicular,0,0
+2015,10,females,0–14,follicular,0,0
 2015,10,females,15–24,follicular,5,0.3
 2015,10,females,25–34,follicular,35,2
 2015,10,females,35–44,follicular,198,12.2
@@ -215,7 +215,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,females,65–74,follicular,1275,122.9
 2015,10,females,75–84,follicular,687,116.7
 2015,10,females,85+,follicular,286,95.5
-2016,1,males,5–14,follicular,4,0.2
+2016,1,males,0–14,follicular,4,0.2
 2016,1,males,15–24,follicular,4,0.2
 2016,1,males,25–34,follicular,12,0.7
 2016,1,males,35–44,follicular,41,2.5
@@ -224,7 +224,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,males,65–74,follicular,167,16
 2016,1,males,75–84,follicular,104,20
 2016,1,males,85+,follicular,33,18.2
-2016,1,females,5–14,follicular,0,0
+2016,1,females,0–14,follicular,0,0
 2016,1,females,15–24,follicular,1,0.1
 2016,1,females,25–34,follicular,4,0.2
 2016,1,females,35–44,follicular,28,1.7
@@ -233,7 +233,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,females,65–74,follicular,174,16.2
 2016,1,females,75–84,follicular,97,16.1
 2016,1,females,85+,follicular,27,8.9
-2016,5,males,5–14,follicular,6,0.3
+2016,5,males,0–14,follicular,6,0.3
 2016,5,males,15–24,follicular,15,0.9
 2016,5,males,25–34,follicular,36,2
 2016,5,males,35–44,follicular,163,10.1
@@ -242,7 +242,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,males,65–74,follicular,825,79.2
 2016,5,males,75–84,follicular,487,93.5
 2016,5,males,85+,follicular,139,76.6
-2016,5,females,5–14,follicular,0,0
+2016,5,females,0–14,follicular,0,0
 2016,5,females,15–24,follicular,3,0.2
 2016,5,females,25–34,follicular,21,1.2
 2016,5,females,35–44,follicular,126,7.7
@@ -251,7 +251,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,females,65–74,follicular,745,69.2
 2016,5,females,75–84,follicular,402,66.5
 2016,5,females,85+,follicular,152,49.9
-2016,10,males,5–14,follicular,6,0.3
+2016,10,males,0–14,follicular,6,0.3
 2016,10,males,15–24,follicular,18,1.1
 2016,10,males,25–34,follicular,53,2.9
 2016,10,males,35–44,follicular,266,16.4
@@ -260,7 +260,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,males,65–74,follicular,1470,141.1
 2016,10,males,75–84,follicular,864,165.9
 2016,10,males,85+,follicular,255,140.5
-2016,10,females,5–14,follicular,0,0
+2016,10,females,0–14,follicular,0,0
 2016,10,females,15–24,follicular,4,0.3
 2016,10,females,25–34,follicular,33,1.8
 2016,10,females,35–44,follicular,181,11.1
@@ -269,7 +269,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,females,65–74,follicular,1337,124.2
 2016,10,females,75–84,follicular,746,123.5
 2016,10,females,85+,follicular,301,98.9
-2017,1,males,5–14,follicular,1,0
+2017,1,males,0–14,follicular,1,0
 2017,1,males,15–24,follicular,1,0.1
 2017,1,males,25–34,follicular,7,0.4
 2017,1,males,35–44,follicular,38,2.3
@@ -278,7 +278,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,males,65–74,follicular,225,21
 2017,1,males,75–84,follicular,118,21.8
 2017,1,males,85+,follicular,32,17.2
-2017,1,females,5–14,follicular,1,0
+2017,1,females,0–14,follicular,1,0
 2017,1,females,15–24,follicular,1,0.1
 2017,1,females,25–34,follicular,9,0.5
 2017,1,females,35–44,follicular,31,1.9
@@ -287,7 +287,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,females,65–74,follicular,172,15.4
 2017,1,females,75–84,follicular,105,16.9
 2017,1,females,85+,follicular,39,12.7
-2017,5,males,5–14,follicular,5,0.2
+2017,5,males,0–14,follicular,5,0.2
 2017,5,males,15–24,follicular,14,0.9
 2017,5,males,25–34,follicular,24,1.3
 2017,5,males,35–44,follicular,169,10.3
@@ -296,7 +296,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,males,65–74,follicular,897,83.6
 2017,5,males,75–84,follicular,508,94
 2017,5,males,85+,follicular,143,76.9
-2017,5,females,5–14,follicular,1,0
+2017,5,females,0–14,follicular,1,0
 2017,5,females,15–24,follicular,2,0.1
 2017,5,females,25–34,follicular,21,1.1
 2017,5,females,35–44,follicular,121,7.3
@@ -305,7 +305,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,females,65–74,follicular,799,71.5
 2017,5,females,75–84,follicular,456,73.4
 2017,5,females,85+,follicular,153,49.9
-2017,10,males,5–14,follicular,6,0.3
+2017,10,males,0–14,follicular,6,0.3
 2017,10,males,15–24,follicular,17,1
 2017,10,males,25–34,follicular,46,2.5
 2017,10,males,35–44,follicular,263,16.1
@@ -314,7 +314,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,males,65–74,follicular,1577,147
 2017,10,males,75–84,follicular,911,168.6
 2017,10,males,85+,follicular,261,140.4
-2017,10,females,5–14,follicular,1,0
+2017,10,females,0–14,follicular,1,0
 2017,10,females,15–24,follicular,4,0.3
 2017,10,females,25–34,follicular,33,1.8
 2017,10,females,35–44,follicular,185,11.2
@@ -323,7 +323,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,females,65–74,follicular,1384,123.9
 2017,10,females,75–84,follicular,823,132.4
 2017,10,females,85+,follicular,299,97.5
-2018,1,males,5–14,follicular,1,0
+2018,1,males,0–14,follicular,1,0
 2018,1,males,15–24,follicular,2,0.1
 2018,1,males,25–34,follicular,9,0.5
 2018,1,males,35–44,follicular,29,1.7
@@ -332,7 +332,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,males,65–74,follicular,239,21.7
 2018,1,males,75–84,follicular,137,24.3
 2018,1,males,85+,follicular,35,18.3
-2018,1,females,5–14,follicular,0,0
+2018,1,females,0–14,follicular,0,0
 2018,1,females,15–24,follicular,2,0.1
 2018,1,females,25–34,follicular,5,0.3
 2018,1,females,35–44,follicular,20,1.2
@@ -341,7 +341,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,females,65–74,follicular,179,15.5
 2018,1,females,75–84,follicular,123,19.1
 2018,1,females,85+,follicular,33,10.6
-2018,5,males,5–14,follicular,5,0.2
+2018,5,males,0–14,follicular,5,0.2
 2018,5,males,15–24,follicular,14,0.8
 2018,5,males,25–34,follicular,27,1.4
 2018,5,males,35–44,follicular,160,9.6
@@ -350,7 +350,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,males,65–74,follicular,980,88.9
 2018,5,males,75–84,follicular,568,100.7
 2018,5,males,85+,follicular,149,77.7
-2018,5,females,5–14,follicular,1,0
+2018,5,females,0–14,follicular,1,0
 2018,5,females,15–24,follicular,3,0.2
 2018,5,females,25–34,follicular,22,1.2
 2018,5,females,35–44,follicular,99,5.9
@@ -359,7 +359,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,females,65–74,follicular,823,71.1
 2018,5,females,75–84,follicular,533,82.9
 2018,5,females,85+,follicular,160,51.4
-2018,10,males,5–14,follicular,7,0.3
+2018,10,males,0–14,follicular,7,0.3
 2018,10,males,15–24,follicular,17,1
 2018,10,males,25–34,follicular,41,2.2
 2018,10,males,35–44,follicular,267,16
@@ -368,7 +368,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,males,65–74,follicular,1668,151.4
 2018,10,males,75–84,follicular,1004,178
 2018,10,males,85+,follicular,293,152.9
-2018,10,females,5–14,follicular,1,0
+2018,10,females,0–14,follicular,1,0
 2018,10,females,15–24,follicular,4,0.3
 2018,10,females,25–34,follicular,32,1.7
 2018,10,females,35–44,follicular,165,9.8
@@ -377,7 +377,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,females,65–74,follicular,1429,123.5
 2018,10,females,75–84,follicular,916,142.4
 2018,10,females,85+,follicular,314,100.8
-2019,1,males,5–14,follicular,0,0
+2019,1,males,0–14,follicular,0,0
 2019,1,males,15–24,follicular,3,0.2
 2019,1,males,25–34,follicular,9,0.5
 2019,1,males,35–44,follicular,36,2.1
@@ -386,7 +386,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,males,65–74,follicular,228,20.1
 2019,1,males,75–84,follicular,138,23.3
 2019,1,males,85+,follicular,28,14.2
-2019,1,females,5–14,follicular,0,0
+2019,1,females,0–14,follicular,0,0
 2019,1,females,15–24,follicular,1,0.1
 2019,1,females,25–34,follicular,5,0.3
 2019,1,females,35–44,follicular,27,1.6
@@ -395,7 +395,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,females,65–74,follicular,162,13.5
 2019,1,females,75–84,follicular,113,16.8
 2019,1,females,85+,follicular,33,10.5
-2019,5,males,5–14,follicular,3,0.1
+2019,5,males,0–14,follicular,3,0.1
 2019,5,males,15–24,follicular,14,0.8
 2019,5,males,25–34,follicular,35,1.8
 2019,5,males,35–44,follicular,152,8.9
@@ -404,7 +404,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,males,65–74,follicular,1014,89.3
 2019,5,males,75–84,follicular,597,100.7
 2019,5,males,85+,follicular,167,84.6
-2019,5,females,5–14,follicular,1,0
+2019,5,females,0–14,follicular,1,0
 2019,5,females,15–24,follicular,4,0.3
 2019,5,females,25–34,follicular,20,1.1
 2019,5,females,35–44,follicular,97,5.6
@@ -413,7 +413,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,females,65–74,follicular,805,67
 2019,5,females,75–84,follicular,569,84.8
 2019,5,females,85+,follicular,158,50.1
-2019,10,males,5–14,follicular,5,0.2
+2019,10,males,0–14,follicular,5,0.2
 2019,10,males,15–24,follicular,16,1
 2019,10,males,25–34,follicular,50,2.6
 2019,10,males,35–44,follicular,241,14.2
@@ -422,7 +422,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,males,65–74,follicular,1745,153.7
 2019,10,males,75–84,follicular,1043,175.9
 2019,10,males,85+,follicular,310,157.1
-2019,10,females,5–14,follicular,1,0
+2019,10,females,0–14,follicular,1,0
 2019,10,females,15–24,follicular,5,0.3
 2019,10,females,25–34,follicular,26,1.4
 2019,10,females,35–44,follicular,156,9
@@ -431,7 +431,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,females,65–74,follicular,1436,119.5
 2019,10,females,75–84,follicular,997,148.5
 2019,10,females,85+,follicular,329,104.4
-2020,1,males,5–14,follicular,0,0
+2020,1,males,0–14,follicular,0,0
 2020,1,males,15–24,follicular,4,0.2
 2020,1,males,25–34,follicular,14,0.7
 2020,1,males,35–44,follicular,38,2.2
@@ -440,7 +440,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,males,65–74,follicular,246,21.2
 2020,1,males,75–84,follicular,156,25
 2020,1,males,85+,follicular,27,13.2
-2020,1,females,5–14,follicular,0,0
+2020,1,females,0–14,follicular,0,0
 2020,1,females,15–24,follicular,1,0.1
 2020,1,females,25–34,follicular,9,0.5
 2020,1,females,35–44,follicular,31,1.8
@@ -449,7 +449,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,females,65–74,follicular,210,16.9
 2020,1,females,75–84,follicular,144,20.6
 2020,1,females,85+,follicular,39,12.1
-2020,5,males,5–14,follicular,3,0.1
+2020,5,males,0–14,follicular,3,0.1
 2020,5,males,15–24,follicular,15,0.9
 2020,5,males,25–34,follicular,39,2.1
 2020,5,males,35–44,follicular,146,8.4
@@ -458,7 +458,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,males,65–74,follicular,1049,90.3
 2020,5,males,75–84,follicular,680,109.1
 2020,5,males,85+,follicular,164,80
-2020,5,females,5–14,follicular,1,0
+2020,5,females,0–14,follicular,1,0
 2020,5,females,15–24,follicular,5,0.3
 2020,5,females,25–34,follicular,23,1.2
 2020,5,females,35–44,follicular,103,5.9
@@ -467,7 +467,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,females,65–74,follicular,862,69.5
 2020,5,females,75–84,follicular,614,87.6
 2020,5,females,85+,follicular,184,57.1
-2020,10,males,5–14,follicular,5,0.2
+2020,10,males,0–14,follicular,5,0.2
 2020,10,males,15–24,follicular,18,1.1
 2020,10,males,25–34,follicular,56,3
 2020,10,males,35–44,follicular,223,12.9
@@ -476,7 +476,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,males,65–74,follicular,1778,153
 2020,10,males,75–84,follicular,1179,189.2
 2020,10,males,85+,follicular,324,158.1
-2020,10,females,5–14,follicular,1,0
+2020,10,females,0–14,follicular,1,0
 2020,10,females,15–24,follicular,6,0.4
 2020,10,females,25–34,follicular,30,1.6
 2020,10,females,35–44,follicular,156,8.9
@@ -485,7 +485,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,females,65–74,follicular,1517,122.4
 2020,10,females,75–84,follicular,1056,150.7
 2020,10,females,85+,follicular,361,112
-2021,1,males,5–14,follicular,1,0
+2021,1,males,0–14,follicular,1,0
 2021,1,males,15–24,follicular,4,0.2
 2021,1,males,25–34,follicular,11,0.6
 2021,1,males,35–44,follicular,33,1.9
@@ -494,7 +494,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,males,65–74,follicular,225,19.2
 2021,1,males,75–84,follicular,147,22.3
 2021,1,males,85+,follicular,35,16.4
-2021,1,females,5–14,follicular,0,0
+2021,1,females,0–14,follicular,0,0
 2021,1,females,15–24,follicular,1,0.1
 2021,1,females,25–34,follicular,6,0.3
 2021,1,females,35–44,follicular,26,1.4
@@ -503,7 +503,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,females,65–74,follicular,177,14
 2021,1,females,75–84,follicular,137,18.6
 2021,1,females,85+,follicular,35,10.6
-2021,5,males,5–14,follicular,2,0.1
+2021,5,males,0–14,follicular,2,0.1
 2021,5,males,15–24,follicular,13,0.8
 2021,5,males,25–34,follicular,40,2.2
 2021,5,males,35–44,follicular,137,7.8
@@ -512,7 +512,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,males,65–74,follicular,1066,90.7
 2021,5,males,75–84,follicular,742,112.6
 2021,5,males,85+,follicular,175,82.1
-2021,5,females,5–14,follicular,1,0
+2021,5,females,0–14,follicular,1,0
 2021,5,females,15–24,follicular,6,0.4
 2021,5,females,25–34,follicular,24,1.3
 2021,5,females,35–44,follicular,107,6
@@ -521,7 +521,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,females,65–74,follicular,852,67.6
 2021,5,females,75–84,follicular,643,87.2
 2021,5,females,85+,follicular,200,60.8
-2021,10,males,5–14,follicular,5,0.2
+2021,10,males,0–14,follicular,5,0.2
 2021,10,males,15–24,follicular,21,1.3
 2021,10,males,25–34,follicular,60,3.2
 2021,10,males,35–44,follicular,222,12.6
@@ -530,7 +530,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,males,65–74,follicular,1788,152.2
 2021,10,males,75–84,follicular,1275,193.5
 2021,10,males,85+,follicular,341,160
-2021,10,females,5–14,follicular,1,0
+2021,10,females,0–14,follicular,1,0
 2021,10,females,15–24,follicular,7,0.5
 2021,10,females,25–34,follicular,31,1.7
 2021,10,females,35–44,follicular,158,8.8
@@ -539,7 +539,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,females,65–74,follicular,1529,121.3
 2021,10,females,75–84,follicular,1155,156.7
 2021,10,females,85+,follicular,386,117.3
-2012,1,males,5–14,mantle_cell,0,0
+2012,1,males,0–14,mantle_cell,0,0
 2012,1,males,15–24,mantle_cell,0,0
 2012,1,males,25–34,mantle_cell,0,0
 2012,1,males,35–44,mantle_cell,4,0.3
@@ -548,7 +548,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,males,65–74,mantle_cell,48,5.3
 2012,1,males,75–84,mantle_cell,34,7.3
 2012,1,males,85+,mantle_cell,7,4.6
-2012,1,females,5–14,mantle_cell,0,0
+2012,1,females,0–14,mantle_cell,0,0
 2012,1,females,15–24,mantle_cell,0,0
 2012,1,females,25–34,mantle_cell,0,0
 2012,1,females,35–44,mantle_cell,1,0.1
@@ -557,7 +557,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,females,65–74,mantle_cell,19,2.1
 2012,1,females,75–84,mantle_cell,24,4.3
 2012,1,females,85+,mantle_cell,8,2.9
-2012,5,males,5–14,mantle_cell,0,0
+2012,5,males,0–14,mantle_cell,0,0
 2012,5,males,15–24,mantle_cell,0,0
 2012,5,males,25–34,mantle_cell,2,0.1
 2012,5,males,35–44,mantle_cell,11,0.7
@@ -566,7 +566,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,males,65–74,mantle_cell,164,18.3
 2012,5,males,75–84,mantle_cell,136,29.3
 2012,5,males,85+,mantle_cell,34,22.5
-2012,5,females,5–14,mantle_cell,0,0
+2012,5,females,0–14,mantle_cell,0,0
 2012,5,females,15–24,mantle_cell,0,0
 2012,5,females,25–34,mantle_cell,1,0.1
 2012,5,females,35–44,mantle_cell,3,0.2
@@ -575,7 +575,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,females,65–74,mantle_cell,58,6.3
 2012,5,females,75–84,mantle_cell,79,14.1
 2012,5,females,85+,mantle_cell,20,7.2
-2012,10,males,5–14,mantle_cell,0,0
+2012,10,males,0–14,mantle_cell,0,0
 2012,10,males,15–24,mantle_cell,0,0
 2012,10,males,25–34,mantle_cell,2,0.1
 2012,10,males,35–44,mantle_cell,18,1.1
@@ -584,7 +584,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,males,65–74,mantle_cell,236,26.3
 2012,10,males,75–84,mantle_cell,191,41.1
 2012,10,males,85+,mantle_cell,43,28.5
-2012,10,females,5–14,mantle_cell,0,0
+2012,10,females,0–14,mantle_cell,0,0
 2012,10,females,15–24,mantle_cell,0,0
 2012,10,females,25–34,mantle_cell,1,0.1
 2012,10,females,35–44,mantle_cell,6,0.4
@@ -593,7 +593,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,females,65–74,mantle_cell,86,9.4
 2012,10,females,75–84,mantle_cell,101,18
 2012,10,females,85+,mantle_cell,28,10.1
-2013,1,males,5–14,mantle_cell,0,0
+2013,1,males,0–14,mantle_cell,0,0
 2013,1,males,15–24,mantle_cell,0,0
 2013,1,males,25–34,mantle_cell,1,0.1
 2013,1,males,35–44,mantle_cell,1,0.1
@@ -602,7 +602,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,males,65–74,mantle_cell,54,5.8
 2013,1,males,75–84,mantle_cell,39,8.2
 2013,1,males,85+,mantle_cell,10,6.3
-2013,1,females,5–14,mantle_cell,0,0
+2013,1,females,0–14,mantle_cell,0,0
 2013,1,females,15–24,mantle_cell,0,0
 2013,1,females,25–34,mantle_cell,0,0
 2013,1,females,35–44,mantle_cell,0,0
@@ -611,7 +611,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,females,65–74,mantle_cell,15,1.6
 2013,1,females,75–84,mantle_cell,30,5.3
 2013,1,females,85+,mantle_cell,10,3.5
-2013,5,males,5–14,mantle_cell,0,0
+2013,5,males,0–14,mantle_cell,0,0
 2013,5,males,15–24,mantle_cell,0,0
 2013,5,males,25–34,mantle_cell,2,0.1
 2013,5,males,35–44,mantle_cell,7,0.4
@@ -620,7 +620,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,males,65–74,mantle_cell,186,19.9
 2013,5,males,75–84,mantle_cell,132,27.7
 2013,5,males,85+,mantle_cell,32,20
-2013,5,females,5–14,mantle_cell,0,0
+2013,5,females,0–14,mantle_cell,0,0
 2013,5,females,15–24,mantle_cell,0,0
 2013,5,females,25–34,mantle_cell,1,0.1
 2013,5,females,35–44,mantle_cell,2,0.1
@@ -629,7 +629,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,females,65–74,mantle_cell,56,5.8
 2013,5,females,75–84,mantle_cell,85,15
 2013,5,females,85+,mantle_cell,28,9.8
-2013,10,males,5–14,mantle_cell,0,0
+2013,10,males,0–14,mantle_cell,0,0
 2013,10,males,15–24,mantle_cell,0,0
 2013,10,males,25–34,mantle_cell,2,0.1
 2013,10,males,35–44,mantle_cell,13,0.8
@@ -638,7 +638,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,males,65–74,mantle_cell,266,28.4
 2013,10,males,75–84,mantle_cell,195,40.9
 2013,10,males,85+,mantle_cell,43,26.9
-2013,10,females,5–14,mantle_cell,0,0
+2013,10,females,0–14,mantle_cell,0,0
 2013,10,females,15–24,mantle_cell,0,0
 2013,10,females,25–34,mantle_cell,1,0.1
 2013,10,females,35–44,mantle_cell,5,0.3
@@ -647,7 +647,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,females,65–74,mantle_cell,81,8.4
 2013,10,females,75–84,mantle_cell,119,21
 2013,10,females,85+,mantle_cell,35,12.2
-2014,1,males,5–14,mantle_cell,0,0
+2014,1,males,0–14,mantle_cell,0,0
 2014,1,males,15–24,mantle_cell,0,0
 2014,1,males,25–34,mantle_cell,0,0
 2014,1,males,35–44,mantle_cell,6,0.4
@@ -656,7 +656,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,males,65–74,mantle_cell,57,5.9
 2014,1,males,75–84,mantle_cell,43,8.8
 2014,1,males,85+,mantle_cell,12,7.1
-2014,1,females,5–14,mantle_cell,0,0
+2014,1,females,0–14,mantle_cell,0,0
 2014,1,females,15–24,mantle_cell,0,0
 2014,1,females,25–34,mantle_cell,0,0
 2014,1,females,35–44,mantle_cell,0,0
@@ -665,7 +665,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,females,65–74,mantle_cell,31,3.1
 2014,1,females,75–84,mantle_cell,20,3.5
 2014,1,females,85+,mantle_cell,7,2.4
-2014,5,males,5–14,mantle_cell,0,0
+2014,5,males,0–14,mantle_cell,0,0
 2014,5,males,15–24,mantle_cell,0,0
 2014,5,males,25–34,mantle_cell,1,0.1
 2014,5,males,35–44,mantle_cell,11,0.7
@@ -674,7 +674,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,males,65–74,mantle_cell,208,21.4
 2014,5,males,75–84,mantle_cell,136,27.8
 2014,5,males,85+,mantle_cell,38,22.6
-2014,5,females,5–14,mantle_cell,0,0
+2014,5,females,0–14,mantle_cell,0,0
 2014,5,females,15–24,mantle_cell,0,0
 2014,5,females,25–34,mantle_cell,0,0
 2014,5,females,35–44,mantle_cell,1,0.1
@@ -683,7 +683,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,females,65–74,mantle_cell,79,7.9
 2014,5,females,75–84,mantle_cell,85,14.7
 2014,5,females,85+,mantle_cell,32,10.9
-2014,10,males,5–14,mantle_cell,0,0
+2014,10,males,0–14,mantle_cell,0,0
 2014,10,males,15–24,mantle_cell,0,0
 2014,10,males,25–34,mantle_cell,2,0.1
 2014,10,males,35–44,mantle_cell,16,1
@@ -692,7 +692,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,males,65–74,mantle_cell,285,29.3
 2014,10,males,75–84,mantle_cell,204,41.7
 2014,10,males,85+,mantle_cell,60,35.7
-2014,10,females,5–14,mantle_cell,0,0
+2014,10,females,0–14,mantle_cell,0,0
 2014,10,females,15–24,mantle_cell,0,0
 2014,10,females,25–34,mantle_cell,1,0.1
 2014,10,females,35–44,mantle_cell,3,0.2
@@ -701,7 +701,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,females,65–74,mantle_cell,102,10.2
 2014,10,females,75–84,mantle_cell,120,20.8
 2014,10,females,85+,mantle_cell,44,15
-2015,1,males,5–14,mantle_cell,0,0
+2015,1,males,0–14,mantle_cell,0,0
 2015,1,males,15–24,mantle_cell,0,0
 2015,1,males,25–34,mantle_cell,1,0.1
 2015,1,males,35–44,mantle_cell,3,0.2
@@ -710,7 +710,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,males,65–74,mantle_cell,49,4.9
 2015,1,males,75–84,mantle_cell,41,8.2
 2015,1,males,85+,mantle_cell,15,8.6
-2015,1,females,5–14,mantle_cell,0,0
+2015,1,females,0–14,mantle_cell,0,0
 2015,1,females,15–24,mantle_cell,0,0
 2015,1,females,25–34,mantle_cell,0,0
 2015,1,females,35–44,mantle_cell,1,0.1
@@ -719,7 +719,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,females,65–74,mantle_cell,30,2.9
 2015,1,females,75–84,mantle_cell,22,3.7
 2015,1,females,85+,mantle_cell,10,3.3
-2015,5,males,5–14,mantle_cell,0,0
+2015,5,males,0–14,mantle_cell,0,0
 2015,5,males,15–24,mantle_cell,0,0
 2015,5,males,25–34,mantle_cell,2,0.1
 2015,5,males,35–44,mantle_cell,12,0.7
@@ -728,7 +728,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,males,65–74,mantle_cell,204,20.2
 2015,5,males,75–84,mantle_cell,144,28.6
 2015,5,males,85+,mantle_cell,46,26.2
-2015,5,females,5–14,mantle_cell,0,0
+2015,5,females,0–14,mantle_cell,0,0
 2015,5,females,15–24,mantle_cell,0,0
 2015,5,females,25–34,mantle_cell,0,0
 2015,5,females,35–44,mantle_cell,1,0.1
@@ -737,7 +737,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,females,65–74,mantle_cell,95,9.2
 2015,5,females,75–84,mantle_cell,94,16
 2015,5,females,85+,mantle_cell,34,11.4
-2015,10,males,5–14,mantle_cell,0,0
+2015,10,males,0–14,mantle_cell,0,0
 2015,10,males,15–24,mantle_cell,0,0
 2015,10,males,25–34,mantle_cell,3,0.2
 2015,10,males,35–44,mantle_cell,14,0.9
@@ -746,7 +746,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,males,65–74,mantle_cell,289,28.7
 2015,10,males,75–84,mantle_cell,212,42.2
 2015,10,males,85+,mantle_cell,75,42.8
-2015,10,females,5–14,mantle_cell,0,0
+2015,10,females,0–14,mantle_cell,0,0
 2015,10,females,15–24,mantle_cell,0,0
 2015,10,females,25–34,mantle_cell,1,0.1
 2015,10,females,35–44,mantle_cell,3,0.2
@@ -755,7 +755,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,females,65–74,mantle_cell,118,11.4
 2015,10,females,75–84,mantle_cell,127,21.6
 2015,10,females,85+,mantle_cell,49,16.4
-2016,1,males,5–14,mantle_cell,0,0
+2016,1,males,0–14,mantle_cell,0,0
 2016,1,males,15–24,mantle_cell,0,0
 2016,1,males,25–34,mantle_cell,0,0
 2016,1,males,35–44,mantle_cell,3,0.2
@@ -764,7 +764,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,males,65–74,mantle_cell,53,5.1
 2016,1,males,75–84,mantle_cell,47,9
 2016,1,males,85+,mantle_cell,15,8.3
-2016,1,females,5–14,mantle_cell,0,0
+2016,1,females,0–14,mantle_cell,0,0
 2016,1,females,15–24,mantle_cell,0,0
 2016,1,females,25–34,mantle_cell,0,0
 2016,1,females,35–44,mantle_cell,1,0.1
@@ -773,7 +773,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,females,65–74,mantle_cell,18,1.7
 2016,1,females,75–84,mantle_cell,14,2.3
 2016,1,females,85+,mantle_cell,4,1.3
-2016,5,males,5–14,mantle_cell,0,0
+2016,5,males,0–14,mantle_cell,0,0
 2016,5,males,15–24,mantle_cell,0,0
 2016,5,males,25–34,mantle_cell,1,0.1
 2016,5,males,35–44,mantle_cell,12,0.7
@@ -782,7 +782,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,males,65–74,mantle_cell,211,20.3
 2016,5,males,75–84,mantle_cell,155,29.8
 2016,5,males,85+,mantle_cell,56,30.9
-2016,5,females,5–14,mantle_cell,0,0
+2016,5,females,0–14,mantle_cell,0,0
 2016,5,females,15–24,mantle_cell,0,0
 2016,5,females,25–34,mantle_cell,0,0
 2016,5,females,35–44,mantle_cell,2,0.1
@@ -791,7 +791,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,females,65–74,mantle_cell,89,8.3
 2016,5,females,75–84,mantle_cell,92,15.2
 2016,5,females,85+,mantle_cell,28,9.2
-2016,10,males,5–14,mantle_cell,0,0
+2016,10,males,0–14,mantle_cell,0,0
 2016,10,males,15–24,mantle_cell,0,0
 2016,10,males,25–34,mantle_cell,2,0.1
 2016,10,males,35–44,mantle_cell,14,0.9
@@ -800,7 +800,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,males,65–74,mantle_cell,301,28.9
 2016,10,males,75–84,mantle_cell,221,42.4
 2016,10,males,85+,mantle_cell,86,47.4
-2016,10,females,5–14,mantle_cell,0,0
+2016,10,females,0–14,mantle_cell,0,0
 2016,10,females,15–24,mantle_cell,0,0
 2016,10,females,25–34,mantle_cell,1,0.1
 2016,10,females,35–44,mantle_cell,3,0.2
@@ -809,7 +809,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,females,65–74,mantle_cell,124,11.5
 2016,10,females,75–84,mantle_cell,126,20.9
 2016,10,females,85+,mantle_cell,52,17.1
-2017,1,males,5–14,mantle_cell,0,0
+2017,1,males,0–14,mantle_cell,0,0
 2017,1,males,15–24,mantle_cell,0,0
 2017,1,males,25–34,mantle_cell,0,0
 2017,1,males,35–44,mantle_cell,3,0.2
@@ -818,7 +818,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,males,65–74,mantle_cell,76,7.1
 2017,1,males,75–84,mantle_cell,54,10
 2017,1,males,85+,mantle_cell,12,6.5
-2017,1,females,5–14,mantle_cell,0,0
+2017,1,females,0–14,mantle_cell,0,0
 2017,1,females,15–24,mantle_cell,0,0
 2017,1,females,25–34,mantle_cell,0,0
 2017,1,females,35–44,mantle_cell,2,0.1
@@ -827,7 +827,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,females,65–74,mantle_cell,23,2.1
 2017,1,females,75–84,mantle_cell,20,3.2
 2017,1,females,85+,mantle_cell,7,2.3
-2017,5,males,5–14,mantle_cell,0,0
+2017,5,males,0–14,mantle_cell,0,0
 2017,5,males,15–24,mantle_cell,0,0
 2017,5,males,25–34,mantle_cell,0,0
 2017,5,males,35–44,mantle_cell,11,0.7
@@ -836,7 +836,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,males,65–74,mantle_cell,242,22.6
 2017,5,males,75–84,mantle_cell,176,32.6
 2017,5,males,85+,mantle_cell,50,26.9
-2017,5,females,5–14,mantle_cell,0,0
+2017,5,females,0–14,mantle_cell,0,0
 2017,5,females,15–24,mantle_cell,0,0
 2017,5,females,25–34,mantle_cell,0,0
 2017,5,females,35–44,mantle_cell,3,0.2
@@ -845,7 +845,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,females,65–74,mantle_cell,90,8.1
 2017,5,females,75–84,mantle_cell,92,14.8
 2017,5,females,85+,mantle_cell,32,10.4
-2017,10,males,5–14,mantle_cell,0,0
+2017,10,males,0–14,mantle_cell,0,0
 2017,10,males,15–24,mantle_cell,0,0
 2017,10,males,25–34,mantle_cell,1,0.1
 2017,10,males,35–44,mantle_cell,14,0.9
@@ -854,7 +854,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,males,65–74,mantle_cell,349,32.5
 2017,10,males,75–84,mantle_cell,248,45.9
 2017,10,males,85+,mantle_cell,79,42.5
-2017,10,females,5–14,mantle_cell,0,0
+2017,10,females,0–14,mantle_cell,0,0
 2017,10,females,15–24,mantle_cell,0,0
 2017,10,females,25–34,mantle_cell,1,0.1
 2017,10,females,35–44,mantle_cell,3,0.2
@@ -863,7 +863,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,females,65–74,mantle_cell,125,11.2
 2017,10,females,75–84,mantle_cell,138,22.2
 2017,10,females,85+,mantle_cell,53,17.3
-2018,1,males,5–14,mantle_cell,0,0
+2018,1,males,0–14,mantle_cell,0,0
 2018,1,males,15–24,mantle_cell,0,0
 2018,1,males,25–34,mantle_cell,0,0
 2018,1,males,35–44,mantle_cell,2,0.1
@@ -872,7 +872,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,males,65–74,mantle_cell,59,5.4
 2018,1,males,75–84,mantle_cell,53,9.4
 2018,1,males,85+,mantle_cell,17,8.9
-2018,1,females,5–14,mantle_cell,0,0
+2018,1,females,0–14,mantle_cell,0,0
 2018,1,females,15–24,mantle_cell,0,0
 2018,1,females,25–34,mantle_cell,0,0
 2018,1,females,35–44,mantle_cell,0,0
@@ -881,7 +881,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,females,65–74,mantle_cell,27,2.3
 2018,1,females,75–84,mantle_cell,17,2.6
 2018,1,females,85+,mantle_cell,8,2.6
-2018,5,males,5–14,mantle_cell,0,0
+2018,5,males,0–14,mantle_cell,0,0
 2018,5,males,15–24,mantle_cell,0,0
 2018,5,males,25–34,mantle_cell,0,0
 2018,5,males,35–44,mantle_cell,11,0.7
@@ -890,7 +890,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,males,65–74,mantle_cell,243,22.1
 2018,5,males,75–84,mantle_cell,208,36.9
 2018,5,males,85+,mantle_cell,50,26.1
-2018,5,females,5–14,mantle_cell,0,0
+2018,5,females,0–14,mantle_cell,0,0
 2018,5,females,15–24,mantle_cell,0,0
 2018,5,females,25–34,mantle_cell,0,0
 2018,5,females,35–44,mantle_cell,1,0.1
@@ -899,7 +899,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,females,65–74,mantle_cell,101,8.7
 2018,5,females,75–84,mantle_cell,89,13.8
 2018,5,females,85+,mantle_cell,29,9.3
-2018,10,males,5–14,mantle_cell,0,0
+2018,10,males,0–14,mantle_cell,0,0
 2018,10,males,15–24,mantle_cell,0,0
 2018,10,males,25–34,mantle_cell,0,0
 2018,10,males,35–44,mantle_cell,14,0.8
@@ -908,7 +908,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,males,65–74,mantle_cell,371,33.7
 2018,10,males,75–84,mantle_cell,286,50.7
 2018,10,males,85+,mantle_cell,83,43.3
-2018,10,females,5–14,mantle_cell,0,0
+2018,10,females,0–14,mantle_cell,0,0
 2018,10,females,15–24,mantle_cell,0,0
 2018,10,females,25–34,mantle_cell,1,0.1
 2018,10,females,35–44,mantle_cell,1,0.1
@@ -917,7 +917,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,females,65–74,mantle_cell,139,12
 2018,10,females,75–84,mantle_cell,136,21.1
 2018,10,females,85+,mantle_cell,57,18.3
-2019,1,males,5–14,mantle_cell,0,0
+2019,1,males,0–14,mantle_cell,0,0
 2019,1,males,15–24,mantle_cell,1,0.1
 2019,1,males,25–34,mantle_cell,2,0.1
 2019,1,males,35–44,mantle_cell,3,0.2
@@ -926,7 +926,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,males,65–74,mantle_cell,76,6.7
 2019,1,males,75–84,mantle_cell,57,9.6
 2019,1,males,85+,mantle_cell,19,9.6
-2019,1,females,5–14,mantle_cell,0,0
+2019,1,females,0–14,mantle_cell,0,0
 2019,1,females,15–24,mantle_cell,0,0
 2019,1,females,25–34,mantle_cell,0,0
 2019,1,females,35–44,mantle_cell,1,0.1
@@ -935,7 +935,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,females,65–74,mantle_cell,21,1.7
 2019,1,females,75–84,mantle_cell,15,2.2
 2019,1,females,85+,mantle_cell,6,1.9
-2019,5,males,5–14,mantle_cell,0,0
+2019,5,males,0–14,mantle_cell,0,0
 2019,5,males,15–24,mantle_cell,1,0.1
 2019,5,males,25–34,mantle_cell,2,0.1
 2019,5,males,35–44,mantle_cell,10,0.6
@@ -944,7 +944,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,males,65–74,mantle_cell,276,24.3
 2019,5,males,75–84,mantle_cell,204,34.4
 2019,5,males,85+,mantle_cell,64,32.4
-2019,5,females,5–14,mantle_cell,0,0
+2019,5,females,0–14,mantle_cell,0,0
 2019,5,females,15–24,mantle_cell,0,0
 2019,5,females,25–34,mantle_cell,0,0
 2019,5,females,35–44,mantle_cell,2,0.1
@@ -953,7 +953,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,females,65–74,mantle_cell,99,8.2
 2019,5,females,75–84,mantle_cell,83,12.4
 2019,5,females,85+,mantle_cell,28,8.9
-2019,10,males,5–14,mantle_cell,0,0
+2019,10,males,0–14,mantle_cell,0,0
 2019,10,males,15–24,mantle_cell,1,0.1
 2019,10,males,25–34,mantle_cell,2,0.1
 2019,10,males,35–44,mantle_cell,11,0.6
@@ -962,7 +962,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,males,65–74,mantle_cell,414,36.5
 2019,10,males,75–84,mantle_cell,305,51.4
 2019,10,males,85+,mantle_cell,97,49.1
-2019,10,females,5–14,mantle_cell,0,0
+2019,10,females,0–14,mantle_cell,0,0
 2019,10,females,15–24,mantle_cell,0,0
 2019,10,females,25–34,mantle_cell,0,0
 2019,10,females,35–44,mantle_cell,2,0.1
@@ -971,7 +971,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,females,65–74,mantle_cell,141,11.7
 2019,10,females,75–84,mantle_cell,136,20.3
 2019,10,females,85+,mantle_cell,56,17.8
-2020,1,males,5–14,mantle_cell,0,0
+2020,1,males,0–14,mantle_cell,0,0
 2020,1,males,15–24,mantle_cell,0,0
 2020,1,males,25–34,mantle_cell,0,0
 2020,1,males,35–44,mantle_cell,4,0.2
@@ -980,7 +980,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,males,65–74,mantle_cell,92,7.9
 2020,1,males,75–84,mantle_cell,56,9
 2020,1,males,85+,mantle_cell,16,7.8
-2020,1,females,5–14,mantle_cell,0,0
+2020,1,females,0–14,mantle_cell,0,0
 2020,1,females,15–24,mantle_cell,1,0.1
 2020,1,females,25–34,mantle_cell,1,0.1
 2020,1,females,35–44,mantle_cell,1,0.1
@@ -989,7 +989,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,females,65–74,mantle_cell,26,2.1
 2020,1,females,75–84,mantle_cell,13,1.9
 2020,1,females,85+,mantle_cell,13,4
-2020,5,males,5–14,mantle_cell,0,0
+2020,5,males,0–14,mantle_cell,0,0
 2020,5,males,15–24,mantle_cell,1,0.1
 2020,5,males,25–34,mantle_cell,2,0.1
 2020,5,males,35–44,mantle_cell,10,0.6
@@ -998,7 +998,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,males,65–74,mantle_cell,309,26.6
 2020,5,males,75–84,mantle_cell,222,35.6
 2020,5,males,85+,mantle_cell,71,34.6
-2020,5,females,5–14,mantle_cell,0,0
+2020,5,females,0–14,mantle_cell,0,0
 2020,5,females,15–24,mantle_cell,1,0.1
 2020,5,females,25–34,mantle_cell,1,0.1
 2020,5,females,35–44,mantle_cell,3,0.2
@@ -1007,7 +1007,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,females,65–74,mantle_cell,111,9
 2020,5,females,75–84,mantle_cell,75,10.7
 2020,5,females,85+,mantle_cell,31,9.6
-2020,10,males,5–14,mantle_cell,0,0
+2020,10,males,0–14,mantle_cell,0,0
 2020,10,males,15–24,mantle_cell,1,0.1
 2020,10,males,25–34,mantle_cell,2,0.1
 2020,10,males,35–44,mantle_cell,11,0.6
@@ -1016,7 +1016,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,males,65–74,mantle_cell,455,39.2
 2020,10,males,75–84,mantle_cell,330,52.9
 2020,10,males,85+,mantle_cell,114,55.6
-2020,10,females,5–14,mantle_cell,0,0
+2020,10,females,0–14,mantle_cell,0,0
 2020,10,females,15–24,mantle_cell,1,0.1
 2020,10,females,25–34,mantle_cell,1,0.1
 2020,10,females,35–44,mantle_cell,3,0.2
@@ -1025,7 +1025,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,females,65–74,mantle_cell,162,13.1
 2020,10,females,75–84,mantle_cell,139,19.8
 2020,10,females,85+,mantle_cell,62,19.2
-2021,1,males,5–14,mantle_cell,0,0
+2021,1,males,0–14,mantle_cell,0,0
 2021,1,males,15–24,mantle_cell,0,0
 2021,1,males,25–34,mantle_cell,0,0
 2021,1,males,35–44,mantle_cell,1,0.1
@@ -1034,7 +1034,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,males,65–74,mantle_cell,50,4.3
 2021,1,males,75–84,mantle_cell,46,7
 2021,1,males,85+,mantle_cell,15,7
-2021,1,females,5–14,mantle_cell,0,0
+2021,1,females,0–14,mantle_cell,0,0
 2021,1,females,15–24,mantle_cell,0,0
 2021,1,females,25–34,mantle_cell,0,0
 2021,1,females,35–44,mantle_cell,0,0
@@ -1043,7 +1043,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,females,65–74,mantle_cell,24,1.9
 2021,1,females,75–84,mantle_cell,17,2.3
 2021,1,females,85+,mantle_cell,11,3.3
-2021,5,males,5–14,mantle_cell,0,0
+2021,5,males,0–14,mantle_cell,0,0
 2021,5,males,15–24,mantle_cell,1,0.1
 2021,5,males,25–34,mantle_cell,1,0.1
 2021,5,males,35–44,mantle_cell,10,0.6
@@ -1052,7 +1052,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,males,65–74,mantle_cell,292,24.9
 2021,5,males,75–84,mantle_cell,230,34.9
 2021,5,males,85+,mantle_cell,68,31.9
-2021,5,females,5–14,mantle_cell,0,0
+2021,5,females,0–14,mantle_cell,0,0
 2021,5,females,15–24,mantle_cell,0,0
 2021,5,females,25–34,mantle_cell,2,0.1
 2021,5,females,35–44,mantle_cell,3,0.2
@@ -1061,7 +1061,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,females,65–74,mantle_cell,105,8.3
 2021,5,females,75–84,mantle_cell,86,11.7
 2021,5,females,85+,mantle_cell,36,10.9
-2021,10,males,5–14,mantle_cell,0,0
+2021,10,males,0–14,mantle_cell,0,0
 2021,10,males,15–24,mantle_cell,1,0.1
 2021,10,males,25–34,mantle_cell,1,0.1
 2021,10,males,35–44,mantle_cell,12,0.7
@@ -1070,7 +1070,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,males,65–74,mantle_cell,441,37.5
 2021,10,males,75–84,mantle_cell,358,54.3
 2021,10,males,85+,mantle_cell,116,54.4
-2021,10,females,5–14,mantle_cell,0,0
+2021,10,females,0–14,mantle_cell,0,0
 2021,10,females,15–24,mantle_cell,0,0
 2021,10,females,25–34,mantle_cell,2,0.1
 2021,10,females,35–44,mantle_cell,3,0.2
@@ -1079,7 +1079,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,females,65–74,mantle_cell,158,12.5
 2021,10,females,75–84,mantle_cell,153,20.8
 2021,10,females,85+,mantle_cell,68,20.7
-2012,1,males,5–14,dlbcl,3,0.1
+2012,1,males,0–14,dlbcl,3,0.1
 2012,1,males,15–24,dlbcl,10,0.6
 2012,1,males,25–34,dlbcl,12,0.7
 2012,1,males,35–44,dlbcl,46,2.9
@@ -1088,7 +1088,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,males,65–74,dlbcl,255,28.4
 2012,1,males,75–84,dlbcl,189,40.7
 2012,1,males,85+,dlbcl,61,40.4
-2012,1,females,5–14,dlbcl,1,0
+2012,1,females,0–14,dlbcl,1,0
 2012,1,females,15–24,dlbcl,4,0.3
 2012,1,females,25–34,dlbcl,10,0.6
 2012,1,females,35–44,dlbcl,31,1.9
@@ -1097,7 +1097,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,females,65–74,dlbcl,153,16.6
 2012,1,females,75–84,dlbcl,166,29.7
 2012,1,females,85+,dlbcl,66,23.8
-2012,5,males,5–14,dlbcl,8,0.4
+2012,5,males,0–14,dlbcl,8,0.4
 2012,5,males,15–24,dlbcl,45,2.8
 2012,5,males,25–34,dlbcl,88,5.2
 2012,5,males,35–44,dlbcl,188,11.8
@@ -1106,7 +1106,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,males,65–74,dlbcl,902,100.4
 2012,5,males,75–84,dlbcl,675,145.4
 2012,5,males,85+,dlbcl,201,133.1
-2012,5,females,5–14,dlbcl,7,0.3
+2012,5,females,0–14,dlbcl,7,0.3
 2012,5,females,15–24,dlbcl,25,1.7
 2012,5,females,25–34,dlbcl,58,3.5
 2012,5,females,35–44,dlbcl,133,8.2
@@ -1115,7 +1115,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,females,65–74,dlbcl,668,72.6
 2012,5,females,75–84,dlbcl,611,109.2
 2012,5,females,85+,dlbcl,236,85.2
-2012,10,males,5–14,dlbcl,11,0.5
+2012,10,males,0–14,dlbcl,11,0.5
 2012,10,males,15–24,dlbcl,68,4.3
 2012,10,males,25–34,dlbcl,157,9.3
 2012,10,males,35–44,dlbcl,299,18.8
@@ -1124,7 +1124,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,males,65–74,dlbcl,1412,157.2
 2012,10,males,75–84,dlbcl,1102,237.4
 2012,10,males,85+,dlbcl,353,233.8
-2012,10,females,5–14,dlbcl,8,0.4
+2012,10,females,0–14,dlbcl,8,0.4
 2012,10,females,15–24,dlbcl,30,2
 2012,10,females,25–34,dlbcl,108,6.5
 2012,10,females,35–44,dlbcl,216,13.4
@@ -1133,7 +1133,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,females,65–74,dlbcl,1051,114.3
 2012,10,females,75–84,dlbcl,950,169.7
 2012,10,females,85+,dlbcl,445,160.6
-2013,1,males,5–14,dlbcl,1,0
+2013,1,males,0–14,dlbcl,1,0
 2013,1,males,15–24,dlbcl,9,0.6
 2013,1,males,25–34,dlbcl,22,1.3
 2013,1,males,35–44,dlbcl,48,3
@@ -1142,7 +1142,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,males,65–74,dlbcl,255,27.2
 2013,1,males,75–84,dlbcl,206,43.2
 2013,1,males,85+,dlbcl,59,37
-2013,1,females,5–14,dlbcl,0,0
+2013,1,females,0–14,dlbcl,0,0
 2013,1,females,15–24,dlbcl,2,0.1
 2013,1,females,25–34,dlbcl,12,0.7
 2013,1,females,35–44,dlbcl,31,1.9
@@ -1151,7 +1151,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,females,65–74,dlbcl,187,19.5
 2013,1,females,75–84,dlbcl,144,25.4
 2013,1,females,85+,dlbcl,67,23.4
-2013,5,males,5–14,dlbcl,6,0.3
+2013,5,males,0–14,dlbcl,6,0.3
 2013,5,males,15–24,dlbcl,41,2.6
 2013,5,males,25–34,dlbcl,87,5.1
 2013,5,males,35–44,dlbcl,195,12.2
@@ -1160,7 +1160,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,males,65–74,dlbcl,993,106.1
 2013,5,males,75–84,dlbcl,702,147.4
 2013,5,males,85+,dlbcl,228,142.8
-2013,5,females,5–14,dlbcl,4,0.2
+2013,5,females,0–14,dlbcl,4,0.2
 2013,5,females,15–24,dlbcl,20,1.3
 2013,5,females,25–34,dlbcl,60,3.5
 2013,5,females,35–44,dlbcl,129,8
@@ -1169,7 +1169,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,females,65–74,dlbcl,710,74
 2013,5,females,75–84,dlbcl,614,108.1
 2013,5,females,85+,dlbcl,247,86.3
-2013,10,males,5–14,dlbcl,9,0.4
+2013,10,males,0–14,dlbcl,9,0.4
 2013,10,males,15–24,dlbcl,66,4.1
 2013,10,males,25–34,dlbcl,152,8.8
 2013,10,males,35–44,dlbcl,309,19.3
@@ -1178,7 +1178,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,males,65–74,dlbcl,1539,164.4
 2013,10,males,75–84,dlbcl,1141,239.5
 2013,10,males,85+,dlbcl,412,258.1
-2013,10,females,5–14,dlbcl,7,0.3
+2013,10,females,0–14,dlbcl,7,0.3
 2013,10,females,15–24,dlbcl,26,1.7
 2013,10,females,25–34,dlbcl,107,6.3
 2013,10,females,35–44,dlbcl,218,13.5
@@ -1187,7 +1187,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,females,65–74,dlbcl,1133,118
 2013,10,females,75–84,dlbcl,985,173.5
 2013,10,females,85+,dlbcl,462,161.5
-2014,1,males,5–14,dlbcl,2,0.1
+2014,1,males,0–14,dlbcl,2,0.1
 2014,1,males,15–24,dlbcl,9,0.6
 2014,1,males,25–34,dlbcl,23,1.3
 2014,1,males,35–44,dlbcl,56,3.5
@@ -1196,7 +1196,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,males,65–74,dlbcl,246,25.3
 2014,1,males,75–84,dlbcl,179,36.6
 2014,1,males,85+,dlbcl,41,24.4
-2014,1,females,5–14,dlbcl,0,0
+2014,1,females,0–14,dlbcl,0,0
 2014,1,females,15–24,dlbcl,5,0.3
 2014,1,females,25–34,dlbcl,12,0.7
 2014,1,females,35–44,dlbcl,31,1.9
@@ -1205,7 +1205,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,females,65–74,dlbcl,205,20.5
 2014,1,females,75–84,dlbcl,181,31.3
 2014,1,females,85+,dlbcl,74,25.2
-2014,5,males,5–14,dlbcl,5,0.2
+2014,5,males,0–14,dlbcl,5,0.2
 2014,5,males,15–24,dlbcl,37,2.3
 2014,5,males,25–34,dlbcl,83,4.7
 2014,5,males,35–44,dlbcl,205,12.8
@@ -1214,7 +1214,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,males,65–74,dlbcl,1020,105
 2014,5,males,75–84,dlbcl,754,154.1
 2014,5,males,85+,dlbcl,211,125.7
-2014,5,females,5–14,dlbcl,2,0.1
+2014,5,females,0–14,dlbcl,2,0.1
 2014,5,females,15–24,dlbcl,18,1.2
 2014,5,females,25–34,dlbcl,61,3.5
 2014,5,females,35–44,dlbcl,114,7
@@ -1223,7 +1223,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,females,65–74,dlbcl,746,74.7
 2014,5,females,75–84,dlbcl,666,115.3
 2014,5,females,85+,dlbcl,271,92.4
-2014,10,males,5–14,dlbcl,9,0.4
+2014,10,males,0–14,dlbcl,9,0.4
 2014,10,males,15–24,dlbcl,64,4
 2014,10,males,25–34,dlbcl,159,9.1
 2014,10,males,35–44,dlbcl,324,20.2
@@ -1232,7 +1232,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,males,65–74,dlbcl,1626,167.3
 2014,10,males,75–84,dlbcl,1197,244.7
 2014,10,males,85+,dlbcl,411,244.9
-2014,10,females,5–14,dlbcl,4,0.2
+2014,10,females,0–14,dlbcl,4,0.2
 2014,10,females,15–24,dlbcl,27,1.8
 2014,10,females,25–34,dlbcl,104,6
 2014,10,females,35–44,dlbcl,206,12.7
@@ -1241,7 +1241,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,females,65–74,dlbcl,1192,119.4
 2014,10,females,75–84,dlbcl,1080,187
 2014,10,females,85+,dlbcl,488,166.5
-2015,1,males,5–14,dlbcl,4,0.2
+2015,1,males,0–14,dlbcl,4,0.2
 2015,1,males,15–24,dlbcl,10,0.6
 2015,1,males,25–34,dlbcl,22,1.2
 2015,1,males,35–44,dlbcl,49,3.1
@@ -1250,7 +1250,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,males,65–74,dlbcl,247,24.5
 2015,1,males,75–84,dlbcl,205,40.8
 2015,1,males,85+,dlbcl,81,46.2
-2015,1,females,5–14,dlbcl,1,0
+2015,1,females,0–14,dlbcl,1,0
 2015,1,females,15–24,dlbcl,7,0.5
 2015,1,females,25–34,dlbcl,18,1
 2015,1,females,35–44,dlbcl,23,1.4
@@ -1259,7 +1259,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,females,65–74,dlbcl,184,17.7
 2015,1,females,75–84,dlbcl,173,29.4
 2015,1,females,85+,dlbcl,63,21
-2015,5,males,5–14,dlbcl,9,0.4
+2015,5,males,0–14,dlbcl,9,0.4
 2015,5,males,15–24,dlbcl,40,2.5
 2015,5,males,25–34,dlbcl,81,4.5
 2015,5,males,35–44,dlbcl,199,12.4
@@ -1268,7 +1268,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,males,65–74,dlbcl,1025,101.7
 2015,5,males,75–84,dlbcl,812,161.5
 2015,5,males,85+,dlbcl,259,147.7
-2015,5,females,5–14,dlbcl,1,0
+2015,5,females,0–14,dlbcl,1,0
 2015,5,females,15–24,dlbcl,16,1
 2015,5,females,25–34,dlbcl,62,3.5
 2015,5,females,35–44,dlbcl,99,6.1
@@ -1277,7 +1277,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,females,65–74,dlbcl,763,73.6
 2015,5,females,75–84,dlbcl,681,115.7
 2015,5,females,85+,dlbcl,265,88.5
-2015,10,males,5–14,dlbcl,13,0.6
+2015,10,males,0–14,dlbcl,13,0.6
 2015,10,males,15–24,dlbcl,67,4.2
 2015,10,males,25–34,dlbcl,153,8.6
 2015,10,males,35–44,dlbcl,327,20.4
@@ -1286,7 +1286,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,males,65–74,dlbcl,1673,166
 2015,10,males,75–84,dlbcl,1287,255.9
 2015,10,males,85+,dlbcl,457,260.7
-2015,10,females,5–14,dlbcl,3,0.1
+2015,10,females,0–14,dlbcl,3,0.1
 2015,10,females,15–24,dlbcl,30,1.9
 2015,10,females,25–34,dlbcl,106,5.9
 2015,10,females,35–44,dlbcl,190,11.7
@@ -1295,7 +1295,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,females,65–74,dlbcl,1242,119.8
 2015,10,females,75–84,dlbcl,1127,191.5
 2015,10,females,85+,dlbcl,475,158.6
-2016,1,males,5–14,dlbcl,3,0.1
+2016,1,males,0–14,dlbcl,3,0.1
 2016,1,males,15–24,dlbcl,10,0.6
 2016,1,males,25–34,dlbcl,7,0.4
 2016,1,males,35–44,dlbcl,35,2.2
@@ -1304,7 +1304,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,males,65–74,dlbcl,294,28.2
 2016,1,males,75–84,dlbcl,237,45.5
 2016,1,males,85+,dlbcl,79,43.5
-2016,1,females,5–14,dlbcl,1,0
+2016,1,females,0–14,dlbcl,1,0
 2016,1,females,15–24,dlbcl,7,0.5
 2016,1,females,25–34,dlbcl,13,0.7
 2016,1,females,35–44,dlbcl,23,1.4
@@ -1313,7 +1313,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,females,65–74,dlbcl,180,16.7
 2016,1,females,75–84,dlbcl,166,27.5
 2016,1,females,85+,dlbcl,78,25.6
-2016,5,males,5–14,dlbcl,10,0.4
+2016,5,males,0–14,dlbcl,10,0.4
 2016,5,males,15–24,dlbcl,38,2.3
 2016,5,males,25–34,dlbcl,71,3.9
 2016,5,males,35–44,dlbcl,181,11.2
@@ -1322,7 +1322,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,males,65–74,dlbcl,1055,101.3
 2016,5,males,75–84,dlbcl,885,170
 2016,5,males,85+,dlbcl,294,162
-2016,5,females,5–14,dlbcl,2,0.1
+2016,5,females,0–14,dlbcl,2,0.1
 2016,5,females,15–24,dlbcl,18,1.2
 2016,5,females,25–34,dlbcl,61,3.3
 2016,5,females,35–44,dlbcl,91,5.6
@@ -1331,7 +1331,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,females,65–74,dlbcl,769,71.4
 2016,5,females,75–84,dlbcl,694,114.8
 2016,5,females,85+,dlbcl,304,99.9
-2016,10,males,5–14,dlbcl,14,0.6
+2016,10,males,0–14,dlbcl,14,0.6
 2016,10,males,15–24,dlbcl,63,3.9
 2016,10,males,25–34,dlbcl,133,7.3
 2016,10,males,35–44,dlbcl,317,19.6
@@ -1340,7 +1340,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,males,65–74,dlbcl,1742,167.3
 2016,10,males,75–84,dlbcl,1384,265.8
 2016,10,males,85+,dlbcl,489,269.5
-2016,10,females,5–14,dlbcl,3,0.1
+2016,10,females,0–14,dlbcl,3,0.1
 2016,10,females,15–24,dlbcl,33,2.1
 2016,10,females,25–34,dlbcl,104,5.7
 2016,10,females,35–44,dlbcl,177,10.8
@@ -1349,7 +1349,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,females,65–74,dlbcl,1267,117.7
 2016,10,females,75–84,dlbcl,1182,195.6
 2016,10,females,85+,dlbcl,514,168.9
-2017,1,males,5–14,dlbcl,2,0.1
+2017,1,males,0–14,dlbcl,2,0.1
 2017,1,males,15–24,dlbcl,8,0.5
 2017,1,males,25–34,dlbcl,9,0.5
 2017,1,males,35–44,dlbcl,38,2.3
@@ -1358,7 +1358,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,males,65–74,dlbcl,298,27.8
 2017,1,males,75–84,dlbcl,238,44
 2017,1,males,85+,dlbcl,63,33.9
-2017,1,females,5–14,dlbcl,1,0
+2017,1,females,0–14,dlbcl,1,0
 2017,1,females,15–24,dlbcl,7,0.4
 2017,1,females,25–34,dlbcl,14,0.8
 2017,1,females,35–44,dlbcl,24,1.5
@@ -1367,7 +1367,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,females,65–74,dlbcl,209,18.7
 2017,1,females,75–84,dlbcl,170,27.4
 2017,1,females,85+,dlbcl,75,24.4
-2017,5,males,5–14,dlbcl,10,0.4
+2017,5,males,0–14,dlbcl,10,0.4
 2017,5,males,15–24,dlbcl,37,2.3
 2017,5,males,25–34,dlbcl,62,3.4
 2017,5,males,35–44,dlbcl,170,10.4
@@ -1376,7 +1376,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,males,65–74,dlbcl,1095,102.1
 2017,5,males,75–84,dlbcl,908,168
 2017,5,males,85+,dlbcl,308,165.6
-2017,5,females,5–14,dlbcl,2,0.1
+2017,5,females,0–14,dlbcl,2,0.1
 2017,5,females,15–24,dlbcl,18,1.2
 2017,5,females,25–34,dlbcl,63,3.4
 2017,5,females,35–44,dlbcl,93,5.6
@@ -1385,7 +1385,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,females,65–74,dlbcl,800,71.6
 2017,5,females,75–84,dlbcl,710,114.3
 2017,5,females,85+,dlbcl,325,105.9
-2017,10,males,5–14,dlbcl,15,0.6
+2017,10,males,0–14,dlbcl,15,0.6
 2017,10,males,15–24,dlbcl,57,3.5
 2017,10,males,25–34,dlbcl,118,6.4
 2017,10,males,35–44,dlbcl,306,18.7
@@ -1394,7 +1394,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,males,65–74,dlbcl,1840,171.6
 2017,10,males,75–84,dlbcl,1441,266.7
 2017,10,males,85+,dlbcl,515,277
-2017,10,females,5–14,dlbcl,3,0.1
+2017,10,females,0–14,dlbcl,3,0.1
 2017,10,females,15–24,dlbcl,32,2
 2017,10,females,25–34,dlbcl,108,5.8
 2017,10,females,35–44,dlbcl,167,10.1
@@ -1403,7 +1403,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,females,65–74,dlbcl,1326,118.7
 2017,10,females,75–84,dlbcl,1214,195.4
 2017,10,females,85+,dlbcl,560,182.5
-2018,1,males,5–14,dlbcl,1,0
+2018,1,males,0–14,dlbcl,1,0
 2018,1,males,15–24,dlbcl,5,0.3
 2018,1,males,25–34,dlbcl,22,1.2
 2018,1,males,35–44,dlbcl,43,2.6
@@ -1412,7 +1412,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,males,65–74,dlbcl,283,25.7
 2018,1,males,75–84,dlbcl,231,40.9
 2018,1,males,85+,dlbcl,73,38.1
-2018,1,females,5–14,dlbcl,1,0
+2018,1,females,0–14,dlbcl,1,0
 2018,1,females,15–24,dlbcl,2,0.1
 2018,1,females,25–34,dlbcl,15,0.8
 2018,1,females,35–44,dlbcl,23,1.4
@@ -1421,7 +1421,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,females,65–74,dlbcl,193,16.7
 2018,1,females,75–84,dlbcl,179,27.8
 2018,1,females,85+,dlbcl,79,25.4
-2018,5,males,5–14,dlbcl,8,0.3
+2018,5,males,0–14,dlbcl,8,0.3
 2018,5,males,15–24,dlbcl,35,2.1
 2018,5,males,25–34,dlbcl,65,3.5
 2018,5,males,35–44,dlbcl,160,9.6
@@ -1430,7 +1430,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,males,65–74,dlbcl,1123,101.9
 2018,5,males,75–84,dlbcl,935,165.7
 2018,5,males,85+,dlbcl,315,164.3
-2018,5,females,5–14,dlbcl,3,0.1
+2018,5,females,0–14,dlbcl,3,0.1
 2018,5,females,15–24,dlbcl,15,1
 2018,5,females,25–34,dlbcl,68,3.6
 2018,5,females,35–44,dlbcl,94,5.6
@@ -1439,7 +1439,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,females,65–74,dlbcl,816,70.5
 2018,5,females,75–84,dlbcl,726,112.9
 2018,5,females,85+,dlbcl,331,106.3
-2018,10,males,5–14,dlbcl,12,0.5
+2018,10,males,0–14,dlbcl,12,0.5
 2018,10,males,15–24,dlbcl,54,3.3
 2018,10,males,25–34,dlbcl,119,6.4
 2018,10,males,35–44,dlbcl,284,17.1
@@ -1448,7 +1448,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,males,65–74,dlbcl,1911,173.4
 2018,10,males,75–84,dlbcl,1534,271.9
 2018,10,males,85+,dlbcl,540,281.7
-2018,10,females,5–14,dlbcl,3,0.1
+2018,10,females,0–14,dlbcl,3,0.1
 2018,10,females,15–24,dlbcl,24,1.5
 2018,10,females,25–34,dlbcl,113,6
 2018,10,females,35–44,dlbcl,168,10
@@ -1457,7 +1457,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,females,65–74,dlbcl,1376,118.9
 2018,10,females,75–84,dlbcl,1250,194.3
 2018,10,females,85+,dlbcl,588,188.8
-2019,1,males,5–14,dlbcl,2,0.1
+2019,1,males,0–14,dlbcl,2,0.1
 2019,1,males,15–24,dlbcl,9,0.5
 2019,1,males,25–34,dlbcl,28,1.5
 2019,1,males,35–44,dlbcl,38,2.2
@@ -1466,7 +1466,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,males,65–74,dlbcl,312,27.5
 2019,1,males,75–84,dlbcl,250,42.2
 2019,1,males,85+,dlbcl,87,44.1
-2019,1,females,5–14,dlbcl,3,0.1
+2019,1,females,0–14,dlbcl,3,0.1
 2019,1,females,15–24,dlbcl,1,0.1
 2019,1,females,25–34,dlbcl,13,0.7
 2019,1,females,35–44,dlbcl,16,0.9
@@ -1475,7 +1475,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,females,65–74,dlbcl,236,19.6
 2019,1,females,75–84,dlbcl,200,29.8
 2019,1,females,85+,dlbcl,85,27
-2019,5,males,5–14,dlbcl,7,0.3
+2019,5,males,0–14,dlbcl,7,0.3
 2019,5,males,15–24,dlbcl,34,2.1
 2019,5,males,25–34,dlbcl,72,3.8
 2019,5,males,35–44,dlbcl,150,8.8
@@ -1484,7 +1484,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,males,65–74,dlbcl,1187,104.6
 2019,5,males,75–84,dlbcl,965,162.7
 2019,5,males,85+,dlbcl,351,177.8
-2019,5,females,5–14,dlbcl,5,0.2
+2019,5,females,0–14,dlbcl,5,0.2
 2019,5,females,15–24,dlbcl,13,0.8
 2019,5,females,25–34,dlbcl,68,3.6
 2019,5,females,35–44,dlbcl,89,5.2
@@ -1493,7 +1493,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,females,65–74,dlbcl,869,72.3
 2019,5,females,75–84,dlbcl,723,107.7
 2019,5,females,85+,dlbcl,343,108.8
-2019,10,males,5–14,dlbcl,10,0.4
+2019,10,males,0–14,dlbcl,10,0.4
 2019,10,males,15–24,dlbcl,49,3
 2019,10,males,25–34,dlbcl,127,6.7
 2019,10,males,35–44,dlbcl,267,15.7
@@ -1502,7 +1502,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,males,65–74,dlbcl,1978,174.3
 2019,10,males,75–84,dlbcl,1616,272.5
 2019,10,males,85+,dlbcl,610,309
-2019,10,females,5–14,dlbcl,5,0.2
+2019,10,females,0–14,dlbcl,5,0.2
 2019,10,females,15–24,dlbcl,20,1.3
 2019,10,females,25–34,dlbcl,107,5.6
 2019,10,females,35–44,dlbcl,156,9
@@ -1511,7 +1511,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,females,65–74,dlbcl,1457,121.3
 2019,10,females,75–84,dlbcl,1266,188.6
 2019,10,females,85+,dlbcl,623,197.6
-2020,1,males,5–14,dlbcl,1,0
+2020,1,males,0–14,dlbcl,1,0
 2020,1,males,15–24,dlbcl,10,0.6
 2020,1,males,25–34,dlbcl,21,1.1
 2020,1,males,35–44,dlbcl,43,2.5
@@ -1520,7 +1520,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,males,65–74,dlbcl,320,27.5
 2020,1,males,75–84,dlbcl,276,44.3
 2020,1,males,85+,dlbcl,84,41
-2020,1,females,5–14,dlbcl,2,0.1
+2020,1,females,0–14,dlbcl,2,0.1
 2020,1,females,15–24,dlbcl,2,0.1
 2020,1,females,25–34,dlbcl,13,0.7
 2020,1,females,35–44,dlbcl,40,2.3
@@ -1529,7 +1529,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,females,65–74,dlbcl,230,18.6
 2020,1,females,75–84,dlbcl,209,29.8
 2020,1,females,85+,dlbcl,66,20.5
-2020,5,males,5–14,dlbcl,4,0.2
+2020,5,males,0–14,dlbcl,4,0.2
 2020,5,males,15–24,dlbcl,35,2.2
 2020,5,males,25–34,dlbcl,77,4.1
 2020,5,males,35–44,dlbcl,152,8.8
@@ -1538,7 +1538,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,males,65–74,dlbcl,1243,107
 2020,5,males,75–84,dlbcl,1049,168.3
 2020,5,males,85+,dlbcl,343,167.3
-2020,5,females,5–14,dlbcl,7,0.3
+2020,5,females,0–14,dlbcl,7,0.3
 2020,5,females,15–24,dlbcl,9,0.6
 2020,5,females,25–34,dlbcl,60,3.2
 2020,5,females,35–44,dlbcl,105,6
@@ -1547,7 +1547,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,females,65–74,dlbcl,898,72.4
 2020,5,females,75–84,dlbcl,756,107.9
 2020,5,females,85+,dlbcl,339,105.2
-2020,10,males,5–14,dlbcl,7,0.3
+2020,10,males,0–14,dlbcl,7,0.3
 2020,10,males,15–24,dlbcl,53,3.3
 2020,10,males,25–34,dlbcl,128,6.8
 2020,10,males,35–44,dlbcl,263,15.2
@@ -1556,7 +1556,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,males,65–74,dlbcl,2025,174.3
 2020,10,males,75–84,dlbcl,1696,272.1
 2020,10,males,85+,dlbcl,647,315.6
-2020,10,females,5–14,dlbcl,7,0.3
+2020,10,females,0–14,dlbcl,7,0.3
 2020,10,females,15–24,dlbcl,14,0.9
 2020,10,females,25–34,dlbcl,104,5.5
 2020,10,females,35–44,dlbcl,169,9.6
@@ -1565,7 +1565,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,females,65–74,dlbcl,1486,119.9
 2020,10,females,75–84,dlbcl,1332,190.1
 2020,10,females,85+,dlbcl,634,196.7
-2021,1,males,5–14,dlbcl,3,0.1
+2021,1,males,0–14,dlbcl,3,0.1
 2021,1,males,15–24,dlbcl,9,0.6
 2021,1,males,25–34,dlbcl,19,1
 2021,1,males,35–44,dlbcl,56,3.2
@@ -1574,7 +1574,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,males,65–74,dlbcl,294,25
 2021,1,males,75–84,dlbcl,307,46.6
 2021,1,males,85+,dlbcl,85,39.9
-2021,1,females,5–14,dlbcl,2,0.1
+2021,1,females,0–14,dlbcl,2,0.1
 2021,1,females,15–24,dlbcl,6,0.4
 2021,1,females,25–34,dlbcl,16,0.9
 2021,1,females,35–44,dlbcl,26,1.4
@@ -1583,7 +1583,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,females,65–74,dlbcl,240,19
 2021,1,females,75–84,dlbcl,231,31.3
 2021,1,females,85+,dlbcl,87,26.4
-2021,5,males,5–14,dlbcl,6,0.2
+2021,5,males,0–14,dlbcl,6,0.2
 2021,5,males,15–24,dlbcl,33,2.1
 2021,5,males,25–34,dlbcl,80,4.3
 2021,5,males,35–44,dlbcl,184,10.5
@@ -1592,7 +1592,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,males,65–74,dlbcl,1240,105.5
 2021,5,males,75–84,dlbcl,1132,171.8
 2021,5,males,85+,dlbcl,354,166.1
-2021,5,females,5–14,dlbcl,9,0.4
+2021,5,females,0–14,dlbcl,9,0.4
 2021,5,females,15–24,dlbcl,11,0.7
 2021,5,females,25–34,dlbcl,61,3.3
 2021,5,females,35–44,dlbcl,106,5.9
@@ -1601,7 +1601,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,females,65–74,dlbcl,952,75.5
 2021,5,females,75–84,dlbcl,842,114.2
 2021,5,females,85+,dlbcl,356,108.2
-2021,10,males,5–14,dlbcl,9,0.4
+2021,10,males,0–14,dlbcl,9,0.4
 2021,10,males,15–24,dlbcl,52,3.2
 2021,10,males,25–34,dlbcl,129,7
 2021,10,males,35–44,dlbcl,289,16.4
@@ -1610,7 +1610,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,males,65–74,dlbcl,1992,169.6
 2021,10,males,75–84,dlbcl,1839,279.2
 2021,10,males,85+,dlbcl,669,313.9
-2021,10,females,5–14,dlbcl,9,0.4
+2021,10,females,0–14,dlbcl,9,0.4
 2021,10,females,15–24,dlbcl,15,1
 2021,10,females,25–34,dlbcl,105,5.7
 2021,10,females,35–44,dlbcl,168,9.4
@@ -1619,7 +1619,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,females,65–74,dlbcl,1522,120.7
 2021,10,females,75–84,dlbcl,1435,194.7
 2021,10,females,85+,dlbcl,676,205.4
-2012,1,males,5–14,hodgkin,21,0.9
+2012,1,males,0–14,hodgkin,21,0.9
 2012,1,males,15–24,hodgkin,68,4.3
 2012,1,males,25–34,hodgkin,71,4.2
 2012,1,males,35–44,hodgkin,45,2.8
@@ -1628,7 +1628,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,males,65–74,hodgkin,47,5.2
 2012,1,males,75–84,hodgkin,24,5.2
 2012,1,males,85+,hodgkin,4,2.6
-2012,1,females,5–14,hodgkin,5,0.2
+2012,1,females,0–14,hodgkin,5,0.2
 2012,1,females,15–24,hodgkin,67,4.4
 2012,1,females,25–34,hodgkin,51,3.1
 2012,1,females,35–44,hodgkin,35,2.2
@@ -1637,7 +1637,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,1,females,65–74,hodgkin,22,2.4
 2012,1,females,75–84,hodgkin,15,2.7
 2012,1,females,85+,hodgkin,4,1.4
-2012,5,males,5–14,hodgkin,49,2.2
+2012,5,males,0–14,hodgkin,49,2.2
 2012,5,males,15–24,hodgkin,247,15.6
 2012,5,males,25–34,hodgkin,329,19.6
 2012,5,males,35–44,hodgkin,213,13.4
@@ -1646,7 +1646,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,males,65–74,hodgkin,145,16.1
 2012,5,males,75–84,hodgkin,81,17.4
 2012,5,males,85+,hodgkin,10,6.6
-2012,5,females,5–14,hodgkin,17,0.8
+2012,5,females,0–14,hodgkin,17,0.8
 2012,5,females,15–24,hodgkin,264,17.4
 2012,5,females,25–34,hodgkin,307,18.6
 2012,5,females,35–44,hodgkin,181,11.2
@@ -1655,7 +1655,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,5,females,65–74,hodgkin,88,9.6
 2012,5,females,75–84,hodgkin,53,9.5
 2012,5,females,85+,hodgkin,14,5.1
-2012,10,males,5–14,hodgkin,57,2.6
+2012,10,males,0–14,hodgkin,57,2.6
 2012,10,males,15–24,hodgkin,372,23.5
 2012,10,males,25–34,hodgkin,625,37.2
 2012,10,males,35–44,hodgkin,412,25.9
@@ -1664,7 +1664,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,males,65–74,hodgkin,225,25.1
 2012,10,males,75–84,hodgkin,127,27.4
 2012,10,males,85+,hodgkin,21,13.9
-2012,10,females,5–14,hodgkin,21,1
+2012,10,females,0–14,hodgkin,21,1
 2012,10,females,15–24,hodgkin,388,25.6
 2012,10,females,25–34,hodgkin,578,34.9
 2012,10,females,35–44,hodgkin,381,23.6
@@ -1673,7 +1673,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2012,10,females,65–74,hodgkin,169,18.4
 2012,10,females,75–84,hodgkin,94,16.8
 2012,10,females,85+,hodgkin,32,11.5
-2013,1,males,5–14,hodgkin,15,0.7
+2013,1,males,0–14,hodgkin,15,0.7
 2013,1,males,15–24,hodgkin,62,3.9
 2013,1,males,25–34,hodgkin,64,3.7
 2013,1,males,35–44,hodgkin,38,2.4
@@ -1682,7 +1682,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,males,65–74,hodgkin,38,4.1
 2013,1,males,75–84,hodgkin,20,4.2
 2013,1,males,85+,hodgkin,6,3.8
-2013,1,females,5–14,hodgkin,5,0.2
+2013,1,females,0–14,hodgkin,5,0.2
 2013,1,females,15–24,hodgkin,74,4.9
 2013,1,females,25–34,hodgkin,56,3.3
 2013,1,females,35–44,hodgkin,47,2.9
@@ -1691,7 +1691,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,1,females,65–74,hodgkin,21,2.2
 2013,1,females,75–84,hodgkin,16,2.8
 2013,1,females,85+,hodgkin,8,2.8
-2013,5,males,5–14,hodgkin,54,2.4
+2013,5,males,0–14,hodgkin,54,2.4
 2013,5,males,15–24,hodgkin,260,16.3
 2013,5,males,25–34,hodgkin,330,19.2
 2013,5,males,35–44,hodgkin,211,13.2
@@ -1700,7 +1700,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,males,65–74,hodgkin,161,17.2
 2013,5,males,75–84,hodgkin,87,18.3
 2013,5,males,85+,hodgkin,16,10
-2013,5,females,5–14,hodgkin,17,0.8
+2013,5,females,0–14,hodgkin,17,0.8
 2013,5,females,15–24,hodgkin,282,18.5
 2013,5,females,25–34,hodgkin,309,18.2
 2013,5,females,35–44,hodgkin,204,12.6
@@ -1709,7 +1709,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,5,females,65–74,hodgkin,100,10.4
 2013,5,females,75–84,hodgkin,59,10.4
 2013,5,females,85+,hodgkin,20,7
-2013,10,males,5–14,hodgkin,57,2.5
+2013,10,males,0–14,hodgkin,57,2.5
 2013,10,males,15–24,hodgkin,381,23.9
 2013,10,males,25–34,hodgkin,638,37.1
 2013,10,males,35–44,hodgkin,408,25.5
@@ -1718,7 +1718,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,males,65–74,hodgkin,246,26.3
 2013,10,males,75–84,hodgkin,146,30.6
 2013,10,males,85+,hodgkin,26,16.3
-2013,10,females,5–14,hodgkin,21,1
+2013,10,females,0–14,hodgkin,21,1
 2013,10,females,15–24,hodgkin,397,26
 2013,10,females,25–34,hodgkin,613,36
 2013,10,females,35–44,hodgkin,402,24.8
@@ -1727,7 +1727,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2013,10,females,65–74,hodgkin,188,19.6
 2013,10,females,75–84,hodgkin,92,16.2
 2013,10,females,85+,hodgkin,32,11.2
-2014,1,males,5–14,hodgkin,14,0.6
+2014,1,males,0–14,hodgkin,14,0.6
 2014,1,males,15–24,hodgkin,55,3.4
 2014,1,males,25–34,hodgkin,70,4
 2014,1,males,35–44,hodgkin,56,3.5
@@ -1736,7 +1736,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,males,65–74,hodgkin,41,4.2
 2014,1,males,75–84,hodgkin,14,2.9
 2014,1,males,85+,hodgkin,2,1.2
-2014,1,females,5–14,hodgkin,12,0.6
+2014,1,females,0–14,hodgkin,12,0.6
 2014,1,females,15–24,hodgkin,55,3.6
 2014,1,females,25–34,hodgkin,69,4
 2014,1,females,35–44,hodgkin,38,2.3
@@ -1745,7 +1745,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,1,females,65–74,hodgkin,31,3.1
 2014,1,females,75–84,hodgkin,17,2.9
 2014,1,females,85+,hodgkin,4,1.4
-2014,5,males,5–14,hodgkin,52,2.3
+2014,5,males,0–14,hodgkin,52,2.3
 2014,5,males,15–24,hodgkin,256,16
 2014,5,males,25–34,hodgkin,330,18.8
 2014,5,males,35–44,hodgkin,241,15
@@ -1754,7 +1754,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,males,65–74,hodgkin,182,18.7
 2014,5,males,75–84,hodgkin,82,16.8
 2014,5,males,85+,hodgkin,13,7.7
-2014,5,females,5–14,hodgkin,26,1.2
+2014,5,females,0–14,hodgkin,26,1.2
 2014,5,females,15–24,hodgkin,268,17.5
 2014,5,females,25–34,hodgkin,313,17.9
 2014,5,females,35–44,hodgkin,208,12.8
@@ -1763,7 +1763,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,5,females,65–74,hodgkin,104,10.4
 2014,5,females,75–84,hodgkin,62,10.7
 2014,5,females,85+,hodgkin,18,6.1
-2014,10,males,5–14,hodgkin,56,2.4
+2014,10,males,0–14,hodgkin,56,2.4
 2014,10,males,15–24,hodgkin,389,24.2
 2014,10,males,25–34,hodgkin,647,36.9
 2014,10,males,35–44,hodgkin,457,28.5
@@ -1772,7 +1772,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,males,65–74,hodgkin,281,28.9
 2014,10,males,75–84,hodgkin,140,28.6
 2014,10,males,85+,hodgkin,22,13.1
-2014,10,females,5–14,hodgkin,29,1.3
+2014,10,females,0–14,hodgkin,29,1.3
 2014,10,females,15–24,hodgkin,392,25.6
 2014,10,females,25–34,hodgkin,634,36.3
 2014,10,females,35–44,hodgkin,416,25.7
@@ -1781,7 +1781,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2014,10,females,65–74,hodgkin,186,18.6
 2014,10,females,75–84,hodgkin,106,18.4
 2014,10,females,85+,hodgkin,27,9.2
-2015,1,males,5–14,hodgkin,17,0.7
+2015,1,males,0–14,hodgkin,17,0.7
 2015,1,males,15–24,hodgkin,78,4.8
 2015,1,males,25–34,hodgkin,77,4.3
 2015,1,males,35–44,hodgkin,40,2.5
@@ -1790,7 +1790,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,males,65–74,hodgkin,26,2.6
 2015,1,males,75–84,hodgkin,27,5.4
 2015,1,males,85+,hodgkin,13,7.4
-2015,1,females,5–14,hodgkin,10,0.5
+2015,1,females,0–14,hodgkin,10,0.5
 2015,1,females,15–24,hodgkin,62,4
 2015,1,females,25–34,hodgkin,70,3.9
 2015,1,females,35–44,hodgkin,43,2.6
@@ -1799,7 +1799,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,1,females,65–74,hodgkin,28,2.7
 2015,1,females,75–84,hodgkin,12,2
 2015,1,females,85+,hodgkin,7,2.3
-2015,5,males,5–14,hodgkin,55,2.4
+2015,5,males,0–14,hodgkin,55,2.4
 2015,5,males,15–24,hodgkin,284,17.6
 2015,5,males,25–34,hodgkin,352,19.8
 2015,5,males,35–44,hodgkin,237,14.8
@@ -1808,7 +1808,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,males,65–74,hodgkin,173,17.2
 2015,5,males,75–84,hodgkin,97,19.3
 2015,5,males,85+,hodgkin,28,16
-2015,5,females,5–14,hodgkin,28,1.3
+2015,5,females,0–14,hodgkin,28,1.3
 2015,5,females,15–24,hodgkin,263,17.1
 2015,5,females,25–34,hodgkin,328,18.4
 2015,5,females,35–44,hodgkin,204,12.6
@@ -1817,7 +1817,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,5,females,65–74,hodgkin,115,11.1
 2015,5,females,75–84,hodgkin,64,10.9
 2015,5,females,85+,hodgkin,18,6
-2015,10,males,5–14,hodgkin,64,2.8
+2015,10,males,0–14,hodgkin,64,2.8
 2015,10,males,15–24,hodgkin,398,24.7
 2015,10,males,25–34,hodgkin,671,37.7
 2015,10,males,35–44,hodgkin,466,29
@@ -1826,7 +1826,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,males,65–74,hodgkin,284,28.2
 2015,10,males,75–84,hodgkin,159,31.6
 2015,10,males,85+,hodgkin,41,23.4
-2015,10,females,5–14,hodgkin,31,1.4
+2015,10,females,0–14,hodgkin,31,1.4
 2015,10,females,15–24,hodgkin,384,24.9
 2015,10,females,25–34,hodgkin,645,36.1
 2015,10,females,35–44,hodgkin,433,26.7
@@ -1835,7 +1835,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2015,10,females,65–74,hodgkin,195,18.8
 2015,10,females,75–84,hodgkin,114,19.4
 2015,10,females,85+,hodgkin,30,10
-2016,1,males,5–14,hodgkin,16,0.7
+2016,1,males,0–14,hodgkin,16,0.7
 2016,1,males,15–24,hodgkin,51,3.1
 2016,1,males,25–34,hodgkin,57,3.1
 2016,1,males,35–44,hodgkin,43,2.7
@@ -1844,7 +1844,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,males,65–74,hodgkin,46,4.4
 2016,1,males,75–84,hodgkin,26,5
 2016,1,males,85+,hodgkin,9,5
-2016,1,females,5–14,hodgkin,12,0.5
+2016,1,females,0–14,hodgkin,12,0.5
 2016,1,females,15–24,hodgkin,79,5.1
 2016,1,females,25–34,hodgkin,78,4.3
 2016,1,females,35–44,hodgkin,49,3
@@ -1853,7 +1853,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,1,females,65–74,hodgkin,27,2.5
 2016,1,females,75–84,hodgkin,22,3.6
 2016,1,females,85+,hodgkin,9,3
-2016,5,males,5–14,hodgkin,56,2.4
+2016,5,males,0–14,hodgkin,56,2.4
 2016,5,males,15–24,hodgkin,265,16.3
 2016,5,males,25–34,hodgkin,359,19.8
 2016,5,males,35–44,hodgkin,237,14.7
@@ -1862,7 +1862,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,males,65–74,hodgkin,175,16.8
 2016,5,males,75–84,hodgkin,101,19.4
 2016,5,males,85+,hodgkin,26,14.3
-2016,5,females,5–14,hodgkin,25,1.1
+2016,5,females,0–14,hodgkin,25,1.1
 2016,5,females,15–24,hodgkin,278,17.9
 2016,5,females,25–34,hodgkin,352,19.3
 2016,5,females,35–44,hodgkin,217,13.3
@@ -1871,7 +1871,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,5,females,65–74,hodgkin,124,11.5
 2016,5,females,75–84,hodgkin,72,11.9
 2016,5,females,85+,hodgkin,21,6.9
-2016,10,males,5–14,hodgkin,65,2.7
+2016,10,males,0–14,hodgkin,65,2.7
 2016,10,males,15–24,hodgkin,386,23.8
 2016,10,males,25–34,hodgkin,671,37
 2016,10,males,35–44,hodgkin,478,29.6
@@ -1880,7 +1880,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,males,65–74,hodgkin,302,29
 2016,10,males,75–84,hodgkin,176,33.8
 2016,10,males,85+,hodgkin,36,19.8
-2016,10,females,5–14,hodgkin,30,1.3
+2016,10,females,0–14,hodgkin,30,1.3
 2016,10,females,15–24,hodgkin,384,24.7
 2016,10,females,25–34,hodgkin,679,37.2
 2016,10,females,35–44,hodgkin,467,28.6
@@ -1889,7 +1889,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2016,10,females,65–74,hodgkin,209,19.4
 2016,10,females,75–84,hodgkin,122,20.2
 2016,10,females,85+,hodgkin,35,11.5
-2017,1,males,5–14,hodgkin,12,0.5
+2017,1,males,0–14,hodgkin,12,0.5
 2017,1,males,15–24,hodgkin,68,4.2
 2017,1,males,25–34,hodgkin,80,4.3
 2017,1,males,35–44,hodgkin,44,2.7
@@ -1898,7 +1898,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,males,65–74,hodgkin,59,5.5
 2017,1,males,75–84,hodgkin,25,4.6
 2017,1,males,85+,hodgkin,7,3.8
-2017,1,females,5–14,hodgkin,11,0.5
+2017,1,females,0–14,hodgkin,11,0.5
 2017,1,females,15–24,hodgkin,61,3.9
 2017,1,females,25–34,hodgkin,76,4.1
 2017,1,females,35–44,hodgkin,36,2.2
@@ -1907,7 +1907,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,1,females,65–74,hodgkin,26,2.3
 2017,1,females,75–84,hodgkin,14,2.3
 2017,1,females,85+,hodgkin,5,1.6
-2017,5,males,5–14,hodgkin,51,2.1
+2017,5,males,0–14,hodgkin,51,2.1
 2017,5,males,15–24,hodgkin,254,15.5
 2017,5,males,25–34,hodgkin,369,20
 2017,5,males,35–44,hodgkin,236,14.4
@@ -1916,7 +1916,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,males,65–74,hodgkin,180,16.8
 2017,5,males,75–84,hodgkin,104,19.2
 2017,5,males,85+,hodgkin,25,13.4
-2017,5,females,5–14,hodgkin,26,1.1
+2017,5,females,0–14,hodgkin,26,1.1
 2017,5,females,15–24,hodgkin,280,17.9
 2017,5,females,25–34,hodgkin,363,19.6
 2017,5,females,35–44,hodgkin,231,14
@@ -1925,7 +1925,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,5,females,65–74,hodgkin,133,11.9
 2017,5,females,75–84,hodgkin,71,11.4
 2017,5,females,85+,hodgkin,26,8.5
-2017,10,males,5–14,hodgkin,63,2.6
+2017,10,males,0–14,hodgkin,63,2.6
 2017,10,males,15–24,hodgkin,385,23.5
 2017,10,males,25–34,hodgkin,691,37.5
 2017,10,males,35–44,hodgkin,484,29.6
@@ -1934,7 +1934,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,males,65–74,hodgkin,320,29.8
 2017,10,males,75–84,hodgkin,183,33.9
 2017,10,males,85+,hodgkin,36,19.4
-2017,10,females,5–14,hodgkin,34,1.5
+2017,10,females,0–14,hodgkin,34,1.5
 2017,10,females,15–24,hodgkin,380,24.3
 2017,10,females,25–34,hodgkin,682,36.7
 2017,10,females,35–44,hodgkin,482,29.1
@@ -1943,7 +1943,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2017,10,females,65–74,hodgkin,220,19.7
 2017,10,females,75–84,hodgkin,129,20.8
 2017,10,females,85+,hodgkin,38,12.4
-2018,1,males,5–14,hodgkin,12,0.5
+2018,1,males,0–14,hodgkin,12,0.5
 2018,1,males,15–24,hodgkin,56,3.4
 2018,1,males,25–34,hodgkin,65,3.5
 2018,1,males,35–44,hodgkin,56,3.4
@@ -1952,7 +1952,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,males,65–74,hodgkin,45,4.1
 2018,1,males,75–84,hodgkin,31,5.5
 2018,1,males,85+,hodgkin,4,2.1
-2018,1,females,5–14,hodgkin,8,0.3
+2018,1,females,0–14,hodgkin,8,0.3
 2018,1,females,15–24,hodgkin,69,4.4
 2018,1,females,25–34,hodgkin,53,2.8
 2018,1,females,35–44,hodgkin,39,2.3
@@ -1961,7 +1961,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,1,females,65–74,hodgkin,22,1.9
 2018,1,females,75–84,hodgkin,24,3.7
 2018,1,females,85+,hodgkin,6,1.9
-2018,5,males,5–14,hodgkin,44,1.8
+2018,5,males,0–14,hodgkin,44,1.8
 2018,5,males,15–24,hodgkin,258,15.6
 2018,5,males,25–34,hodgkin,357,19.1
 2018,5,males,35–44,hodgkin,257,15.4
@@ -1970,7 +1970,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,males,65–74,hodgkin,176,16
 2018,5,males,75–84,hodgkin,114,20.2
 2018,5,males,85+,hodgkin,27,14.1
-2018,5,females,5–14,hodgkin,27,1.2
+2018,5,females,0–14,hodgkin,27,1.2
 2018,5,females,15–24,hodgkin,272,17.3
 2018,5,females,25–34,hodgkin,356,18.9
 2018,5,females,35–44,hodgkin,232,13.7
@@ -1979,7 +1979,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,5,females,65–74,hodgkin,131,11.3
 2018,5,females,75–84,hodgkin,80,12.4
 2018,5,females,85+,hodgkin,23,7.4
-2018,10,males,5–14,hodgkin,61,2.5
+2018,10,males,0–14,hodgkin,61,2.5
 2018,10,males,15–24,hodgkin,381,23
 2018,10,males,25–34,hodgkin,696,37.2
 2018,10,males,35–44,hodgkin,517,31
@@ -1988,7 +1988,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,males,65–74,hodgkin,325,29.5
 2018,10,males,75–84,hodgkin,202,35.8
 2018,10,males,85+,hodgkin,38,19.8
-2018,10,females,5–14,hodgkin,34,1.5
+2018,10,females,0–14,hodgkin,34,1.5
 2018,10,females,15–24,hodgkin,395,25.1
 2018,10,females,25–34,hodgkin,672,35.7
 2018,10,females,35–44,hodgkin,494,29.3
@@ -1997,7 +1997,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2018,10,females,65–74,hodgkin,215,18.6
 2018,10,females,75–84,hodgkin,150,23.3
 2018,10,females,85+,hodgkin,41,13.2
-2019,1,males,5–14,hodgkin,10,0.4
+2019,1,males,0–14,hodgkin,10,0.4
 2019,1,males,15–24,hodgkin,69,4.2
 2019,1,males,25–34,hodgkin,71,3.7
 2019,1,males,35–44,hodgkin,52,3.1
@@ -2006,7 +2006,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,males,65–74,hodgkin,52,4.6
 2019,1,males,75–84,hodgkin,22,3.7
 2019,1,males,85+,hodgkin,4,2
-2019,1,females,5–14,hodgkin,14,0.6
+2019,1,females,0–14,hodgkin,14,0.6
 2019,1,females,15–24,hodgkin,61,3.9
 2019,1,females,25–34,hodgkin,83,4.4
 2019,1,females,35–44,hodgkin,46,2.7
@@ -2015,7 +2015,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,1,females,65–74,hodgkin,29,2.4
 2019,1,females,75–84,hodgkin,28,4.2
 2019,1,females,85+,hodgkin,7,2.2
-2019,5,males,5–14,hodgkin,43,1.8
+2019,5,males,0–14,hodgkin,43,1.8
 2019,5,males,15–24,hodgkin,267,16.2
 2019,5,males,25–34,hodgkin,352,18.6
 2019,5,males,35–44,hodgkin,262,15.4
@@ -2024,7 +2024,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,males,65–74,hodgkin,201,17.7
 2019,5,males,75–84,hodgkin,112,18.9
 2019,5,males,85+,hodgkin,28,14.2
-2019,5,females,5–14,hodgkin,31,1.3
+2019,5,females,0–14,hodgkin,31,1.3
 2019,5,females,15–24,hodgkin,275,17.7
 2019,5,females,25–34,hodgkin,374,19.7
 2019,5,females,35–44,hodgkin,242,14
@@ -2033,7 +2033,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,5,females,65–74,hodgkin,124,10.3
 2019,5,females,75–84,hodgkin,93,13.9
 2019,5,females,85+,hodgkin,26,8.2
-2019,10,males,5–14,hodgkin,58,2.4
+2019,10,males,0–14,hodgkin,58,2.4
 2019,10,males,15–24,hodgkin,391,23.7
 2019,10,males,25–34,hodgkin,682,36
 2019,10,males,35–44,hodgkin,543,31.9
@@ -2042,7 +2042,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,males,65–74,hodgkin,349,30.7
 2019,10,males,75–84,hodgkin,204,34.4
 2019,10,males,85+,hodgkin,44,22.3
-2019,10,females,5–14,hodgkin,37,1.6
+2019,10,females,0–14,hodgkin,37,1.6
 2019,10,females,15–24,hodgkin,389,25
 2019,10,females,25–34,hodgkin,697,36.6
 2019,10,females,35–44,hodgkin,511,29.6
@@ -2051,7 +2051,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2019,10,females,65–74,hodgkin,226,18.8
 2019,10,females,75–84,hodgkin,163,24.3
 2019,10,females,85+,hodgkin,48,15.2
-2020,1,males,5–14,hodgkin,20,0.8
+2020,1,males,0–14,hodgkin,20,0.8
 2020,1,males,15–24,hodgkin,77,4.8
 2020,1,males,25–34,hodgkin,64,3.4
 2020,1,males,35–44,hodgkin,53,3.1
@@ -2060,7 +2060,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,males,65–74,hodgkin,54,4.6
 2020,1,males,75–84,hodgkin,34,5.5
 2020,1,males,85+,hodgkin,10,4.9
-2020,1,females,5–14,hodgkin,17,0.7
+2020,1,females,0–14,hodgkin,17,0.7
 2020,1,females,15–24,hodgkin,63,4.2
 2020,1,females,25–34,hodgkin,73,3.9
 2020,1,females,35–44,hodgkin,42,2.4
@@ -2069,7 +2069,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,1,females,65–74,hodgkin,29,2.3
 2020,1,females,75–84,hodgkin,28,4
 2020,1,females,85+,hodgkin,10,3.1
-2020,5,males,5–14,hodgkin,49,2
+2020,5,males,0–14,hodgkin,49,2
 2020,5,males,15–24,hodgkin,264,16.4
 2020,5,males,25–34,hodgkin,344,18.4
 2020,5,males,35–44,hodgkin,264,15.3
@@ -2078,7 +2078,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,males,65–74,hodgkin,219,18.8
 2020,5,males,75–84,hodgkin,129,20.7
 2020,5,males,85+,hodgkin,34,16.6
-2020,5,females,5–14,hodgkin,36,1.6
+2020,5,females,0–14,hodgkin,36,1.6
 2020,5,females,15–24,hodgkin,273,18
 2020,5,females,25–34,hodgkin,371,19.8
 2020,5,females,35–44,hodgkin,258,14.7
@@ -2087,7 +2087,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,5,females,65–74,hodgkin,128,10.3
 2020,5,females,75–84,hodgkin,103,14.7
 2020,5,females,85+,hodgkin,31,9.6
-2020,10,males,5–14,hodgkin,66,2.7
+2020,10,males,0–14,hodgkin,66,2.7
 2020,10,males,15–24,hodgkin,406,25.2
 2020,10,males,25–34,hodgkin,683,36.5
 2020,10,males,35–44,hodgkin,555,32.1
@@ -2096,7 +2096,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,males,65–74,hodgkin,364,31.3
 2020,10,males,75–84,hodgkin,221,35.5
 2020,10,males,85+,hodgkin,60,29.3
-2020,10,females,5–14,hodgkin,42,1.8
+2020,10,females,0–14,hodgkin,42,1.8
 2020,10,females,15–24,hodgkin,387,25.5
 2020,10,females,25–34,hodgkin,727,38.7
 2020,10,females,35–44,hodgkin,503,28.6
@@ -2105,7 +2105,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2020,10,females,65–74,hodgkin,230,18.6
 2020,10,females,75–84,hodgkin,173,24.7
 2020,10,females,85+,hodgkin,57,17.7
-2021,1,males,5–14,hodgkin,18,0.7
+2021,1,males,0–14,hodgkin,18,0.7
 2021,1,males,15–24,hodgkin,55,3.4
 2021,1,males,25–34,hodgkin,67,3.6
 2021,1,males,35–44,hodgkin,63,3.6
@@ -2114,7 +2114,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,males,65–74,hodgkin,43,3.7
 2021,1,males,75–84,hodgkin,29,4.4
 2021,1,males,85+,hodgkin,8,3.8
-2021,1,females,5–14,hodgkin,7,0.3
+2021,1,females,0–14,hodgkin,7,0.3
 2021,1,females,15–24,hodgkin,60,4
 2021,1,females,25–34,hodgkin,85,4.6
 2021,1,females,35–44,hodgkin,50,2.8
@@ -2123,7 +2123,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,1,females,65–74,hodgkin,39,3.1
 2021,1,females,75–84,hodgkin,32,4.3
 2021,1,females,85+,hodgkin,8,2.4
-2021,5,males,5–14,hodgkin,51,2.1
+2021,5,males,0–14,hodgkin,51,2.1
 2021,5,males,15–24,hodgkin,259,16.2
 2021,5,males,25–34,hodgkin,357,19.3
 2021,5,males,35–44,hodgkin,285,16.2
@@ -2132,7 +2132,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,males,65–74,hodgkin,213,18.1
 2021,5,males,75–84,hodgkin,139,21.1
 2021,5,males,85+,hodgkin,27,12.7
-2021,5,females,5–14,hodgkin,33,1.4
+2021,5,females,0–14,hodgkin,33,1.4
 2021,5,females,15–24,hodgkin,261,17.4
 2021,5,females,25–34,hodgkin,385,20.8
 2021,5,females,35–44,hodgkin,253,14.1
@@ -2141,7 +2141,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,5,females,65–74,hodgkin,139,11
 2021,5,females,75–84,hodgkin,111,15.1
 2021,5,females,85+,hodgkin,29,8.8
-2021,10,males,5–14,hodgkin,68,2.8
+2021,10,males,0–14,hodgkin,68,2.8
 2021,10,males,15–24,hodgkin,391,24.4
 2021,10,males,25–34,hodgkin,688,37.1
 2021,10,males,35–44,hodgkin,587,33.4
@@ -2150,7 +2150,7 @@ year,duration,sex,age_group,subtype,prevalence,rate
 2021,10,males,65–74,hodgkin,358,30.5
 2021,10,males,75–84,hodgkin,238,36.1
 2021,10,males,85+,hodgkin,57,26.7
-2021,10,females,5–14,hodgkin,38,1.6
+2021,10,females,0–14,hodgkin,38,1.6
 2021,10,females,15–24,hodgkin,389,25.9
 2021,10,females,25–34,hodgkin,732,39.5
 2021,10,females,35–44,hodgkin,527,29.4

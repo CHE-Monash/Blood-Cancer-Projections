@@ -1,5 +1,5 @@
 year,sex,age_group,subtype,count,rate
-2003,males,5–14,follicular,0,0
+2003,males,0–14,follicular,0,0
 2003,males,15–24,follicular,5,0.4
 2003,males,25–34,follicular,12,0.8
 2003,males,35–44,follicular,39,2.6
@@ -8,7 +8,7 @@ year,sex,age_group,subtype,count,rate
 2003,males,65–74,follicular,99,15.2
 2003,males,75–84,follicular,64,16.8
 2003,males,85+,follicular,12,13.8
-2003,females,5–14,follicular,0,0
+2003,females,0–14,follicular,0,0
 2003,females,15–24,follicular,4,0.3
 2003,females,25–34,follicular,7,0.5
 2003,females,35–44,follicular,39,2.6
@@ -17,7 +17,7 @@ year,sex,age_group,subtype,count,rate
 2003,females,65–74,follicular,92,13.4
 2003,females,75–84,follicular,76,14.8
 2003,females,85+,follicular,17,8.8
-2004,males,5–14,follicular,0,0
+2004,males,0–14,follicular,0,0
 2004,males,15–24,follicular,2,0.1
 2004,males,25–34,follicular,15,1.1
 2004,males,35–44,follicular,44,3
@@ -26,7 +26,7 @@ year,sex,age_group,subtype,count,rate
 2004,males,65–74,follicular,110,16.7
 2004,males,75–84,follicular,58,14.7
 2004,males,85+,follicular,9,10
-2004,females,5–14,follicular,0,0
+2004,females,0–14,follicular,0,0
 2004,females,15–24,follicular,3,0.2
 2004,females,25–34,follicular,10,0.7
 2004,females,35–44,follicular,34,2.3
@@ -35,7 +35,7 @@ year,sex,age_group,subtype,count,rate
 2004,females,65–74,follicular,102,14.7
 2004,females,75–84,follicular,70,13.4
 2004,females,85+,follicular,21,10.7
-2005,males,5–14,follicular,0,0
+2005,males,0–14,follicular,0,0
 2005,males,15–24,follicular,6,0.4
 2005,males,25–34,follicular,18,1.3
 2005,males,35–44,follicular,48,3.2
@@ -44,7 +44,7 @@ year,sex,age_group,subtype,count,rate
 2005,males,65–74,follicular,110,16.4
 2005,males,75–84,follicular,67,16.5
 2005,males,85+,follicular,9,9.3
-2005,females,5–14,follicular,1,0.1
+2005,females,0–14,follicular,1,0.1
 2005,females,15–24,follicular,2,0.1
 2005,females,25–34,follicular,7,0.5
 2005,females,35–44,follicular,31,2.1
@@ -53,7 +53,7 @@ year,sex,age_group,subtype,count,rate
 2005,females,65–74,follicular,86,12.2
 2005,females,75–84,follicular,86,16.2
 2005,females,85+,follicular,17,8.3
-2006,males,5–14,follicular,0,0
+2006,males,0–14,follicular,0,0
 2006,males,15–24,follicular,5,0.3
 2006,males,25–34,follicular,7,0.5
 2006,males,35–44,follicular,51,3.4
@@ -62,7 +62,7 @@ year,sex,age_group,subtype,count,rate
 2006,males,65–74,follicular,117,17.1
 2006,males,75–84,follicular,63,15.2
 2006,males,85+,follicular,17,16.5
-2006,females,5–14,follicular,0,0
+2006,females,0–14,follicular,0,0
 2006,females,15–24,follicular,1,0.1
 2006,females,25–34,follicular,7,0.5
 2006,females,35–44,follicular,44,2.9
@@ -71,7 +71,7 @@ year,sex,age_group,subtype,count,rate
 2006,females,65–74,follicular,93,13
 2006,females,75–84,follicular,70,13.1
 2006,females,85+,follicular,25,11.6
-2007,males,5–14,follicular,2,0.1
+2007,males,0–14,follicular,2,0.1
 2007,males,15–24,follicular,2,0.1
 2007,males,25–34,follicular,10,0.7
 2007,males,35–44,follicular,34,2.2
@@ -80,7 +80,7 @@ year,sex,age_group,subtype,count,rate
 2007,males,65–74,follicular,116,16.4
 2007,males,75–84,follicular,80,19
 2007,males,85+,follicular,7,6.3
-2007,females,5–14,follicular,1,0.1
+2007,females,0–14,follicular,1,0.1
 2007,females,15–24,follicular,1,0.1
 2007,females,25–34,follicular,3,0.2
 2007,females,35–44,follicular,36,2.3
@@ -89,7 +89,7 @@ year,sex,age_group,subtype,count,rate
 2007,females,65–74,follicular,99,13.5
 2007,females,75–84,follicular,81,15.1
 2007,females,85+,follicular,25,11.1
-2008,males,5–14,follicular,0,0
+2008,males,0–14,follicular,0,0
 2008,males,15–24,follicular,2,0.1
 2008,males,25–34,follicular,6,0.4
 2008,males,35–44,follicular,45,2.9
@@ -98,7 +98,7 @@ year,sex,age_group,subtype,count,rate
 2008,males,65–74,follicular,101,13.9
 2008,males,75–84,follicular,61,14.3
 2008,males,85+,follicular,12,10.2
-2008,females,5–14,follicular,0,0
+2008,females,0–14,follicular,0,0
 2008,females,15–24,follicular,4,0.3
 2008,females,25–34,follicular,9,0.6
 2008,females,35–44,follicular,39,2.5
@@ -107,7 +107,7 @@ year,sex,age_group,subtype,count,rate
 2008,females,65–74,follicular,110,14.5
 2008,females,75–84,follicular,81,15
 2008,females,85+,follicular,16,6.8
-2009,males,5–14,follicular,0,0
+2009,males,0–14,follicular,0,0
 2009,males,15–24,follicular,2,0.1
 2009,males,25–34,follicular,22,1.4
 2009,males,35–44,follicular,43,2.8
@@ -116,7 +116,7 @@ year,sex,age_group,subtype,count,rate
 2009,males,65–74,follicular,149,19.6
 2009,males,75–84,follicular,83,19.1
 2009,males,85+,follicular,19,15.3
-2009,females,5–14,follicular,0,0
+2009,females,0–14,follicular,0,0
 2009,females,15–24,follicular,4,0.3
 2009,females,25–34,follicular,7,0.5
 2009,females,35–44,follicular,40,2.5
@@ -125,7 +125,7 @@ year,sex,age_group,subtype,count,rate
 2009,females,65–74,follicular,99,12.6
 2009,females,75–84,follicular,94,17.3
 2009,females,85+,follicular,29,11.9
-2010,males,5–14,follicular,0,0
+2010,males,0–14,follicular,0,0
 2010,males,15–24,follicular,1,0.1
 2010,males,25–34,follicular,20,1.3
 2010,males,35–44,follicular,47,3
@@ -134,7 +134,7 @@ year,sex,age_group,subtype,count,rate
 2010,males,65–74,follicular,135,17
 2010,males,75–84,follicular,81,18.4
 2010,males,85+,follicular,21,16
-2010,females,5–14,follicular,0,0
+2010,females,0–14,follicular,0,0
 2010,females,15–24,follicular,0,0
 2010,females,25–34,follicular,7,0.5
 2010,females,35–44,follicular,31,2
@@ -143,7 +143,7 @@ year,sex,age_group,subtype,count,rate
 2010,females,65–74,follicular,135,16.5
 2010,females,75–84,follicular,74,13.5
 2010,females,85+,follicular,21,8.2
-2011,males,5–14,follicular,0,0
+2011,males,0–14,follicular,0,0
 2011,males,15–24,follicular,3,0.2
 2011,males,25–34,follicular,9,0.6
 2011,males,35–44,follicular,49,3.1
@@ -152,7 +152,7 @@ year,sex,age_group,subtype,count,rate
 2011,males,65–74,follicular,151,18.2
 2011,males,75–84,follicular,91,20.3
 2011,males,85+,follicular,19,13.7
-2011,females,5–14,follicular,0,0
+2011,females,0–14,follicular,0,0
 2011,females,15–24,follicular,0,0
 2011,females,25–34,follicular,5,0.3
 2011,females,35–44,follicular,33,2.1
@@ -161,7 +161,7 @@ year,sex,age_group,subtype,count,rate
 2011,females,65–74,follicular,93,10.9
 2011,females,75–84,follicular,59,10.7
 2011,females,85+,follicular,26,9.8
-2012,males,5–14,follicular,2,0.1
+2012,males,0–14,follicular,2,0.1
 2012,males,15–24,follicular,4,0.3
 2012,males,25–34,follicular,14,0.8
 2012,males,35–44,follicular,56,3.5
@@ -170,7 +170,7 @@ year,sex,age_group,subtype,count,rate
 2012,males,65–74,follicular,155,17.7
 2012,males,75–84,follicular,84,18.3
 2012,males,85+,follicular,26,17.7
-2012,females,5–14,follicular,1,0
+2012,females,0–14,follicular,1,0
 2012,females,15–24,follicular,2,0.1
 2012,females,25–34,follicular,9,0.6
 2012,females,35–44,follicular,38,2.4
@@ -179,7 +179,7 @@ year,sex,age_group,subtype,count,rate
 2012,females,65–74,follicular,110,12.2
 2012,females,75–84,follicular,92,16.5
 2012,females,85+,follicular,16,5.9
-2013,males,5–14,follicular,1,0
+2013,males,0–14,follicular,1,0
 2013,males,15–24,follicular,2,0.1
 2013,males,25–34,follicular,11,0.6
 2013,males,35–44,follicular,44,2.8
@@ -188,7 +188,7 @@ year,sex,age_group,subtype,count,rate
 2013,males,65–74,follicular,169,18.4
 2013,males,75–84,follicular,80,17
 2013,males,85+,follicular,27,17.4
-2013,females,5–14,follicular,0,0
+2013,females,0–14,follicular,0,0
 2013,females,15–24,follicular,0,0
 2013,females,25–34,follicular,9,0.5
 2013,females,35–44,follicular,38,2.4
@@ -197,7 +197,7 @@ year,sex,age_group,subtype,count,rate
 2013,females,65–74,follicular,138,14.7
 2013,females,75–84,follicular,84,14.9
 2013,females,85+,follicular,25,8.9
-2014,males,5–14,follicular,1,0
+2014,males,0–14,follicular,1,0
 2014,males,15–24,follicular,3,0.2
 2014,males,25–34,follicular,10,0.6
 2014,males,35–44,follicular,43,2.7
@@ -206,7 +206,7 @@ year,sex,age_group,subtype,count,rate
 2014,males,65–74,follicular,171,17.9
 2014,males,75–84,follicular,100,20.7
 2014,males,85+,follicular,26,15.9
-2014,females,5–14,follicular,0,0
+2014,females,0–14,follicular,0,0
 2014,females,15–24,follicular,0,0
 2014,females,25–34,follicular,8,0.5
 2014,females,35–44,follicular,38,2.3
@@ -215,7 +215,7 @@ year,sex,age_group,subtype,count,rate
 2014,females,65–74,follicular,149,15.2
 2014,females,75–84,follicular,88,15.4
 2014,females,85+,follicular,34,11.7
-2015,males,5–14,follicular,0,0
+2015,males,0–14,follicular,0,0
 2015,males,15–24,follicular,4,0.2
 2015,males,25–34,follicular,9,0.5
 2015,males,35–44,follicular,44,2.7
@@ -224,7 +224,7 @@ year,sex,age_group,subtype,count,rate
 2015,males,65–74,follicular,176,17.8
 2015,males,75–84,follicular,111,22.4
 2015,males,85+,follicular,29,16.9
-2015,females,5–14,follicular,0,0
+2015,females,0–14,follicular,0,0
 2015,females,15–24,follicular,2,0.1
 2015,females,25–34,follicular,6,0.3
 2015,females,35–44,follicular,27,1.7
@@ -233,7 +233,7 @@ year,sex,age_group,subtype,count,rate
 2015,females,65–74,follicular,164,16.1
 2015,females,75–84,follicular,68,11.7
 2015,females,85+,follicular,23,7.7
-2016,males,5–14,follicular,5,0.2
+2016,males,0–14,follicular,5,0.2
 2016,males,15–24,follicular,4,0.2
 2016,males,25–34,follicular,11,0.6
 2016,males,35–44,follicular,45,2.8
@@ -242,7 +242,7 @@ year,sex,age_group,subtype,count,rate
 2016,males,65–74,follicular,169,16.5
 2016,males,75–84,follicular,99,19.4
 2016,males,85+,follicular,33,18.4
-2016,females,5–14,follicular,0,0
+2016,females,0–14,follicular,0,0
 2016,females,15–24,follicular,1,0.1
 2016,females,25–34,follicular,4,0.2
 2016,females,35–44,follicular,32,2
@@ -251,7 +251,7 @@ year,sex,age_group,subtype,count,rate
 2016,females,65–74,follicular,171,16.2
 2016,females,75–84,follicular,98,16.5
 2016,females,85+,follicular,29,9.6
-2017,males,5–14,follicular,1,0
+2017,males,0–14,follicular,1,0
 2017,males,15–24,follicular,2,0.1
 2017,males,25–34,follicular,9,0.5
 2017,males,35–44,follicular,40,2.5
@@ -260,7 +260,7 @@ year,sex,age_group,subtype,count,rate
 2017,males,65–74,follicular,228,21.6
 2017,males,75–84,follicular,122,23
 2017,males,85+,follicular,30,16.3
-2017,females,5–14,follicular,1,0
+2017,females,0–14,follicular,1,0
 2017,females,15–24,follicular,1,0.1
 2017,females,25–34,follicular,9,0.5
 2017,females,35–44,follicular,35,2.1
@@ -269,7 +269,7 @@ year,sex,age_group,subtype,count,rate
 2017,females,65–74,follicular,176,16.1
 2017,females,75–84,follicular,105,17.1
 2017,females,85+,follicular,39,12.7
-2018,males,5–14,follicular,1,0
+2018,males,0–14,follicular,1,0
 2018,males,15–24,follicular,2,0.1
 2018,males,25–34,follicular,10,0.5
 2018,males,35–44,follicular,31,1.9
@@ -278,7 +278,7 @@ year,sex,age_group,subtype,count,rate
 2018,males,65–74,follicular,244,22.4
 2018,males,75–84,follicular,132,24
 2018,males,85+,follicular,32,16.9
-2018,females,5–14,follicular,0,0
+2018,females,0–14,follicular,0,0
 2018,females,15–24,follicular,2,0.1
 2018,females,25–34,follicular,6,0.3
 2018,females,35–44,follicular,21,1.3
@@ -287,7 +287,7 @@ year,sex,age_group,subtype,count,rate
 2018,females,65–74,follicular,188,16.5
 2018,females,75–84,follicular,115,18.2
 2018,females,85+,follicular,36,11.6
-2019,males,5–14,follicular,0,0
+2019,males,0–14,follicular,0,0
 2019,males,15–24,follicular,4,0.2
 2019,males,25–34,follicular,11,0.6
 2019,males,35–44,follicular,38,2.3
@@ -296,7 +296,7 @@ year,sex,age_group,subtype,count,rate
 2019,males,65–74,follicular,235,21.1
 2019,males,75–84,follicular,135,23.4
 2019,males,85+,follicular,28,14.4
-2019,females,5–14,follicular,0,0
+2019,females,0–14,follicular,0,0
 2019,females,15–24,follicular,1,0.1
 2019,females,25–34,follicular,7,0.4
 2019,females,35–44,follicular,29,1.7
@@ -305,7 +305,7 @@ year,sex,age_group,subtype,count,rate
 2019,females,65–74,follicular,162,13.8
 2019,females,75–84,follicular,112,17.1
 2019,females,85+,follicular,32,10.2
-2020,males,5–14,follicular,0,0
+2020,males,0–14,follicular,0,0
 2020,males,15–24,follicular,4,0.2
 2020,males,25–34,follicular,16,0.8
 2020,males,35–44,follicular,41,2.4
@@ -314,7 +314,7 @@ year,sex,age_group,subtype,count,rate
 2020,males,65–74,follicular,242,21
 2020,males,75–84,follicular,158,26
 2020,males,85+,follicular,29,14.4
-2020,females,5–14,follicular,0,0
+2020,females,0–14,follicular,0,0
 2020,females,15–24,follicular,1,0.1
 2020,females,25–34,follicular,10,0.5
 2020,females,35–44,follicular,30,1.7
@@ -323,7 +323,7 @@ year,sex,age_group,subtype,count,rate
 2020,females,65–74,follicular,209,17.1
 2020,females,75–84,follicular,149,21.7
 2020,females,85+,follicular,35,11
-2021,males,5–14,follicular,2,0.1
+2021,males,0–14,follicular,2,0.1
 2021,males,15–24,follicular,3,0.2
 2021,males,25–34,follicular,11,0.6
 2021,males,35–44,follicular,35,2
@@ -332,7 +332,7 @@ year,sex,age_group,subtype,count,rate
 2021,males,65–74,follicular,230,19.6
 2021,males,75–84,follicular,147,23
 2021,males,85+,follicular,33,15.8
-2021,females,5–14,follicular,0,0
+2021,females,0–14,follicular,0,0
 2021,females,15–24,follicular,1,0.1
 2021,females,25–34,follicular,6,0.3
 2021,females,35–44,follicular,28,1.6
@@ -341,7 +341,7 @@ year,sex,age_group,subtype,count,rate
 2021,females,65–74,follicular,177,14.1
 2021,females,75–84,follicular,132,18.5
 2021,females,85+,follicular,35,10.8
-2003,males,5–14,mantle_cell,0,0
+2003,males,0–14,mantle_cell,0,0
 2003,males,15–24,mantle_cell,0,0
 2003,males,25–34,mantle_cell,1,0.1
 2003,males,35–44,mantle_cell,2,0.1
@@ -350,7 +350,7 @@ year,sex,age_group,subtype,count,rate
 2003,males,65–74,mantle_cell,37,5.7
 2003,males,75–84,mantle_cell,20,5.2
 2003,males,85+,mantle_cell,3,3.4
-2003,females,5–14,mantle_cell,0,0
+2003,females,0–14,mantle_cell,0,0
 2003,females,15–24,mantle_cell,0,0
 2003,females,25–34,mantle_cell,0,0
 2003,females,35–44,mantle_cell,0,0
@@ -359,7 +359,7 @@ year,sex,age_group,subtype,count,rate
 2003,females,65–74,mantle_cell,11,1.6
 2003,females,75–84,mantle_cell,6,1.2
 2003,females,85+,mantle_cell,6,3.1
-2004,males,5–14,mantle_cell,0,0
+2004,males,0–14,mantle_cell,0,0
 2004,males,15–24,mantle_cell,0,0
 2004,males,25–34,mantle_cell,1,0.1
 2004,males,35–44,mantle_cell,2,0.1
@@ -368,7 +368,7 @@ year,sex,age_group,subtype,count,rate
 2004,males,65–74,mantle_cell,41,6.2
 2004,males,75–84,mantle_cell,29,7.3
 2004,males,85+,mantle_cell,6,6.7
-2004,females,5–14,mantle_cell,0,0
+2004,females,0–14,mantle_cell,0,0
 2004,females,15–24,mantle_cell,0,0
 2004,females,25–34,mantle_cell,1,0.1
 2004,females,35–44,mantle_cell,0,0
@@ -377,7 +377,7 @@ year,sex,age_group,subtype,count,rate
 2004,females,65–74,mantle_cell,13,1.9
 2004,females,75–84,mantle_cell,9,1.7
 2004,females,85+,mantle_cell,4,2
-2005,males,5–14,mantle_cell,0,0
+2005,males,0–14,mantle_cell,0,0
 2005,males,15–24,mantle_cell,0,0
 2005,males,25–34,mantle_cell,1,0.1
 2005,males,35–44,mantle_cell,6,0.4
@@ -386,7 +386,7 @@ year,sex,age_group,subtype,count,rate
 2005,males,65–74,mantle_cell,31,4.6
 2005,males,75–84,mantle_cell,27,6.7
 2005,males,85+,mantle_cell,7,7.3
-2005,females,5–14,mantle_cell,0,0
+2005,females,0–14,mantle_cell,0,0
 2005,females,15–24,mantle_cell,0,0
 2005,females,25–34,mantle_cell,0,0
 2005,females,35–44,mantle_cell,1,0.1
@@ -395,7 +395,7 @@ year,sex,age_group,subtype,count,rate
 2005,females,65–74,mantle_cell,7,1
 2005,females,75–84,mantle_cell,14,2.6
 2005,females,85+,mantle_cell,8,3.9
-2006,males,5–14,mantle_cell,0,0
+2006,males,0–14,mantle_cell,0,0
 2006,males,15–24,mantle_cell,0,0
 2006,males,25–34,mantle_cell,0,0
 2006,males,35–44,mantle_cell,2,0.1
@@ -404,7 +404,7 @@ year,sex,age_group,subtype,count,rate
 2006,males,65–74,mantle_cell,39,5.7
 2006,males,75–84,mantle_cell,32,7.7
 2006,males,85+,mantle_cell,4,3.9
-2006,females,5–14,mantle_cell,0,0
+2006,females,0–14,mantle_cell,0,0
 2006,females,15–24,mantle_cell,0,0
 2006,females,25–34,mantle_cell,0,0
 2006,females,35–44,mantle_cell,1,0.1
@@ -413,7 +413,7 @@ year,sex,age_group,subtype,count,rate
 2006,females,65–74,mantle_cell,10,1.4
 2006,females,75–84,mantle_cell,12,2.2
 2006,females,85+,mantle_cell,8,3.7
-2007,males,5–14,mantle_cell,0,0
+2007,males,0–14,mantle_cell,0,0
 2007,males,15–24,mantle_cell,0,0
 2007,males,25–34,mantle_cell,0,0
 2007,males,35–44,mantle_cell,4,0.3
@@ -422,7 +422,7 @@ year,sex,age_group,subtype,count,rate
 2007,males,65–74,mantle_cell,38,5.4
 2007,males,75–84,mantle_cell,37,8.8
 2007,males,85+,mantle_cell,7,6.3
-2007,females,5–14,mantle_cell,0,0
+2007,females,0–14,mantle_cell,0,0
 2007,females,15–24,mantle_cell,0,0
 2007,females,25–34,mantle_cell,1,0.1
 2007,females,35–44,mantle_cell,2,0.1
@@ -431,7 +431,7 @@ year,sex,age_group,subtype,count,rate
 2007,females,65–74,mantle_cell,11,1.5
 2007,females,75–84,mantle_cell,13,2.4
 2007,females,85+,mantle_cell,6,2.7
-2008,males,5–14,mantle_cell,0,0
+2008,males,0–14,mantle_cell,0,0
 2008,males,15–24,mantle_cell,0,0
 2008,males,25–34,mantle_cell,1,0.1
 2008,males,35–44,mantle_cell,4,0.3
@@ -440,7 +440,7 @@ year,sex,age_group,subtype,count,rate
 2008,males,65–74,mantle_cell,52,7.1
 2008,males,75–84,mantle_cell,36,8.4
 2008,males,85+,mantle_cell,9,7.7
-2008,females,5–14,mantle_cell,0,0
+2008,females,0–14,mantle_cell,0,0
 2008,females,15–24,mantle_cell,0,0
 2008,females,25–34,mantle_cell,0,0
 2008,females,35–44,mantle_cell,0,0
@@ -449,7 +449,7 @@ year,sex,age_group,subtype,count,rate
 2008,females,65–74,mantle_cell,22,2.9
 2008,females,75–84,mantle_cell,20,3.7
 2008,females,85+,mantle_cell,7,3
-2009,males,5–14,mantle_cell,0,0
+2009,males,0–14,mantle_cell,0,0
 2009,males,15–24,mantle_cell,0,0
 2009,males,25–34,mantle_cell,1,0.1
 2009,males,35–44,mantle_cell,6,0.4
@@ -458,7 +458,7 @@ year,sex,age_group,subtype,count,rate
 2009,males,65–74,mantle_cell,40,5.3
 2009,males,75–84,mantle_cell,37,8.5
 2009,males,85+,mantle_cell,10,8.1
-2009,females,5–14,mantle_cell,0,0
+2009,females,0–14,mantle_cell,0,0
 2009,females,15–24,mantle_cell,1,0.1
 2009,females,25–34,mantle_cell,0,0
 2009,females,35–44,mantle_cell,1,0.1
@@ -467,7 +467,7 @@ year,sex,age_group,subtype,count,rate
 2009,females,65–74,mantle_cell,11,1.4
 2009,females,75–84,mantle_cell,18,3.3
 2009,females,85+,mantle_cell,6,2.5
-2010,males,5–14,mantle_cell,0,0
+2010,males,0–14,mantle_cell,0,0
 2010,males,15–24,mantle_cell,0,0
 2010,males,25–34,mantle_cell,0,0
 2010,males,35–44,mantle_cell,2,0.1
@@ -476,7 +476,7 @@ year,sex,age_group,subtype,count,rate
 2010,males,65–74,mantle_cell,52,6.5
 2010,males,75–84,mantle_cell,41,9.3
 2010,males,85+,mantle_cell,11,8.4
-2010,females,5–14,mantle_cell,0,0
+2010,females,0–14,mantle_cell,0,0
 2010,females,15–24,mantle_cell,0,0
 2010,females,25–34,mantle_cell,0,0
 2010,females,35–44,mantle_cell,1,0.1
@@ -485,7 +485,7 @@ year,sex,age_group,subtype,count,rate
 2010,females,65–74,mantle_cell,12,1.5
 2010,females,75–84,mantle_cell,21,3.8
 2010,females,85+,mantle_cell,2,0.8
-2011,males,5–14,mantle_cell,0,0
+2011,males,0–14,mantle_cell,0,0
 2011,males,15–24,mantle_cell,0,0
 2011,males,25–34,mantle_cell,0,0
 2011,males,35–44,mantle_cell,3,0.2
@@ -494,7 +494,7 @@ year,sex,age_group,subtype,count,rate
 2011,males,65–74,mantle_cell,42,5.1
 2011,males,75–84,mantle_cell,47,10.5
 2011,males,85+,mantle_cell,7,5
-2011,females,5–14,mantle_cell,0,0
+2011,females,0–14,mantle_cell,0,0
 2011,females,15–24,mantle_cell,0,0
 2011,females,25–34,mantle_cell,0,0
 2011,females,35–44,mantle_cell,1,0.1
@@ -503,7 +503,7 @@ year,sex,age_group,subtype,count,rate
 2011,females,65–74,mantle_cell,13,1.5
 2011,females,75–84,mantle_cell,24,4.3
 2011,females,85+,mantle_cell,5,1.9
-2012,males,5–14,mantle_cell,0,0
+2012,males,0–14,mantle_cell,0,0
 2012,males,15–24,mantle_cell,0,0
 2012,males,25–34,mantle_cell,0,0
 2012,males,35–44,mantle_cell,4,0.3
@@ -512,7 +512,7 @@ year,sex,age_group,subtype,count,rate
 2012,males,65–74,mantle_cell,51,5.8
 2012,males,75–84,mantle_cell,35,7.6
 2012,males,85+,mantle_cell,9,6.1
-2012,females,5–14,mantle_cell,0,0
+2012,females,0–14,mantle_cell,0,0
 2012,females,15–24,mantle_cell,0,0
 2012,females,25–34,mantle_cell,0,0
 2012,females,35–44,mantle_cell,1,0.1
@@ -521,7 +521,7 @@ year,sex,age_group,subtype,count,rate
 2012,females,65–74,mantle_cell,20,2.2
 2012,females,75–84,mantle_cell,24,4.3
 2012,females,85+,mantle_cell,10,3.7
-2013,males,5–14,mantle_cell,0,0
+2013,males,0–14,mantle_cell,0,0
 2013,males,15–24,mantle_cell,0,0
 2013,males,25–34,mantle_cell,1,0.1
 2013,males,35–44,mantle_cell,2,0.1
@@ -530,7 +530,7 @@ year,sex,age_group,subtype,count,rate
 2013,males,65–74,mantle_cell,58,6.3
 2013,males,75–84,mantle_cell,41,8.7
 2013,males,85+,mantle_cell,19,12.2
-2013,females,5–14,mantle_cell,0,0
+2013,females,0–14,mantle_cell,0,0
 2013,females,15–24,mantle_cell,0,0
 2013,females,25–34,mantle_cell,0,0
 2013,females,35–44,mantle_cell,0,0
@@ -539,7 +539,7 @@ year,sex,age_group,subtype,count,rate
 2013,females,65–74,mantle_cell,20,2.1
 2013,females,75–84,mantle_cell,29,5.1
 2013,females,85+,mantle_cell,10,3.5
-2014,males,5–14,mantle_cell,0,0
+2014,males,0–14,mantle_cell,0,0
 2014,males,15–24,mantle_cell,0,0
 2014,males,25–34,mantle_cell,0,0
 2014,males,35–44,mantle_cell,7,0.4
@@ -548,7 +548,7 @@ year,sex,age_group,subtype,count,rate
 2014,males,65–74,mantle_cell,56,5.9
 2014,males,75–84,mantle_cell,44,9.1
 2014,males,85+,mantle_cell,17,10.4
-2014,females,5–14,mantle_cell,0,0
+2014,females,0–14,mantle_cell,0,0
 2014,females,15–24,mantle_cell,0,0
 2014,females,25–34,mantle_cell,0,0
 2014,females,35–44,mantle_cell,0,0
@@ -557,7 +557,7 @@ year,sex,age_group,subtype,count,rate
 2014,females,65–74,mantle_cell,30,3.1
 2014,females,75–84,mantle_cell,22,3.8
 2014,females,85+,mantle_cell,9,3.1
-2015,males,5–14,mantle_cell,0,0
+2015,males,0–14,mantle_cell,0,0
 2015,males,15–24,mantle_cell,0,0
 2015,males,25–34,mantle_cell,1,0.1
 2015,males,35–44,mantle_cell,3,0.2
@@ -566,7 +566,7 @@ year,sex,age_group,subtype,count,rate
 2015,males,65–74,mantle_cell,53,5.4
 2015,males,75–84,mantle_cell,47,9.5
 2015,males,85+,mantle_cell,18,10.5
-2015,females,5–14,mantle_cell,0,0
+2015,females,0–14,mantle_cell,0,0
 2015,females,15–24,mantle_cell,0,0
 2015,females,25–34,mantle_cell,0,0
 2015,females,35–44,mantle_cell,1,0.1
@@ -575,7 +575,7 @@ year,sex,age_group,subtype,count,rate
 2015,females,65–74,mantle_cell,29,2.9
 2015,females,75–84,mantle_cell,24,4.1
 2015,females,85+,mantle_cell,14,4.7
-2016,males,5–14,mantle_cell,0,0
+2016,males,0–14,mantle_cell,0,0
 2016,males,15–24,mantle_cell,0,0
 2016,males,25–34,mantle_cell,0,0
 2016,males,35–44,mantle_cell,3,0.2
@@ -584,7 +584,7 @@ year,sex,age_group,subtype,count,rate
 2016,males,65–74,mantle_cell,57,5.6
 2016,males,75–84,mantle_cell,55,10.8
 2016,males,85+,mantle_cell,16,8.9
-2016,females,5–14,mantle_cell,0,0
+2016,females,0–14,mantle_cell,0,0
 2016,females,15–24,mantle_cell,0,0
 2016,females,25–34,mantle_cell,0,0
 2016,females,35–44,mantle_cell,1,0.1
@@ -593,7 +593,7 @@ year,sex,age_group,subtype,count,rate
 2016,females,65–74,mantle_cell,17,1.6
 2016,females,75–84,mantle_cell,15,2.5
 2016,females,85+,mantle_cell,7,2.3
-2017,males,5–14,mantle_cell,0,0
+2017,males,0–14,mantle_cell,0,0
 2017,males,15–24,mantle_cell,0,0
 2017,males,25–34,mantle_cell,0,0
 2017,males,35–44,mantle_cell,4,0.2
@@ -602,7 +602,7 @@ year,sex,age_group,subtype,count,rate
 2017,males,65–74,mantle_cell,84,7.9
 2017,males,75–84,mantle_cell,56,10.5
 2017,males,85+,mantle_cell,19,10.3
-2017,females,5–14,mantle_cell,0,0
+2017,females,0–14,mantle_cell,0,0
 2017,females,15–24,mantle_cell,0,0
 2017,females,25–34,mantle_cell,1,0.1
 2017,females,35–44,mantle_cell,1,0.1
@@ -611,7 +611,7 @@ year,sex,age_group,subtype,count,rate
 2017,females,65–74,mantle_cell,23,2.1
 2017,females,75–84,mantle_cell,24,3.9
 2017,females,85+,mantle_cell,8,2.6
-2018,males,5–14,mantle_cell,0,0
+2018,males,0–14,mantle_cell,0,0
 2018,males,15–24,mantle_cell,0,0
 2018,males,25–34,mantle_cell,0,0
 2018,males,35–44,mantle_cell,3,0.2
@@ -620,7 +620,7 @@ year,sex,age_group,subtype,count,rate
 2018,males,65–74,mantle_cell,67,6.2
 2018,males,75–84,mantle_cell,57,10.3
 2018,males,85+,mantle_cell,19,10.1
-2018,females,5–14,mantle_cell,0,0
+2018,females,0–14,mantle_cell,0,0
 2018,females,15–24,mantle_cell,0,0
 2018,females,25–34,mantle_cell,0,0
 2018,females,35–44,mantle_cell,0,0
@@ -629,7 +629,7 @@ year,sex,age_group,subtype,count,rate
 2018,females,65–74,mantle_cell,26,2.3
 2018,females,75–84,mantle_cell,19,3
 2018,females,85+,mantle_cell,8,2.6
-2019,males,5–14,mantle_cell,0,0
+2019,males,0–14,mantle_cell,0,0
 2019,males,15–24,mantle_cell,1,0.1
 2019,males,25–34,mantle_cell,2,0.1
 2019,males,35–44,mantle_cell,3,0.2
@@ -638,7 +638,7 @@ year,sex,age_group,subtype,count,rate
 2019,males,65–74,mantle_cell,76,6.8
 2019,males,75–84,mantle_cell,63,10.9
 2019,males,85+,mantle_cell,25,12.9
-2019,females,5–14,mantle_cell,0,0
+2019,females,0–14,mantle_cell,0,0
 2019,females,15–24,mantle_cell,0,0
 2019,females,25–34,mantle_cell,0,0
 2019,females,35–44,mantle_cell,1,0.1
@@ -647,7 +647,7 @@ year,sex,age_group,subtype,count,rate
 2019,females,65–74,mantle_cell,23,2
 2019,females,75–84,mantle_cell,15,2.3
 2019,females,85+,mantle_cell,7,2.2
-2020,males,5–14,mantle_cell,0,0
+2020,males,0–14,mantle_cell,0,0
 2020,males,15–24,mantle_cell,0,0
 2020,males,25–34,mantle_cell,0,0
 2020,males,35–44,mantle_cell,4,0.2
@@ -656,7 +656,7 @@ year,sex,age_group,subtype,count,rate
 2020,males,65–74,mantle_cell,98,8.5
 2020,males,75–84,mantle_cell,61,10
 2020,males,85+,mantle_cell,22,11
-2020,females,5–14,mantle_cell,0,0
+2020,females,0–14,mantle_cell,0,0
 2020,females,15–24,mantle_cell,1,0.1
 2020,females,25–34,mantle_cell,1,0.1
 2020,females,35–44,mantle_cell,1,0.1
@@ -665,7 +665,7 @@ year,sex,age_group,subtype,count,rate
 2020,females,65–74,mantle_cell,26,2.1
 2020,females,75–84,mantle_cell,19,2.8
 2020,females,85+,mantle_cell,15,4.7
-2021,males,5–14,mantle_cell,0,0
+2021,males,0–14,mantle_cell,0,0
 2021,males,15–24,mantle_cell,0,0
 2021,males,25–34,mantle_cell,0,0
 2021,males,35–44,mantle_cell,2,0.1
@@ -674,7 +674,7 @@ year,sex,age_group,subtype,count,rate
 2021,males,65–74,mantle_cell,51,4.3
 2021,males,75–84,mantle_cell,52,8.2
 2021,males,85+,mantle_cell,19,9.1
-2021,females,5–14,mantle_cell,0,0
+2021,females,0–14,mantle_cell,0,0
 2021,females,15–24,mantle_cell,0,0
 2021,females,25–34,mantle_cell,0,0
 2021,females,35–44,mantle_cell,0,0
@@ -683,7 +683,7 @@ year,sex,age_group,subtype,count,rate
 2021,females,65–74,mantle_cell,30,2.4
 2021,females,75–84,mantle_cell,18,2.5
 2021,females,85+,mantle_cell,13,4
-2003,males,5–14,dlbcl,4,0.2
+2003,males,0–14,dlbcl,4,0.2
 2003,males,15–24,dlbcl,17,1.2
 2003,males,25–34,dlbcl,26,1.8
 2003,males,35–44,dlbcl,58,3.9
@@ -692,7 +692,7 @@ year,sex,age_group,subtype,count,rate
 2003,males,65–74,dlbcl,173,26.6
 2003,males,75–84,dlbcl,151,39.6
 2003,males,85+,dlbcl,40,45.9
-2003,females,5–14,dlbcl,1,0.1
+2003,females,0–14,dlbcl,1,0.1
 2003,females,15–24,dlbcl,10,0.8
 2003,females,25–34,dlbcl,14,1
 2003,females,35–44,dlbcl,24,1.6
@@ -701,7 +701,7 @@ year,sex,age_group,subtype,count,rate
 2003,females,65–74,dlbcl,119,17.3
 2003,females,75–84,dlbcl,175,34.1
 2003,females,85+,dlbcl,61,31.7
-2004,males,5–14,dlbcl,4,0.2
+2004,males,0–14,dlbcl,4,0.2
 2004,males,15–24,dlbcl,10,0.7
 2004,males,25–34,dlbcl,24,1.7
 2004,males,35–44,dlbcl,59,4
@@ -710,7 +710,7 @@ year,sex,age_group,subtype,count,rate
 2004,males,65–74,dlbcl,187,28.4
 2004,males,75–84,dlbcl,193,48.8
 2004,males,85+,dlbcl,37,41.2
-2004,females,5–14,dlbcl,1,0.1
+2004,females,0–14,dlbcl,1,0.1
 2004,females,15–24,dlbcl,11,0.8
 2004,females,25–34,dlbcl,22,1.5
 2004,females,35–44,dlbcl,32,2.1
@@ -719,7 +719,7 @@ year,sex,age_group,subtype,count,rate
 2004,females,65–74,dlbcl,123,17.7
 2004,females,75–84,dlbcl,164,31.3
 2004,females,85+,dlbcl,57,29
-2005,males,5–14,dlbcl,1,0
+2005,males,0–14,dlbcl,1,0
 2005,males,15–24,dlbcl,14,1
 2005,males,25–34,dlbcl,25,1.8
 2005,males,35–44,dlbcl,46,3.1
@@ -728,7 +728,7 @@ year,sex,age_group,subtype,count,rate
 2005,males,65–74,dlbcl,164,24.5
 2005,males,75–84,dlbcl,185,45.6
 2005,males,85+,dlbcl,42,43.5
-2005,females,5–14,dlbcl,0,0
+2005,females,0–14,dlbcl,0,0
 2005,females,15–24,dlbcl,11,0.8
 2005,females,25–34,dlbcl,16,1.1
 2005,females,35–44,dlbcl,31,2.1
@@ -737,7 +737,7 @@ year,sex,age_group,subtype,count,rate
 2005,females,65–74,dlbcl,179,25.4
 2005,females,75–84,dlbcl,217,40.9
 2005,females,85+,dlbcl,74,36
-2006,males,5–14,dlbcl,3,0.1
+2006,males,0–14,dlbcl,3,0.1
 2006,males,15–24,dlbcl,14,1
 2006,males,25–34,dlbcl,17,1.2
 2006,males,35–44,dlbcl,43,2.9
@@ -746,7 +746,7 @@ year,sex,age_group,subtype,count,rate
 2006,males,65–74,dlbcl,194,28.4
 2006,males,75–84,dlbcl,199,48
 2006,males,85+,dlbcl,45,43.6
-2006,females,5–14,dlbcl,2,0.1
+2006,females,0–14,dlbcl,2,0.1
 2006,females,15–24,dlbcl,10,0.7
 2006,females,25–34,dlbcl,17,1.2
 2006,females,35–44,dlbcl,28,1.8
@@ -755,7 +755,7 @@ year,sex,age_group,subtype,count,rate
 2006,females,65–74,dlbcl,147,20.6
 2006,females,75–84,dlbcl,184,34.5
 2006,females,85+,dlbcl,66,30.6
-2007,males,5–14,dlbcl,6,0.3
+2007,males,0–14,dlbcl,6,0.3
 2007,males,15–24,dlbcl,10,0.7
 2007,males,25–34,dlbcl,25,1.7
 2007,males,35–44,dlbcl,44,2.9
@@ -764,7 +764,7 @@ year,sex,age_group,subtype,count,rate
 2007,males,65–74,dlbcl,211,29.9
 2007,males,75–84,dlbcl,198,47
 2007,males,85+,dlbcl,58,52.3
-2007,females,5–14,dlbcl,1,0.1
+2007,females,0–14,dlbcl,1,0.1
 2007,females,15–24,dlbcl,5,0.4
 2007,females,25–34,dlbcl,14,1
 2007,females,35–44,dlbcl,25,1.6
@@ -773,7 +773,7 @@ year,sex,age_group,subtype,count,rate
 2007,females,65–74,dlbcl,139,18.9
 2007,females,75–84,dlbcl,187,34.8
 2007,females,85+,dlbcl,76,33.6
-2008,males,5–14,dlbcl,4,0.2
+2008,males,0–14,dlbcl,4,0.2
 2008,males,15–24,dlbcl,14,0.9
 2008,males,25–34,dlbcl,34,2.3
 2008,males,35–44,dlbcl,39,2.5
@@ -782,7 +782,7 @@ year,sex,age_group,subtype,count,rate
 2008,males,65–74,dlbcl,187,25.7
 2008,males,75–84,dlbcl,225,52.6
 2008,males,85+,dlbcl,45,38.3
-2008,females,5–14,dlbcl,6,0.3
+2008,females,0–14,dlbcl,6,0.3
 2008,females,15–24,dlbcl,1,0.1
 2008,females,25–34,dlbcl,13,0.9
 2008,females,35–44,dlbcl,38,2.4
@@ -791,7 +791,7 @@ year,sex,age_group,subtype,count,rate
 2008,females,65–74,dlbcl,169,22.3
 2008,females,75–84,dlbcl,188,34.8
 2008,females,85+,dlbcl,68,28.9
-2009,males,5–14,dlbcl,5,0.2
+2009,males,0–14,dlbcl,5,0.2
 2009,males,15–24,dlbcl,18,1.2
 2009,males,25–34,dlbcl,33,2.1
 2009,males,35–44,dlbcl,44,2.8
@@ -800,7 +800,7 @@ year,sex,age_group,subtype,count,rate
 2009,males,65–74,dlbcl,193,25.4
 2009,males,75–84,dlbcl,214,49.4
 2009,males,85+,dlbcl,73,58.9
-2009,females,5–14,dlbcl,2,0.1
+2009,females,0–14,dlbcl,2,0.1
 2009,females,15–24,dlbcl,9,0.6
 2009,females,25–34,dlbcl,16,1.1
 2009,females,35–44,dlbcl,41,2.6
@@ -809,7 +809,7 @@ year,sex,age_group,subtype,count,rate
 2009,females,65–74,dlbcl,185,23.5
 2009,females,75–84,dlbcl,189,34.8
 2009,females,85+,dlbcl,77,31.5
-2010,males,5–14,dlbcl,1,0
+2010,males,0–14,dlbcl,1,0
 2010,males,15–24,dlbcl,13,0.8
 2010,males,25–34,dlbcl,21,1.3
 2010,males,35–44,dlbcl,51,3.3
@@ -818,7 +818,7 @@ year,sex,age_group,subtype,count,rate
 2010,males,65–74,dlbcl,233,29.3
 2010,males,75–84,dlbcl,178,40.4
 2010,males,85+,dlbcl,52,39.5
-2010,females,5–14,dlbcl,3,0.1
+2010,females,0–14,dlbcl,3,0.1
 2010,females,15–24,dlbcl,7,0.5
 2010,females,25–34,dlbcl,17,1.1
 2010,females,35–44,dlbcl,34,2.2
@@ -827,7 +827,7 @@ year,sex,age_group,subtype,count,rate
 2010,females,65–74,dlbcl,164,20
 2010,females,75–84,dlbcl,180,32.9
 2010,females,85+,dlbcl,78,30.6
-2011,males,5–14,dlbcl,2,0.1
+2011,males,0–14,dlbcl,2,0.1
 2011,males,15–24,dlbcl,5,0.3
 2011,males,25–34,dlbcl,21,1.3
 2011,males,35–44,dlbcl,50,3.2
@@ -836,7 +836,7 @@ year,sex,age_group,subtype,count,rate
 2011,males,65–74,dlbcl,218,26.2
 2011,males,75–84,dlbcl,236,52.6
 2011,males,85+,dlbcl,64,46
-2011,females,5–14,dlbcl,2,0.1
+2011,females,0–14,dlbcl,2,0.1
 2011,females,15–24,dlbcl,8,0.5
 2011,females,25–34,dlbcl,18,1.1
 2011,females,35–44,dlbcl,27,1.7
@@ -845,7 +845,7 @@ year,sex,age_group,subtype,count,rate
 2011,females,65–74,dlbcl,174,20.5
 2011,females,75–84,dlbcl,198,35.8
 2011,females,85+,dlbcl,81,30.6
-2012,males,5–14,dlbcl,3,0.1
+2012,males,0–14,dlbcl,3,0.1
 2012,males,15–24,dlbcl,11,0.7
 2012,males,25–34,dlbcl,13,0.8
 2012,males,35–44,dlbcl,50,3.2
@@ -854,7 +854,7 @@ year,sex,age_group,subtype,count,rate
 2012,males,65–74,dlbcl,281,32
 2012,males,75–84,dlbcl,244,53.1
 2012,males,85+,dlbcl,82,55.8
-2012,females,5–14,dlbcl,1,0
+2012,females,0–14,dlbcl,1,0
 2012,females,15–24,dlbcl,5,0.3
 2012,females,25–34,dlbcl,10,0.6
 2012,females,35–44,dlbcl,33,2.1
@@ -863,7 +863,7 @@ year,sex,age_group,subtype,count,rate
 2012,females,65–74,dlbcl,171,19
 2012,females,75–84,dlbcl,210,37.7
 2012,females,85+,dlbcl,94,34.4
-2013,males,5–14,dlbcl,1,0
+2013,males,0–14,dlbcl,1,0
 2013,males,15–24,dlbcl,9,0.6
 2013,males,25–34,dlbcl,25,1.5
 2013,males,35–44,dlbcl,53,3.3
@@ -872,7 +872,7 @@ year,sex,age_group,subtype,count,rate
 2013,males,65–74,dlbcl,280,30.5
 2013,males,75–84,dlbcl,251,53.4
 2013,males,85+,dlbcl,89,57.2
-2013,females,5–14,dlbcl,0,0
+2013,females,0–14,dlbcl,0,0
 2013,females,15–24,dlbcl,3,0.2
 2013,females,25–34,dlbcl,14,0.8
 2013,females,35–44,dlbcl,35,2.2
@@ -881,7 +881,7 @@ year,sex,age_group,subtype,count,rate
 2013,females,65–74,dlbcl,207,22
 2013,females,75–84,dlbcl,183,32.5
 2013,females,85+,dlbcl,98,34.7
-2014,males,5–14,dlbcl,2,0.1
+2014,males,0–14,dlbcl,2,0.1
 2014,males,15–24,dlbcl,9,0.6
 2014,males,25–34,dlbcl,24,1.4
 2014,males,35–44,dlbcl,61,3.8
@@ -890,7 +890,7 @@ year,sex,age_group,subtype,count,rate
 2014,males,65–74,dlbcl,272,28.5
 2014,males,75–84,dlbcl,226,46.8
 2014,males,85+,dlbcl,71,43.3
-2014,females,5–14,dlbcl,0,0
+2014,females,0–14,dlbcl,0,0
 2014,females,15–24,dlbcl,6,0.4
 2014,females,25–34,dlbcl,11,0.6
 2014,females,35–44,dlbcl,33,2
@@ -899,7 +899,7 @@ year,sex,age_group,subtype,count,rate
 2014,females,65–74,dlbcl,229,23.4
 2014,females,75–84,dlbcl,229,40
 2014,females,85+,dlbcl,92,31.7
-2015,males,5–14,dlbcl,4,0.2
+2015,males,0–14,dlbcl,4,0.2
 2015,males,15–24,dlbcl,10,0.6
 2015,males,25–34,dlbcl,22,1.2
 2015,males,35–44,dlbcl,54,3.4
@@ -908,7 +908,7 @@ year,sex,age_group,subtype,count,rate
 2015,males,65–74,dlbcl,273,27.6
 2015,males,75–84,dlbcl,254,51.2
 2015,males,85+,dlbcl,101,58.8
-2015,females,5–14,dlbcl,1,0
+2015,females,0–14,dlbcl,1,0
 2015,females,15–24,dlbcl,10,0.7
 2015,females,25–34,dlbcl,17,1
 2015,females,35–44,dlbcl,24,1.5
@@ -917,7 +917,7 @@ year,sex,age_group,subtype,count,rate
 2015,females,65–74,dlbcl,201,19.8
 2015,females,75–84,dlbcl,203,34.8
 2015,females,85+,dlbcl,105,35.3
-2016,males,5–14,dlbcl,4,0.2
+2016,males,0–14,dlbcl,4,0.2
 2016,males,15–24,dlbcl,9,0.6
 2016,males,25–34,dlbcl,8,0.4
 2016,males,35–44,dlbcl,40,2.5
@@ -926,7 +926,7 @@ year,sex,age_group,subtype,count,rate
 2016,males,65–74,dlbcl,324,31.6
 2016,males,75–84,dlbcl,281,55
 2016,males,85+,dlbcl,118,65.8
-2016,females,5–14,dlbcl,2,0.1
+2016,females,0–14,dlbcl,2,0.1
 2016,females,15–24,dlbcl,7,0.5
 2016,females,25–34,dlbcl,14,0.8
 2016,females,35–44,dlbcl,24,1.5
@@ -935,7 +935,7 @@ year,sex,age_group,subtype,count,rate
 2016,females,65–74,dlbcl,204,19.3
 2016,females,75–84,dlbcl,199,33.4
 2016,females,85+,dlbcl,110,36.3
-2017,males,5–14,dlbcl,2,0.1
+2017,males,0–14,dlbcl,2,0.1
 2017,males,15–24,dlbcl,8,0.5
 2017,males,25–34,dlbcl,9,0.5
 2017,males,35–44,dlbcl,40,2.5
@@ -944,7 +944,7 @@ year,sex,age_group,subtype,count,rate
 2017,males,65–74,dlbcl,331,31.3
 2017,males,75–84,dlbcl,278,52.3
 2017,males,85+,dlbcl,90,48.8
-2017,females,5–14,dlbcl,1,0
+2017,females,0–14,dlbcl,1,0
 2017,females,15–24,dlbcl,8,0.5
 2017,females,25–34,dlbcl,14,0.8
 2017,females,35–44,dlbcl,26,1.6
@@ -953,7 +953,7 @@ year,sex,age_group,subtype,count,rate
 2017,females,65–74,dlbcl,230,21
 2017,females,75–84,dlbcl,214,34.9
 2017,females,85+,dlbcl,99,32.3
-2018,males,5–14,dlbcl,1,0
+2018,males,0–14,dlbcl,1,0
 2018,males,15–24,dlbcl,6,0.4
 2018,males,25–34,dlbcl,22,1.2
 2018,males,35–44,dlbcl,48,2.9
@@ -962,7 +962,7 @@ year,sex,age_group,subtype,count,rate
 2018,males,65–74,dlbcl,318,29.2
 2018,males,75–84,dlbcl,284,51.5
 2018,males,85+,dlbcl,118,62.4
-2018,females,5–14,dlbcl,1,0
+2018,females,0–14,dlbcl,1,0
 2018,females,15–24,dlbcl,2,0.1
 2018,females,25–34,dlbcl,15,0.8
 2018,females,35–44,dlbcl,26,1.6
@@ -971,7 +971,7 @@ year,sex,age_group,subtype,count,rate
 2018,females,65–74,dlbcl,215,18.9
 2018,females,75–84,dlbcl,223,35.4
 2018,females,85+,dlbcl,119,38.4
-2019,males,5–14,dlbcl,2,0.1
+2019,males,0–14,dlbcl,2,0.1
 2019,males,15–24,dlbcl,14,0.8
 2019,males,25–34,dlbcl,24,1.3
 2019,males,35–44,dlbcl,45,2.7
@@ -980,7 +980,7 @@ year,sex,age_group,subtype,count,rate
 2019,males,65–74,dlbcl,358,32.1
 2019,males,75–84,dlbcl,287,49.7
 2019,males,85+,dlbcl,115,59.2
-2019,females,5–14,dlbcl,4,0.2
+2019,females,0–14,dlbcl,4,0.2
 2019,females,15–24,dlbcl,2,0.1
 2019,females,25–34,dlbcl,12,0.6
 2019,females,35–44,dlbcl,20,1.2
@@ -989,7 +989,7 @@ year,sex,age_group,subtype,count,rate
 2019,females,65–74,dlbcl,263,22.4
 2019,females,75–84,dlbcl,247,37.7
 2019,females,85+,dlbcl,112,35.7
-2020,males,5–14,dlbcl,1,0
+2020,males,0–14,dlbcl,1,0
 2020,males,15–24,dlbcl,11,0.7
 2020,males,25–34,dlbcl,21,1.1
 2020,males,35–44,dlbcl,47,2.7
@@ -998,7 +998,7 @@ year,sex,age_group,subtype,count,rate
 2020,males,65–74,dlbcl,368,32
 2020,males,75–84,dlbcl,324,53.3
 2020,males,85+,dlbcl,116,57.8
-2020,females,5–14,dlbcl,2,0.1
+2020,females,0–14,dlbcl,2,0.1
 2020,females,15–24,dlbcl,3,0.2
 2020,females,25–34,dlbcl,13,0.7
 2020,females,35–44,dlbcl,43,2.5
@@ -1007,7 +1007,7 @@ year,sex,age_group,subtype,count,rate
 2020,females,65–74,dlbcl,262,21.4
 2020,females,75–84,dlbcl,243,35.4
 2020,females,85+,dlbcl,97,30.5
-2021,males,5–14,dlbcl,3,0.1
+2021,males,0–14,dlbcl,3,0.1
 2021,males,15–24,dlbcl,10,0.6
 2021,males,25–34,dlbcl,20,1.1
 2021,males,35–44,dlbcl,59,3.4
@@ -1016,7 +1016,7 @@ year,sex,age_group,subtype,count,rate
 2021,males,65–74,dlbcl,331,28.2
 2021,males,75–84,dlbcl,371,58.2
 2021,males,85+,dlbcl,109,52.2
-2021,females,5–14,dlbcl,2,0.1
+2021,females,0–14,dlbcl,2,0.1
 2021,females,15–24,dlbcl,7,0.5
 2021,females,25–34,dlbcl,16,0.9
 2021,females,35–44,dlbcl,27,1.5
@@ -1025,7 +1025,7 @@ year,sex,age_group,subtype,count,rate
 2021,females,65–74,dlbcl,262,20.9
 2021,females,75–84,dlbcl,271,37.9
 2021,females,85+,dlbcl,119,36.6
-2003,males,5–14,hodgkin,17,0.8
+2003,males,0–14,hodgkin,17,0.8
 2003,males,15–24,hodgkin,54,3.9
 2003,males,25–34,hodgkin,47,3.3
 2003,males,35–44,hodgkin,42,2.8
@@ -1034,7 +1034,7 @@ year,sex,age_group,subtype,count,rate
 2003,males,65–74,hodgkin,27,4.2
 2003,males,75–84,hodgkin,19,5
 2003,males,85+,hodgkin,2,2.3
-2003,females,5–14,hodgkin,8,0.4
+2003,females,0–14,hodgkin,8,0.4
 2003,females,15–24,hodgkin,39,2.9
 2003,females,25–34,hodgkin,40,2.8
 2003,females,35–44,hodgkin,28,1.9
@@ -1043,7 +1043,7 @@ year,sex,age_group,subtype,count,rate
 2003,females,65–74,hodgkin,20,2.9
 2003,females,75–84,hodgkin,18,3.5
 2003,females,85+,hodgkin,3,1.6
-2004,males,5–14,hodgkin,15,0.7
+2004,males,0–14,hodgkin,15,0.7
 2004,males,15–24,hodgkin,53,3.8
 2004,males,25–34,hodgkin,36,2.5
 2004,males,35–44,hodgkin,46,3.1
@@ -1052,7 +1052,7 @@ year,sex,age_group,subtype,count,rate
 2004,males,65–74,hodgkin,34,5.2
 2004,males,75–84,hodgkin,17,4.3
 2004,males,85+,hodgkin,2,2.2
-2004,females,5–14,hodgkin,10,0.5
+2004,females,0–14,hodgkin,10,0.5
 2004,females,15–24,hodgkin,49,3.6
 2004,females,25–34,hodgkin,50,3.5
 2004,females,35–44,hodgkin,31,2.1
@@ -1061,7 +1061,7 @@ year,sex,age_group,subtype,count,rate
 2004,females,65–74,hodgkin,23,3.3
 2004,females,75–84,hodgkin,21,4
 2004,females,85+,hodgkin,3,1.5
-2005,males,5–14,hodgkin,11,0.5
+2005,males,0–14,hodgkin,11,0.5
 2005,males,15–24,hodgkin,72,5
 2005,males,25–34,hodgkin,49,3.4
 2005,males,35–44,hodgkin,42,2.8
@@ -1070,7 +1070,7 @@ year,sex,age_group,subtype,count,rate
 2005,males,65–74,hodgkin,25,3.7
 2005,males,75–84,hodgkin,19,4.7
 2005,males,85+,hodgkin,4,4.1
-2005,females,5–14,hodgkin,14,0.7
+2005,females,0–14,hodgkin,14,0.7
 2005,females,15–24,hodgkin,59,4.3
 2005,females,25–34,hodgkin,52,3.6
 2005,females,35–44,hodgkin,40,2.7
@@ -1079,7 +1079,7 @@ year,sex,age_group,subtype,count,rate
 2005,females,65–74,hodgkin,21,3
 2005,females,75–84,hodgkin,18,3.4
 2005,females,85+,hodgkin,8,3.9
-2006,males,5–14,hodgkin,20,1
+2006,males,0–14,hodgkin,20,1
 2006,males,15–24,hodgkin,63,4.3
 2006,males,25–34,hodgkin,50,3.5
 2006,males,35–44,hodgkin,40,2.7
@@ -1088,7 +1088,7 @@ year,sex,age_group,subtype,count,rate
 2006,males,65–74,hodgkin,28,4.1
 2006,males,75–84,hodgkin,13,3.1
 2006,males,85+,hodgkin,8,7.7
-2006,females,5–14,hodgkin,12,0.6
+2006,females,0–14,hodgkin,12,0.6
 2006,females,15–24,hodgkin,66,4.7
 2006,females,25–34,hodgkin,49,3.4
 2006,females,35–44,hodgkin,32,2.1
@@ -1097,7 +1097,7 @@ year,sex,age_group,subtype,count,rate
 2006,females,65–74,hodgkin,15,2.1
 2006,females,75–84,hodgkin,17,3.2
 2006,females,85+,hodgkin,4,1.9
-2007,males,5–14,hodgkin,15,0.7
+2007,males,0–14,hodgkin,15,0.7
 2007,males,15–24,hodgkin,54,3.6
 2007,males,25–34,hodgkin,59,4.1
 2007,males,35–44,hodgkin,40,2.6
@@ -1106,7 +1106,7 @@ year,sex,age_group,subtype,count,rate
 2007,males,65–74,hodgkin,27,3.8
 2007,males,75–84,hodgkin,12,2.8
 2007,males,85+,hodgkin,5,4.5
-2007,females,5–14,hodgkin,10,0.5
+2007,females,0–14,hodgkin,10,0.5
 2007,females,15–24,hodgkin,70,4.9
 2007,females,25–34,hodgkin,53,3.7
 2007,females,35–44,hodgkin,23,1.5
@@ -1115,7 +1115,7 @@ year,sex,age_group,subtype,count,rate
 2007,females,65–74,hodgkin,23,3.1
 2007,females,75–84,hodgkin,19,3.5
 2007,females,85+,hodgkin,4,1.8
-2008,males,5–14,hodgkin,8,0.4
+2008,males,0–14,hodgkin,8,0.4
 2008,males,15–24,hodgkin,62,4.1
 2008,males,25–34,hodgkin,46,3.1
 2008,males,35–44,hodgkin,42,2.7
@@ -1124,7 +1124,7 @@ year,sex,age_group,subtype,count,rate
 2008,males,65–74,hodgkin,40,5.5
 2008,males,75–84,hodgkin,14,3.3
 2008,males,85+,hodgkin,7,6
-2008,females,5–14,hodgkin,9,0.5
+2008,females,0–14,hodgkin,9,0.5
 2008,females,15–24,hodgkin,57,3.9
 2008,females,25–34,hodgkin,57,3.9
 2008,females,35–44,hodgkin,19,1.2
@@ -1133,7 +1133,7 @@ year,sex,age_group,subtype,count,rate
 2008,females,65–74,hodgkin,14,1.9
 2008,females,75–84,hodgkin,16,3
 2008,females,85+,hodgkin,3,1.3
-2009,males,5–14,hodgkin,15,0.7
+2009,males,0–14,hodgkin,15,0.7
 2009,males,15–24,hodgkin,67,4.3
 2009,males,25–34,hodgkin,61,4
 2009,males,35–44,hodgkin,42,2.7
@@ -1142,7 +1142,7 @@ year,sex,age_group,subtype,count,rate
 2009,males,65–74,hodgkin,24,3.2
 2009,males,75–84,hodgkin,19,4.4
 2009,males,85+,hodgkin,4,3.2
-2009,females,5–14,hodgkin,10,0.5
+2009,females,0–14,hodgkin,10,0.5
 2009,females,15–24,hodgkin,58,3.9
 2009,females,25–34,hodgkin,69,4.6
 2009,females,35–44,hodgkin,30,1.9
@@ -1151,7 +1151,7 @@ year,sex,age_group,subtype,count,rate
 2009,females,65–74,hodgkin,24,3.1
 2009,females,75–84,hodgkin,16,2.9
 2009,females,85+,hodgkin,6,2.5
-2010,males,5–14,hodgkin,12,0.6
+2010,males,0–14,hodgkin,12,0.6
 2010,males,15–24,hodgkin,59,3.7
 2010,males,25–34,hodgkin,45,2.9
 2010,males,35–44,hodgkin,56,3.6
@@ -1160,7 +1160,7 @@ year,sex,age_group,subtype,count,rate
 2010,males,65–74,hodgkin,35,4.4
 2010,males,75–84,hodgkin,29,6.6
 2010,males,85+,hodgkin,5,3.8
-2010,females,5–14,hodgkin,11,0.5
+2010,females,0–14,hodgkin,11,0.5
 2010,females,15–24,hodgkin,60,4
 2010,females,25–34,hodgkin,64,4.1
 2010,females,35–44,hodgkin,34,2.2
@@ -1169,7 +1169,7 @@ year,sex,age_group,subtype,count,rate
 2010,females,65–74,hodgkin,26,3.2
 2010,females,75–84,hodgkin,16,2.9
 2010,females,85+,hodgkin,6,2.4
-2011,males,5–14,hodgkin,19,0.9
+2011,males,0–14,hodgkin,19,0.9
 2011,males,15–24,hodgkin,58,3.7
 2011,males,25–34,hodgkin,65,4
 2011,males,35–44,hodgkin,44,2.8
@@ -1178,7 +1178,7 @@ year,sex,age_group,subtype,count,rate
 2011,males,65–74,hodgkin,44,5.3
 2011,males,75–84,hodgkin,20,4.5
 2011,males,85+,hodgkin,4,2.9
-2011,females,5–14,hodgkin,9,0.4
+2011,females,0–14,hodgkin,9,0.4
 2011,females,15–24,hodgkin,76,5.1
 2011,females,25–34,hodgkin,52,3.3
 2011,females,35–44,hodgkin,42,2.6
@@ -1187,7 +1187,7 @@ year,sex,age_group,subtype,count,rate
 2011,females,65–74,hodgkin,21,2.5
 2011,females,75–84,hodgkin,21,3.8
 2011,females,85+,hodgkin,9,3.4
-2012,males,5–14,hodgkin,21,1
+2012,males,0–14,hodgkin,21,1
 2012,males,15–24,hodgkin,70,4.4
 2012,males,25–34,hodgkin,72,4.3
 2012,males,35–44,hodgkin,46,2.9
@@ -1196,7 +1196,7 @@ year,sex,age_group,subtype,count,rate
 2012,males,65–74,hodgkin,51,5.8
 2012,males,75–84,hodgkin,32,7
 2012,males,85+,hodgkin,7,4.8
-2012,females,5–14,hodgkin,5,0.2
+2012,females,0–14,hodgkin,5,0.2
 2012,females,15–24,hodgkin,68,4.5
 2012,females,25–34,hodgkin,52,3.2
 2012,females,35–44,hodgkin,35,2.2
@@ -1205,7 +1205,7 @@ year,sex,age_group,subtype,count,rate
 2012,females,65–74,hodgkin,25,2.8
 2012,females,75–84,hodgkin,15,2.7
 2012,females,85+,hodgkin,6,2.2
-2013,males,5–14,hodgkin,19,0.8
+2013,males,0–14,hodgkin,19,0.8
 2013,males,15–24,hodgkin,64,4
 2013,males,25–34,hodgkin,59,3.5
 2013,males,35–44,hodgkin,37,2.3
@@ -1214,7 +1214,7 @@ year,sex,age_group,subtype,count,rate
 2013,males,65–74,hodgkin,44,4.8
 2013,males,75–84,hodgkin,23,4.9
 2013,males,85+,hodgkin,8,5.1
-2013,females,5–14,hodgkin,6,0.3
+2013,females,0–14,hodgkin,6,0.3
 2013,females,15–24,hodgkin,77,5.1
 2013,females,25–34,hodgkin,57,3.4
 2013,females,35–44,hodgkin,45,2.8
@@ -1223,7 +1223,7 @@ year,sex,age_group,subtype,count,rate
 2013,females,65–74,hodgkin,23,2.4
 2013,females,75–84,hodgkin,20,3.6
 2013,females,85+,hodgkin,10,3.5
-2014,males,5–14,hodgkin,18,0.8
+2014,males,0–14,hodgkin,18,0.8
 2014,males,15–24,hodgkin,59,3.7
 2014,males,25–34,hodgkin,64,3.7
 2014,males,35–44,hodgkin,58,3.6
@@ -1232,7 +1232,7 @@ year,sex,age_group,subtype,count,rate
 2014,males,65–74,hodgkin,47,4.9
 2014,males,75–84,hodgkin,19,3.9
 2014,males,85+,hodgkin,4,2.4
-2014,females,5–14,hodgkin,12,0.6
+2014,females,0–14,hodgkin,12,0.6
 2014,females,15–24,hodgkin,57,3.7
 2014,females,25–34,hodgkin,69,4
 2014,females,35–44,hodgkin,40,2.5
@@ -1241,7 +1241,7 @@ year,sex,age_group,subtype,count,rate
 2014,females,65–74,hodgkin,34,3.5
 2014,females,75–84,hodgkin,23,4
 2014,females,85+,hodgkin,5,1.7
-2015,males,5–14,hodgkin,19,0.8
+2015,males,0–14,hodgkin,19,0.8
 2015,males,15–24,hodgkin,79,4.9
 2015,males,25–34,hodgkin,74,4.2
 2015,males,35–44,hodgkin,45,2.8
@@ -1250,7 +1250,7 @@ year,sex,age_group,subtype,count,rate
 2015,males,65–74,hodgkin,34,3.4
 2015,males,75–84,hodgkin,36,7.3
 2015,males,85+,hodgkin,17,9.9
-2015,females,5–14,hodgkin,10,0.5
+2015,females,0–14,hodgkin,10,0.5
 2015,females,15–24,hodgkin,66,4.3
 2015,females,25–34,hodgkin,66,3.7
 2015,females,35–44,hodgkin,45,2.8
@@ -1259,7 +1259,7 @@ year,sex,age_group,subtype,count,rate
 2015,females,65–74,hodgkin,29,2.9
 2015,females,75–84,hodgkin,18,3.1
 2015,females,85+,hodgkin,9,3
-2016,males,5–14,hodgkin,17,0.7
+2016,males,0–14,hodgkin,17,0.7
 2016,males,15–24,hodgkin,55,3.4
 2016,males,25–34,hodgkin,54,3
 2016,males,35–44,hodgkin,45,2.8
@@ -1268,7 +1268,7 @@ year,sex,age_group,subtype,count,rate
 2016,males,65–74,hodgkin,45,4.4
 2016,males,75–84,hodgkin,35,6.9
 2016,males,85+,hodgkin,9,5
-2016,females,5–14,hodgkin,13,0.6
+2016,females,0–14,hodgkin,13,0.6
 2016,females,15–24,hodgkin,85,5.5
 2016,females,25–34,hodgkin,72,4
 2016,females,35–44,hodgkin,48,3
@@ -1277,7 +1277,7 @@ year,sex,age_group,subtype,count,rate
 2016,females,65–74,hodgkin,28,2.6
 2016,females,75–84,hodgkin,28,4.7
 2016,females,85+,hodgkin,8,2.6
-2017,males,5–14,hodgkin,13,0.5
+2017,males,0–14,hodgkin,13,0.5
 2017,males,15–24,hodgkin,76,4.6
 2017,males,25–34,hodgkin,73,4
 2017,males,35–44,hodgkin,42,2.6
@@ -1286,7 +1286,7 @@ year,sex,age_group,subtype,count,rate
 2017,males,65–74,hodgkin,62,5.9
 2017,males,75–84,hodgkin,34,6.4
 2017,males,85+,hodgkin,11,6
-2017,females,5–14,hodgkin,13,0.6
+2017,females,0–14,hodgkin,13,0.6
 2017,females,15–24,hodgkin,63,4
 2017,females,25–34,hodgkin,75,4.1
 2017,females,35–44,hodgkin,34,2.1
@@ -1295,7 +1295,7 @@ year,sex,age_group,subtype,count,rate
 2017,females,65–74,hodgkin,29,2.6
 2017,females,75–84,hodgkin,18,2.9
 2017,females,85+,hodgkin,9,2.9
-2018,males,5–14,hodgkin,14,0.6
+2018,males,0–14,hodgkin,14,0.6
 2018,males,15–24,hodgkin,58,3.5
 2018,males,25–34,hodgkin,66,3.6
 2018,males,35–44,hodgkin,58,3.5
@@ -1304,7 +1304,7 @@ year,sex,age_group,subtype,count,rate
 2018,males,65–74,hodgkin,48,4.4
 2018,males,75–84,hodgkin,36,6.5
 2018,males,85+,hodgkin,7,3.7
-2018,females,5–14,hodgkin,9,0.4
+2018,females,0–14,hodgkin,9,0.4
 2018,females,15–24,hodgkin,73,4.7
 2018,females,25–34,hodgkin,50,2.7
 2018,females,35–44,hodgkin,38,2.3
@@ -1313,7 +1313,7 @@ year,sex,age_group,subtype,count,rate
 2018,females,65–74,hodgkin,26,2.3
 2018,females,75–84,hodgkin,26,4.1
 2018,females,85+,hodgkin,9,2.9
-2019,males,5–14,hodgkin,12,0.5
+2019,males,0–14,hodgkin,12,0.5
 2019,males,15–24,hodgkin,68,4.1
 2019,males,25–34,hodgkin,71,3.8
 2019,males,35–44,hodgkin,53,3.2
@@ -1322,7 +1322,7 @@ year,sex,age_group,subtype,count,rate
 2019,males,65–74,hodgkin,55,4.9
 2019,males,75–84,hodgkin,25,4.3
 2019,males,85+,hodgkin,10,5.1
-2019,females,5–14,hodgkin,18,0.8
+2019,females,0–14,hodgkin,18,0.8
 2019,females,15–24,hodgkin,63,4
 2019,females,25–34,hodgkin,81,4.3
 2019,females,35–44,hodgkin,44,2.6
@@ -1331,7 +1331,7 @@ year,sex,age_group,subtype,count,rate
 2019,females,65–74,hodgkin,31,2.6
 2019,females,75–84,hodgkin,33,5
 2019,females,85+,hodgkin,13,4.1
-2020,males,5–14,hodgkin,21,0.9
+2020,males,0–14,hodgkin,21,0.9
 2020,males,15–24,hodgkin,77,4.7
 2020,males,25–34,hodgkin,64,3.4
 2020,males,35–44,hodgkin,54,3.1
@@ -1340,7 +1340,7 @@ year,sex,age_group,subtype,count,rate
 2020,males,65–74,hodgkin,56,4.9
 2020,males,75–84,hodgkin,40,6.6
 2020,males,85+,hodgkin,15,7.5
-2020,females,5–14,hodgkin,22,1
+2020,females,0–14,hodgkin,22,1
 2020,females,15–24,hodgkin,65,4.2
 2020,females,25–34,hodgkin,69,3.6
 2020,females,35–44,hodgkin,42,2.4
@@ -1349,7 +1349,7 @@ year,sex,age_group,subtype,count,rate
 2020,females,65–74,hodgkin,26,2.1
 2020,females,75–84,hodgkin,34,5
 2020,females,85+,hodgkin,11,3.5
-2021,males,5–14,hodgkin,22,0.9
+2021,males,0–14,hodgkin,22,0.9
 2021,males,15–24,hodgkin,58,3.6
 2021,males,25–34,hodgkin,65,3.5
 2021,males,35–44,hodgkin,60,3.4
@@ -1358,7 +1358,7 @@ year,sex,age_group,subtype,count,rate
 2021,males,65–74,hodgkin,49,4.2
 2021,males,75–84,hodgkin,38,6
 2021,males,85+,hodgkin,8,3.8
-2021,females,5–14,hodgkin,7,0.3
+2021,females,0–14,hodgkin,7,0.3
 2021,females,15–24,hodgkin,64,4.3
 2021,females,25–34,hodgkin,83,4.5
 2021,females,35–44,hodgkin,53,3

@@ -8,7 +8,7 @@ Incidence and prevalence projection methods for Australian blood cancers, using 
 
 Code and data accompanying the manuscript:
 
-> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Lymphoma incidence and prevalence projections in Australia to 2045: a statistical modelling study. [Journal]; submitted [date].
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Lymphoma incidence and prevalence projections in Australia to 2045: a statistical modelling study. [Journal]; submitted [date].
 
 This repository contains the R code, source data, and modelled outputs for projections of incidence (to 2045) and prevalence (2-, 3-, 5-, 10-, and 40-year horizons, 2012 to 2045) for Australian lymphoma, in a two-tier structure: a **headline tier** of Hodgkin lymphoma (HL) and aggregate non-Hodgkin lymphoma (NHL) — disjoint groups whose sum is the total-lymphoma denominator — and a **decomposition tier** of three NHL subtypes, diffuse large B-cell lymphoma (DLBCL), follicular lymphoma (FL), and mantle cell lymphoma (MCL), that are a subset of aggregate NHL. All by sex (and persons for the totals). The aggregate NHL/HL models are fitted from 1990 (selected by a start-year holdout sensitivity) and the subtype models from 2003; observed incidence is shown from 1982.
 
@@ -20,7 +20,7 @@ If you use this code or these projections, please cite both the paper and the ar
 
 > [Paper citation, with DOI on publication]
 >
-> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Pratt N, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045. Zenodo. DOI: 10.5281/zenodo.XXXXXXX
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045. Zenodo. DOI: 10.5281/zenodo.XXXXXXX
 
 ## Repository structure
 
@@ -35,7 +35,7 @@ If you use this code or these projections, please cite both the paper and the ar
 │   ├── table_1_change_cri.R           Table 1 change CrIs from the stored draws (no refit)
 │   ├── _tests.R                       Structural test harness (run after edits)
 │   ├── supporting/                    Standalone analyses whose results are reported in the paper or SI
-│   │   ├── holdout.R                  Out-of-sample incidence holdout (fit to 2011, predict 2012–2021); SI §S1.1
+│   │   ├── holdout.R                  Temporal incidence holdout, also the scoring window for selection (fit to 2011, predict 2012–2021); SI §S1.1
 │   │   ├── knot_selection.R           APC knot-count grid, selected by holdout error + parsimony; SI §S1.1
 │   │   ├── start_year_sensitivity.R   Aggregate fit-start-year selection by holdout error; SI §S1.3
 │   │   ├── damping_sensitivity.R      Damping-rate robustness for the aggregate tier; SI §S1.3
@@ -101,7 +101,7 @@ Each canonical file follows a **library + driver** pattern: sourcing the file de
 **Batch (recommended for full re-run):**
 
 ```bash
-Rscript code/apc_model.R     # APC fits + MC incidence + Figure 1 + Tables 1, S1
+Rscript code/apc_model.R     # APC fits + MC incidence + Figure 1 + Tables 1, S2
 Rscript code/prev_model.R    # Back-estimation + MC prevalence + Figures 2, 3 + Table 2
 Rscript code/supplement.R    # SI Tables S1, S3–S12 + SI Figures S1–S13 (Table S2 is written by apc_model.R)
 ```
@@ -142,7 +142,7 @@ The script runs structural assertions (file existence, output dimensions, sign a
 
 ## Methodology
 
-Incidence is modelled with age–period–cohort (APC) models using the `Epi` package (`apc.fit()` with natural cubic splines at case-weighted quantiles, Poisson log-linear link with log-person-years offset). Knot counts for age, period and cohort are selected by out-of-sample holdout validation with a parsimony preference (`code/supporting/knot_selection.R`): 5/5/5 for the aggregate tier (NHL, HL; the package default) and 4/5/5 for the subtype tier (DLBCL, FL, MCL; fewer age knots suit the shorter series). Period and cohort effects are damped toward a relative risk of 1.0 at 8% per year beyond the last observed knot, following Sasieni and Luo et al.
+Incidence is modelled with age–period–cohort (APC) models using the `Epi` package (`apc.fit()` with natural cubic splines at case-weighted quantiles, Poisson log-linear link with log-person-years offset). Knot counts for age, period and cohort are selected by holdout error on 2012–2021 with a parsimony preference (`code/supporting/knot_selection.R`; the same window also selects the aggregate start year, so the holdout results reported in SI §S1.1 are backtesting used for selection, not an independent test): 5/5/5 for the aggregate tier (NHL, HL; the package default) and 4/5/5 for the subtype tier (DLBCL, FL, MCL; fewer age knots suit the shorter series). Period and cohort effects are damped toward a relative risk of 1.0 at 8% per year beyond the last observed knot, following Sasieni and Luo et al.
 
 Prevalence is computed by the modified counting method:
 
@@ -155,16 +155,16 @@ with `S(0) := √S(1)` (geometric mean of S(0)=1 and S(1) under constant within-
 Uncertainty is quantified by parameter-level Monte Carlo simulation:
 
 - **APC parameters** sampled from MVN(coef(fit$Model), vcov(fit$Model)) per fit;
-- **Survival** sampled from cell-specific logit-normal distributions matched to AIHW point estimates and 95% CI bounds; suppressed cells inherit their nearest-age donor's draws by reference;
+- **Survival** sampled from cell-specific logit-normal distributions centred at the clipped AIHW point estimate, with scale inferred from the published logit confidence-limit span, so the simulated marginal limits approximate rather than reproduce the published bounds. Suppressed cells are filled by `.fill_nearest()` from one donor age per (subtype, sex, period) cell, the nearest age group complete across all five horizons: a fully suppressed age group takes the donor's whole curve and shares its draws by reference; a partially suppressed age group keeps its published values and extends the tail by the donor's conditional ratios anchored on its own last published value, with limits scaled by the same donor point ratio (an approximation, not a calibrated interval), and is sampled from its own point and limits. Each follow-up year is sampled independently, so sampled survival paths are not constrained to decline with follow-up; `_tests.R` reports the share of rising paths (71.55%) and the count of rising deterministic point curves (1,631 of 5,760) as regression guards rather than gates, and the manuscript Limitations disclose both;
 - **Prevalence** assembled from per-draw incidence and survival via the counting method, producing 1,000 prevalence trajectories per (subtype, sex, scenario, duration).
 
-Reported point estimates are medians across draws, which equal the deterministic central estimate under the log/logit links used here. The mean is also written to output CSVs (as `*_mean`) for analyses that want the bias-aware expectation; it is biased upward by `exp(σ²/2)` on small-count cells. 95% credible intervals are 2.5/97.5 percentiles across draws. Fixed seed: `20260507`.
+These intervals propagate parameter uncertainty conditional on the fitted Poisson model and the specified survival distributions. They are intervals for expected counts rather than prediction intervals for realised counts, and they are not adjusted for extra-Poisson variation (deviance/df reaches 3.9 in `output/table_s2_apc_fit_stats.csv`) or for model-selection uncertainty. Reported point estimates are medians across draws and need not equal deterministic plug-in estimates. The mean is also written to output CSVs (as `*_mean`) for analyses that want the bias-aware expectation; it is biased upward by `exp(σ²/2)` on small-count cells. 95% credible intervals are 2.5/97.5 percentiles across draws. Fixed seed: `20260507`.
 
 Prevalence is reported in a two-tier structure, consistent with incidence. The **headline tier** is Hodgkin lymphoma and aggregate NHL (using aggregate NHL survival from AIHW Book 11f1); these are disjoint and together are all lymphoma, so the headline **total lymphoma = HL + aggregate NHL**, formed at the draw level (`total_b = HL_b + NHL_b` per Monte Carlo draw, then median and 2.5/97.5 percentiles; the two come from independent APC fits). The **decomposition tier** is DLBCL, FL and MCL, a subset of aggregate NHL (they cover ~53–73% of it, falling over time) that decomposes it and is never summed into the total (that would double-count). Aggregate NHL is therefore a headline result; its AIHW validation is retained but reclassified as validation *of* a headline result.
 
-The pipeline is validated against AIHW published values in Supporting Information Tables S4, S8 and S9 (Table S4 is a comparison with AIHW's own projections, not a validation; the out-of-sample incidence validation is the holdout analysis in SI §S1.1). Incidence agrees within a few per cent of AIHW for both case counts and ASRs; 5-year prevalence agrees within ±2% (HL, FL), ±3% (DLBCL), ±6% (MCL) and ±2% (aggregate NHL); 10-year prevalence is tighter across all series; Hodgkin lymphoma 40-year prevalence is within 1% of the AIHW aggregate value and aggregate NHL 40-year within ~5–9%.
+The pipeline is validated against AIHW published values in Supporting Information Tables S4, S8 and S9 (Table S4 is a comparison with AIHW's own projections, not a validation; the incidence holdout in SI §S1.1 is temporal backtesting whose assessment window also informed model selection, not an independent test). Incidence agrees within a few per cent of AIHW for both case counts and ASRs; 5-year prevalence agrees within ±2% (HL, FL), ±3% (DLBCL, aggregate NHL) and ±6% (MCL); 10-year within ±2% (HL, FL, aggregate NHL), ±3% (DLBCL) and ±5% (MCL); Hodgkin lymphoma 40-year prevalence is within 1% of the AIHW aggregate value and aggregate NHL 40-year within ~4–9%.
 
-Three asymptotic approximations are worth noting for anyone reading the code. The multivariate normal distribution used for APC parameter draws is an asymptotic approximation to the maximum-likelihood posterior. The logit-normal distribution used for survival cells matches AIHW's point estimate exactly but cannot reproduce asymmetric CIs at boundary cells (∼1% of cells, predominantly extreme-low-survival cells in the oldest age band of mantle-cell lymphoma and saturated cells where AIHW reports a 95% upper bound of 1.000). Per-draw clipping in the long-horizon extrapolation produces a Monte Carlo median roughly 10% higher than a single-shot deterministic computation for the smallest subtype × sex × duration cell (40-year mantle-cell female prevalence); this is a faithful propagation of uncertainty through the boundary handling rather than a bias. These limitations are discussed in the manuscript Discussion (Limitations).
+Three asymptotic approximations are worth noting for anyone reading the code. The multivariate normal distribution used for APC parameter draws is an asymptotic approximation to the maximum-likelihood posterior. The logit-normal distribution used for survival cells is centred at the clipped published point estimate and cannot in general reproduce both asymmetric published limits: among the 1,095 published cells, about 6% have an implied limit more than one percentage point from its published counterpart (at most 9.1 points), concentrated in boundary cells such as extreme-low-survival cells in the oldest mantle-cell age band and saturated cells where AIHW reports a 95% upper bound of 1.000. Per-draw clipping in the long-horizon extrapolation produces a Monte Carlo median roughly 10% higher than a single-shot deterministic computation for the smallest subtype × sex × duration cell (40-year mantle-cell female prevalence); reported estimates are Monte Carlo medians and need not equal deterministic plug-in estimates. These limitations are discussed in the manuscript Discussion (Limitations).
 
 ## Output column conventions
 
@@ -201,7 +201,7 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 | SI Figures S7–S9 (2-, 3-, 10-year prevalence) | `supplement.R` | `output/figure_s7_prevalence_2yr`, `figure_s8_prevalence_3yr`, `figure_s9_prevalence_10yr.{pdf,png}` |
 | SI Figures S10–S11 (5- and 10-year survival by diagnosis year) | `supplement.R` | `output/figure_s10_survival_trend_5yr`, `figure_s11_survival_trend_10yr.{pdf,png}` |
 | SI Figures S12–S13 (survival-improvement sensitivity, 5- and 40-year) | `supplement.R` | `output/figure_s12_sensitivity_5yr`, `figure_s13_sensitivity_40yr.{pdf,png}` |
-| Holdout validation (SI §S1.1 text; primary incidence validation) | `supporting/holdout.R` | `output/table_holdout_validation.csv`, `output/holdout_by_year.csv`, `output/figure_holdout_validation.{pdf,png}` |
+| Holdout backtesting (SI §S1.1 text; incidence assessment, also the selection scoring window) | `supporting/holdout.R` | `output/table_holdout_validation.csv`, `output/holdout_by_year.csv`, `output/figure_holdout_validation.{pdf,png}` |
 | Knot selection (SI §S1.1 text) | `supporting/knot_selection.R` | `output/table_s_knot_selection.csv`, `output/knot_selection_detail.csv` |
 | Start-year, damping and COVID-19 sensitivities (SI §S1.3 text; Methods) | `supporting/start_year_sensitivity.R`, `supporting/damping_sensitivity.R`, `supporting/covid_sensitivity.R` | `output/table_s_start_year_sensitivity.csv`, `output/table_s_damping_sensitivity.csv`, `output/table_s_covid_sensitivity.csv` |
 | HL age-at-diagnosis shift (Discussion) | `supporting/hl_ageing.R` | `output/table_hl_ageing.csv`, `output/figure_hl_ageing.{pdf,png}` |

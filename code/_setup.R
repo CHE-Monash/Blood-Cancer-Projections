@@ -22,11 +22,13 @@ agg_start     <- 1990    # aggregate-tier APC fit start (NHL, HL); see below
 subtype_start <- 2003    # subtype-tier APC fit start (DLBCL, FL, MCL)
 # agg_start selected by the start-year sensitivity (code/supporting/start_year_sensitivity.R;
 # _notes.md "Start-year selection"). Observed incidence runs from 1982, but fitting
-# the aggregate tier from 1990 markedly improves out-of-sample validation (NHL 2021
+# the aggregate tier from 1990 markedly improves out-of-sample backtest error (NHL 2021
 # holdout endpoint bias falls from ~+13% to ~+2%) by excluding the transient pre-1990
 # NHL surge (HIV/AIDS-associated NHL + pre-WHO reclassification), which the APC model
 # would otherwise extrapolate. Holdout error plateaus for any start >= 1990, so 1990
-# is the earliest well-validated year — retaining the longest series (32 yr). Both
+# is the earliest start selected by this temporal backtesting — retaining the longest
+# series (32 yr). The same 2012-2021 window scored the knot grid, so this is a
+# selection criterion, not an independent test (R4). Both
 # prep_agg_data() and prep_subtype_data() filter P >= these starts.
 
 # APC natural-cubic-spline knot counts (age, period, cohort), selected by
@@ -44,10 +46,27 @@ prop_years    <- 2003:2007  # window for back-estimation subtype proportions
 # ----------------------
 # Domain constants
 # ----------------------
+# Age coordinates are plain interval midpoints, as for every band. The
+# youngest group spans 0-14, so its midpoint is 7.0 (R1,
+# research-review-2026-09-09.md). This is a convention, not an empirically
+# preferred representative age: the case-weighted mean age within 0-14 over
+# 1982-2021 is 10.47 and 11.50 for male and female HL and 8.15 and 8.60 for
+# male and female NHL, and those values, together with the pre-repair 9.5,
+# are run as recorded sensitivities. The subtype tier has no five-year
+# source detail, so a case-weighted coordinate cannot be derived for it and
+# an aggregate coordinate must never be transferred to a subtype.
 age_mid <- c(
-  "5–14"  = 9.5,  "15–24" = 19.5, "25–34" = 29.5,
+  "0–14"  = 7.0,  "15–24" = 19.5, "25–34" = 29.5,
   "35–44" = 39.5, "45–54" = 49.5, "55–64" = 59.5,
   "65–74" = 69.5, "75–84" = 79.5, "85+"   = 90
+)
+# Alternative youngest-band coordinates for the R1 sensitivity. Set
+# age_mid["0–14"] to one of these before sourcing apc_model.R.
+age_mid_youngest_alt <- c(
+  midpoint_7    = 7.0,     # adopted; interval midpoint, consistent with all other bands
+  pre_repair_9_5 = 9.5,    # the coordinate used before the R1 repair
+  cw_hodgkin_males   = 10.47, cw_hodgkin_females   = 11.50,
+  cw_nhl_males       = 8.15,  cw_nhl_females       = 8.60
 )
 age_groups   <- names(age_mid)
 sexes        <- c("males", "females")
