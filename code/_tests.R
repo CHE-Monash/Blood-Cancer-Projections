@@ -172,6 +172,25 @@ stopifnot(elapsed < 0.05)
 cat(sprintf("  Test A6 (project_one_draw <50 ms/call)  PASS  %.2f ms/call\n",
             elapsed * 1e3))
 
+# Test A7: table_1_change_cri.csv (run_apc_model() step 10, from the stored
+# draws). Read-only: this check never triggers a run.
+.t1c_path <- "output/table_1_change_cri.csv"
+stopifnot(file.exists(.t1c_path))
+t1c <- read_csv(.t1c_path, show_col_types = FALSE)
+stopifnot(nrow(t1c) == 12)   # 10 lymphoma x sex models + the 2 totals by sex
+stopifnot(sum(t1c$subtype == "total") == 2)
+.t1c_cols <- c("subtype", "sex", "cases_2021", "asr_2021",
+               "cases_2045", "cases_2045_p025", "cases_2045_p975",
+               "asr_2045", "asr_2045_p025", "asr_2045_p975",
+               "pct_change_cases", "pct_change_cases_p025", "pct_change_cases_p975",
+               "pct_change_asr", "pct_change_asr_p025", "pct_change_asr_p975")
+stopifnot(all(.t1c_cols %in% names(t1c)))
+for (.v in c("cases_2045", "asr_2045", "pct_change_cases", "pct_change_asr")) {
+  stopifnot(all(t1c[[paste0(.v, "_p025")]] <= t1c[[.v]] + 1e-9))
+  stopifnot(all(t1c[[.v]] <= t1c[[paste0(.v, "_p975")]] + 1e-9))
+}
+cat("  Test A7 (table_1_change_cri.csv: 12 rows, columns, p025<=mid<=p975)  PASS\n")
+
 # -----------------------------------------------------------------
 # prev_model.R tests
 # -----------------------------------------------------------------

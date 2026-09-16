@@ -28,3 +28,6 @@ _archive/
 
 # Default R graphics device scratch output (written by any interactive session)
 Rplots.pdf
+
+# Snapshot of the committed inputs/outputs taken by code/reproduce.R
+_reproduce/

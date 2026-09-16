@@ -29,11 +29,11 @@ If you use this code or these projections, please cite both the paper and the ar
 ├── code/                              R scripts: the pipeline (run in this order)
 │   ├── _setup.R                       Shared constants, colours, figure helpers, save_fig, summarise_draws
 │   ├── import_data.R                  AIHW/ABS workbook → CSV transformation (raw workbooks not in repo)
-│   ├── apc_model.R                    Fit APC models, project incidence with MC uncertainty; Figure 1, Tables 1 and S2
+│   ├── apc_model.R                    Fit APC models, project incidence with MC uncertainty; Figure 1, Tables 1 and S2, Table 1 change CrIs
 │   ├── prev_model.R                   Compute prevalence (2/3/5/10/40-year horizons); Figures 2–3, Table 2
 │   ├── supplement.R                   AIHW validation, SI tables, SI figures
-│   ├── table_1_change_cri.R           Table 1 change CrIs from the stored draws (no refit)
 │   ├── _tests.R                       Structural test harness (run after edits)
+│   ├── reproduce.R                    One-click reproduction for external reproducers: snapshot the committed files, run, compare
 │   ├── supporting/                    Standalone analyses whose results are reported in the paper or SI
 │   │   ├── holdout.R                  Temporal incidence holdout, also the scoring window for selection (fit to 2011, predict 2012–2021); SI §S1.1
 │   │   ├── knot_selection.R           APC knot-count grid, selected by holdout error + parsimony; SI §S1.1
@@ -88,7 +88,7 @@ R ≥ 4.3 (developed on R 4.5.2). Required packages:
 install.packages(c("tidyverse", "Epi", "MASS", "cowplot", "gtable", "scales"))
 ```
 
-`Epi` version 2.61 was used for the published results.
+**The published results were produced with R 4.5.2 and `Epi` 2.61** (seed 20260507, B = 1,000 draws). Other versions run the pipeline, but a refit under a different R or `Epi` version can move the Monte Carlo results slightly: with B = 1,000 the Monte Carlo standard error is roughly ±4 on a median and ±8 on a credible-interval bound for the Table 1 totals, and larger for MCL. `code/reproduce.R` reports whether a difference is of that size.
 
 ### 2. Set the working directory
 
@@ -96,9 +96,11 @@ All scripts use paths relative to the repository root (e.g. `data/incidence_subt
 
 ### 3. Run the pipeline
 
-Each canonical file follows a **library + driver** pattern: sourcing the file defines functions silently with no side effects, while running the file as a script (or calling its `run_*()` driver) executes the pipeline. All three drivers read upstream inputs from disk, so a fresh R session is supported.
+**Reproducing the published results (recommended):** on a fresh download, restart R (Session → Restart R in RStudio), set the working directory to the repository root, open `code/reproduce.R` and click Source. It moves the committed `output/` (and copies `data/`) into `_reproduce/committed/`, runs the whole pipeline and the test harness, and prints a comparison against the snapshot: md5 identity of the key outputs, the point rate ratios in `apc_effects.csv` (which involve no Monte Carlo), a side-by-side table of the headline Table 1 and Table 3 values, and an interpretation. Set `rebuild_data <- TRUE` at the top to rebuild `data/*.csv` from the raw workbooks first (they must be in `data/raw/`; see "Files required to recreate the analysis from raw data").
 
-**Batch (recommended for full re-run):**
+Two traps this script exists to avoid. First, the committed `output/` **is the published baseline**: a fresh download already contains the published numbers, so checking the manuscript against a download that has not been re-run proves nothing. Second, each pipeline file follows a **library + driver** pattern: sourcing the file defines functions silently with no side effects, while running it as a script (or calling its `run_*()` driver) executes the pipeline. In RStudio, clicking Source or Run All on `apc_model.R`, `prev_model.R` or `supplement.R` therefore does nothing visible; call the driver, use `Rscript`, or use `reproduce.R`. All three drivers read upstream inputs from disk, so a fresh R session is supported.
+
+**Batch:**
 
 ```bash
 Rscript code/apc_model.R     # APC fits + MC incidence + Figure 1 + Tables 1, S2
@@ -112,10 +114,12 @@ Or in a single command:
 Rscript code/apc_model.R && Rscript code/prev_model.R && Rscript code/supplement.R
 ```
 
-**Interactive (RStudio or R REPL):**
+On Windows `Rscript` may not be on the path; use its full path, for example `"C:\Program Files\R\R-4.5.2\bin\Rscript.exe" code/apc_model.R`.
+
+**Interactive (RStudio or R REPL):** sourcing alone defines the functions; the driver must be called.
 
 ```r
-source("code/apc_model.R");  res <- run_apc_model()    # B = 1000 by default
+source("code/apc_model.R");  res <- run_apc_model()    # B = 1000 by default; also writes the Table 1 change CrIs
 source("code/prev_model.R"); pr  <- run_prev_model()
 source("code/supplement.R"); sp  <- run_supplement()
 ```
@@ -136,9 +140,9 @@ After any change to `apc_model.R`, `prev_model.R`, or `supplement.R`:
 Rscript code/_tests.R
 ```
 
-The script runs structural assertions (file existence, output dimensions, sign and ordering of CIs, parameter reconstruction, runtime budget, reproducibility under fixed seed). The first failing `stopifnot()` halts execution with a readable message. From a clean cache the script re-runs the relevant pipeline phase as needed; with up-to-date outputs it completes in ~5 seconds.
+The script runs structural assertions (file existence, output dimensions, sign and ordering of CIs, parameter reconstruction, runtime budget, reproducibility under fixed seed, and the shape and interval ordering of `table_1_change_cri.csv`). The first failing `stopifnot()` halts execution with a readable message. From a clean cache the script re-runs the relevant pipeline phase as needed; with up-to-date outputs it completes in ~5 seconds.
 
-`code/import_data.R` is included to document how the CSVs in `data/` were derived from the raw AIHW and ABS workbooks. It is not part of the reproduction pipeline — the raw workbooks are excluded from the repository (see `.gitignore`).
+`code/import_data.R` is included to document how the CSVs in `data/` were derived from the raw AIHW and ABS workbooks. It is not part of the reproduction pipeline — the raw workbooks are excluded from the repository (see `.gitignore`). Unlike the pipeline files it has no auto-run guard: sourcing it runs it and rewrites `data/*.csv`, which is what `reproduce.R` relies on when `rebuild_data <- TRUE`.
 
 ## Methodology
 
@@ -180,7 +184,7 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 | Manuscript Table 1 (incidence summary, incl. Total lymphoma = HL + NHL) | `apc_model.R` | `output/table_1_incidence_summary.csv` |
 | Manuscript Table 2 (prevalence summary, all durations) | `prev_model.R` | `output/table_2_prevalence_summary.csv` |
 | Manuscript Table 3 (combined-duration prevalence, incl. Total lymphoma) | `prev_model.R` | `output/table_3_prevalence_combined.csv` |
-| Manuscript Table 1 change CrIs | `table_1_change_cri.R` (from `output/apc_results.rds`, no refit) | `output/table_1_change_cri.csv` |
+| Manuscript Table 1 change CrIs | `apc_model.R` (step 10 of `run_apc_model()`; `run_table1_change_cri()` can also be called after `source("code/apc_model.R")` to rebuild the table from `output/apc_results.rds` without refitting) | `output/table_1_change_cri.csv` |
 | Manuscript Table 2 change CrIs | `prev_model.R` | `output/table_2_change_cri.csv` |
 | SI Table S1 (disease definitions, ICD-10 and ICD-O-3) | `supplement.R` | `output/table_s1_disease_definitions.csv` |
 | SI Table S2 (APC fit statistics) | `apc_model.R` | `output/table_s2_apc_fit_stats.csv` |
