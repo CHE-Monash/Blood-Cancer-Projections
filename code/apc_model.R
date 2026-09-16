@@ -2,7 +2,7 @@
 # Blood Cancer Projections (lymphoma): Age-Period-Cohort Incidence Modelling (MC-only)
 # ================
 # Two-tier projections to 2045 with parameter-level Monte Carlo CIs:
-#   Tier 1 (aggregate): NHL and HL fitted on 1982-2021 (4 models)
+#   Tier 1 (aggregate): NHL and HL fitted on 1990-2021 (4 models)
 #   Tier 2 (subtype):   DLBCL, FL, MCL fitted on 2003-2021 (6 models)
 #
 # Method: Epi::apc.fit() with natural cubic splines (Sasieni/Carstensen).
