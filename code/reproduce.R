@@ -32,14 +32,21 @@
 #   interpretation printed at the end.
 #
 # READING THE RESULTS (printed at the end of the run)
-#   - md5 identical for every key output   -> exact reproduction.
-#   - inputs identical and the point rate ratios in apc_effects.csv agree
-#     to about 1e-6, but outputs not byte-identical -> a numerical
-#     difference from the R/Epi version. With B = 1000 the Monte Carlo
-#     standard error is roughly +/-4 on a median and +/-8 on a credible-
-#     interval bound for the Table 1 totals, and larger for MCL.
-#   - any input difference, or a larger rate-ratio difference -> look at
-#     the data before anything else.
+#   - every key output identical (md5 after line-ending normalisation)
+#     -> exact reproduction.
+#   - inputs identical (or not rebuilt) and the model deviances in
+#     table_s2_apc_fit_stats.csv identical -> the same ten models were
+#     fitted; remaining differences are Monte Carlo draws, which can differ
+#     between R/Epi versions and platforms even at the same seed. With
+#     B = 1000 the Monte Carlo standard error is roughly +/-4 on a median
+#     and +/-8 on a credible-interval bound for the Table 1 totals, and
+#     larger for MCL. The point rate ratios in apc_effects.csv (no Monte
+#     Carlo) may still differ at the ends of the cohort range if the Epi
+#     version allocates the drift between effects differently; that moves
+#     the effect plots (Figures S1 to S3), not the projections.
+#   - inputs identical but the deviances differ -> the fit itself differs;
+#     install the pinned R and Epi versions and re-run.
+#   - inputs differ -> look at the data before anything else.
 #   The sentinel table prints the headline Table 1 and Table 3 values,
 #   new against committed, so no manual lookup is needed. A copy is
 #   written to _reproduce/sentinels.csv.
@@ -111,7 +118,15 @@ cat(sprintf("\nPipeline and tests complete in %.0f s\n",
 # -----------------------------------------------------------------
 # 4. Report
 # -----------------------------------------------------------------
-md5_of <- function(f) if (file.exists(f)) unname(tools::md5sum(f)) else NA_character_
+# md5 of a file after normalising line endings (git on Windows may check the
+# committed files out with CRLF while R writes LF; that is not a difference).
+md5_of <- function(f) {
+  if (!file.exists(f)) return(NA_character_)
+  txt <- readChar(f, file.info(f)$size, useBytes = TRUE)
+  txt <- gsub("\r\n", "\n", txt, fixed = TRUE)
+  tmp <- tempfile(); on.exit(unlink(tmp)); writeBin(charToRaw(txt), tmp)
+  unname(tools::md5sum(tmp))
+}
 read_plain <- function(f) utils::read.csv(f, check.names = FALSE, stringsAsFactors = FALSE)
 
 # Numerical comparison of two CSVs: same shape (dims and names), then the
@@ -157,7 +172,7 @@ md5_same <- vapply(key_outputs, function(f) {
   a <- md5_of(file.path("output", f)); b <- md5_of(file.path(snap, "output", f))
   !is.na(a) && !is.na(b) && a == b
 }, logical(1))
-cat("\nKey outputs byte-identical to the committed snapshot (md5):\n")
+cat("\nKey outputs identical to the committed snapshot (md5 after line-ending normalisation):\n")
 for (f in key_outputs) cat(sprintf("  %-36s %s\n", f, md5_same[[f]]))
 
 # 4c. Inputs (only meaningful when the data were rebuilt)
@@ -178,17 +193,36 @@ if (isTRUE(rebuild_data)) {
   cat("\nInputs: data/*.csv were not rebuilt (rebuild_data = FALSE); the committed CSVs were used as they are.\n")
 }
 
-# 4d. Point rate ratios (no Monte Carlo involved)
+# 4d. Fitted models: deviance of the ten APC fits (no Monte Carlo involved).
+#     Identical deviances mean the same models were fitted.
+dev_cmp <- compare_csv("output/table_s2_apc_fit_stats.csv", file.path(snap, "output", "table_s2_apc_fit_stats.csv"))
+dev_diff <- NA_real_
+if (isTRUE(dev_cmp$same_shape)) {
+  a <- read_plain("output/table_s2_apc_fit_stats.csv"); b <- read_plain(file.path(snap, "output", "table_s2_apc_fit_stats.csv"))
+  dev_diff <- max(abs(a$deviance - b$deviance) / pmax(abs(b$deviance), 1e-12), na.rm = TRUE)
+}
+cat(sprintf("\nMaximum relative difference in model deviance, table_s2_apc_fit_stats.csv (the fit itself, no Monte Carlo): %s\n",
+            if (is.na(dev_diff)) paste0("not comparable (", dev_cmp$note, ")") else format(dev_diff, digits = 3)))
+
+# 4e. Point rate ratios (no Monte Carlo). These can differ at the ends of the
+#     cohort range between Epi versions even when the fit is identical.
 rr_cmp <- compare_csv("output/apc_effects.csv", file.path(snap, "output", "apc_effects.csv"))
 rr_diff <- NA_real_
 if (isTRUE(rr_cmp$same_shape)) {
   a <- read_plain("output/apc_effects.csv"); b <- read_plain(file.path(snap, "output", "apc_effects.csv"))
-  rr_diff <- max(abs(a$rr - b$rr) / pmax(abs(b$rr), 1e-12), na.rm = TRUE)
+  rel <- abs(a$rr - b$rr) / pmax(abs(b$rr), 1e-12)
+  rr_diff <- max(rel, na.rm = TRUE)
+  cat(sprintf("Maximum relative difference in apc_effects.csv$rr (point rate ratios): %s; median %s\n",
+              format(rr_diff, digits = 3), format(median(rel, na.rm = TRUE), digits = 3)))
+  if (is.finite(rr_diff) && rr_diff > 1e-6) {
+    by_fit <- tapply(rel, paste(a$subtype, a$sex), max)
+    cat("  Largest by fit:", paste(sprintf("%s %.2e", names(by_fit), by_fit)[order(-by_fit)][1:3], collapse = "; "), "\n")
+  }
+} else {
+  cat(sprintf("apc_effects.csv not comparable (%s)\n", rr_cmp$note))
 }
-cat(sprintf("\nMaximum relative difference in apc_effects.csv$rr (point rate ratios, no Monte Carlo): %s\n",
-            if (is.na(rr_diff)) paste0("not comparable (", rr_cmp$note, ")") else format(rr_diff, digits = 3)))
 
-# 4e. Sentinel values, new against committed
+# 4f. Sentinel values, new against committed
 pick <- function(df, cond, cols) { r <- df[cond, , drop = FALSE]; if (nrow(r) != 1) rep(NA, length(cols)) else unname(unlist(r[1, cols])) }
 sentinels <- function(dir) {
   t1 <- read_plain(file.path(dir, "table_1_change_cri.csv"))
@@ -225,19 +259,33 @@ cat("\nSentinel values (rounded as displayed in the manuscript), new against com
 print(sent, row.names = FALSE, right = FALSE)
 utils::write.csv(sent, file.path("_reproduce", "sentinels.csv"), row.names = FALSE)
 
-# 4f. Interpretation
+# 4g. Interpretation
 cat("\nINTERPRETATION\n")
+inputs_ok <- is.na(inputs_identical) || isTRUE(inputs_identical)
 if (all(md5_same)) {
-  cat("  Every key output is byte-identical to the committed snapshot: exact reproduction.\n")
-} else if ((is.na(inputs_identical) || isTRUE(inputs_identical)) && is.finite(rr_diff) && rr_diff < 1e-6) {
-  cat("  Inputs identical and the point rate ratios agree to", format(rr_diff, digits = 2),
-      "but some outputs are not byte-identical:\n",
-      " a numerical difference from the R/Epi version. Expect differences up to about +/-4 on\n",
-      " medians and +/-8 on credible-interval bounds for the Table 1 totals, and more for MCL.\n",
-      " Compare the sentinel table above against those tolerances.\n")
+  cat("  Every key output is identical to the committed snapshot: exact reproduction.\n")
+} else if (!inputs_ok) {
+  cat("  The rebuilt inputs differ from the committed data: investigate data/*.csv against the\n",
+      " snapshot, and the workbook versions in data/raw/, before anything else.\n")
+} else if (is.finite(dev_diff) && dev_diff < 1e-8) {
+  cat("  Inputs", if (is.na(inputs_identical)) "not rebuilt (committed CSVs used)" else "identical",
+      "and every model deviance identical: the same ten models were fitted.\n",
+      " The remaining differences are Monte Carlo draws, which differ between R/Epi versions and\n",
+      " platforms even at the same seed. Expect up to about +/-4 on medians and +/-8 on\n",
+      " credible-interval bounds for the Table 1 totals, and more for MCL; compare the sentinel\n",
+      " table above against those tolerances.\n")
+  if (is.finite(rr_diff) && rr_diff > 1e-6) {
+    cat("  The point rate ratios differ by up to", format(rr_diff, digits = 2),
+        "at the ends of the cohort range in some fits: a difference in how this\n",
+        " Epi version allocates the drift between the period and cohort effects, which moves the\n",
+        " effect plots (Figures S1 to S3) but not the projections. Installing the pinned Epi 2.61\n",
+        " should remove it.\n")
+  }
+} else if (is.finite(dev_diff)) {
+  cat("  Inputs identical but the model deviances differ by up to", format(dev_diff, digits = 2),
+      ": the fit itself differs.\n",
+      " Install the pinned R 4.5.2 and Epi 2.61 and re-run before drawing any conclusion.\n")
 } else {
-  cat("  The inputs differ from the committed data, or the point rate ratios differ by more than\n",
-      " about 1e-6: investigate the data (data/*.csv against the snapshot, and data/raw/) before\n",
-      " anything else.\n")
+  cat("  The fit statistics could not be compared (", dev_cmp$note, "); check that the run completed.\n")
 }
 cat("\nCommitted snapshot:", snap, "\n")
