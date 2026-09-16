@@ -257,7 +257,7 @@ The committed CSVs in `data/` already contain these processed inputs, so the pip
 
 ## Licence
 
-- **Code** (`code/` directory): MIT licence — see `LICENSE`.
+- **Code** (`code/` and `dashboard/` directories, including the dashboard source and its export script): MIT licence — see `LICENSE`.
 - **Data and modelled outputs** (`data/` and `output/` directories): Creative Commons Attribution 4.0 (CC-BY-4.0). Source AIHW data are released by AIHW under their own terms; consult the AIHW website for current licensing.
 
 ## Contact
