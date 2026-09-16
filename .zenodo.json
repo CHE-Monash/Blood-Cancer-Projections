@@ -1,0 +1,90 @@
+{
+  "title": "Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "language": "eng",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Irving, Adam"
+    },
+    {
+      "name": "Luo, Qingwei"
+    },
+    {
+      "name": "Petrie, Dennis"
+    },
+    {
+      "name": "Fanning, Laura"
+    },
+    {
+      "name": "Li, Jing Jing"
+    },
+    {
+      "name": "Ghijben, Peter"
+    },
+    {
+      "name": "Chung, Eliza"
+    },
+    {
+      "name": "Wellard, Cameron"
+    },
+    {
+      "name": "Waters, Neil"
+    },
+    {
+      "name": "McQuilten, Zoe K"
+    },
+    {
+      "name": "Wood, Erica M"
+    },
+    {
+      "name": "Williams, Janne"
+    },
+    {
+      "name": "Watt, Richard"
+    },
+    {
+      "name": "Winton, Sharon"
+    },
+    {
+      "name": "Opat, Stephen"
+    },
+    {
+      "name": "Barraclough, Allison"
+    },
+    {
+      "name": "Cheah, Chan Y"
+    },
+    {
+      "name": "El-Galaly, Tarec C"
+    },
+    {
+      "name": "Bishton, Mark J"
+    },
+    {
+      "name": "Hawkes, Eliza A"
+    }
+  ],
+  "description": "<p>R code, processed input data and modelled outputs for the manuscript <em>Lymphoma incidence and prevalence projections in Australia to 2045: a statistical modelling study</em>. Age-period-cohort incidence models (Hodgkin lymphoma and aggregate non-Hodgkin lymphoma fitted from 1990; diffuse large B-cell, follicular and mantle cell lymphoma from 2003) with parameter-level Monte Carlo credible intervals, and a counting-method prevalence model at 2-, 3-, 5-, 10- and 40-year durations, by sex, to 2045. Inputs are published aggregate statistics from the Australian Institute of Health and Welfare and the Australian Bureau of Statistics.</p><p>Published results were produced with R 4.5.2 and Epi 2.61 (seed 20260507, 1,000 draws). <code>code/reproduce.R</code> re-runs the pipeline on a fresh download and compares it with the committed outputs. Code is released under the MIT licence; the processed data and modelled outputs under CC BY 4.0. A public dashboard of the projections is at https://che-monash.github.io/Blood-Cancer-Projections/.</p>",
+  "keywords": [
+    "lymphoma",
+    "incidence",
+    "prevalence",
+    "projections",
+    "age-period-cohort",
+    "Australia",
+    "health technology assessment",
+    "Hodgkin lymphoma",
+    "non-Hodgkin lymphoma",
+    "R"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://che-monash.github.io/Blood-Cancer-Projections/",
+      "relation": "isSupplementedBy",
+      "resource_type": "other"
+    }
+  ]
+}
