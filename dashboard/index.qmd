@@ -110,8 +110,6 @@ table_data = selected_data.map(row => ({
 
 # {.sidebar}
 
-<div class="review-badge">Draft dashboard for review</div>
-
 Use the controls to explore the results reported by the lymphoma projections study.
 
 ```{ojs}
@@ -282,7 +280,7 @@ Observed incidence ends in 2021. Prevalence for 2012–2021 is estimated using t
 
 Incidence was modelled using age–period–cohort models. Prevalence combined modelled incidence with observed survival and was estimated for 2-, 3-, 5-, 10- and 40-year durations. Full methods, validation and assumptions are documented in the accompanying manuscript and repository.
 
-**Review status:** this is a draft dissemination product. It should not be described as the published version until the analysis, manuscript citation, data release and disclosure review are final.
+**Status:** the estimates shown are those in the manuscript submitted to *The Lancet Regional Health – Western Pacific* in September 2026 and archived at Zenodo. The dashboard will be updated if the estimates change in peer review, and the paper citation added on publication.
 :::
 
 ::: {.card}
@@ -290,5 +288,5 @@ Incidence was modelled using age–period–cohort models. Prevalence combined m
 
 Source data were derived from published Australian Institute of Health and Welfare and Australian Bureau of Statistics tables. The analysis code and full reproduction instructions are available in the [Blood Cancer Projections repository](https://github.com/CHE-Monash/Blood-Cancer-Projections).
 
-The final paper citation and archived data DOI will be added when available.
+The code, processed data and modelled outputs behind this dashboard are archived at Zenodo: [doi:10.5281/zenodo.22785391](https://doi.org/10.5281/zenodo.22785391) (version 1.0.0 at submission; the DOI resolves to the latest version). The paper citation will be added on publication.
 :::

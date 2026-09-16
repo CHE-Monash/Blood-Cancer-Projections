@@ -20,7 +20,7 @@ If you use this code or these projections, please cite both the paper and the ar
 
 > [Paper citation, with DOI on publication]
 >
-> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045. Zenodo. DOI: 10.5281/zenodo.XXXXXXX
+> Irving A, Luo Q, Petrie D, Fanning L, Li JJ, Ghijben P, Chung E, Wellard C, Waters N, McQuilten ZK, Wood EM, Williams J, Watt R, Winton S, Opat S, Barraclough A, Cheah CY, El-Galaly TC, Bishton MJ, Hawkes EA. Blood Cancer Projections (lymphoma): incidence and prevalence projections for Australia, 2022–2045. Zenodo. DOI: 10.5281/zenodo.22785391
 
 ## Repository structure
 
