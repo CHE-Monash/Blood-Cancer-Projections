@@ -1,0 +1,11 @@
+lymphoma,sex,observed_2021,projected_2021,projected_2021_p025,projected_2021_p975,error_2021_pct,mape_diagnoses_pct,mape_asr_pct,years_within_cri,years_assessed
+HL,Females,362,342,310,373,-5.5,6.2,6.3,9,10
+HL,Males,418,423,387,461,1.1,4.7,4.9,8,10
+NHL,Females,2590,2609,2508,2708,0.7,2.1,2.6,8,10
+NHL,Males,3365,3487,3377,3607,3.6,2.2,2.3,7,10
+DLBCL,Females,944,984,844,1154,4.2,5.1,5.7,10,10
+DLBCL,Males,1202,1247,1092,1411,3.8,2.4,2.5,10,10
+FL,Females,600,547,456,656,-8.9,12.2,13.3,4,10
+FL,Males,756,738,627,848,-2.4,4.7,4.7,8,10
+MCL,Females,75,116,67,198,54.1,21.7,19.7,10,10
+MCL,Males,189,276,201,390,46,11.3,10.3,9,10

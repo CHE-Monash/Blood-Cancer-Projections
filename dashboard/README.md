@@ -20,6 +20,22 @@ release checks, and writes:
 
 These are generated public-facing artefacts. Do not edit them by hand.
 
+## Refresh the additional results page
+
+From the repository root:
+
+```bash
+Rscript dashboard/export_supplementary.R
+```
+
+This copies the named figures and tables from `output/` into
+`dashboard/supplementary/`, byte for byte, and writes
+`dashboard/supplementary/manifest.csv` with the source and MD5 of each file. It
+fits and redraws nothing. The copied files are committed, because the
+publishing workflow renders the site without running R. The page itself is
+`dashboard/additional-results.qmd`; `supplementary/download-dictionary.csv`
+defines the columns of every table offered for download.
+
 ## Preview locally
 
 Install Quarto, then run this from the repository root:

@@ -1,0 +1,134 @@
+file,content,column,definition
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",sex,females or males
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",cases_2021,Observed diagnoses in 2021
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",asr_2021,"Observed age-standardised rate per 100,000 in 2021 (2001 Australian Standard Population)"
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",cases_2045,"Projected diagnoses in 2045, median of draws"
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",cases_2045_p025,Lower limit of the 95% credible interval
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",cases_2045_p975,Upper limit of the 95% credible interval
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",asr_2045,"Projected age-standardised rate in 2045, median of draws"
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",asr_2045_p025,Lower limit of the 95% credible interval
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",asr_2045_p975,Upper limit of the 95% credible interval
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_cases,"Percentage change in diagnoses 2021 to 2045, median of within-draw changes"
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_cases_p025,Lower limit of the 95% credible interval of the change
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_cases_p975,Upper limit of the 95% credible interval of the change
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_asr,Percentage change in the age-standardised rate 2021 to 2045
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_asr_p025,Lower limit of the 95% credible interval of the change
+table_1_change_cri.csv,"Incidence at 2021 (observed) and 2045 (projected), by sex",pct_change_asr_p975,Upper limit of the 95% credible interval of the change
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,sex,females or males
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,duration,"Prevalence duration in years: people alive at the end of the year who were diagnosed in the preceding 2, 3, 5, 10 or 40 years"
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2021,"Prevalence at the end of 2021, median of draws, people"
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2021_p025,Lower limit of the 95% credible interval
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2021_p975,Upper limit of the 95% credible interval
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2045,"Prevalence at the end of 2045, median of draws, people"
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2045_p025,Lower limit of the 95% credible interval
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,prev_2045_p975,Upper limit of the 95% credible interval
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,pct_change,"Percentage change 2021 to 2045, median of within-draw changes"
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,pct_change_p025,Lower limit of the 95% credible interval of the change
+table_2_change_cri.csv,Prevalence at 2021 and 2045 by sex and duration,pct_change_p975,Upper limit of the 95% credible interval of the change
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",subset_of_nhl,"TRUE for DLBCL, FL and MCL, which are part of aggregate NHL and are not added to the total"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",duration,"Prevalence duration in years: people alive at the end of the year who were diagnosed in the preceding 2, 3, 5, 10 or 40 years"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2021,"Prevalence at the end of 2021, median of draws, people"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2021_p025,Lower limit of the 95% credible interval
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2021_p975,Upper limit of the 95% credible interval
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2045,"Prevalence at the end of 2045, median of draws, people"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2045_p025,Lower limit of the 95% credible interval
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",prev_2045_p975,Upper limit of the 95% credible interval
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",pct_change,"Percentage change 2021 to 2045, median of within-draw changes"
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",pct_change_p025,Lower limit of the 95% credible interval of the change
+table_3_prevalence_combined.csv,"Prevalence at 2021 and 2045, persons (both sexes), by duration",pct_change_p975,Upper limit of the 95% credible interval of the change
+table_s2_apc_fit_stats.csv,Fit statistics for the ten age-period-cohort models,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s2_apc_fit_stats.csv,Fit statistics for the ten age-period-cohort models,sex,females or males
+table_s2_apc_fit_stats.csv,Fit statistics for the ten age-period-cohort models,deviance,Residual deviance
+table_s2_apc_fit_stats.csv,Fit statistics for the ten age-period-cohort models,df_resid,Residual degrees of freedom
+table_s2_apc_fit_stats.csv,Fit statistics for the ten age-period-cohort models,dev_df_ratio,Residual deviance divided by residual degrees of freedom
+table_s3_back_estimation.csv,Back-estimation consistency check,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s3_back_estimation.csv,Back-estimation consistency check,back_est_2000,Back-estimated diagnoses in 2000
+table_s3_back_estimation.csv,Back-estimation consistency check,observed_2003,Observed diagnoses in 2003
+table_s3_back_estimation.csv,Back-estimation consistency check,sex,females or males
+table_s3_back_estimation.csv,Back-estimation consistency check,ratio,Back-estimated 2000 divided by observed 2003
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",cancer_group,Hodgkin lymphoma or Non-Hodgkin lymphoma
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",sex,females or males
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",count_diff_mean,"Mean annual difference in diagnoses, per cent: (modelled - AIHW) / AIHW x 100"
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",count_diff_min,Smallest annual difference
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",count_diff_max,Largest annual difference
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",asr_diff_mean,"Mean annual difference in the age-standardised rate, per cent"
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",asr_diff_min,Smallest annual difference
+table_s4_incidence_aihw.csv,"Modelled against AIHW projected incidence, 2026 to 2035",asr_diff_max,Largest annual difference
+table_s5_consistency.csv,Sum of the three modelled subtypes as a percentage of aggregate NHL incidence,year,Calendar year
+table_s5_consistency.csv,Sum of the three modelled subtypes as a percentage of aggregate NHL incidence,period,Observed or Projected
+table_s5_consistency.csv,Sum of the three modelled subtypes as a percentage of aggregate NHL incidence,females_pct,"Females, per cent"
+table_s5_consistency.csv,Sum of the three modelled subtypes as a percentage of aggregate NHL incidence,males_pct,"Males, per cent"
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",sex,females or males
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",years_since_dx,"Years since diagnosis, 1 to 5"
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",mean_rate,Mean annual additive change in cumulative survival proportion
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",min_rate,Smallest rate across age groups
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",max_rate,Largest rate across age groups
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",n_age_specific,Age groups (of 9) using their own rate
+table_s7_improvement_rates.csv,"Annual additive survival improvement rates, averaged across age groups",n_fallback,Age groups (of 9) using the fallback rate
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",sex,females or males
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",age_group,Age group at diagnosis
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",years_since_dx,"Years since diagnosis, 1 to 5"
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",annual_rate,Annual additive change in cumulative survival proportion
+table_s7_improvement_rates_full.csv,"Annual survival improvement rate for every lymphoma, sex, age group and year since diagnosis",source,"age-specific, or the reason a fallback rate was used: filled cell, non-improving, or no data"
+table_s9_40yr_prevalence.csv,40-year prevalence at 2021 against AIHW published values,group,"NHL aggregate (direct), NHL subtypes (DLBCL+FL+MCL), or Hodgkin lymphoma"
+table_s9_40yr_prevalence.csv,40-year prevalence at 2021 against AIHW published values,sex,"females, males or persons"
+table_s9_40yr_prevalence.csv,40-year prevalence at 2021 against AIHW published values,our_40yr,"Modelled 40-year prevalence at 2021, median of draws"
+table_s9_40yr_prevalence.csv,40-year prevalence at 2021 against AIHW published values,aihw_40yr,AIHW published 40-year prevalence at 2021; blank where none is published
+table_s9_40yr_prevalence.csv,40-year prevalence at 2021 against AIHW published values,ratio_pct,Modelled as a percentage of the AIHW value
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,year,Calendar year
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,duration,Prevalence duration in years
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,base,"Base case, improvement held constant after diagnosis year 2031"
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,conservative,No improvement after diagnosis year 2021
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,optimistic,Improvement held constant after diagnosis year 2036
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,cons_vs_base_pct,(conservative - base) / base x 100
+table_s12_sensitivity.csv,Total lymphoma prevalence under three survival improvement scenarios,opt_vs_base_pct,(optimistic - base) / base x 100
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",scenario,"base, conservative or optimistic"
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",year,Calendar year
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",sex,females or males
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",duration,Prevalence duration in years
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",prev_mid,"Median of draws, people"
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",prev_p025,Lower limit of the 95% credible interval
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",prev_p975,Upper limit of the 95% credible interval
+prevalence_sensitivity.csv,"Prevalence under each scenario by year, lymphoma, sex and duration",prev_mean,Mean of draws
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,tier,"agg (HL, aggregate NHL) or subtype"
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,n_a,Age knots
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,n_p,Period knots
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,n_c,Cohort knots
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,tot_knots,Total knots
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,n_models,Models in the tier
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,mean_mape,Mean across models of the mean absolute percentage error over 2012 to 2021
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,max_mape,Largest model mean absolute percentage error
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,mean_abs_pe21,Mean absolute percentage error at the 2021 endpoint
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,mean_dev_df,Mean deviance per degree of freedom
+table_s_knot_selection.csv,Holdout error for each spline knot configuration,mean_aic,Mean Akaike information criterion
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,start_year,First year of the fitting window
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,n_years,Years in the truncated fit
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,sex,females or males
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,holdout_mape,Mean absolute percentage error over 2012 to 2021
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,holdout_pe_2021,Signed percentage error at 2021
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,cases_2045,Projected diagnoses in 2045
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,growth_pct,"Projected change in diagnoses 2021 to 2045, per cent"
+table_s_start_year_sensitivity.csv,Holdout error and 2045 projection by aggregate fit start year,dev_df,Deviance per degree of freedom
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,damping_pct,"Annual attenuation of period and cohort effects, per cent"
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,sex,females or males
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,holdout_mape,Mean absolute percentage error over 2012 to 2021
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,holdout_pe_2021,Signed percentage error at 2021
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,cases_2045,Projected diagnoses in 2045
+table_s_damping_sensitivity.csv,Holdout error and 2045 projection by damping rate,asr_2045,Projected age-standardised rate in 2045
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,subtype,"Lymphoma series: hodgkin, nhl (aggregate), dlbcl, follicular, mantle_cell, or total (HL plus aggregate NHL)"
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,sex,females or males
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,tier,agg or subtype
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,base_mid,Base-case projected diagnoses in 2045
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,base_p025,Lower limit of the base-case 95% credible interval
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,base_p975,Upper limit of the base-case 95% credible interval
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,excl_mid,Projected diagnoses in 2045 with 2020 and 2021 excluded
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,diff_pct,"Difference from the base case, per cent"
+table_s_covid_sensitivity.csv,2045 projection with 2020 to 2021 excluded from the fit,excl_within_ci,TRUE if the excluded-years projection lies within the base-case interval

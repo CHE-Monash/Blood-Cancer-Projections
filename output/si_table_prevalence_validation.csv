@@ -1,0 +1,11 @@
+lymphoma,sex,dur5_mean,dur5_min,dur5_max,dur10_mean,dur10_min,dur10_max,dur40_2021
+HL,Females,0.7,-0.1,1.8,-0.1,-0.8,0.9,-1.1
+HL,Males,0.7,0.1,1.3,0.3,-0.3,0.8,0.1
+NHL,Females,1.9,1.3,2.1,1.2,0.9,1.6,8.9
+NHL,Males,2.4,1.9,2.6,1.4,1.1,1.9,4.2
+DLBCL,Females,1.8,0.1,3,1.5,1.1,2.1,
+DLBCL,Males,2,1.6,2.3,1.1,0.2,2.3,
+FL,Females,0.6,0.2,1.1,-0.3,-0.6,0.3,
+FL,Males,1,0.4,1.4,0.8,0.2,1.3,
+MCL,Females,2.1,0.8,3.3,2.2,1,3.9,
+MCL,Males,2.9,0.7,5.2,0,-4.3,3.3,

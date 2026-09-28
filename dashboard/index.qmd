@@ -139,6 +139,8 @@ The three NHL subtypes are a subset of aggregate NHL and should not be added to 
 
 <a class="dashboard-download" href="data/lymphoma-dashboard-data.csv" download>Download all dashboard data</a>
 
+<a class="dashboard-download" href="additional-results.html">Additional results</a>
+
 <div class="dashboard-logos" role="group" aria-label="Organisation and programme logos">
   <img src="assets/logos/monash-university.svg" alt="Monash University" class="logo-monash">
   <img src="assets/logos/epimap-lymphoma.png" alt="EpiMAP Lymphoma" class="logo-epimap">
@@ -279,6 +281,8 @@ Observed incidence ends in 2021. Prevalence for 2012–2021 is estimated using t
 ### Methods and status
 
 Incidence was modelled using age–period–cohort models. Prevalence combined modelled incidence with observed survival and was estimated for 2-, 3-, 5-, 10- and 40-year durations. Full methods, validation and assumptions are documented in the accompanying manuscript and repository.
+
+[Additional results](additional-results.html) holds further figures and tables from the analysis: the fitted model effects, the incidence holdout, survival inputs, prevalence at additional durations and the sensitivity scenarios.
 
 **Status:** the estimates shown are those in the manuscript submitted to the *Medical Journal of Australia* and archived at Zenodo. The dashboard will be updated if the estimates change in peer review, and the paper citation added on publication.
 :::

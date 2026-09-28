@@ -1,0 +1,7 @@
+subtype,back_est_2000,observed_2003,sex,ratio
+dlbcl,572,552,females,1.036
+follicular,395,403,females,0.98
+mantle_cell,39,36,females,1.083
+dlbcl,654,713,males,0.917
+follicular,417,448,males,0.931
+mantle_cell,96,94,males,1.021
