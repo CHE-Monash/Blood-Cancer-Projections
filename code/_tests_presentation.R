@@ -111,7 +111,62 @@ for (d in list(c(5, 2), c(40, 3))) {
 a2 <- xl("output/figure_2_data.xlsx", "AIHW published estimates")
 stopifnot(nrow(a2) == 10 * 10, all(a2$year %in% 2012:2021))
 stopifnot(!"AIHW published estimates" %in% openxlsx::getSheetNames("output/figure_3_data.xlsx"))
-cat("  Test D3 (figure workbooks equal the source outputs, layer by layer)  PASS\n")
+cat("  Test D3 (figure workbooks: projected and observed layers equal the source outputs)  PASS\n")
+
+# Test D3b: the remaining layers, value by value, from sources that do not
+# pass through the figure builders.
+#   AIHW comparator points come straight from data/.
+#   The fitted history of Figure 1 exists in no CSV, so it is recomputed from
+#   the stored fits with calc_fitted_asr(). Sourcing apc_model.R defines
+#   functions only (its driver is behind a sys.nframe() guard); nothing is
+#   fitted. Graphics are sent to a null device so no Rplots.pdf is written.
+grDevices::pdf(NULL)
+aihw_inc <- rd("data/incidence_agg_proj.csv") |>
+  filter(cancer_group %in% c("Hodgkin lymphoma", "Non-Hodgkin lymphoma")) |>
+  transmute(lymphoma = if_else(cancer_group == "Hodgkin lymphoma", "HL", "NHL"),
+            sex = sx[tolower(sex)], year, asr_2001)
+j <- inner_join(ai, aihw_inc, by = c("lymphoma", "sex", "year"))
+stopifnot(nrow(j) == nrow(ai), nrow(aihw_inc) == nrow(ai),
+          all(abs(j$aihw_projected_asr_per_100000 - j$asr_2001) < 1e-9))
+agg <- rd("data/prevalence_agg.csv") |>
+  filter(duration == 5, year %in% 2012:2021, sex %in% names(sx),
+         cancer_group %in% c("Hodgkin lymphoma", "Non-Hodgkin lymphoma")) |>
+  mutate(lymphoma = if_else(cancer_group == "Hodgkin lymphoma", "HL", "NHL"))
+sub <- rd("data/prevalence_subtype.csv") |>
+  filter(duration == 5, year %in% 2012:2021, sex %in% names(sx),
+         subtype %in% c("dlbcl", "follicular", "mantle_cell")) |>
+  mutate(lymphoma = lab[subtype])
+aihw_prev <- bind_rows(agg, sub) |>
+  group_by(lymphoma, sex = sx[sex], year) |>
+  summarise(prev = sum(prevalence, na.rm = TRUE) / 1000, .groups = "drop")
+j <- inner_join(a2, aihw_prev, by = c("lymphoma", "sex", "year"))
+stopifnot(nrow(j) == nrow(a2),
+          all(abs(j$aihw_prevalence_thousands - j$prev) < 1e-9))
+suppressPackageStartupMessages(source("code/apc_model.R"))
+res     <- readRDS("output/apc_results.rds")
+std_pop <- build_std_pop(rd("data/pop_hist.csv"))
+fitted  <- purrr::map_dfr(res, function(x)
+  calc_fitted_asr(x$fit, x$sex, x$subtype,
+                  if (x$tier == "agg") agg_start else subtype_start, std_pop)) |>
+  dplyr::transmute(lymphoma = lab[subtype], sex = sx[sex], year = P, asr_fitted)
+j <- dplyr::inner_join(fit, fitted, by = c("lymphoma", "sex", "year"))
+stopifnot(nrow(j) == nrow(fit), nrow(fitted) == nrow(fit),
+          all(abs(j$asr_per_100000 - j$asr_fitted) < 1e-9))
+bd <- xl("output/figure_1_data.xlsx", "95% credible interval")
+j  <- dplyr::inner_join(bd, ip, by = c("lymphoma", "sex", "year"))
+stopifnot(nrow(bd) == 240, nrow(j) == 240, all(bd$year > 2021),
+          all(abs(j$cri_lower - j$asr_p025) < 1e-9),
+          all(abs(j$cri_upper - j$asr_p975) < 1e-9))
+for (d in list(c(5, 2), c(40, 3))) {
+  b <- xl(sprintf("output/figure_%d_data.xlsx", d[2]), "95% credible interval")
+  j <- dplyr::inner_join(b, dplyr::filter(pp, duration == d[1]),
+                         by = c("lymphoma", "sex", "year"))
+  stopifnot(nrow(b) == 240, nrow(j) == 240, all(b$year > 2021),
+            all(abs(j$cri_lower_thousands * 1000 - j$prev_p025) < 1e-6),
+            all(abs(j$cri_upper_thousands * 1000 - j$prev_p975) < 1e-6))
+}
+invisible(grDevices::dev.off())
+cat("  Test D3b (fitted history, AIHW comparators and interval bands equal their sources, value by value)  PASS\n")
 
 # Test D4: dashboard copies are byte-identical to their sources
 m <- rd("dashboard/supplementary/manifest.csv")
