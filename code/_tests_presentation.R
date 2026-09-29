@@ -11,6 +11,7 @@
 #   Rscript code/supporting/si_display_tables.R
 #   Rscript code/supporting/figure_data_export.R
 #   Rscript dashboard/export_supplementary.R
+#   Rscript code/supporting/prevalence_convention_comparison.R
 # then:
 #   Rscript code/_tests_presentation.R
 # =================================================================
@@ -186,5 +187,30 @@ stopifnot(setequal(unique(dd$file), basename(m$published[m$kind == "table"])))
 page <- readLines("dashboard/additional-results.qmd")
 for (f in basename(m$published)) stopifnot(any(grepl(f, page, fixed = TRUE)))
 cat("  Test D4 (30 dashboard files match sources; dictionary matches headers; page links every file)  PASS\n")
+
+# Test D5: prevalence-convention comparison (Discussion, comparison with
+# Luo et al. 2026). The end_of_year column is a point calculation on medians
+# and must agree with the published draw-level medians to within 0.2%.
+cv <- rd("output/table_prevalence_convention.csv")
+cr <- rd("output/table_constant_rate_diagnoses.csv")
+stopifnot(nrow(cv) == 6, !anyDuplicated(cv[, c("duration", "year")]),
+          setequal(cv$year, c(2021, 2025, 2045)), setequal(cv$duration, c(1, 5)),
+          all(cv$end_of_year > 0), all(cv$during_year > 0),
+          all(abs(cv$difference_pct - (cv$during_year / cv$end_of_year - 1) * 100) <= 0.06))
+t3  <- rd("output/table_3_prevalence_combined.csv") |> filter(subtype == "nhl", duration == 5)
+dd  <- rd("dashboard/data/lymphoma-dashboard-data.csv") |>
+  filter(diagnosis_code == "nhl", sex == "Persons", duration_years == 5,
+         measure == "Prevalence (people)")
+pub <- c(`2021` = t3$prev_2021, `2025` = dd$estimate[dd$year == 2025], `2045` = t3$prev_2045)
+got <- cv |> filter(duration == 5) |> arrange(year)
+stopifnot(all(abs(got$end_of_year / pub[as.character(got$year)] - 1) < 0.002))
+# the convention lowers 5-year prevalence in every year examined
+stopifnot(all(got$difference_pct < 0))
+stopifnot(nrow(cr) == 5, identical(cr$year, c(2024, 2025, 2045, 2049, 2050)),
+          !is.unsorted(cr$diagnoses_constant_rate, strictly = TRUE))
+# negative control: the two conventions must not be the same calculation
+stopifnot(!isTRUE(all.equal(cv$end_of_year, cv$during_year)))
+cat(sprintf("  Test D5 (convention table reproduces published 5-year NHL prevalence within 0.2%%; constant-rate diagnoses rise %.1f%% from 2025 to 2050)  PASS\n",
+            (cr$diagnoses_constant_rate[cr$year == 2050] / cr$diagnoses_constant_rate[cr$year == 2025] - 1) * 100))
 
 cat("\nAll presentation tests passed. Nothing was fitted or regenerated.\n")

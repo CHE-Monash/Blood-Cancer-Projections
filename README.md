@@ -43,7 +43,8 @@ If you use this code or these projections, please cite both the paper and the ar
 │   │   ├── covid_sensitivity.R        COVID (2020–21) exclusion robustness check; Methods and Supporting Information, section 3
 │   │   ├── hl_ageing.R                HL age-at-diagnosis shift; Discussion
 │   │   ├── si_display_tables.R        Supporting Information tables 2 and 4, from existing outputs (read-only)
-│   │   └── figure_data_export.R       Data workbooks behind Figures 1 to 3, from the figures' own builders (read-only)
+│   │   ├── figure_data_export.R       Data workbooks behind Figures 1 to 3, from the figures' own builders (read-only)
+│   │   └── prevalence_convention_comparison.R  Two prevalence counting conventions on the same inputs, and diagnoses at constant rates; Discussion (read-only)
 │   └── diagnostics/                   One-off checks for co-author questions; nothing in the paper depends on them
 │       ├── fan_chart_fl_5yr.R         Full uncertainty fan for 5-year FL prevalence
 │       └── male_nhl_decomposition.R   Male aggregate NHL rise decomposed into modelled subtypes and the remainder
@@ -191,14 +192,16 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 | Supporting Information, table 2 (incidence holdout) | `output/si_table_holdout.csv`, from `output/table_holdout_validation.csv` | `supporting/si_display_tables.R` |
 | Supporting Information, table 3 (suppressed survival cells) | `output/table_s6_survival_cleaning.csv` | `supplement.R` |
 | Supporting Information, table 4 (prevalence validation at 5, 10 and 40 years) | `output/si_table_prevalence_validation.csv`, from `output/table_s8_prevalence_validation.csv` and `output/table_s9_40yr_prevalence.csv` | `supporting/si_display_tables.R` |
+| Discussion, comparison with another Australian projection of aggregate NHL prevalence | `output/table_prevalence_convention.csv`, `output/table_constant_rate_diagnoses.csv` | `supporting/prevalence_convention_comparison.R` |
 | Dashboard, additional figures A1 to A14 and additional tables A1 to A9 | listed with their sources in `dashboard/supplementary/manifest.csv` | `dashboard/export_supplementary.R` |
 
-The three presentation scripts read existing outputs and fit nothing. `code/_tests_presentation.R` checks what they write against its sources; unlike `code/_tests.R`, it never re-runs a pipeline phase.
+The presentation and comparison scripts read existing outputs and fit nothing. `code/_tests_presentation.R` checks what they write against its sources; unlike `code/_tests.R`, it never re-runs a pipeline phase.
 
 ```bash
 Rscript code/supporting/si_display_tables.R     # Supporting Information tables 2 and 4
 Rscript code/supporting/figure_data_export.R    # data workbooks for Figures 1 to 3
 Rscript dashboard/export_supplementary.R        # dashboard additional results
+Rscript code/supporting/prevalence_convention_comparison.R   # convention and constant-rate tables
 Rscript code/_tests_presentation.R              # checks the three above
 ```
 

@@ -1,0 +1,7 @@
+subtype,sex,duration,year,end_of_year,during_year,difference_pct
+nhl,persons,1,2021,5490,5758,4.9
+nhl,persons,1,2025,6419,6241,-2.8
+nhl,persons,1,2045,9368,9315,-0.6
+nhl,persons,5,2021,23483,22496,-4.2
+nhl,persons,5,2025,26482,25309,-4.4
+nhl,persons,5,2045,40689,39488,-3

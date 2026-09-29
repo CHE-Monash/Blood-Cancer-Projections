@@ -1,0 +1,6 @@
+subtype,sex,year,diagnoses_constant_rate,rates,population
+nhl,persons,2024,6669,"mean observed age- and sex-specific rate, 2017-2021",ABS Series B
+nhl,persons,2025,6855,"mean observed age- and sex-specific rate, 2017-2021",ABS Series B
+nhl,persons,2045,9963,"mean observed age- and sex-specific rate, 2017-2021",ABS Series B
+nhl,persons,2049,10470,"mean observed age- and sex-specific rate, 2017-2021",ABS Series B
+nhl,persons,2050,10587,"mean observed age- and sex-specific rate, 2017-2021",ABS Series B
