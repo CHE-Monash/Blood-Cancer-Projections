@@ -33,14 +33,17 @@ If you use this code or these projections, please cite both the paper and the ar
 │   ├── prev_model.R                   Compute prevalence (2/3/5/10/40-year horizons); Figures 2–3, Table 2
 │   ├── supplement.R                   AIHW validation, SI tables, SI figures
 │   ├── _tests.R                       Structural test harness (run after edits)
+│   ├── _tests_presentation.R          Checks the presentation artefacts against their sources; never re-runs the pipeline
 │   ├── reproduce.R                    One-click reproduction for external reproducers: snapshot the committed files, run, compare
 │   ├── supporting/                    Standalone analyses whose results are reported in the paper or SI
-│   │   ├── holdout.R                  Temporal incidence holdout, also the scoring window for selection (fit to 2011, predict 2012–2021); SI §S1.1
-│   │   ├── knot_selection.R           APC knot-count grid, selected by holdout error + parsimony; SI §S1.1
-│   │   ├── start_year_sensitivity.R   Aggregate fit-start-year selection by holdout error; SI §S1.3
-│   │   ├── damping_sensitivity.R      Damping-rate robustness for the aggregate tier; SI §S1.3
-│   │   ├── covid_sensitivity.R        COVID (2020–21) exclusion robustness check; Methods and SI §S1.3
-│   │   └── hl_ageing.R                HL age-at-diagnosis shift; Discussion
+│   │   ├── holdout.R                  Temporal incidence holdout, also the scoring window for selection (fit to 2011, predict 2012–2021); Supporting Information, section 1
+│   │   ├── knot_selection.R           APC knot-count grid, selected by holdout error + parsimony; Supporting Information, section 1
+│   │   ├── start_year_sensitivity.R   Aggregate fit-start-year selection by holdout error; Supporting Information, section 3
+│   │   ├── damping_sensitivity.R      Damping-rate robustness for the aggregate tier; Supporting Information, section 3
+│   │   ├── covid_sensitivity.R        COVID (2020–21) exclusion robustness check; Methods and Supporting Information, section 3
+│   │   ├── hl_ageing.R                HL age-at-diagnosis shift; Discussion
+│   │   ├── si_display_tables.R        Supporting Information tables 2 and 4, from existing outputs (read-only)
+│   │   └── figure_data_export.R       Data workbooks behind Figures 1 to 3, from the figures' own builders (read-only)
 │   └── diagnostics/                   One-off checks for co-author questions; nothing in the paper depends on them
 │       ├── fan_chart_fl_5yr.R         Full uncertainty fan for 5-year FL prevalence
 │       └── male_nhl_decomposition.R   Male aggregate NHL rise decomposed into modelled subtypes and the remainder
@@ -63,8 +66,10 @@ If you use this code or these projections, please cite both the paper and the ar
 │   ├── prevalence_sensitivity.csv     Prevalence under three survival improvement scenarios
 │   ├── prevalence_validation_10yr.csv 10-year prevalence 2012–2021 (used in Table S8)
 │   ├── table_3_prevalence_combined.csv Combined-duration prevalence (persons), HL / NHL / DLBCL / FL / MCL / Total lymphoma, with draw-level 95% CrIs
-│   ├── table_*.csv                    Manuscript tables (1–3, plus the change-CrI tables) and SI tables (S1–S12); table_s_*.csv and table_holdout/hl_ageing are repository-only diagnostics
-│   └── figure_*.{pdf,png}             Manuscript figures (1–3) and SI figures (S1–S13); figure_holdout_validation and figure_hl_ageing are repository-only
+│   ├── table_*.csv                    Manuscript tables (1–3, plus the change-CrI tables) and the tables numbered S1–S12 during development; see "Reproducing tables and figures" for where each now appears
+│   ├── si_table_*.csv                 The two Supporting Information tables assembled from other outputs
+│   ├── figure_*_data.xlsx             Data behind Figures 1 to 3
+│   └── figure_*.{pdf,png}             Manuscript figures (1–3) and the figures numbered S1–S13 during development, now on the dashboard
 ├── dashboard/                         Static Quarto dashboard published to GitHub Pages
 │   ├── index.qmd                      Dashboard source (Observable JS; runs entirely in the browser)
 │   ├── _quarto.yml                    Quarto project and format configuration
@@ -105,7 +110,7 @@ Two traps this script exists to avoid. First, the committed `output/` **is the p
 ```bash
 Rscript code/apc_model.R     # APC fits + MC incidence + Figure 1 + Tables 1, S2
 Rscript code/prev_model.R    # Back-estimation + MC prevalence + Figures 2, 3 + Table 2
-Rscript code/supplement.R    # SI Tables S1, S3–S12 + SI Figures S1–S13 (Table S2 is written by apc_model.R)
+Rscript code/supplement.R    # output tables S1, S3–S12 and output figures S1–S13 (table S2 is written by apc_model.R)
 ```
 
 Or in a single command:
@@ -146,7 +151,7 @@ The script runs structural assertions (file existence, output dimensions, sign a
 
 ## Methodology
 
-Incidence is modelled with age–period–cohort (APC) models using the `Epi` package (`apc.fit()` with natural cubic splines at case-weighted quantiles, Poisson log-linear link with log-person-years offset). Knot counts for age, period and cohort are selected by holdout error on 2012–2021 with a parsimony preference (`code/supporting/knot_selection.R`; the same window also selects the aggregate start year, so the holdout results reported in SI §S1.1 are backtesting used for selection, not an independent test): 5/5/5 for the aggregate tier (NHL, HL; the package default) and 4/5/5 for the subtype tier (DLBCL, FL, MCL; fewer age knots suit the shorter series). Period and cohort effects are damped toward a relative risk of 1.0 at 8% per year beyond the last observed knot, following Sasieni and Luo et al.
+Incidence is modelled with age–period–cohort (APC) models using the `Epi` package (`apc.fit()` with natural cubic splines at case-weighted quantiles, Poisson log-linear link with log-person-years offset). Knot counts for age, period and cohort are selected by holdout error on 2012–2021 with a parsimony preference (`code/supporting/knot_selection.R`; the same window also selects the aggregate start year, so the holdout results reported in Supporting Information, section 1 are backtesting used for selection, not an independent test): 5/5/5 for the aggregate tier (NHL, HL; the package default) and 4/5/5 for the subtype tier (DLBCL, FL, MCL; fewer age knots suit the shorter series). Period and cohort effects are damped toward a relative risk of 1.0 at 8% per year beyond the last observed knot, following Sasieni and Luo et al.
 
 Prevalence is computed by the modified counting method:
 
@@ -166,7 +171,7 @@ These intervals propagate parameter uncertainty conditional on the fitted Poisso
 
 Prevalence is reported in a two-tier structure, consistent with incidence. The **headline tier** is Hodgkin lymphoma and aggregate NHL (using aggregate NHL survival from AIHW Book 11f1); these are disjoint and together are all lymphoma, so the headline **total lymphoma = HL + aggregate NHL**, formed at the draw level (`total_b = HL_b + NHL_b` per Monte Carlo draw, then median and 2.5/97.5 percentiles; the two come from independent APC fits). The **decomposition tier** is DLBCL, FL and MCL, a subset of aggregate NHL (they cover ~53–73% of it, falling over time) that decomposes it and is never summed into the total (that would double-count). Aggregate NHL is therefore a headline result; its AIHW validation is retained but reclassified as validation *of* a headline result.
 
-The pipeline is validated against AIHW published values in Supporting Information Tables S4, S8 and S9 (Table S4 is a comparison with AIHW's own projections, not a validation; the incidence holdout in SI §S1.1 is temporal backtesting whose assessment window also informed model selection, not an independent test). Incidence agrees within a few per cent of AIHW for both case counts and ASRs; 5-year prevalence agrees within ±2% (HL, FL), ±3% (DLBCL, aggregate NHL) and ±6% (MCL); 10-year within ±2% (HL, FL, aggregate NHL), ±3% (DLBCL) and ±5% (MCL); Hodgkin lymphoma 40-year prevalence is within 1% of the AIHW aggregate value and aggregate NHL 40-year within ~4–9%.
+The pipeline is validated against AIHW published values in `output/table_s4_incidence_aihw.csv`, `table_s8_prevalence_validation.csv` and `table_s9_40yr_prevalence.csv` (the first is a comparison with AIHW's own projections, not a validation; the incidence holdout, Supporting Information table 2, is temporal backtesting whose assessment window also informed model selection, not an independent test). Incidence agrees within a few per cent of AIHW for both case counts and ASRs; 5-year prevalence agrees within ±2% (HL, FL), ±3% (DLBCL, aggregate NHL) and ±6% (MCL); 10-year within ±2% (HL, FL, aggregate NHL), ±3% (DLBCL) and ±5% (MCL); Hodgkin lymphoma 40-year prevalence is within 1% of the AIHW aggregate value and aggregate NHL 40-year within ~4–9%.
 
 Three asymptotic approximations are worth noting for anyone reading the code. The multivariate normal distribution used for APC parameter draws is an asymptotic approximation to the maximum-likelihood posterior. The logit-normal distribution used for survival cells is centred at the clipped published point estimate and cannot in general reproduce both asymmetric published limits: among the 1,095 published cells, about 6% have an implied limit more than one percentage point from its published counterpart (at most 9.1 points), concentrated in boundary cells such as extreme-low-survival cells in the oldest mantle-cell age band and saturated cells where AIHW reports a 95% upper bound of 1.000. Per-draw clipping in the long-horizon extrapolation produces a Monte Carlo median roughly 10% higher than a single-shot deterministic computation for the smallest subtype × sex × duration cell (40-year mantle-cell female prevalence); reported estimates are Monte Carlo medians and need not equal deterministic plug-in estimates. These limitations are discussed in the manuscript Discussion (Limitations).
 
@@ -176,7 +181,28 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 
 ## Reproducing tables and figures
 
-| Manuscript / SI item | Generated by | Output file |
+**Two numbering schemes.** The filenames in `output/` keep the numbering under which the analysis was developed (`table_s1_…` to `table_s12_…`, `figure_s1_…` to `figure_s13_…`), and the rows below use those numbers because they are the filenames. The submitted paper has three tables and three figures and a Supporting Information file of four tables; everything else is shown on the dashboard's *Additional results* page. The map from one to the other:
+
+| In the paper | Repository output | Written by |
+|---|---|---|
+| Table 1, Table 2, Table 3; Figures 1 to 3 | as in the table below | as below |
+| Data behind Figures 1 to 3 | `output/figure_1_data.xlsx`, `figure_2_data.xlsx`, `figure_3_data.xlsx` | `supporting/figure_data_export.R` |
+| Supporting Information, table 1 (disease definitions) | `output/table_s1_disease_definitions.csv` | `supplement.R` |
+| Supporting Information, table 2 (incidence holdout) | `output/si_table_holdout.csv`, from `output/table_holdout_validation.csv` | `supporting/si_display_tables.R` |
+| Supporting Information, table 3 (suppressed survival cells) | `output/table_s6_survival_cleaning.csv` | `supplement.R` |
+| Supporting Information, table 4 (prevalence validation at 5, 10 and 40 years) | `output/si_table_prevalence_validation.csv`, from `output/table_s8_prevalence_validation.csv` and `output/table_s9_40yr_prevalence.csv` | `supporting/si_display_tables.R` |
+| Dashboard, additional figures A1 to A14 and additional tables A1 to A9 | listed with their sources in `dashboard/supplementary/manifest.csv` | `dashboard/export_supplementary.R` |
+
+The three presentation scripts read existing outputs and fit nothing. `code/_tests_presentation.R` checks what they write against its sources; unlike `code/_tests.R`, it never re-runs a pipeline phase.
+
+```bash
+Rscript code/supporting/si_display_tables.R     # Supporting Information tables 2 and 4
+Rscript code/supporting/figure_data_export.R    # data workbooks for Figures 1 to 3
+Rscript dashboard/export_supplementary.R        # dashboard additional results
+Rscript code/_tests_presentation.R              # checks the three above
+```
+
+| Manuscript item or repository output | Generated by | Output file |
 |---|---|---|
 | Manuscript Figure 1 (incidence) | `apc_model.R` | `output/figure_1_combined_projections.{pdf,png}` |
 | Manuscript Figure 2 (5-year prevalence) | `prev_model.R` | `output/figure_2_prevalence_5yr.{pdf,png}` |
@@ -186,28 +212,28 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 | Manuscript Table 3 (combined-duration prevalence, incl. Total lymphoma) | `prev_model.R` | `output/table_3_prevalence_combined.csv` |
 | Manuscript Table 1 change CrIs | `apc_model.R` (step 10 of `run_apc_model()`; `run_table1_change_cri()` can also be called after `source("code/apc_model.R")` to rebuild the table from `output/apc_results.rds` without refitting) | `output/table_1_change_cri.csv` |
 | Manuscript Table 2 change CrIs | `prev_model.R` | `output/table_2_change_cri.csv` |
-| SI Table S1 (disease definitions, ICD-10 and ICD-O-3) | `supplement.R` | `output/table_s1_disease_definitions.csv` |
-| SI Table S2 (APC fit statistics) | `apc_model.R` | `output/table_s2_apc_fit_stats.csv` |
-| SI Table S3 (back-estimation validation) | `supplement.R` | `output/table_s3_back_estimation.csv` |
-| SI Table S4 (aggregate incidence vs AIHW projections, a forecast comparison) | `supplement.R` | `output/table_s4_incidence_aihw.csv` |
-| SI Table S5 (subtype sum as % of aggregate NHL incidence) | `supplement.R` | `output/table_s5_consistency.csv` |
-| SI Table S6 (suppressed survival cells filled) | `supplement.R` | `output/table_s6_survival_cleaning.csv` |
-| SI Table S7 (survival improvement rates; full grid also written) | `supplement.R` | `output/table_s7_improvement_rates.csv`, `output/table_s7_improvement_rates_full.csv` |
-| SI Table S8 (5- and 10-year prevalence validation vs AIHW) | `supplement.R` | `output/table_s8_prevalence_validation.csv` |
-| SI Table S9 (40-year prevalence at 2021 vs AIHW) | `supplement.R` | `output/table_s9_40yr_prevalence.csv` |
-| SI Table S10 (2- and 3-year prevalence, persons) | `prev_model.R` output summarised in the SI | `output/table_2_prevalence_summary.csv` |
-| SI Table S11 (prevalence by sex at 2, 3 and 10 years, with change CrIs) | `supplement.R` | `output/table_s11_duration_by_sex.csv` |
-| SI Table S12 (survival-improvement sensitivity, total lymphoma = HL + NHL) | `supplement.R` | `output/table_s12_sensitivity.csv` |
-| SI Figures S1–S3 (APC age, period and cohort effects; all five series) | `supplement.R` | `output/figure_s1_age_effects`, `figure_s2_period_effects`, `figure_s3_cohort_effects.{pdf,png}` |
-| SI Figure S4 (survival curves used in prevalence) | `supplement.R` | `output/figure_s4_survival_curves.{pdf,png}` |
-| SI Figure S5 (worked-example survival curve) | `supplement.R` | `output/figure_s5_survival_example.{pdf,png}` |
-| SI Figure S6 (population age structure 2021 and 2045) | `supplement.R` | `output/figure_s6_population_pyramid.{pdf,png}` |
-| SI Figures S7–S9 (2-, 3-, 10-year prevalence) | `supplement.R` | `output/figure_s7_prevalence_2yr`, `figure_s8_prevalence_3yr`, `figure_s9_prevalence_10yr.{pdf,png}` |
-| SI Figures S10–S11 (5- and 10-year survival by diagnosis year) | `supplement.R` | `output/figure_s10_survival_trend_5yr`, `figure_s11_survival_trend_10yr.{pdf,png}` |
-| SI Figures S12–S13 (survival-improvement sensitivity, 5- and 40-year) | `supplement.R` | `output/figure_s12_sensitivity_5yr`, `figure_s13_sensitivity_40yr.{pdf,png}` |
-| Holdout backtesting (SI §S1.1 text; incidence assessment, also the selection scoring window) | `supporting/holdout.R` | `output/table_holdout_validation.csv`, `output/holdout_by_year.csv`, `output/figure_holdout_validation.{pdf,png}` |
-| Knot selection (SI §S1.1 text) | `supporting/knot_selection.R` | `output/table_s_knot_selection.csv`, `output/knot_selection_detail.csv` |
-| Start-year, damping and COVID-19 sensitivities (SI §S1.3 text; Methods) | `supporting/start_year_sensitivity.R`, `supporting/damping_sensitivity.R`, `supporting/covid_sensitivity.R` | `output/table_s_start_year_sensitivity.csv`, `output/table_s_damping_sensitivity.csv`, `output/table_s_covid_sensitivity.csv` |
+| Output table S1 (disease definitions, ICD-10 and ICD-O-3) | `supplement.R` | `output/table_s1_disease_definitions.csv` |
+| Output table S2 (APC fit statistics) | `apc_model.R` | `output/table_s2_apc_fit_stats.csv` |
+| Output table S3 (back-estimation validation) | `supplement.R` | `output/table_s3_back_estimation.csv` |
+| Output table S4 (aggregate incidence vs AIHW projections, a forecast comparison) | `supplement.R` | `output/table_s4_incidence_aihw.csv` |
+| Output table S5 (subtype sum as % of aggregate NHL incidence) | `supplement.R` | `output/table_s5_consistency.csv` |
+| Output table S6 (suppressed survival cells filled) | `supplement.R` | `output/table_s6_survival_cleaning.csv` |
+| Output table S7 (survival improvement rates; full grid also written) | `supplement.R` | `output/table_s7_improvement_rates.csv`, `output/table_s7_improvement_rates_full.csv` |
+| Output table S8 (5- and 10-year prevalence validation vs AIHW) | `supplement.R` | `output/table_s8_prevalence_validation.csv` |
+| Output table S9 (40-year prevalence at 2021 vs AIHW) | `supplement.R` | `output/table_s9_40yr_prevalence.csv` |
+| Output table S10 (2- and 3-year prevalence, persons) | `prev_model.R` output summarised in the SI | `output/table_2_prevalence_summary.csv` |
+| Output table S11 (prevalence by sex at 2, 3 and 10 years, with change CrIs) | `supplement.R` | `output/table_s11_duration_by_sex.csv` |
+| Output table S12 (survival-improvement sensitivity, total lymphoma = HL + NHL) | `supplement.R` | `output/table_s12_sensitivity.csv` |
+| Output figures S1–S3 (APC age, period and cohort effects; all five series) | `supplement.R` | `output/figure_s1_age_effects`, `figure_s2_period_effects`, `figure_s3_cohort_effects.{pdf,png}` |
+| Output figure S4 (survival curves used in prevalence) | `supplement.R` | `output/figure_s4_survival_curves.{pdf,png}` |
+| Output figure S5 (worked-example survival curve) | `supplement.R` | `output/figure_s5_survival_example.{pdf,png}` |
+| Output figure S6 (population age structure 2021 and 2045) | `supplement.R` | `output/figure_s6_population_pyramid.{pdf,png}` |
+| Output figures S7–S9 (2-, 3-, 10-year prevalence) | `supplement.R` | `output/figure_s7_prevalence_2yr`, `figure_s8_prevalence_3yr`, `figure_s9_prevalence_10yr.{pdf,png}` |
+| Output figures S10–S11 (5- and 10-year survival by diagnosis year) | `supplement.R` | `output/figure_s10_survival_trend_5yr`, `figure_s11_survival_trend_10yr.{pdf,png}` |
+| Output figures S12–S13 (survival-improvement sensitivity, 5- and 40-year) | `supplement.R` | `output/figure_s12_sensitivity_5yr`, `figure_s13_sensitivity_40yr.{pdf,png}` |
+| Holdout backtesting (Supporting Information, section 1 text; incidence assessment, also the selection scoring window) | `supporting/holdout.R` | `output/table_holdout_validation.csv`, `output/holdout_by_year.csv`, `output/figure_holdout_validation.{pdf,png}` |
+| Knot selection (Supporting Information, section 1 text) | `supporting/knot_selection.R` | `output/table_s_knot_selection.csv`, `output/knot_selection_detail.csv` |
+| Start-year, damping and COVID-19 sensitivities (Supporting Information, section 3 text; Methods) | `supporting/start_year_sensitivity.R`, `supporting/damping_sensitivity.R`, `supporting/covid_sensitivity.R` | `output/table_s_start_year_sensitivity.csv`, `output/table_s_damping_sensitivity.csv`, `output/table_s_covid_sensitivity.csv` |
 | HL age-at-diagnosis shift (Discussion) | `supporting/hl_ageing.R` | `output/table_hl_ageing.csv`, `output/figure_hl_ageing.{pdf,png}` |
 | Repository only (nothing in the manuscript or SI depends on these) | `diagnostics/fan_chart_fl_5yr.R`, `diagnostics/male_nhl_decomposition.R` (prints only), `dashboard/export_dashboard_data.R` | `output/fan_chart_fl_5yr*`, `dashboard/data/*` |
 
