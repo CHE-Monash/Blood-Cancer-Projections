@@ -213,4 +213,29 @@ stopifnot(!isTRUE(all.equal(cv$end_of_year, cv$during_year)))
 cat(sprintf("  Test D5 (convention table reproduces published 5-year NHL prevalence within 0.2%%; constant-rate diagnoses rise %.1f%% from 2025 to 2050)  PASS\n",
             (cr$diagnoses_constant_rate[cr$year == 2050] / cr$diagnoses_constant_rate[cr$year == 2025] - 1) * 100))
 
+# Test D6: population-projection comparison (Discussion, comparison with
+# Luo et al. 2026, which used the ABS 2017-base projections). The 2022-base
+# rows must equal the constant-rate table from D5, and the derived 2017-base
+# population must match the ABS summary figures for 2030 and 2050.
+pp <- rd("output/table_population_projection_comparison.csv")
+p17 <- rd("data/pop_proj_2017base.csv")
+stopifnot(nrow(pp) == 10, setequal(unique(pp$projection),
+          c("ABS 2022-base (this study)", "ABS 2017-base (Luo 2026)")))
+ours <- pp |> filter(projection == "ABS 2022-base (this study)") |> arrange(year)
+stopifnot(identical(ours$year, cr$year),
+          identical(ours$diagnoses_constant_rate, cr$diagnoses_constant_rate))
+tot17 <- p17 |> group_by(year) |> summarise(population = sum(population), .groups = "drop")
+stopifnot(nrow(p17) == 50 * 2 * 9, setequal(p17$age_group, unique(cr_pop <- rd("data/pop_proj.csv")$age_group)),
+          tot17$population[tot17$year == 2030] == 29931725,   # ABS 3222.0 2017-base, Series B
+          tot17$population[tot17$year == 2050] == 37077210)
+luo <- pp |> filter(projection == "ABS 2017-base (Luo 2026)")
+# the older projection has more people but fewer aged 65+ in every year, so
+# fewer diagnoses at the same rates
+stopifnot(all(luo$population_total > ours$population_total),
+          all(luo$population_65plus < ours$population_65plus),
+          all(luo$diagnoses_constant_rate < ours$diagnoses_constant_rate))
+cat(sprintf("  Test D6 (2017-base population reproduces ABS totals; constant-rate diagnoses rise %.1f%% from 2025 to 2050 on it, against %.1f%% on the 2022-base)  PASS\n",
+            (luo$diagnoses_constant_rate[luo$year == 2050] / luo$diagnoses_constant_rate[luo$year == 2025] - 1) * 100,
+            (ours$diagnoses_constant_rate[ours$year == 2050] / ours$diagnoses_constant_rate[ours$year == 2025] - 1) * 100))
+
 cat("\nAll presentation tests passed. Nothing was fitted or regenerated.\n")

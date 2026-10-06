@@ -1,0 +1,11 @@
+subtype,sex,projection,series,year,population_total,population_65plus,share_65plus_pct,diagnoses_constant_rate,rates
+nhl,persons,ABS 2022-base (this study),B,2024,26971766,4749334,17.6,6669,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2022-base (this study),B,2025,27395011,4909946,17.9,6855,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2022-base (this study),B,2045,33654800,7329338,21.8,9963,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2022-base (this study),B,2049,34652393,7738327,22.3,10470,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2022-base (this study),B,2050,34890378,7847270,22.5,10587,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2017-base (Luo 2026),B,2024,27562195,4656293,16.9,6573,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2017-base (Luo 2026),B,2025,27970435,4788483,17.1,6726,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2017-base (Luo 2026),B,2045,35351791,6636360,18.8,9309,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2017-base (Luo 2026),B,2049,36732899,6979767,19,9785,"mean observed age- and sex-specific rate, 2017-2021"
+nhl,persons,ABS 2017-base (Luo 2026),B,2050,37077210,7075988,19.1,9899,"mean observed age- and sex-specific rate, 2017-2021"
