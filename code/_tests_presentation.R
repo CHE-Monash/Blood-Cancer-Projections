@@ -12,6 +12,7 @@
 #   Rscript code/supporting/figure_data_export.R
 #   Rscript dashboard/export_supplementary.R
 #   Rscript code/supporting/prevalence_convention_comparison.R
+#   Rscript code/supporting/population_projection_comparison.R
 # then:
 #   Rscript code/_tests_presentation.R
 # =================================================================
@@ -188,53 +189,202 @@ page <- readLines("dashboard/additional-results.qmd")
 for (f in basename(m$published)) stopifnot(any(grepl(f, page, fixed = TRUE)))
 cat("  Test D4 (30 dashboard files match sources; dictionary matches headers; page links every file)  PASS\n")
 
+# Named failure for the D5/D6 source checks, so a planted defect reports
+# which responsibility caught it (see code/_tests_presentation_fixtures.R).
+chk <- function(cond, code, detail = "") {
+  if (!isTRUE(all(cond))) stop(sprintf("%s %s", code, detail), call. = FALSE)
+  invisible(TRUE)
+}
+# Match two tables on a key set: every expected key present exactly once.
+keyed <- function(got, expected, keys, code) {
+  chk(!anyDuplicated(got[, keys, drop = FALSE]), paste0(code, "_KEYS"), "duplicate key rows")
+  chk(nrow(got) == nrow(expected), paste0(code, "_KEYS"),
+      sprintf("%d rows stored, %d expected", nrow(got), nrow(expected)))
+  j <- inner_join(expected, got, by = keys, suffix = c(".exp", ".got"))
+  chk(nrow(j) == nrow(expected), paste0(code, "_KEYS"), "stored keys do not match the expected set")
+  j
+}
+
 # Test D5: prevalence-convention comparison (Discussion, comparison with
-# Luo et al. 2026). The end_of_year column is a point calculation on medians
-# and must agree with the published draw-level medians to within 0.2%.
+# Luo et al. 2026). Every stored value is recomputed here from the same
+# unchanged sources with code written separately from the producer, and the
+# producer's cohort loop is exercised on hand-derived controls. Needs
+# output/apc_results.rds for the 2022+ diagnoses; without it the source
+# recomputation of the prevalence columns is reported as not run.
 cv <- rd("output/table_prevalence_convention.csv")
 cr <- rd("output/table_constant_rate_diagnoses.csv")
-stopifnot(nrow(cv) == 6, !anyDuplicated(cv[, c("duration", "year")]),
-          setequal(cv$year, c(2021, 2025, 2045)), setequal(cv$duration, c(1, 5)),
-          all(cv$end_of_year > 0), all(cv$during_year > 0),
-          all(abs(cv$difference_pct - (cv$during_year / cv$end_of_year - 1) * 100) <= 0.06))
+pp <- rd("output/table_population_projection_comparison.csv")
+chk(setequal(names(cv), c("subtype", "sex", "duration", "year", "end_of_year", "during_year", "difference_pct")),
+    "D5_SCHEMA", "convention table columns")
+chk(all(cv$end_of_year > 0) && all(cv$during_year > 0), "D5_SIGN", "non-positive prevalence")
+chk(all(abs(cv$difference_pct - (cv$during_year / cv$end_of_year - 1) * 100) <= 0.06),
+    "D5_DIFFERENCE_ARITHMETIC")
+
+# D5a: the end-of-year column reproduces the published 5-year NHL prevalence
 t3  <- rd("output/table_3_prevalence_combined.csv") |> filter(subtype == "nhl", duration == 5)
 dd  <- rd("dashboard/data/lymphoma-dashboard-data.csv") |>
   filter(diagnosis_code == "nhl", sex == "Persons", duration_years == 5,
          measure == "Prevalence (people)")
-pub <- c(`2021` = t3$prev_2021, `2025` = dd$estimate[dd$year == 2025], `2045` = t3$prev_2045)
-got <- cv |> filter(duration == 5) |> arrange(year)
-stopifnot(all(abs(got$end_of_year / pub[as.character(got$year)] - 1) < 0.002))
-# the convention lowers 5-year prevalence in every year examined
-stopifnot(all(got$difference_pct < 0))
-stopifnot(nrow(cr) == 5, identical(cr$year, c(2024, 2025, 2045, 2049, 2050)),
-          !is.unsorted(cr$diagnoses_constant_rate, strictly = TRUE))
-# negative control: the two conventions must not be the same calculation
-stopifnot(!isTRUE(all.equal(cv$end_of_year, cv$during_year)))
-cat(sprintf("  Test D5 (convention table reproduces published 5-year NHL prevalence within 0.2%%; constant-rate diagnoses rise %.1f%% from 2025 to 2050)  PASS\n",
-            (cr$diagnoses_constant_rate[cr$year == 2050] / cr$diagnoses_constant_rate[cr$year == 2025] - 1) * 100))
+pub <- tibble(duration = 5, year = c(2021, 2025, 2045),
+              published = c(t3$prev_2021, dd$estimate[dd$year == 2025], t3$prev_2045))
+j <- inner_join(cv, pub, by = c("duration", "year"))
+chk(nrow(j) == 3, "D5_KEYS", "5-year rows for 2021, 2025, 2045 expected")
+chk(abs(j$end_of_year / j$published - 1) < 0.002, "D5_END_PUBLISHED_MISMATCH",
+    "end-of-year 5-year NHL prevalence differs from the published value by 0.2% or more")
+chk(j$during_year < j$end_of_year, "D5_DIRECTION", "the during-year convention must count fewer people")
 
-# Test D6: population-projection comparison (Discussion, comparison with
-# Luo et al. 2026, which used the ABS 2017-base projections). The 2022-base
-# rows must equal the constant-rate table from D5, and the derived 2017-base
-# population must match the ABS summary figures for 2030 and 2050.
-pp <- rd("output/table_population_projection_comparison.csv")
-p17 <- rd("data/pop_proj_2017base.csv")
-stopifnot(nrow(pp) == 10, setequal(unique(pp$projection),
-          c("ABS 2022-base (this study)", "ABS 2017-base (Luo 2026)")))
-ours <- pp |> filter(projection == "ABS 2022-base (this study)") |> arrange(year)
-stopifnot(identical(ours$year, cr$year),
-          identical(ours$diagnoses_constant_rate, cr$diagnoses_constant_rate))
-tot17 <- p17 |> group_by(year) |> summarise(population = sum(population), .groups = "drop")
-stopifnot(nrow(p17) == 50 * 2 * 9, setequal(p17$age_group, unique(cr_pop <- rd("data/pop_proj.csv")$age_group)),
-          tot17$population[tot17$year == 2030] == 29931725,   # ABS 3222.0 2017-base, Series B
-          tot17$population[tot17$year == 2050] == 37077210)
-luo <- pp |> filter(projection == "ABS 2017-base (Luo 2026)")
-# the older projection has more people but fewer aged 65+ in every year, so
-# fewer diagnoses at the same rates
-stopifnot(all(luo$population_total > ours$population_total),
-          all(luo$population_65plus < ours$population_65plus),
-          all(luo$diagnoses_constant_rate < ours$diagnoses_constant_rate))
-cat(sprintf("  Test D6 (2017-base population reproduces ABS totals; constant-rate diagnoses rise %.1f%% from 2025 to 2050 on it, against %.1f%% on the 2022-base)  PASS\n",
+# D5b: both convention columns from source, independently assembled
+grDevices::pdf(NULL)
+suppressPackageStartupMessages(suppressWarnings(
+  source("code/supporting/prevalence_convention_comparison.R")))
+# the production functions .prevalence() and .nhl_cases() are now defined;
+# their driver sits behind a sys.nframe() guard and did not run
+prev_indep <- function(sx, Y, K, conv, cases, surv_obs, improvement) {
+  curve <- function(dx) {
+    S <- build_projected_surv_pt("nhl", sx, dx, improve_cap, surv_obs, improvement)
+    function(t) { if (t == 0) return(setNames(rep(1, length(age_groups)), age_groups))
+      v <- S$surv_mid[S$years_since_dx == t]; names(v) <- S$age_group[S$years_since_dx == t]; v[age_groups] }
+  }
+  N <- function(y) { n <- cases$count[cases$year == y]; names(n) <- cases$age_group[cases$year == y]
+    chk(setequal(names(n), age_groups), "D5_SOURCE_CASES", sprintf("diagnoses for %d incomplete", y)); n[age_groups] }
+  total <- 0
+  if (conv == "end_of_year") {
+    for (t in 0:(K - 1)) { S <- curve(Y - t)
+      w <- if (t == 0) sqrt(S(1)) else S(t)
+      total <- total + sum(N(Y - t) * w) }
+  } else {
+    for (k in 1:K) { S <- curve(Y - k)
+      total <- total + sum(N(Y - k) * (S(k - 1) + S(k)) / 2) }
+  }
+  total
+}
+if (file.exists("output/apc_results.rds")) {
+  inputs      <- load_prev_inputs("data")
+  surv_obs    <- build_surv_obs(inputs$surv_raw)
+  improvement <- build_improvement_final(surv_obs)
+  apc_results <- readRDS("output/apc_results.rds")
+  cases <- lapply(setNames(sexes, sexes), .nhl_cases, inputs = inputs, apc_results = apc_results)
+  exp_cv <- cv |> distinct(duration, year) |> rowwise() |>
+    mutate(end_exp = sum(sapply(sexes, function(sx) prev_indep(sx, year, duration, "end_of_year", cases[[sx]], surv_obs, improvement))),
+           dur_exp = sum(sapply(sexes, function(sx) prev_indep(sx, year, duration, "during_year", cases[[sx]], surv_obs, improvement)))) |>
+    ungroup()
+  j <- keyed(cv, exp_cv, c("duration", "year"), "D5")
+  chk(abs(j$end_of_year - j$end_exp) <= 0.51, "D5_END_SOURCE_MISMATCH",
+      "end-of-year column differs from the source recomputation")
+  chk(abs(j$during_year - j$dur_exp) <= 0.51, "D5_DURING_SOURCE_MISMATCH",
+      "during-year column differs from the source recomputation")
+  d5b <- "both convention columns recomputed from source"
+} else {
+  d5b <- "NOT RUN: output/apc_results.rds absent, convention columns not recomputed from source"
+}
+
+# D5c: hand-derived controls on the production cohort loop. One age group
+# holds diagnoses 100 (year Y), 200 (Y-1), 300 (Y-2); the other groups hold
+# none; survival is S(k) = 0.64^k for every group. Expected: end-of-year
+# K=1 100*0.8 = 80, K=2 80 + 200*0.64 = 208; during-year K=1 200*(1+0.64)/2
+# = 164, K=2 164 + 300*(0.64+0.4096)/2 = 321.44. The survival builder is
+# replaced by a stub for the calls and restored afterwards.
+.orig_surv <- build_projected_surv_pt
+build_projected_surv_pt <- function(subtype_name, sex_name, dx_year, cap_year, surv_obs, improvement_final) {
+  g <- expand.grid(age_group = age_groups, years_since_dx = 1:40, stringsAsFactors = FALSE)
+  g$surv_mid <- 0.64^g$years_since_dx; g
+}
+ctrl_cases <- expand.grid(year = 2040:2045, age_group = age_groups, stringsAsFactors = FALSE)
+ctrl_cases$count <- ifelse(ctrl_cases$age_group == age_groups[5],
+                           c(`2045` = 100, `2044` = 200, `2043` = 300)[as.character(ctrl_cases$year)], 0)
+ctrl_cases$count[is.na(ctrl_cases$count)] <- 0
+ctrl <- c(.prevalence("males", 2045, 1, "end_of_year", ctrl_cases, NULL, NULL),
+          .prevalence("males", 2045, 2, "end_of_year", ctrl_cases, NULL, NULL),
+          .prevalence("males", 2045, 1, "during_year", ctrl_cases, NULL, NULL),
+          .prevalence("males", 2045, 2, "during_year", ctrl_cases, NULL, NULL))
+ctrl_i <- c(prev_indep("males", 2045, 1, "end_of_year", ctrl_cases, NULL, NULL),
+            prev_indep("males", 2045, 2, "end_of_year", ctrl_cases, NULL, NULL),
+            prev_indep("males", 2045, 1, "during_year", ctrl_cases, NULL, NULL),
+            prev_indep("males", 2045, 2, "during_year", ctrl_cases, NULL, NULL))
+build_projected_surv_pt <- .orig_surv
+chk(abs(ctrl - c(80, 208, 164, 321.44)) < 1e-9, "D5_CONTROL_PRODUCER",
+    sprintf("production loop gave %s", paste(round(ctrl, 4), collapse = ", ")))
+chk(abs(ctrl_i - c(80, 208, 164, 321.44)) < 1e-9, "D5_CONTROL_COMPARATOR",
+    sprintf("independent comparator gave %s", paste(round(ctrl_i, 4), collapse = ", ")))
+
+# D5d / D6: constant-rate diagnoses and populations from source, for both
+# ABS releases, matched by key
+inc_agg  <- rd("data/incidence_agg.csv")
+pop_hist <- rd("data/pop_hist.csv")
+pop_2022 <- rd("data/pop_proj.csv")
+pop_2017 <- rd("data/pop_proj_2017base.csv")
+rate_exp <- inc_agg |>
+  filter(cancer_group == "Non-Hodgkin lymphoma", year %in% 2017:2021) |>
+  group_by(sex, age_group) |> summarise(d = sum(count), .groups = "drop") |>
+  inner_join(pop_hist |> filter(year %in% 2017:2021) |>
+               group_by(sex, age_group) |> summarise(y = sum(population), .groups = "drop"),
+             by = c("sex", "age_group")) |>
+  mutate(rate = d / y)
+chk(nrow(rate_exp) == 2 * length(age_groups), "D5_SOURCE_RATES", "rate table incomplete")
+pop_summary <- function(pop, label) pop |>
+  filter(sex %in% c("males", "females")) |>
+  inner_join(rate_exp[, c("sex", "age_group", "rate")], by = c("sex", "age_group")) |>
+  group_by(year) |>
+  summarise(total_exp = sum(population),
+            old_exp   = sum(population[age_group %in% c("65–74", "75–84", "85+")]),
+            diag_exp  = sum(rate * population), .groups = "drop") |>
+  mutate(projection = label)
+exp22 <- pop_summary(pop_2022, "ABS 2022-base (this study)")
+exp17 <- pop_summary(pop_2017, "ABS 2017-base (Luo 2026)")
+# D5d: constant-rate table
+j <- keyed(cr, exp22 |> filter(year %in% c(2024, 2025, 2045, 2049, 2050)), "year", "D5")
+chk(abs(j$diagnoses_constant_rate - j$diag_exp) <= 0.51, "D5_CONST_RATE_SOURCE_MISMATCH",
+    "constant-rate diagnoses differ from rates x ABS 2022-base population")
+# D6: population comparison table
+exp_pp <- bind_rows(exp22, exp17) |> filter(year %in% c(2024, 2025, 2045, 2049, 2050))
+j <- keyed(pp, exp_pp, c("projection", "year"), "D6")
+chk(abs(j$population_total / j$total_exp - 1) <= 1e-6, "D6_POPULATION_SOURCE_MISMATCH",
+    "population totals differ from the population files")
+chk(abs(j$population_65plus / j$old_exp - 1) <= 1e-6, "D6_POPULATION_SOURCE_MISMATCH",
+    "65+ counts differ from the population files")
+chk(abs(j$share_65plus_pct - round(100 * j$old_exp / j$total_exp, 1)) <= 0.051, "D6_SHARE_ARITHMETIC")
+chk(abs(j$diagnoses_constant_rate - j$diag_exp) <= 0.51, "D6_DIAGNOSES_SOURCE_MISMATCH",
+    "constant-rate diagnoses differ from rates x population for at least one release")
+ours <- j |> filter(projection == "ABS 2022-base (this study)") |> arrange(year)
+luo  <- j |> filter(projection == "ABS 2017-base (Luo 2026)") |> arrange(year)
+chk(identical(ours$diagnoses_constant_rate, cr$diagnoses_constant_rate[match(ours$year, cr$year)]),
+    "D6_CONSISTENCY", "2022-base rows differ from table_constant_rate_diagnoses.csv")
+chk(luo$population_total > ours$population_total & luo$population_65plus < ours$population_65plus &
+      luo$diagnoses_constant_rate < ours$diagnoses_constant_rate, "D6_DIRECTION",
+    "the 2017-base release should be larger, older-poorer and give fewer diagnoses")
+# D6b: derived 2017-base population against the ABS workbook, value by value
+tot17 <- pop_2017 |> group_by(year) |> summarise(population = sum(population), .groups = "drop")
+chk(nrow(pop_2017) == 50 * 2 * length(age_groups) && setequal(pop_2017$age_group, age_groups),
+    "D6_DERIVED_SHAPE")
+chk(tot17$population[tot17$year == 2030] == 29931725 && tot17$population[tot17$year == 2050] == 37077210,
+    "D6_ABS_TOTALS", "ABS 3222.0 2017-base Series B totals for 2030 and 2050")
+raw17 <- "data/raw/ABS/32220_Table_B9_2017base.xls"
+if (file.exists(raw17)) {
+  all <- suppressMessages(readxl::read_excel(raw17, sheet = "Data1", col_names = FALSE))
+  desc <- as.character(unlist(all[1, ], use.names = FALSE))
+  parts <- strsplit(desc, ";", fixed = TRUE)
+  sexv <- trimws(sapply(parts, function(x) if (length(x) >= 2) x[2] else NA))
+  agev <- trimws(sapply(parts, function(x) if (length(x) >= 3) x[3] else NA))
+  keep <- which(sexv %in% c("Male", "Female"))
+  yrs  <- as.integer(format(as.Date(as.numeric(all[[1]][-(1:10)]), origin = "1899-12-30"), "%Y"))
+  long <- bind_rows(lapply(keep, function(i) tibble(
+    year = yrs, sex = if (sexv[i] == "Male") "males" else "females",
+    age = if (agev[i] == "100 and over") 100L else as.integer(agev[i]),
+    population = as.numeric(all[[i]][-(1:10)]))))
+  chk(length(keep) == 202 && !anyNA(long$age), "D6_RAW_PARSE")
+  brk <- c(0, 15, 25, 35, 45, 55, 65, 75, 85, Inf)
+  long$age_group <- age_groups[findInterval(long$age, brk)]
+  raw_agg <- long |> group_by(year, sex, age_group) |> summarise(population = sum(population), .groups = "drop")
+  j <- keyed(pop_2017, raw_agg, c("year", "sex", "age_group"), "D6_RAW")
+  chk(j$population.got == j$population.exp, "D6_RAW_DERIVED_MISMATCH",
+      "derived 2017-base population differs from the ABS workbook")
+  d6b <- sprintf("all %d derived values equal the ABS workbook", nrow(j))
+} else {
+  d6b <- "NOT RUN: raw ABS 2017-base workbook absent, derived CSV checked against ABS totals only"
+}
+cat(sprintf("  Test D5 (end-of-year column within 0.2%% of published 5-year NHL prevalence; %s; four hand-derived controls pass in producer and comparator; constant-rate diagnoses from source)  PASS\n", d5b))
+cat(sprintf("  Test D6 (population comparison from source for both releases; %s; constant-rate diagnoses rise %.1f%% from 2025 to 2050 on the 2017-base against %.1f%% on the 2022-base)  PASS\n",
+            d6b,
             (luo$diagnoses_constant_rate[luo$year == 2050] / luo$diagnoses_constant_rate[luo$year == 2025] - 1) * 100,
             (ours$diagnoses_constant_rate[ours$year == 2050] / ours$diagnoses_constant_rate[ours$year == 2025] - 1) * 100))
 
