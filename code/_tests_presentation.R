@@ -145,15 +145,21 @@ j <- inner_join(a2, aihw_prev, by = c("lymphoma", "sex", "year"))
 stopifnot(nrow(j) == nrow(a2),
           all(abs(j$aihw_prevalence_thousands - j$prev) < 1e-9))
 suppressPackageStartupMessages(source("code/apc_model.R"))
-res     <- readRDS("output/apc_results.rds")
-std_pop <- build_std_pop(rd("data/pop_hist.csv"))
-fitted  <- purrr::map_dfr(res, function(x)
-  calc_fitted_asr(x$fit, x$sex, x$subtype,
-                  if (x$tier == "agg") agg_start else subtype_start, std_pop)) |>
-  dplyr::transmute(lymphoma = lab[subtype], sex = sx[sex], year = P, asr_fitted)
-j <- dplyr::inner_join(fit, fitted, by = c("lymphoma", "sex", "year"))
-stopifnot(nrow(j) == nrow(fit), nrow(fitted) == nrow(fit),
-          all(abs(j$asr_per_100000 - j$asr_fitted) < 1e-9))
+fit_present <- file.exists("output/apc_results.rds")
+if (fit_present) {
+  res     <- readRDS("output/apc_results.rds")
+  std_pop <- build_std_pop(rd("data/pop_hist.csv"))
+  fitted  <- purrr::map_dfr(res, function(x)
+    calc_fitted_asr(x$fit, x$sex, x$subtype,
+                    if (x$tier == "agg") agg_start else subtype_start, std_pop)) |>
+    dplyr::transmute(lymphoma = lab[subtype], sex = sx[sex], year = P, asr_fitted)
+  j <- dplyr::inner_join(fit, fitted, by = c("lymphoma", "sex", "year"))
+  stopifnot(nrow(j) == nrow(fit), nrow(fitted) == nrow(fit),
+            all(abs(j$asr_per_100000 - j$asr_fitted) < 1e-9))
+  d3b_fit <- "fitted history recomputed from the saved fit"
+} else {
+  d3b_fit <- "fitted history NOT RUN: output/apc_results.rds absent"
+}
 bd <- xl("output/figure_1_data.xlsx", "95% credible interval")
 j  <- dplyr::inner_join(bd, ip, by = c("lymphoma", "sex", "year"))
 stopifnot(nrow(bd) == 240, nrow(j) == 240, all(bd$year > 2021),
@@ -168,7 +174,7 @@ for (d in list(c(5, 2), c(40, 3))) {
             all(abs(j$cri_upper_thousands * 1000 - j$prev_p975) < 1e-6))
 }
 invisible(grDevices::dev.off())
-cat("  Test D3b (fitted history, AIHW comparators and interval bands equal their sources, value by value)  PASS\n")
+cat(sprintf("  Test D3b (AIHW comparators and interval bands equal their sources, value by value; %s)  PASS\n", d3b_fit))
 
 # Test D4: dashboard copies are byte-identical to their sources
 m <- rd("dashboard/supplementary/manifest.csv")
@@ -214,8 +220,23 @@ keyed <- function(got, expected, keys, code) {
 cv <- rd("output/table_prevalence_convention.csv")
 cr <- rd("output/table_constant_rate_diagnoses.csv")
 pp <- rd("output/table_population_projection_comparison.csv")
-chk(setequal(names(cv), c("subtype", "sex", "duration", "year", "end_of_year", "during_year", "difference_pct")),
+chk(identical(names(cv), c("subtype", "sex", "duration", "year", "end_of_year", "during_year", "difference_pct")),
     "D5_SCHEMA", "convention table columns")
+chk(all(cv$subtype == "nhl") && all(cv$sex == "persons"), "D5_SCHEMA", "convention table subtype/sex labels")
+chk(identical(names(cr), c("subtype", "sex", "year", "diagnoses_constant_rate", "rates", "population")),
+    "D5_SCHEMA", "constant-rate table columns")
+chk(all(cr$subtype == "nhl") && all(cr$sex == "persons") && all(cr$population == "ABS Series B"),
+    "D5_SCHEMA", "constant-rate table labels")
+chk(identical(names(pp), c("subtype", "sex", "projection", "series", "year", "population_total",
+                           "population_65plus", "share_65plus_pct", "diagnoses_constant_rate", "rates")),
+    "D6_SCHEMA", "population comparison table columns")
+chk(all(pp$subtype == "nhl") && all(pp$sex == "persons") && all(pp$series == "B"), "D6_SCHEMA",
+    "population comparison table labels")
+# expected row sets, fixed here and independent of the candidate tables
+exp_cv_keys <- tidyr::expand_grid(duration = c(1, 5), year = c(2021, 2025, 2045))
+exp_years   <- c(2024, 2025, 2045, 2049, 2050)
+invisible(keyed(cv, exp_cv_keys, c("duration", "year"), "D5"))
+invisible(keyed(cr, tibble(year = exp_years), "year", "D5"))
 chk(all(cv$end_of_year > 0) && all(cv$during_year > 0), "D5_SIGN", "non-positive prevalence")
 chk(all(abs(cv$difference_pct - (cv$during_year / cv$end_of_year - 1) * 100) <= 0.06),
     "D5_DIFFERENCE_ARITHMETIC")
@@ -264,7 +285,7 @@ if (file.exists("output/apc_results.rds")) {
   improvement <- build_improvement_final(surv_obs)
   apc_results <- readRDS("output/apc_results.rds")
   cases <- lapply(setNames(sexes, sexes), .nhl_cases, inputs = inputs, apc_results = apc_results)
-  exp_cv <- cv |> distinct(duration, year) |> rowwise() |>
+  exp_cv <- exp_cv_keys |> rowwise() |>
     mutate(end_exp = sum(sapply(sexes, function(sx) prev_indep(sx, year, duration, "end_of_year", cases[[sx]], surv_obs, improvement))),
            dur_exp = sum(sapply(sexes, function(sx) prev_indep(sx, year, duration, "during_year", cases[[sx]], surv_obs, improvement)))) |>
     ungroup()
@@ -332,11 +353,11 @@ pop_summary <- function(pop, label) pop |>
 exp22 <- pop_summary(pop_2022, "ABS 2022-base (this study)")
 exp17 <- pop_summary(pop_2017, "ABS 2017-base (Luo 2026)")
 # D5d: constant-rate table
-j <- keyed(cr, exp22 |> filter(year %in% c(2024, 2025, 2045, 2049, 2050)), "year", "D5")
+j <- keyed(cr, exp22 |> filter(year %in% exp_years), "year", "D5")
 chk(abs(j$diagnoses_constant_rate - j$diag_exp) <= 0.51, "D5_CONST_RATE_SOURCE_MISMATCH",
     "constant-rate diagnoses differ from rates x ABS 2022-base population")
 # D6: population comparison table
-exp_pp <- bind_rows(exp22, exp17) |> filter(year %in% c(2024, 2025, 2045, 2049, 2050))
+exp_pp <- bind_rows(exp22, exp17) |> filter(year %in% exp_years)
 j <- keyed(pp, exp_pp, c("projection", "year"), "D6")
 chk(abs(j$population_total / j$total_exp - 1) <= 1e-6, "D6_POPULATION_SOURCE_MISMATCH",
     "population totals differ from the population files")
