@@ -195,7 +195,7 @@ MC summaries in the output CSVs use the suffixes `*_mid` (median; the headline n
 | Supporting Information, table 3 (suppressed survival cells) | `output/table_s6_survival_cleaning.csv` | `supplement.R` |
 | Supporting Information, table 4 (prevalence validation at 5, 10 and 40 years) | `output/si_table_prevalence_validation.csv`, from `output/table_s8_prevalence_validation.csv` and `output/table_s9_40yr_prevalence.csv` | `supporting/si_display_tables.R` |
 | Discussion, comparison with another Australian projection of aggregate NHL prevalence | `output/table_prevalence_convention.csv`, `output/table_constant_rate_diagnoses.csv` | `supporting/prevalence_convention_comparison.R` |
-| Discussion, the same comparison: how much of the growth difference is the population projection used | `output/table_population_projection_comparison.csv`, `data/pop_proj_2017base.csv` | `supporting/population_projection_comparison.R` |
+| Discussion, the same comparison: sensitivity of constant-rate diagnoses to the ABS population projection release | `output/table_population_projection_comparison.csv`, `data/pop_proj_2017base.csv` | `supporting/population_projection_comparison.R` |
 | Dashboard, additional figures A1 to A14 and additional tables A1 to A9 | listed with their sources in `dashboard/supplementary/manifest.csv` | `dashboard/export_supplementary.R` |
 
 The presentation and comparison scripts read existing outputs and fit nothing. `code/_tests_presentation.R` checks what they write against its sources; unlike `code/_tests.R`, it never re-runs a pipeline phase.

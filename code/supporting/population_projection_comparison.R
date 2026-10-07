@@ -8,8 +8,11 @@
 # Series B. This script asks how much of the difference in projected NHL
 # diagnosis growth between the two studies could be the population input
 # alone: it holds age- and sex-specific NHL rates at their 2017-2021 mean
-# and applies them to BOTH projections. Luo et al. do not state which series
-# they used; Series B (medium) is assumed, matching this study.
+# and applies them to BOTH projections. Luo et al. specify ABS Series B
+# (medium population growth) in their supplement, section 1.1, the same
+# series this study uses. The result is a sensitivity of constant-rate
+# diagnoses to the population release, not a decomposition of the
+# difference between the two studies' projections.
 #
 # READ-ONLY with respect to the analysis. Nothing is fitted or sampled, and
 # no committed input or output of the pipeline is changed.
@@ -20,7 +23,7 @@
 #       7 Oct 2026 (MD5 7ca0aceda4402b568badf43d88238247). data/raw/ is not
 #       committed; if the file is absent the script falls back to the derived
 #       CSV below, which is committed.
-#   data/pop_proj_2017base.csv   derived from it in the ten age bands used
+#   data/pop_proj_2017base.csv   derived from it in the nine age bands used
 #       throughout (written by this script when the raw file is present)
 #   data/pop_proj.csv, data/pop_hist.csv, data/incidence_agg.csv
 #
