@@ -31,9 +31,10 @@
 #                        75 for 75-84): the least truncation possible.
 #   midpoint           - every diagnosis at age_mid from _setup.R (90 for 85+).
 #
-# Reading the result. The cut-off removes only survivors past 100. It does not
-# make mortality accelerate between diagnosis and 100, so it measures one part
-# of the over-count from the constant-conditional-survival tail, not all of it.
+# Reading the result. This is a sensitivity analysis under the stated
+# within-band age allocations, not an estimate of the over-count: the cut-off
+# does not make mortality rise between diagnosis and 100, and it also removes
+# people who do survive past 100.
 #
 # READ-ONLY with respect to the analysis. Sourcing apc_model.R and
 # prev_model.R defines functions only (their drivers sit behind
