@@ -23,9 +23,10 @@
 #                        Population is a PROXY for the age distribution of
 #                        diagnoses within each band. Whether it over- or
 #                        understates the truncation in the 85+ band is unknown,
-#                        since NHL rates within that band are not observed; the
-#                        lower-bound and midpoint assumptions bracket the
-#                        result.
+#                        since NHL rates within that band are not observed. The
+#                        lower-bound assumption gives the least truncation; the
+#                        population and midpoint assumptions give similar
+#                        results at 40 years.
 #   lower              - every diagnosis at the band's lower age (85 for 85+,
 #                        75 for 75-84): the least truncation possible.
 #   midpoint           - every diagnosis at age_mid from _setup.R (90 for 85+).
@@ -313,8 +314,9 @@ run_attained_age_100 <- function(B = 1000, seed = 20260507, save_dir = "output",
               if (t3_ok) "match" else "DO NOT match"))
   cat("\nPopulation is a proxy for the age distribution of diagnoses within each band.\n")
   cat("Whether it over- or understates the truncation in the 85+ band is unknown, since\n")
-  cat("NHL rates within that band are not observed; the lower-bound and midpoint\n")
-  cat("assumptions bracket the result.\n")
+  cat("NHL rates within that band are not observed. The lower-bound assumption gives\n")
+  cat("the least truncation; the population and midpoint assumptions give similar\n")
+  cat("results at 40 years.\n")
   cat("\n=== % change from untruncated (median of within-draw change), total and aggregate NHL, persons ===\n")
   show(res |>
          dplyr::filter(subtype %in% c("total", "nhl"), sex == "persons") |>
