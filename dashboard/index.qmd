@@ -292,5 +292,5 @@ Incidence was modelled using age–period–cohort models. Prevalence combined m
 
 Source data were derived from published Australian Institute of Health and Welfare and Australian Bureau of Statistics tables. The analysis code and full reproduction instructions are available in the [Blood Cancer Projections repository](https://github.com/CHE-Monash/Blood-Cancer-Projections).
 
-The code, processed data and modelled outputs behind this dashboard are archived at Zenodo: [doi:10.5281/zenodo.22785391](https://doi.org/10.5281/zenodo.22785391) (version 1.0.0 at submission; the DOI resolves to the latest version). The paper citation will be added on publication.
+The code, processed data and modelled outputs behind this dashboard are archived at Zenodo: [doi:10.5281/zenodo.22785391](https://doi.org/10.5281/zenodo.22785391) (version 1.1.0 at submission; the DOI resolves to the latest version). The paper citation will be added on publication.
 :::
