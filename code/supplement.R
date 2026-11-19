@@ -333,7 +333,8 @@ build_table_s12 <- function(prev_sensitivity) {
   }
   # Five lymphomas in two columns leave a sixth cell empty; it carries the key,
   # as on Figures 1-3 (see _setup.R).
-  entries <- c(sex_key(), list(key_band("95% credible interval")))
+  entries <- c(sex_key("Fitted effect"),
+               list(key_sex_band("95% credible interval")))
   if (effect_name %in% c("period", "cohort")) {
     entries <- c(entries, list(key_line("Rate ratio = 1", "grey50",
                                         lty = "dotted", lwd = 1.6)))
@@ -503,7 +504,7 @@ build_figure_survival_trend <- function(surv_obs, improvement_final,
           strip.text       = element_text(face = "bold", size = 12))
 
   attach_figure_key(p, c(
-    sex_key(),
+    sex_key("Modelled survival"),
     # The line marks the last observed year of diagnosis; improvement is
     # extrapolated beyond it to the cap year, NOT held constant there.
     list(key_line("Last observed year", "grey60",

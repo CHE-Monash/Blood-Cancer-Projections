@@ -607,11 +607,12 @@ build_figure_1 <- function(proj_annual, fitted_annual, hist_annual, aihw_proj_df
 
   # AIHW projections appear only for HL and aggregate NHL, so the triangle entry
   # is dropped when that series is absent.
-  entries <- c(sex_key(), list(key_band("95% credible interval"),
-                               key_point("Observed incidence")))
+  entries <- c(sex_key("Modelled rate"),
+               list(key_sex_band("95% credible interval"),
+                    key_sex_point("Observed incidence")))
   if (nrow(aihw_proj) > 0) {
     entries <- c(entries,
-                 list(key_point("AIHW projected estimates", pch = 17)))
+                 list(key_sex_point("AIHW projected estimates", pch = 17)))
   }
   entries <- c(entries, list(key_line("Projections begin 2022", "grey50",
                                       lty = "dotted", lwd = 1.6)))

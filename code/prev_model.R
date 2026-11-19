@@ -771,9 +771,10 @@ build_prev_fig <- function(prev_df, duration_value,
     )
   }
 
-  entries <- c(sex_key(), list(key_band("95% credible interval")))
+  entries <- c(sex_key("Modelled prevalence"),
+               list(key_sex_band("95% credible interval")))
   if (include_aihw) {
-    entries <- c(entries, list(key_point("AIHW published estimates")))
+    entries <- c(entries, list(key_sex_point("AIHW published estimates")))
   }
   entries <- c(entries, list(key_line("Projections begin 2022", "grey50",
                                       lty = "dotted", lwd = 1.6)))

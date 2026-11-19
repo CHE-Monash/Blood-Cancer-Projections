@@ -213,8 +213,17 @@ fig_panel_h <- 9.5   # inches
 # guessed in npc, and nothing depends on ggplot2's own legend placement (which
 # changed to legend.position.inside at 3.5.0).
 #
-# `key_line()` / `key_band()` / `key_point()` build entries;
-# `attach_figure_key(p, entries)` returns the plot with the key in place.
+# The key is a matrix (QL, co-author review, 19 Nov 2026: the grey band and
+# grey points of the earlier key matched nothing drawn in the panels). One
+# column per sex, headed "Females" and "Males", and one row per mark, each
+# symbol drawn in that sex's colour: line, credible band, observed points,
+# AIHW points. A mark that is not sex-specific (the projection-start rule)
+# is drawn once, spanning both columns.
+#
+# `key_sex_line()` / `key_sex_band()` / `key_sex_point()` build the paired
+# rows and `key_line()` a spanning row; `key_band()` / `key_point()` are the
+# single-symbol forms. `attach_figure_key(p, entries)` returns the plot with
+# the key in place.
 #
 # Replaces make_lymphoma_legend() / attach_lymphoma_legend(), retired 2026-09-07
 # with the re-panel: colour now encodes sex, and the lymphoma is named by the
@@ -235,26 +244,79 @@ key_band <- function(label, colour = "grey25", alpha = 0.15, lwd = 2.4) {
          make_line_grob(colour, lwd = lwd)))
 }
 
+# Sex-paired entries: `grobs` holds one symbol per sex, each in that sex's
+# colour, so every symbol in the key matches a mark in the panels.
+.key_sex_pair <- function(label, make) {
+  list(label = label,
+       grobs = list(females = make(sex_colours[["females"]]),
+                    males   = make(sex_colours[["males"]])))
+}
+key_sex_line <- function(label, lwd = 2.4) {
+  .key_sex_pair(label, function(col) make_line_grob(col, lwd = lwd))
+}
+# alpha matches the ribbons in the panels (0.15).
+key_sex_band <- function(label, alpha = 0.15) {
+  .key_sex_pair(label, function(col)
+    grid::rectGrob(width = 0.9, height = 0.7,
+                   gp = grid::gpar(col = NA, fill = col, alpha = alpha)))
+}
+key_sex_point <- function(label, pch = 16, size = 0.6) {
+  .key_sex_pair(label, function(col)
+    make_point_grob(colour = col, pch = pch, size = size))
+}
+
 # Keep labels short: the key is centred in one panel cell (about half the
 # figure width), and clip = "off" means an over-long label runs off the
-# canvas rather than wrapping. About 30 characters is the practical limit at
-# fontsize 12 on the 7.5 in canvas.
-make_figure_key <- function(entries, fontsize = 12, row_height = 0.62) {
-  labs  <- vapply(entries, `[[`, character(1), "label")
-  lab_w <- max(do.call(grid::unit.c, lapply(labs, grid::stringWidth)))
-  n     <- length(entries)
+# canvas rather than wrapping. With the two sex columns, about 24 characters
+# ("AIHW published estimates") is the practical limit at fontsize 10 on the
+# 7.5 in canvas. At fontsize 11 that label made the key as wide as the panel
+# column in Figure 2 and wider than it in Figure S9, whose wider axis labels
+# leave a narrower panel; 10 leaves a clear margin on both.
+make_figure_key <- function(entries, fontsize = 10, row_height = 0.62) {
+  labs   <- vapply(entries, `[[`, character(1), "label")
+  paired <- vapply(entries, function(e) !is.null(e$grobs), logical(1))
+  gp     <- grid::gpar(fontsize = fontsize)
+  .w     <- function(txt) grid::grobWidth(grid::textGrob(txt, gp = gp))
+  lab_w  <- max(do.call(grid::unit.c, lapply(labs, .w)))
+  hdr    <- c("Females", "Males")
+  sym_w  <- max(grid::unit.c(.w(hdr[1]), .w(hdr[2]), grid::unit(0.9, "cm")))
+  n      <- length(entries)
+  hdr_h  <- if (any(paired)) row_height else 0
+  # Columns: null | females | gap | males | gap | label | null.
+  # Rows: null | column headings | one per entry | null.
   # The outer null rows/columns centre the key within the empty panel cell.
   g <- gtable::gtable(
-    widths  = grid::unit.c(grid::unit(1, "null"), grid::unit(0.9, "cm"),
-                           grid::unit(0.3, "cm"), lab_w, grid::unit(1, "null")),
+    widths  = grid::unit.c(grid::unit(1, "null"), sym_w,
+                           grid::unit(0.3, "cm"), sym_w,
+                           grid::unit(0.35, "cm"), lab_w,
+                           grid::unit(1, "null")),
     heights = grid::unit.c(grid::unit(1, "null"),
+                           grid::unit(hdr_h, "cm"),
                            grid::unit(rep(row_height, n), "cm"),
                            grid::unit(1, "null")))
+  if (any(paired)) {
+    for (j in 1:2) {
+      g <- gtable::gtable_add_grob(g, grid::textGrob(hdr[j], gp = gp),
+                                   t = 2L, l = c(2L, 4L)[j],
+                                   name = paste0("key-hdr-", j))
+    }
+  }
   for (i in seq_len(n)) {
-    g <- gtable::gtable_add_grob(g, entries[[i]]$grob, t = i + 1L, l = 2L,
-                                 name = paste0("key-sym-", i))
+    if (paired[i]) {
+      g <- gtable::gtable_add_grob(g, entries[[i]]$grobs$females,
+                                   t = i + 2L, l = 2L,
+                                   name = paste0("key-sym-f-", i))
+      g <- gtable::gtable_add_grob(g, entries[[i]]$grobs$males,
+                                   t = i + 2L, l = 4L,
+                                   name = paste0("key-sym-m-", i))
+    } else {
+      # Not sex-specific: one symbol spanning both sex columns.
+      g <- gtable::gtable_add_grob(g, entries[[i]]$grob,
+                                   t = i + 2L, l = 2L, r = 4L,
+                                   name = paste0("key-sym-", i))
+    }
     g <- gtable::gtable_add_grob(g, make_text_grob(labs[i], fontsize = fontsize),
-                                 t = i + 1L, l = 4L,
+                                 t = i + 2L, l = 6L,
                                  name = paste0("key-lab-", i))
   }
   g
@@ -299,11 +361,12 @@ attach_figure_key <- function(p, entries) {
   out
 }
 
-# Standard key entries. `sex_key()` is the two-line sex key every re-panelled
-# figure opens with; the rest are appended per figure as that figure needs them.
-sex_key <- function() {
-  list(key_line("Females", sex_colours[["females"]]),
-       key_line("Males",   sex_colours[["males"]]))
+# Standard key entries. `sex_key()` is the line row every re-panelled figure
+# opens with (a red and a blue line under the Females and Males headings);
+# `line_label` says what the lines are in that figure. The rest are appended
+# per figure as that figure needs them.
+sex_key <- function(line_label) {
+  list(key_sex_line(line_label))
 }
 
 # ----------------------
